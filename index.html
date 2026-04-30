@@ -411,6 +411,93 @@
     }
     .tier-cta:hover { color: var(--green); border-bottom-color: var(--green); }
 
+    /* Who I work with — 2x2 grid of cards */
+    .who-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) {
+      .who-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+    }
+
+    .who-card {
+      position: relative;
+      background: var(--bg-white);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 2rem 1.75rem 1.75rem;
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .who-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--green-light);
+      box-shadow: var(--shadow);
+    }
+    @media (min-width: 768px) {
+      .who-card { padding: 2.5rem 2rem 2rem; }
+    }
+
+    .who-card.priority {
+      background: var(--bg-cream);
+      border-color: var(--green);
+      border-width: 1.5px;
+    }
+
+    .who-icon {
+      font-size: 2.75rem;
+      line-height: 1;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .who-title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1.375rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .who-desc {
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--text);
+    }
+
+    .who-badge {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 0.3rem 0.6rem;
+      border-radius: 100px;
+      text-transform: uppercase;
+    }
+    .badge-priority {
+      background: var(--green);
+      color: var(--bg);
+    }
+    .badge-soon {
+      background: var(--bg-cream);
+      color: var(--green-mid);
+      border: 1px solid var(--green-light);
+    }
+    .badge-other {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--rule);
+    }
+
     /* About — bullet leak list */
     .leak-list {
       list-style: none;
@@ -861,41 +948,33 @@
         <h2 class="block-title">If you run one of these, we should talk.</h2>
       </div>
 
-      <div class="tracks">
-        <article class="track">
-          <span class="track-num">🦷</span>
-          <div class="track-body">
-            <div class="title">Dental practices</div>
-            <div class="desc">Patients call while you're in someone's mouth. Most go to voicemail. We answer the calls, book the appointments, send the reminders, and ask for the Google review after they leave.</div>
-          </div>
-          <span class="track-status status-live">PRIORITY</span>
+      <div class="who-grid">
+        <article class="who-card priority">
+          <span class="who-badge badge-priority">Priority</span>
+          <span class="who-icon">🦷</span>
+          <h3 class="who-title">Dental practices</h3>
+          <p class="who-desc">Patients call while you're in someone's mouth. Most go to voicemail. We answer the calls, book the appointments, send the reminders, and ask for the Google review after they leave.</p>
         </article>
 
-        <article class="track">
-          <span class="track-num">💆</span>
-          <div class="track-body">
-            <div class="title">Medspas &amp; aesthetic clinics</div>
-            <div class="desc">Someone DMs you about Botox at 9pm. We reply, book them in, take the deposit, and send the prep instructions — before you check your phone in the morning.</div>
-          </div>
-          <span class="track-status status-live">PRIORITY</span>
+        <article class="who-card priority">
+          <span class="who-badge badge-priority">Priority</span>
+          <span class="who-icon">💆</span>
+          <h3 class="who-title">Medspas &amp; aesthetic clinics</h3>
+          <p class="who-desc">Someone DMs you about Botox at 9pm. We reply, book them in, take the deposit, and send the prep instructions — before you check your phone in the morning.</p>
         </article>
 
-        <article class="track">
-          <span class="track-num">🔧</span>
-          <div class="track-body">
-            <div class="title">HVAC &amp; home services</div>
-            <div class="desc">Someone's furnace dies at 2am. They call three companies. The first one to answer gets the job. We make sure that's you.</div>
-          </div>
-          <span class="track-status status-soon">EXPANDING</span>
+        <article class="who-card">
+          <span class="who-badge badge-soon">Expanding</span>
+          <span class="who-icon">🔧</span>
+          <h3 class="who-title">HVAC &amp; home services</h3>
+          <p class="who-desc">Someone's furnace dies at 2am. They call three companies. The first one to answer gets the job. We make sure that's you.</p>
         </article>
 
-        <article class="track">
-          <span class="track-num">+</span>
-          <div class="track-body">
-            <div class="title">Other service businesses</div>
-            <div class="desc">Chiropractors, barbers, personal trainers, contractors. The calls and follow-ups look the same. Tell me what you do — we'll find what you're missing.</div>
-          </div>
-          <span class="track-status status-draft">CASE-BY-CASE</span>
+        <article class="who-card">
+          <span class="who-badge badge-other">Case-by-case</span>
+          <span class="who-icon">✦</span>
+          <h3 class="who-title">Other service businesses</h3>
+          <p class="who-desc">Chiropractors, barbers, personal trainers, contractors. The calls and follow-ups look the same. Tell me what you do — we'll find what you're missing.</p>
         </article>
       </div>
     </section>
