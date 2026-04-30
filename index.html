@@ -288,6 +288,161 @@
       will-change: transform;
     }
 
+    /* Services tier — richer card layout */
+    .tier {
+      background: var(--bg-white);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    .tier:hover {
+      transform: translateY(-2px);
+      border-color: var(--green-light);
+      box-shadow: var(--shadow);
+    }
+    @media (min-width: 768px) {
+      .tier { padding: 2.25rem 2.5rem; }
+    }
+
+    .tier-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--green-mid);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .tier-name {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+    }
+
+    .tier-price {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.95rem;
+      color: var(--green);
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .tier-price small {
+      color: var(--text-muted);
+      font-weight: 400;
+      font-size: 0.85em;
+      margin-left: 0.4rem;
+    }
+
+    .tier-fit {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .tier-pitch {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1.0625rem;
+      line-height: 1.4;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .tier-sub {
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .tier-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.25rem 0;
+    }
+    .tier-list li {
+      font-size: 0.95rem;
+      color: var(--text);
+      padding-left: 1.25rem;
+      position: relative;
+      margin-bottom: 0.4rem;
+      line-height: 1.45;
+    }
+    .tier-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .tier-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .tier-live {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--green-mid);
+      letter-spacing: 0.08em;
+    }
+
+    .tier-cta {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--green-mid);
+      padding-bottom: 1px;
+      transition: all 0.18s ease;
+    }
+    .tier-cta:hover { color: var(--green); border-bottom-color: var(--green); }
+
+    /* About — bullet leak list */
+    .leak-list {
+      list-style: none;
+      padding: 1rem 0 0 0;
+      margin: 0;
+    }
+    .leak-list li {
+      font-size: 1.0625rem;
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+    .leak-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0.25rem;
+      color: var(--green);
+      font-weight: 700;
+      font-size: 1.2em;
+    }
+
+    .about-callout {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--green);
+      margin: 1.25rem 0;
+      padding: 0.5rem 0 0.5rem 1rem;
+      border-left: 3px solid var(--green);
+    }
+
     .hero-art img {
       width: 100%;
       display: block;
@@ -750,37 +905,67 @@
     <!-- ============================================ -->
     <section class="block reveal" id="services">
       <div class="block-head">
-        <span class="block-tag">A2 — What you get &amp; what it costs</span>
-        <h2 class="block-title">Three packages. Real prices. Pick the one that fits.</h2>
+        <span class="block-tag">A2 — Services &amp; pricing</span>
+        <h2 class="block-title">Three ways to stop losing revenue.</h2>
       </div>
 
       <div class="tracks">
-        <article class="track">
-          <span class="track-num">01</span>
-          <div class="track-body">
-            <div class="title">The Catcher — <em style="color:var(--green); font-style:normal;">$299/mo</em> + $499 setup</div>
-            <div class="desc"><strong>For small practices and solo owners.</strong> Every call gets answered, even at 2am. Missed callers get a text in 60 seconds. Appointments land on your calendar. Once a month, you get a report showing what we caught and what it was worth. <strong>Live in a week.</strong></div>
+
+        <article class="tier">
+          <div class="tier-num">01 — The Catcher</div>
+          <div class="tier-name">$299/mo + $499 setup</div>
+          <p class="tier-fit">For solo operators and smaller practices.</p>
+          <p class="tier-pitch">We answer every call — even when you can't.</p>
+          <p class="tier-sub">If you miss one, we text back instantly and keep the conversation going until it's booked.</p>
+          <ul class="tier-list">
+            <li>Call answering, 24/7</li>
+            <li>Missed call text-back within seconds</li>
+            <li>Booking via voice + SMS</li>
+            <li>Same-day follow-up</li>
+            <li>Monthly report: what came in vs what would've been missed</li>
+          </ul>
+          <div class="tier-foot">
+            <span class="tier-live">LIVE IN 1 WEEK</span>
+            <a class="tier-cta" href="#contact">Book a call →</a>
           </div>
-          <span class="track-status status-live">BOOKING</span>
         </article>
 
-        <article class="track">
-          <span class="track-num">02</span>
-          <div class="track-body">
-            <div class="title">The Revenue Stack — <em style="color:var(--green); font-style:normal;">$1,200/mo</em> + $2,500 setup <small style="color:var(--text-muted); font-weight:400;">· 3-month minimum</small></div>
-            <div class="desc"><strong>For established practices ready to grow.</strong> The Catcher, plus a new website that actually books appointments. Google Business Profile cleaned up. Reviews requested automatically after every visit. Your calendar, follow-ups, and customer records finally talking to each other. <strong>Live in three weeks.</strong></div>
+        <article class="tier">
+          <div class="tier-num">02 — The Stack</div>
+          <div class="tier-name">$1,200/mo + $2,500 setup <small style="color:var(--text-muted); font-weight:400; font-size:0.8em;">· 3-month minimum</small></div>
+          <p class="tier-fit">For practices that want more bookings, not just more leads.</p>
+          <p class="tier-pitch">We don't just capture interest — we turn it into appointments.</p>
+          <p class="tier-sub">Everything in The Catcher, plus:</p>
+          <ul class="tier-list">
+            <li>A fast, modern website built to convert visitors into bookings</li>
+            <li>Google reviews + follow-up handled automatically</li>
+            <li>CRM set up properly (so nothing slips)</li>
+            <li>Lead routing and follow-up flows that actually get responses</li>
+          </ul>
+          <div class="tier-foot">
+            <span class="tier-live">LIVE IN ~3 WEEKS</span>
+            <a class="tier-cta" href="#contact">Book a call →</a>
           </div>
-          <span class="track-status status-live">BOOKING</span>
         </article>
 
-        <article class="track">
-          <span class="track-num">03</span>
-          <div class="track-body">
-            <div class="title">The Partner — <em style="color:var(--green); font-style:normal;">$3,500/mo</em> <small style="color:var(--text-muted); font-weight:400;">· 6-month minimum</small></div>
-            <div class="desc"><strong>For practices ready to grow without hiring.</strong> The Stack, plus me on call. Every three months we sit down together and find what's still leaking. Each month you get a report and a 1:1. Need something custom built? It's already in. Direct text and Slack — I pick up.</div>
+        <article class="tier">
+          <div class="tier-num">03 — Operator Partner</div>
+          <div class="tier-name">$3,500/mo <small style="color:var(--text-muted); font-weight:400; font-size:0.8em;">· 6-month minimum</small></div>
+          <p class="tier-fit">For owners who want someone responsible for the numbers.</p>
+          <p class="tier-pitch">I work directly with you to find where revenue is leaking — and fix it. Then we keep improving it.</p>
+          <p class="tier-sub">Everything in The Stack, plus:</p>
+          <ul class="tier-list">
+            <li>Ongoing review of what's not converting</li>
+            <li>Fixes to follow-up, booking flow, and retention</li>
+            <li>New systems where gaps show up</li>
+            <li>Direct access to me (no layers, no handoffs)</li>
+          </ul>
+          <div class="tier-foot">
+            <span class="tier-live">ONGOING</span>
+            <a class="tier-cta" href="#contact">Book a call →</a>
           </div>
-          <span class="track-status status-live">BOOKING</span>
         </article>
+
       </div>
     </section>
 
@@ -790,7 +975,7 @@
     <section class="block reveal" id="about">
       <div class="block-head">
         <span class="block-tag">A3 — About</span>
-        <h2 class="block-title">Built at Indeed, Meta, and Whole Foods. Now showing up for Main Street.</h2>
+        <h2 class="block-title">Built for the businesses that run on calls, bookings, and follow-up.</h2>
       </div>
 
       <div class="about-grid">
@@ -801,9 +986,18 @@
           <p class="avatar-caption">Plan · Execute · Elevate</p>
         </div>
         <div class="about-body">
-          <p>I'm Jack Savoca. I spent the last decade making sure big companies — <strong>Indeed</strong>, <strong>Whole Foods</strong>, <strong>Meta</strong> — didn't lose customers between the cracks. The same problems exist at your practice or shop. Nobody's been hired to fix them.</p>
-          <p>You probably already pay for software — <strong>Weave, Booksy, Boulevard, Housecall Pro</strong>. It's good for the part it does. But it doesn't answer the phone at midnight. It doesn't bring back the patient who hasn't been in for 18 months. It doesn't build the website that brings new ones in. That's where I come in.</p>
-          <p>I'm one person. You text me directly. No agency, no junior anything, no buzzwords. Just real work that puts money back in your business.</p>
+          <p>I'm Jack Savoca. I've spent my career building and running revenue systems at <strong>Indeed</strong>, <strong>Whole Foods Market</strong>, and <strong>Meta</strong>. Now I do the same thing for local businesses.</p>
+          <p>Most practices already have software — <strong>Weave, Booksy, Boulevard, Housecall Pro</strong>. The problem isn't the tools. It's what happens around them:</p>
+          <ul class="leak-list">
+            <li>Calls go unanswered</li>
+            <li>Leads don't get followed up</li>
+            <li>Past customers never hear from you again</li>
+            <li>Your website doesn't convert</li>
+          </ul>
+          <p class="about-callout">That's where revenue gets lost.</p>
+          <p>I make sure that doesn't happen. If someone calls, they get answered. If you miss it, they get a response immediately. If they show interest, they get followed up with. If they've been before, they hear from you again.</p>
+          <p>I don't replace your tools. <strong>I make them actually work.</strong></p>
+          <p>No agency layers. No junior account managers. No fluff.</p>
         </div>
       </div>
     </section>
