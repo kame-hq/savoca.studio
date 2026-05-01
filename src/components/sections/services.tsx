@@ -16,6 +16,7 @@ const tiers = [
       "Map of where leads die between systems",
     ],
     cta: "Start an audit",
+    icon: "/assets/services/net.svg",
   },
   {
     no: "02",
@@ -30,6 +31,7 @@ const tiers = [
     ],
     cta: "Build my stack",
     feature: true,
+    icon: "/assets/services/stack.svg",
   },
   {
     no: "03",
@@ -43,6 +45,7 @@ const tiers = [
       "On-call for tool decisions, vendor calls, hires",
     ],
     cta: "Talk through fit",
+    icon: "/assets/services/compass.svg",
   },
 ];
 
@@ -78,10 +81,19 @@ export function Services() {
                 (t.feature ? "border-ink" : "border-line hover:border-ink")
               }
             >
-              <div className="col-span-12 md:col-span-1 font-mono text-[11px] uppercase tracking-[0.18em] text-mute tabular pt-3">
-                {t.no}
+              <div className="col-span-3 md:col-span-1 flex flex-col items-start gap-3 pt-2">
+                <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute tabular">
+                  {t.no}
+                </span>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={t.icon}
+                  alt=""
+                  aria-hidden
+                  className="w-14 h-14 lg:w-20 lg:h-20"
+                />
               </div>
-              <div className="col-span-12 md:col-span-5">
+              <div className="col-span-9 md:col-span-5">
                 <div className="flex items-baseline gap-3 flex-wrap">
                   <h3
                     className="leading-[0.98] tracking-[-0.022em] text-ink font-medium"

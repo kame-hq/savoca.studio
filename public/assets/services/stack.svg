@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#1B1B17" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Stacked system diagram — three layers wired with arrows -->
+  <!-- Top layer (Phone) -->
+  <rect x="50" y="36" width="100" height="32" rx="2" />
+  <text x="100" y="56" text-anchor="middle" font-family="serif" font-size="11" fill="#1B1B17" stroke="none" font-style="italic">Phone</text>
+  <!-- Connector top→middle -->
+  <line x1="100" y1="68" x2="100" y2="84" />
+  <polyline points="96,80 100,84 104,80" />
+  <!-- Middle layer (CRM) -->
+  <rect x="50" y="84" width="100" height="32" rx="2" />
+  <text x="100" y="104" text-anchor="middle" font-family="serif" font-size="11" fill="#1B1B17" stroke="none" font-style="italic">CRM</text>
+  <!-- Connector middle→bottom -->
+  <line x1="100" y1="116" x2="100" y2="132" />
+  <polyline points="96,128 100,132 104,128" />
+  <!-- Bottom layer (Calendar) -->
+  <rect x="50" y="132" width="100" height="32" rx="2" />
+  <text x="100" y="152" text-anchor="middle" font-family="serif" font-size="11" fill="#1B1B17" stroke="none" font-style="italic">Calendar</text>
+  <!-- Side flow arrows showing wiring -->
+  <line x1="36" y1="52" x2="42" y2="52" stroke-width="0.8" />
+  <line x1="36" y1="100" x2="42" y2="100" stroke-width="0.8" />
+  <line x1="36" y1="148" x2="42" y2="148" stroke-width="0.8" />
+  <line x1="158" y1="52" x2="164" y2="52" stroke-width="0.8" />
+  <line x1="158" y1="100" x2="164" y2="100" stroke-width="0.8" />
+  <line x1="158" y1="148" x2="164" y2="148" stroke-width="0.8" />
+  <!-- Stipple corners -->
+  <circle cx="46" cy="40" r="0.6" fill="#1B1B17" stroke="none" />
+  <circle cx="154" cy="40" r="0.6" fill="#1B1B17" stroke="none" />
+  <circle cx="46" cy="166" r="0.6" fill="#1B1B17" stroke="none" />
+  <circle cx="154" cy="166" r="0.6" fill="#1B1B17" stroke="none" />
+</svg>

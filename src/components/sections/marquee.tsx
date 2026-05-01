@@ -2,11 +2,11 @@ const items = [
   "Dental",
   "Medspa",
   "HVAC",
-  "Aesthetics",
-  "Home Services",
+  "Veterinary",
   "Legal",
+  "Wellness",
   "Fitness",
-  "Med Practice",
+  "Real Estate",
 ];
 
 export function Marquee() {

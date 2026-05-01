@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#1B1B17" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Syringe oriented diagonal, top-left to bottom-right -->
+  <!-- Plunger handle -->
+  <line x1="38" y1="38" x2="58" y2="58" stroke-width="2.6" />
+  <!-- Plunger thumb-ring -->
+  <circle cx="34" cy="34" r="6" />
+  <line x1="30" y1="30" x2="38" y2="38" stroke-width="0.6" />
+  <!-- Plunger shaft -->
+  <line x1="58" y1="58" x2="78" y2="78" stroke-width="2" />
+  <!-- Barrel finger flange -->
+  <line x1="68" y1="62" x2="62" y2="68" stroke-width="2" />
+  <line x1="80" y1="74" x2="74" y2="80" stroke-width="2" />
+  <!-- Barrel body -->
+  <line x1="78" y1="78" x2="138" y2="138" />
+  <line x1="74" y1="82" x2="134" y2="142" />
+  <line x1="78" y1="78" x2="74" y2="82" />
+  <line x1="138" y1="138" x2="134" y2="142" />
+  <!-- Volume marks on barrel -->
+  <line x1="92" y1="86" x2="86" y2="92" stroke-width="0.5" />
+  <line x1="102" y1="96" x2="96" y2="102" stroke-width="0.5" />
+  <line x1="112" y1="106" x2="106" y2="112" stroke-width="0.5" />
+  <line x1="122" y1="116" x2="116" y2="122" stroke-width="0.5" />
+  <!-- Liquid level — half-fill represented by darker shading -->
+  <line x1="106" y1="110" x2="100" y2="116" stroke-width="0.4" />
+  <line x1="110" y1="114" x2="104" y2="120" stroke-width="0.4" />
+  <line x1="114" y1="118" x2="108" y2="124" stroke-width="0.4" />
+  <line x1="118" y1="122" x2="112" y2="128" stroke-width="0.4" />
+  <line x1="122" y1="126" x2="116" y2="132" stroke-width="0.4" />
+  <line x1="126" y1="130" x2="120" y2="136" stroke-width="0.4" />
+  <!-- Tip taper -->
+  <line x1="138" y1="138" x2="148" y2="148" />
+  <line x1="134" y1="142" x2="144" y2="152" />
+  <!-- Needle -->
+  <line x1="148" y1="148" x2="172" y2="172" stroke-width="0.8" />
+  <!-- Drop -->
+  <ellipse cx="178" cy="178" rx="3" ry="4" transform="rotate(45 178 178)" />
+  <!-- Stipple -->
+  <circle cx="60" cy="80" r="0.5" fill="#1B1B17" stroke="none" />
+  <circle cx="160" cy="156" r="0.5" fill="#1B1B17" stroke="none" />
+</svg>

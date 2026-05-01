@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320" fill="none" stroke="#1B1B17" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Archival portrait frame — narrow oval medallion style -->
+  <!-- Outer frame rectangle -->
+  <rect x="18" y="18" width="204" height="284" />
+  <rect x="22" y="22" width="196" height="276" stroke-dasharray="2 2" stroke-width="0.6" />
+  <!-- Inner oval portrait window -->
+  <ellipse cx="120" cy="155" rx="78" ry="100" />
+  <ellipse cx="120" cy="155" rx="74" ry="96" stroke-width="0.6" />
+  <!-- SUBJECT: head + shoulders silhouette, etched style -->
+  <!-- Head -->
+  <ellipse cx="120" cy="125" rx="32" ry="38" />
+  <!-- Hair on top — short, parted -->
+  <path d="M 92 108 Q 96 90 120 88 Q 144 90 148 108 Q 144 102 132 100 Q 120 96 108 100 Q 96 102 92 108 Z" fill="#1B1B17" stroke="none" />
+  <!-- Hairline parting -->
+  <line x1="118" y1="92" x2="115" y2="105" stroke-width="0.5" stroke="#F5F2EA" />
+  <!-- Brows -->
+  <line x1="105" y1="120" x2="115" y2="119" stroke-width="1.2" />
+  <line x1="125" y1="119" x2="135" y2="120" stroke-width="1.2" />
+  <!-- Eyes (small) -->
+  <ellipse cx="110" cy="126" rx="2.5" ry="1.6" />
+  <ellipse cx="130" cy="126" rx="2.5" ry="1.6" />
+  <circle cx="110" cy="126" r="0.9" fill="#1B1B17" stroke="none" />
+  <circle cx="130" cy="126" r="0.9" fill="#1B1B17" stroke="none" />
+  <!-- Nose -->
+  <path d="M 120 130 Q 118 138 116 144 Q 119 146 122 144" stroke-width="0.8" />
+  <!-- Mouth — neutral -->
+  <line x1="113" y1="151" x2="127" y2="151" />
+  <!-- Beard hint (short stubble via stipple) -->
+  <circle cx="105" cy="148" r="0.3" fill="#1B1B17" stroke="none" />
+  <circle cx="108" cy="152" r="0.3" fill="#1B1B17" stroke="none" />
+  <circle cx="113" cy="156" r="0.3" fill="#1B1B17" stroke="none" />
+  <circle cx="120" cy="158" r="0.3" fill="#1B1B17" stroke="none" />
+  <circle cx="127" cy="156" r="0.3" fill="#1B1B17" stroke="none" />
+  <circle cx="132" cy="152" r="0.3" fill="#1B1B17" stroke="none" />
+  <circle cx="135" cy="148" r="0.3" fill="#1B1B17" stroke="none" />
+  <!-- Jaw + chin -->
+  <path d="M 95 145 Q 100 158 120 162 Q 140 158 145 145" stroke-width="0.5" />
+  <!-- Neck -->
+  <line x1="110" y1="162" x2="108" y2="180" />
+  <line x1="130" y1="162" x2="132" y2="180" />
+  <!-- Shoulders / collar -->
+  <path d="M 70 220 Q 80 195 108 184 L 132 184 Q 160 195 170 220" />
+  <!-- Lapel V -->
+  <line x1="120" y1="184" x2="105" y2="220" />
+  <line x1="120" y1="184" x2="135" y2="220" />
+  <!-- Collar fold -->
+  <line x1="105" y1="220" x2="98" y2="232" stroke-width="0.6" />
+  <line x1="135" y1="220" x2="142" y2="232" stroke-width="0.6" />
+  <!-- Cross-hatch shading on jacket -->
+  <line x1="78" y1="218" x2="86" y2="240" stroke-width="0.4" />
+  <line x1="84" y1="216" x2="92" y2="238" stroke-width="0.4" />
+  <line x1="156" y1="216" x2="148" y2="238" stroke-width="0.4" />
+  <line x1="162" y1="218" x2="154" y2="240" stroke-width="0.4" />
+  <!-- Caption banner below oval -->
+  <line x1="40" y1="270" x2="200" y2="270" stroke-width="0.6" />
+  <text x="120" y="284" text-anchor="middle" font-family="serif" font-size="11" fill="#1B1B17" stroke="none" font-style="italic">Jack Savoca</text>
+  <text x="120" y="294" text-anchor="middle" font-family="serif" font-size="7" fill="#1B1B17" stroke="none" letter-spacing="2" font-weight="500">EST. 2026</text>
+  <!-- Frame corner ornaments -->
+  <circle cx="30" cy="30" r="2" />
+  <circle cx="210" cy="30" r="2" />
+  <circle cx="30" cy="290" r="2" />
+  <circle cx="210" cy="290" r="2" />
+</svg>

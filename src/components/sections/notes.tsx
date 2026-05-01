@@ -4,10 +4,10 @@ import { Reveal } from "@/components/motion/reveal";
 
 const notes = [
   {
-    label: "Field Note 03",
-    title: "The 7-second rule.",
-    body: "If your phone rings and the receptionist is on another call, you have 7 seconds before that lead taps the next result. Most practices lose 1 in 4 inbound calls this way.",
-    icon: "/assets/notes/phone.svg",
+    label: "Field Note 01",
+    title: "After-hours is the new edge.",
+    body: "60% of HVAC inbound happens between 5pm and 9pm. The shop that answers at 7:32pm wins the next morning's job.",
+    icon: "/assets/notes/watch.svg",
   },
   {
     label: "Field Note 02",
@@ -16,10 +16,10 @@ const notes = [
     icon: "/assets/notes/clipboard.svg",
   },
   {
-    label: "Field Note 01",
-    title: "After-hours is the new edge.",
-    body: "60% of HVAC inbound happens between 5pm and 9pm. The shop that answers at 7:32pm wins the next morning's job.",
-    icon: "/assets/notes/watch.svg",
+    label: "Field Note 03",
+    title: "The 7-second rule.",
+    body: "If your phone rings and the receptionist is on another call, you have 7 seconds before that lead taps the next result. Most practices lose 1 in 4 inbound calls this way.",
+    icon: "/assets/notes/phone.svg",
   },
 ];
 

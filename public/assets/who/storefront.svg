@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#1B1B17" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Storefront — facade with awning -->
+  <!-- Roof line -->
+  <line x1="20" y1="60" x2="180" y2="60" />
+  <!-- Awning -->
+  <path d="M 20 60 L 30 80 L 170 80 L 180 60" />
+  <!-- Awning stripes -->
+  <line x1="30" y1="80" x2="40" y2="60" stroke-width="0.6" />
+  <line x1="50" y1="80" x2="60" y2="60" stroke-width="0.6" />
+  <line x1="70" y1="80" x2="80" y2="60" stroke-width="0.6" />
+  <line x1="90" y1="80" x2="100" y2="60" stroke-width="0.6" />
+  <line x1="110" y1="80" x2="120" y2="60" stroke-width="0.6" />
+  <line x1="130" y1="80" x2="140" y2="60" stroke-width="0.6" />
+  <line x1="150" y1="80" x2="160" y2="60" stroke-width="0.6" />
+  <!-- Building body -->
+  <line x1="30" y1="80" x2="30" y2="170" />
+  <line x1="170" y1="80" x2="170" y2="170" />
+  <line x1="30" y1="170" x2="170" y2="170" />
+  <!-- Sign band -->
+  <line x1="30" y1="92" x2="170" y2="92" stroke-width="0.6" />
+  <text x="100" y="103" text-anchor="middle" font-family="serif" font-size="8" fill="#1B1B17" stroke="none" font-style="italic" letter-spacing="2">SHOP</text>
+  <!-- Door (left) -->
+  <rect x="46" y="118" width="32" height="52" />
+  <line x1="62" y1="118" x2="62" y2="170" stroke-width="0.6" />
+  <circle cx="56" cy="146" r="0.8" fill="#1B1B17" stroke="none" />
+  <circle cx="68" cy="146" r="0.8" fill="#1B1B17" stroke="none" />
+  <!-- Window (right) -->
+  <rect x="92" y="118" width="62" height="40" />
+  <line x1="123" y1="118" x2="123" y2="158" stroke-width="0.6" />
+  <line x1="92" y1="138" x2="154" y2="138" stroke-width="0.6" />
+  <!-- Stipple ground -->
+  <circle cx="40" cy="174" r="0.5" fill="#1B1B17" stroke="none" />
+  <circle cx="100" cy="175" r="0.5" fill="#1B1B17" stroke="none" />
+  <circle cx="160" cy="174" r="0.5" fill="#1B1B17" stroke="none" />
+  <line x1="20" y1="178" x2="180" y2="178" stroke-width="0.5" />
+</svg>

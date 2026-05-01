@@ -33,7 +33,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute leading-relaxed"
           >
-            <div>2026 / Vol. 04</div>
+            <div>2026 / Q2</div>
             <div className="mt-1">Now booking</div>
           </motion.div>
         </div>

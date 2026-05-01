@@ -26,26 +26,17 @@ export function About() {
       </div>
 
       <div className="grid grid-cols-12 gap-x-6 lg:gap-x-8 mt-16 lg:mt-32">
-        <div className="col-span-12 lg:col-span-2 lg:col-start-3">
-          <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute mb-4">
-            The operator
-          </div>
-          <div className="text-[15px] text-ink leading-[1.5]">
-            Jack Savoca
-          </div>
-          <div className="text-[14px] text-mute leading-[1.5]">
-            Solo, by design
-          </div>
-          <div className="mt-8 font-mono text-[11px] uppercase tracking-[0.18em] text-mute mb-4">
-            Day job
-          </div>
-          <div className="text-[14px] text-mute leading-[1.5]">
-            Senior PM, Indeed
-            <br />
-            Global product commercialization
-          </div>
-        </div>
+        {/* Portrait — left margin */}
+        <Reveal className="col-span-12 lg:col-span-3 lg:col-start-2 mb-8 lg:mb-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/assets/about/portrait.svg"
+            alt="Jack Savoca, illustrated portrait"
+            className="w-48 lg:w-full max-w-[240px]"
+          />
+        </Reveal>
 
+        {/* Bio block — right */}
         <Reveal className="col-span-12 lg:col-span-7" delay={0.1}>
           <div className="space-y-6 text-[17px] leading-[1.65] text-ink-soft max-w-[60ch]">
             <p>
@@ -67,6 +58,31 @@ export function About() {
               layer, no junior account manager, no 90-day onboarding. You talk
               to me.
             </p>
+          </div>
+
+          {/* Credit row — moved here */}
+          <div className="mt-12 pt-6 border-t border-line grid grid-cols-2 gap-x-6">
+            <div>
+              <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute mb-2">
+                The operator
+              </div>
+              <div className="text-[14px] text-ink leading-[1.5]">
+                Jack Savoca
+              </div>
+              <div className="text-[14px] text-mute leading-[1.5]">
+                Solo, by design
+              </div>
+            </div>
+            <div>
+              <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute mb-2">
+                Day job
+              </div>
+              <div className="text-[14px] text-mute leading-[1.5]">
+                Senior PM, Indeed
+                <br />
+                Global product commercialization
+              </div>
+            </div>
           </div>
         </Reveal>
       </div>

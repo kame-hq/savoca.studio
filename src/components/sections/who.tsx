@@ -8,6 +8,7 @@ const verticals = [
     name: "Dental practices",
     note: "Calls dropped, no callback. New-patient form leaks. Insurance verification takes a day.",
     priority: true,
+    icon: "/assets/who/tooth.svg",
     offset: "lg:col-start-2 lg:col-span-7",
   },
   {
@@ -15,6 +16,7 @@ const verticals = [
     name: "Medspas + aesthetic clinics",
     note: "Booking page, intake form, deposit, reminder. Each step loses near 15%.",
     priority: true,
+    icon: "/assets/who/syringe.svg",
     offset: "lg:col-span-6 lg:col-start-7 lg:mt-32",
   },
   {
@@ -22,6 +24,7 @@ const verticals = [
     name: "HVAC + home services",
     note: "After-hours calls, dispatcher SLAs, follow-up on quoted work.",
     priority: false,
+    icon: "/assets/who/wrench.svg",
     offset: "lg:col-start-2 lg:col-span-4 lg:mt-12",
   },
   {
@@ -29,6 +32,7 @@ const verticals = [
     name: "Anyone who runs on inbound and follow-up",
     note: "Med, dental, legal, fitness, professional services.",
     priority: false,
+    icon: "/assets/who/storefront.svg",
     offset: "lg:col-span-4 lg:col-start-8 lg:mt-24",
   },
 ];
@@ -69,15 +73,29 @@ export function Who() {
                 (v.priority ? "border-ink" : "border-line")
               }
             >
-              <div className="flex items-baseline justify-between mb-5">
-                <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute tabular">
-                  {v.no}
-                </span>
-                {v.priority && (
-                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-stamp">
-                    Priority focus
+              <div className="flex items-start justify-between gap-6 mb-5">
+                <div className="flex flex-col gap-2 pt-2">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute tabular">
+                    {v.no}
                   </span>
-                )}
+                  {v.priority && (
+                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-stamp">
+                      Priority focus
+                    </span>
+                  )}
+                </div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={v.icon}
+                  alt=""
+                  aria-hidden
+                  className={
+                    "shrink-0 -mt-1 " +
+                    (v.priority
+                      ? "w-24 h-24 lg:w-32 lg:h-32"
+                      : "w-16 h-16 lg:w-20 lg:h-20 opacity-80")
+                  }
+                />
               </div>
               <h3
                 className={

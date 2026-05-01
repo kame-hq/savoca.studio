@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#1B1B17" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Mariner's compass — for ongoing operator guidance -->
+  <!-- Outer ring -->
+  <circle cx="100" cy="100" r="68" />
+  <circle cx="100" cy="100" r="62" stroke-width="0.6" />
+  <!-- Inner ring -->
+  <circle cx="100" cy="100" r="50" stroke-width="0.6" stroke-dasharray="2 2" />
+  <!-- Cardinal markers -->
+  <line x1="100" y1="32" x2="100" y2="42" stroke-width="2" />
+  <line x1="168" y1="100" x2="158" y2="100" stroke-width="2" />
+  <line x1="100" y1="168" x2="100" y2="158" stroke-width="2" />
+  <line x1="32" y1="100" x2="42" y2="100" stroke-width="2" />
+  <!-- Cardinal letters -->
+  <text x="100" y="28" text-anchor="middle" font-family="serif" font-size="11" fill="#1B1B17" stroke="none" font-style="italic">N</text>
+  <text x="178" y="105" text-anchor="middle" font-family="serif" font-size="10" fill="#1B1B17" stroke="none" font-style="italic">E</text>
+  <text x="100" y="184" text-anchor="middle" font-family="serif" font-size="10" fill="#1B1B17" stroke="none" font-style="italic">S</text>
+  <text x="22" y="105" text-anchor="middle" font-family="serif" font-size="10" fill="#1B1B17" stroke="none" font-style="italic">W</text>
+  <!-- Inter-cardinal small marks -->
+  <line x1="148" y1="52" x2="142" y2="58" stroke-width="0.6" />
+  <line x1="148" y1="148" x2="142" y2="142" stroke-width="0.6" />
+  <line x1="52" y1="148" x2="58" y2="142" stroke-width="0.6" />
+  <line x1="52" y1="52" x2="58" y2="58" stroke-width="0.6" />
+  <!-- Compass needle (NE-SW orientation) -->
+  <polygon points="100,100 128,72 100,80 72,128" />
+  <!-- Needle outlines -->
+  <line x1="100" y1="80" x2="128" y2="72" stroke-width="0.6" />
+  <line x1="100" y1="80" x2="72" y2="128" stroke-width="0.6" />
+  <!-- Center pivot -->
+  <circle cx="100" cy="100" r="3" fill="#1B1B17" stroke="none" />
+  <circle cx="100" cy="100" r="6" />
+  <!-- Star burst at N -->
+  <polygon points="100,38 102,46 106,46 103,49 104,53 100,51 96,53 97,49 94,46 98,46" stroke-width="0.5" />
+  <!-- Stipple -->
+  <circle cx="60" cy="60" r="0.5" fill="#1B1B17" stroke="none" />
+  <circle cx="140" cy="60" r="0.5" fill="#1B1B17" stroke="none" />
+  <circle cx="60" cy="140" r="0.5" fill="#1B1B17" stroke="none" />
+  <circle cx="140" cy="140" r="0.5" fill="#1B1B17" stroke="none" />
+</svg>
