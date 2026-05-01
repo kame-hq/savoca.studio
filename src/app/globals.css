@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #F5F2EA;
+  --bg-alt: #ECE7DA;
+  --ink: #0E0E0C;
+  --ink-soft: #1B1B17;
+  --mute: #595950;
+  --mute-soft: #8A8A7E;
+  --line: #D9D5C7;
+  --line-strong: #B7B2A0;
+  --stamp: #A03A26;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-mute: var(--mute);
+  --color-mute-soft: var(--mute-soft);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-stamp: var(--stamp);
+
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-instrument-serif);
+}
+
+html {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+  font-feature-settings: "ss01", "cv11";
+  cursor: none;
+}
+
+/* Restore default cursor on no-hover devices */
+@media (hover: none) {
+  body { cursor: auto; }
+}
+
+/* Grain overlay — fixed full-viewport organic noise */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 90;
+  opacity: 0.10;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 280px 280px;
+  animation: grain 8s steps(6) infinite;
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10%      { transform: translate(-3%, -2%); }
+  20%      { transform: translate(2%, 3%); }
+  30%      { transform: translate(-2%, 1%); }
+  40%      { transform: translate(3%, -2%); }
+  50%      { transform: translate(-3%, 2%); }
+  60%      { transform: translate(2%, -3%); }
+  70%      { transform: translate(-2%, -1%); }
+  80%      { transform: translate(1%, 3%); }
+  90%      { transform: translate(-1%, -2%); }
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.font-mono {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+.font-serif {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+}
+
+/* Custom cursor — ink dot + outline ring */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 9999px;
+  mix-blend-mode: difference;
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transform: translate(-50%, -50%);
+}
+
+/* Marquee for the trust strip */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
