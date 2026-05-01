@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#1B1B17" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Crown + ring -->
+  <circle cx="100" cy="40" r="6" />
+  <line x1="96" y1="34" x2="96" y2="44" />
+  <line x1="98" y1="34" x2="98" y2="44" />
+  <line x1="100" y1="34" x2="100" y2="44" />
+  <line x1="102" y1="34" x2="102" y2="44" />
+  <line x1="104" y1="34" x2="104" y2="44" />
+  <!-- Bow ring -->
+  <line x1="100" y1="46" x2="100" y2="54" />
+  <!-- Watch case outer -->
+  <circle cx="100" cy="120" r="60" />
+  <!-- Case bevel inner -->
+  <circle cx="100" cy="120" r="56" stroke-width="0.6" />
+  <circle cx="100" cy="120" r="52" stroke-dasharray="1 1.5" stroke-width="0.6" />
+  <!-- Face dial -->
+  <circle cx="100" cy="120" r="48" stroke-width="0.9" />
+  <!-- Hour markers -->
+  <line x1="100" y1="76" x2="100" y2="82" stroke-width="1.6" />
+  <line x1="144" y1="120" x2="138" y2="120" stroke-width="1.6" />
+  <line x1="100" y1="164" x2="100" y2="158" stroke-width="1.6" />
+  <line x1="56" y1="120" x2="62" y2="120" stroke-width="1.6" />
+  <!-- Minor markers -->
+  <line x1="122" y1="82" x2="120" y2="86" stroke-width="0.8" />
+  <line x1="138" y1="98" x2="134" y2="100" stroke-width="0.8" />
+  <line x1="138" y1="142" x2="134" y2="140" stroke-width="0.8" />
+  <line x1="122" y1="158" x2="120" y2="154" stroke-width="0.8" />
+  <line x1="78" y1="158" x2="80" y2="154" stroke-width="0.8" />
+  <line x1="62" y1="142" x2="66" y2="140" stroke-width="0.8" />
+  <line x1="62" y1="98" x2="66" y2="100" stroke-width="0.8" />
+  <line x1="78" y1="82" x2="80" y2="86" stroke-width="0.8" />
+  <!-- Roman numerals (tiny) -->
+  <text x="100" y="89" text-anchor="middle" font-family="serif" font-size="9" fill="#1B1B17" stroke="none" font-style="italic">XII</text>
+  <text x="138" y="124" text-anchor="middle" font-family="serif" font-size="9" fill="#1B1B17" stroke="none" font-style="italic">III</text>
+  <text x="100" y="156" text-anchor="middle" font-family="serif" font-size="9" fill="#1B1B17" stroke="none" font-style="italic">VI</text>
+  <text x="62" y="124" text-anchor="middle" font-family="serif" font-size="9" fill="#1B1B17" stroke="none" font-style="italic">IX</text>
+  <!-- Hour hand pointing roughly to 7:30 (between 7 and 8) -->
+  <line x1="100" y1="120" x2="78" y2="148" stroke-width="2.4" />
+  <!-- Minute hand pointing to 6 (30 min) -->
+  <line x1="100" y1="120" x2="100" y2="156" stroke-width="1.6" />
+  <!-- Center pin -->
+  <circle cx="100" cy="120" r="2.5" fill="#1B1B17" stroke="none" />
+  <!-- Chain links curving up to top-right -->
+  <ellipse cx="156" cy="58" rx="5" ry="3" transform="rotate(35 156 58)" />
+  <ellipse cx="148" cy="50" rx="5" ry="3" transform="rotate(35 148 50)" />
+  <ellipse cx="140" cy="42" rx="5" ry="3" transform="rotate(35 140 42)" />
+  <ellipse cx="132" cy="34" rx="5" ry="3" transform="rotate(35 132 34)" />
+  <line x1="106" y1="50" x2="128" y2="34" stroke-width="0.8" />
+  <!-- Stipple shading on case -->
+  <circle cx="58" cy="105" r="0.7" fill="#1B1B17" stroke="none" />
+  <circle cx="55" cy="115" r="0.5" fill="#1B1B17" stroke="none" />
+  <circle cx="60" cy="135" r="0.7" fill="#1B1B17" stroke="none" />
+  <circle cx="142" cy="105" r="0.5" fill="#1B1B17" stroke="none" />
+  <circle cx="145" cy="135" r="0.7" fill="#1B1B17" stroke="none" />
+</svg>

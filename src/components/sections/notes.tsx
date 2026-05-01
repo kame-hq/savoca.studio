@@ -7,16 +7,19 @@ const notes = [
     label: "Field Note 03",
     title: "The 7-second rule.",
     body: "If your phone rings and the receptionist is on another call, you have 7 seconds before that lead taps the next result. Most practices lose 1 in 4 inbound calls this way.",
+    icon: "/assets/notes/phone.svg",
   },
   {
     label: "Field Note 02",
     title: "Form > Phone, sometimes.",
     body: "For aesthetic clinics, web forms convert at 2.4x phone calls when the form ends with a deposit option. The deposit is the qualifier, not the price.",
+    icon: "/assets/notes/clipboard.svg",
   },
   {
     label: "Field Note 01",
     title: "After-hours is the new edge.",
     body: "60% of HVAC inbound happens between 5pm and 9pm. The shop that answers at 7:32pm wins the next morning's job.",
+    icon: "/assets/notes/watch.svg",
   },
 ];
 
@@ -57,8 +60,17 @@ export function Notes() {
             }
           >
             <article className="border-t border-line pt-6">
-              <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-stamp mb-5">
-                {n.label}
+              <div className="flex items-start justify-between gap-6 mb-6">
+                <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-stamp pt-2">
+                  {n.label}
+                </div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={n.icon}
+                  alt=""
+                  aria-hidden
+                  className="w-28 h-28 lg:w-36 lg:h-36 shrink-0 -mt-2"
+                />
               </div>
               <h3
                 className="leading-[1] tracking-[-0.025em] text-ink font-medium font-serif italic"
