@@ -5,31 +5,27 @@ import { Reveal } from "@/components/motion/reveal";
 const verticals = [
   {
     no: "01",
-    name: "Solo injectors + nurse-owned",
-    note: "One provider, one chair, calendar lives in your head. Consults booked at midnight on Instagram, ghosted by morning.",
-    priority: true,
-    offset: "lg:col-start-2 lg:col-span-7",
+    name: "Medspas.",
+    note: "Bookings, deposits, rebooks. Each step in the funnel loses near 15%.",
+    icon: "/assets/who/syringe.svg",
   },
   {
     no: "02",
-    name: "Multi-provider clinics",
-    note: "Booking page, intake form, deposit, reminder, rebook. Each step loses near 15%. Front desk can't keep up between procedures.",
-    priority: true,
-    offset: "lg:col-span-6 lg:col-start-7 lg:mt-32",
+    name: "Dental.",
+    note: "New-patient calls dropped, no callback. Insurance verification eats a day.",
+    icon: "/assets/who/tooth.svg",
   },
   {
     no: "03",
-    name: "Membership-led practices",
-    note: "Alle, Aspire, in-house. Members churn at month four because nobody auto-rebooks the next neurotox cycle.",
-    priority: false,
-    offset: "lg:col-start-2 lg:col-span-4 lg:mt-12",
+    name: "Home services.",
+    note: "After-hours calls, dispatcher SLAs, follow-up on quoted work, second-visit revenue.",
+    icon: "/assets/who/wrench.svg",
   },
   {
     no: "04",
-    name: "Multi-location groups",
-    note: "Five to fifteen sites, every location running its own stack. Reporting is a Tuesday-night spreadsheet.",
-    priority: false,
-    offset: "lg:col-span-4 lg:col-start-8 lg:mt-24",
+    name: "Pro services.",
+    note: "Legal, fitness, accounting, consulting. Five-minute reply window — most miss it by an hour.",
+    icon: "/assets/notes/clipboard.svg",
   },
 ];
 
@@ -56,63 +52,42 @@ export function Who() {
         </Reveal>
       </div>
 
-      <ul className="grid grid-cols-12 gap-x-6 lg:gap-x-8 gap-y-16 lg:gap-y-24 lg:gap-y-0">
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-line">
         {verticals.map((v, i) => (
           <Reveal
             key={v.no}
             delay={i * 0.06}
-            className={"col-span-12 md:col-span-6 " + v.offset}
+            className={[
+              "border-line",
+              i < verticals.length - 1 ? "border-b" : "",
+              "md:border-b-0",
+              i % 2 === 0 ? "md:border-r" : "",
+              i < 2 ? "md:border-b" : "",
+              "lg:border-b-0",
+              i < verticals.length - 1 ? "lg:border-r" : "",
+            ].join(" ")}
           >
-            <div
-              className={
-                "group relative pt-6 border-t " +
-                (v.priority ? "border-ink" : "border-line")
-              }
-            >
-              <div className="flex items-baseline gap-4 mb-5">
-                <span
-                  className={
-                    "font-medium leading-none tracking-[-0.04em] tabular " +
-                    (v.priority ? "text-ink" : "text-mute-soft")
-                  }
-                  style={{
-                    fontSize: v.priority
-                      ? "clamp(56px, 7vw, 112px)"
-                      : "clamp(36px, 4vw, 56px)",
-                  }}
-                >
-                  {v.no}
-                </span>
-                {v.priority && (
-                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-stamp">
-                    Priority focus
-                  </span>
-                )}
+            <article className="h-full px-2 py-10 lg:px-6 lg:py-12 flex flex-col">
+              <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-stamp">
+                No. {v.no}
               </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={v.icon}
+                alt=""
+                aria-hidden
+                className="mt-10 mb-12 w-12 h-12 lg:w-14 lg:h-14"
+              />
               <h3
-                className={
-                  "leading-[0.98] tracking-[-0.025em] text-ink font-medium " +
-                  (v.priority ? "" : "text-mute-soft")
-                }
-                style={{
-                  fontSize: v.priority
-                    ? "clamp(44px, 5vw, 80px)"
-                    : "clamp(24px, 2.6vw, 32px)",
-                }}
+                className="uppercase font-bold leading-[0.95] tracking-[-0.01em] text-ink"
+                style={{ fontSize: "clamp(28px, 2.6vw, 38px)" }}
               >
                 {v.name}
               </h3>
-              <p
-                className={
-                  "mt-5 leading-[1.55] " +
-                  (v.priority
-                    ? "text-[15px] text-mute max-w-[46ch]"
-                    : "text-[14px] text-mute-soft max-w-[40ch]")
-                }
-              >
+              <p className="mt-6 font-serif italic text-[15px] leading-[1.55] text-mute max-w-[28ch]">
                 {v.note}
               </p>
-            </div>
+            </article>
           </Reveal>
         ))}
       </ul>
