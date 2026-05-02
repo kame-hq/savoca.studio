@@ -40,9 +40,14 @@ export function About() {
         <Reveal className="col-span-12 lg:col-span-7" delay={0.1}>
           <div className="space-y-6 text-[17px] leading-[1.65] text-ink-soft max-w-[60ch]">
             <p>
-              I&apos;m Jack Savoca. I work at Indeed as a Global Program Manager
-              in product commercialization. Before Indeed, I worked at Whole
-              Foods Market and Facebook (now Meta).{" "}
+              I&apos;m Jack Savoca. I&apos;m a Program Manager at Indeed in
+              global product commercialization, where the programs I&apos;ve
+              led drove{" "}
+              <span className="text-ink font-medium">
+                $100M and $30M in incremental revenue
+              </span>{" "}
+              for two of the company&apos;s flagship products. Before Indeed,
+              I worked at Whole Foods Market and Facebook (now Meta).{" "}
               <span className="font-serif italic text-mute">
                 Savoca Studio is the side of my work I run on my own — RevOps
                 for service businesses that lose money between the cracks.

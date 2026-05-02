@@ -35,6 +35,8 @@ export function Hero() {
           >
             <div>2026 / Q2</div>
             <div className="mt-1">Now booking</div>
+            <div className="mt-4 text-ink">Program Manager</div>
+            <div>Indeed</div>
           </motion.div>
         </div>
 
