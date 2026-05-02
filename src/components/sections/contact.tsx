@@ -3,9 +3,38 @@
 import { useState } from "react";
 import { Reveal } from "@/components/motion/reveal";
 
+type Status = "idle" | "submitting" | "success" | "error";
+
 export function Contact() {
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (!email.trim()) return;
+    setStatus("submitting");
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/jack@savoca.studio", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          _subject: "New medspa audit request — savoca.studio",
+          _template: "table",
+          _captcha: "false",
+        }),
+      });
+      if (!res.ok) throw new Error("Request failed");
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  const submitted = status === "success";
 
   return (
     <section
@@ -30,29 +59,35 @@ export function Contact() {
           </Reveal>
 
           <Reveal delay={0.15}>
+            <p className="mt-20 lg:mt-32 text-[14px] text-mute max-w-[44ch] leading-[1.55]">
+              No discovery deck. Thirty-minute call, plain talk. If we&apos;re
+              not a fit, I&apos;ll tell you who is.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.2}>
             <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                if (email.trim()) setSubmitted(true);
-              }}
-              className="mt-20 lg:mt-32 max-w-[680px] relative border-b border-ink"
+              onSubmit={handleSubmit}
+              className="mt-8 max-w-[680px] relative border-b border-ink"
             >
               {!submitted ? (
                 <>
                   <input
                     type="email"
                     required
-                    placeholder="your@business.com"
+                    placeholder="you@yourclinic.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-transparent py-5 pr-36 text-[20px] text-ink focus:outline-none placeholder:text-mute-soft/60"
+                    disabled={status === "submitting"}
+                    className="w-full bg-transparent py-5 pr-36 text-[20px] text-ink focus:outline-none placeholder:text-mute-soft/60 disabled:opacity-60"
                   />
                   <button
                     type="submit"
-                    className="absolute right-0 top-1/2 -translate-y-1/2 group inline-flex items-center gap-2 text-[13px] uppercase tracking-[0.18em] text-ink font-medium"
+                    disabled={status === "submitting"}
+                    className="absolute right-0 top-1/2 -translate-y-1/2 group inline-flex items-center gap-2 text-[13px] uppercase tracking-[0.18em] text-ink font-medium disabled:opacity-60"
                     data-cursor-grow
                   >
-                    <span>Get a call</span>
+                    <span>{status === "submitting" ? "Sending" : "Get a call"}</span>
                     <span className="block w-6 h-px bg-ink transition-all duration-500 group-hover:w-14" />
                   </button>
                 </>
@@ -62,13 +97,15 @@ export function Contact() {
                 </p>
               )}
             </form>
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <p className="mt-8 text-[14px] text-mute max-w-[44ch] leading-[1.55]">
-              No discovery deck. Thirty-minute call, plain talk. If we&apos;re
-              not a fit, I&apos;ll tell you who is.
-            </p>
+            {status === "error" && (
+              <p className="mt-4 text-[13px] text-stamp">
+                Something broke on our side. Email{" "}
+                <a href="mailto:jack@savoca.studio" className="underline">
+                  jack@savoca.studio
+                </a>{" "}
+                directly.
+              </p>
+            )}
           </Reveal>
         </div>
       </div>
