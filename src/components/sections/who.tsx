@@ -5,34 +5,30 @@ import { Reveal } from "@/components/motion/reveal";
 const verticals = [
   {
     no: "01",
-    name: "Dental practices",
-    note: "Calls dropped, no callback. New-patient form leaks. Insurance verification takes a day.",
+    name: "Solo injectors + nurse-owned",
+    note: "One provider, one chair, calendar lives in your head. Consults booked at midnight on Instagram, ghosted by morning.",
     priority: true,
-    icon: "/assets/who/tooth.svg",
     offset: "lg:col-start-2 lg:col-span-7",
   },
   {
     no: "02",
-    name: "Medspas + aesthetic clinics",
-    note: "Booking page, intake form, deposit, reminder. Each step loses near 15%.",
+    name: "Multi-provider clinics",
+    note: "Booking page, intake form, deposit, reminder, rebook. Each step loses near 15%. Front desk can't keep up between procedures.",
     priority: true,
-    icon: "/assets/who/syringe.svg",
     offset: "lg:col-span-6 lg:col-start-7 lg:mt-32",
   },
   {
     no: "03",
-    name: "HVAC + home services",
-    note: "After-hours calls, dispatcher SLAs, follow-up on quoted work.",
+    name: "Membership-led practices",
+    note: "Alle, Aspire, in-house. Members churn at month four because nobody auto-rebooks the next neurotox cycle.",
     priority: false,
-    icon: "/assets/who/wrench.svg",
     offset: "lg:col-start-2 lg:col-span-4 lg:mt-12",
   },
   {
     no: "04",
-    name: "Anyone who runs on inbound and follow-up",
-    note: "Med, dental, legal, fitness, professional services.",
+    name: "Multi-location groups",
+    note: "Five to fifteen sites, every location running its own stack. Reporting is a Tuesday-night spreadsheet.",
     priority: false,
-    icon: "/assets/who/storefront.svg",
     offset: "lg:col-span-4 lg:col-start-8 lg:mt-24",
   },
 ];
@@ -73,29 +69,25 @@ export function Who() {
                 (v.priority ? "border-ink" : "border-line")
               }
             >
-              <div className="flex items-start justify-between gap-6 mb-5">
-                <div className="flex flex-col gap-2 pt-2">
-                  <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute tabular">
-                    {v.no}
-                  </span>
-                  {v.priority && (
-                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-stamp">
-                      Priority focus
-                    </span>
-                  )}
-                </div>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={v.icon}
-                  alt=""
-                  aria-hidden
+              <div className="flex items-baseline gap-4 mb-5">
+                <span
                   className={
-                    "shrink-0 -mt-1 " +
-                    (v.priority
-                      ? "w-24 h-24 lg:w-32 lg:h-32"
-                      : "w-16 h-16 lg:w-20 lg:h-20 opacity-80")
+                    "font-medium leading-none tracking-[-0.04em] tabular " +
+                    (v.priority ? "text-ink" : "text-mute-soft")
                   }
-                />
+                  style={{
+                    fontSize: v.priority
+                      ? "clamp(56px, 7vw, 112px)"
+                      : "clamp(36px, 4vw, 56px)",
+                  }}
+                >
+                  {v.no}
+                </span>
+                {v.priority && (
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-stamp">
+                    Priority focus
+                  </span>
+                )}
               </div>
               <h3
                 className={

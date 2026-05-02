@@ -61,11 +61,11 @@ export function Hero() {
           >
             <p className="col-span-12 md:col-span-6 lg:col-start-2 text-[17px] leading-[1.55] text-mute-soft max-w-[44ch]">
               <span className="font-serif italic text-ink-soft">
-                RevOps for the small businesses
+                RevOps for medspas
               </span>{" "}
-              that run on calls, bookings, and follow-up. Built by an
-              enterprise PM who got tired of watching SMBs lose deals to tools
-              they already pay for.
+              that run on bookings, deposits, and rebooks. Built by an
+              enterprise PM who got tired of watching practices lose money to
+              tools they already pay for.
             </p>
             <div className="col-span-12 md:col-span-5 md:col-start-8 flex md:justify-end gap-8 items-end">
               <Link

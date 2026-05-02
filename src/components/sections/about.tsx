@@ -17,9 +17,9 @@ export function About() {
             className="leading-[0.95] tracking-[-0.025em] text-ink font-medium"
             style={{ fontSize: "clamp(36px, 5vw, 80px)" }}
           >
-            Built for businesses that run on{" "}
+            Built for medspas that run on{" "}
             <span className="font-serif italic font-normal text-mute-soft">
-              calls, bookings, and follow-up.
+              consults, deposits, and rebooks.
             </span>
           </h2>
         </Reveal>
@@ -40,23 +40,25 @@ export function About() {
         <Reveal className="col-span-12 lg:col-span-7" delay={0.1}>
           <div className="space-y-6 text-[17px] leading-[1.65] text-ink-soft max-w-[60ch]">
             <p>
-              Twelve years putting RevOps and GTM in the right shape for
-              companies of every size.{" "}
+              A decade of shipping product launches and revenue programs inside
+              Indeed, Whole Foods Market, and Facebook ad ops.{" "}
               <span className="font-serif italic text-mute">
-                I started Savoca Studio because the same leaks I fix at
-                enterprise scale are killing SMBs faster.
+                The same playbook a Fortune 100 uses to recover lost pipeline,
+                applied to a clinic losing ten consults a week to dead phone
+                trees and silent forms.
               </span>
             </p>
             <p>
-              Most service businesses already pay for the right tools. They
-              just don&apos;t talk to each other. The phone rings, no one picks
-              up. The form submits, no one follows up. The booking happens, no
-              one confirms. Money walks out between the cracks.
+              Most medspas already pay for every tool they need. Booking page,
+              phone system, CRM, deposit collection, follow-up. None of them
+              talk. Leads die between tabs. Money walks out before the front
+              desk notices.
             </p>
             <p>
-              I show up, audit the stack, wire it back together. No agency
-              layer, no junior account manager, no 90-day onboarding. You talk
-              to me.
+              I install the wiring, watch the metrics for thirty days, and send
+              a weekly report that names every recovered consult, every rebook,
+              every deposit collected. No agency layer, no junior account
+              manager, no 90-day onboarding. You get me, on the line.
             </p>
           </div>
 
@@ -75,12 +77,16 @@ export function About() {
             </div>
             <div>
               <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute mb-2">
-                Day job
+                Track record
+              </div>
+              <div className="text-[14px] text-ink leading-[1.5]">
+                Indeed
+                <span className="text-mute"> — current</span>
               </div>
               <div className="text-[14px] text-mute leading-[1.5]">
-                Senior PM, Indeed
+                Whole Foods Market
                 <br />
-                Global product commercialization
+                Facebook ad ops
               </div>
             </div>
           </div>

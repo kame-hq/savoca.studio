@@ -13,7 +13,7 @@ export function Footer() {
             </span>
           </div>
           <div className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-mute max-w-[40ch]">
-            RevOps for service businesses. Solo, by design.
+            RevOps for medspas. Solo, by design.
           </div>
         </div>
 
@@ -34,7 +34,7 @@ export function Footer() {
           </h4>
           <ul className="space-y-2.5 text-[14px] text-ink">
             <li><a href="mailto:jack@savoca.studio" className="hover:text-mute transition-colors">jack@savoca.studio</a></li>
-            <li><a href="https://linkedin.com" className="hover:text-mute transition-colors">LinkedIn</a></li>
+            <li><a href="https://www.linkedin.com/in/jacksavoca" target="_blank" rel="noopener noreferrer" className="hover:text-mute transition-colors">LinkedIn</a></li>
           </ul>
         </div>
       </div>

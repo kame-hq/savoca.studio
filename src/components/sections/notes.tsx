@@ -5,20 +5,20 @@ import { Reveal } from "@/components/motion/reveal";
 const notes = [
   {
     label: "Field Note 01",
-    title: "After-hours is the new edge.",
-    body: "60% of HVAC inbound happens between 5pm and 9pm. The shop that answers at 7:32pm wins the next morning's job.",
+    title: "The 11pm scroll.",
+    body: "Most aesthetic consults are booked between 9pm and midnight on Instagram. If the form requires a deposit before a human ever replies, you lose 60% of them.",
     icon: "/assets/notes/watch.svg",
   },
   {
     label: "Field Note 02",
-    title: "Form > Phone, sometimes.",
-    body: "For aesthetic clinics, web forms convert at 2.4x phone calls when the form ends with a deposit option. The deposit is the qualifier, not the price.",
+    title: "The deposit is the qualifier.",
+    body: "Web forms convert at 2.4x phone calls for aesthetic clinics — but only when the form ends with a deposit option. The deposit qualifies. The price doesn't.",
     icon: "/assets/notes/clipboard.svg",
   },
   {
     label: "Field Note 03",
-    title: "The 7-second rule.",
-    body: "If your phone rings and the receptionist is on another call, you have 7 seconds before that lead taps the next result. Most practices lose 1 in 4 inbound calls this way.",
+    title: "The five-minute window.",
+    body: "Reply to a consult inquiry inside five minutes and your booking odds are 21x what they are at thirty. After an hour, you're competing with three other clinics she Googled while waiting.",
     icon: "/assets/notes/phone.svg",
   },
 ];
