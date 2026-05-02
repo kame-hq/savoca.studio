@@ -17,9 +17,9 @@ export function About() {
             className="leading-[0.95] tracking-[-0.025em] text-ink font-medium"
             style={{ fontSize: "clamp(36px, 5vw, 80px)" }}
           >
-            Built for medspas that run on{" "}
+            Built for service businesses that run on{" "}
             <span className="font-serif italic font-normal text-mute-soft">
-              consults, deposits, and rebooks.
+              calls, bookings, and follow-up.
             </span>
           </h2>
         </Reveal>
@@ -44,21 +44,21 @@ export function About() {
               Indeed, Whole Foods Market, and Facebook ad ops.{" "}
               <span className="font-serif italic text-mute">
                 The same playbook a Fortune 100 uses to recover lost pipeline,
-                applied to a clinic losing ten consults a week to dead phone
-                trees and silent forms.
+                applied to a shop, clinic, or firm losing ten leads a week to
+                dead phone trees and silent forms.
               </span>
             </p>
             <p>
-              Most medspas already pay for every tool they need. Booking page,
-              phone system, CRM, deposit collection, follow-up. None of them
-              talk. Leads die between tabs. Money walks out before the front
-              desk notices.
+              Most service businesses already pay for every tool they need.
+              Phone system, booking page, CRM, follow-up, payments. None of
+              them talk to each other. Leads die between tabs. Money walks out
+              before the front desk notices.
             </p>
             <p>
               I install the wiring, watch the metrics for thirty days, and send
-              a weekly report that names every recovered consult, every rebook,
-              every deposit collected. No agency layer, no junior account
-              manager, no 90-day onboarding. You get me, on the line.
+              a weekly report that names every recovered call, every booked
+              appointment, every payment collected. No agency layer, no junior
+              account manager, no 90-day onboarding. You get me, on the line.
             </p>
           </div>
 

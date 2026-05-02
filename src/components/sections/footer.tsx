@@ -13,7 +13,7 @@ export function Footer() {
             </span>
           </div>
           <div className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-mute max-w-[40ch]">
-            RevOps for medspas. Solo, by design.
+            RevOps for service businesses. Solo, by design.
           </div>
         </div>
 
