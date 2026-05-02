@@ -40,25 +40,26 @@ export function About() {
         <Reveal className="col-span-12 lg:col-span-7" delay={0.1}>
           <div className="space-y-6 text-[17px] leading-[1.65] text-ink-soft max-w-[60ch]">
             <p>
-              A decade of shipping product launches and revenue programs inside
-              Indeed, Whole Foods Market, and Facebook ad ops.{" "}
+              I&apos;m Jack Savoca. I work at Indeed as a Global Program Manager
+              in product commercialization. Before Indeed, I worked at Whole
+              Foods Market and Facebook (now Meta).{" "}
               <span className="font-serif italic text-mute">
-                The same playbook a Fortune 100 uses to recover lost pipeline,
-                applied to a shop, clinic, or firm losing ten leads a week to
-                dead phone trees and silent forms.
+                Savoca Studio is the side of my work I run on my own — RevOps
+                for service businesses that lose money between the cracks.
               </span>
             </p>
             <p>
               Most service businesses already pay for every tool they need.
-              Phone system, booking page, CRM, follow-up, payments. None of
-              them talk to each other. Leads die between tabs. Money walks out
-              before the front desk notices.
+              Phone, CRM, booking page, follow-up, payments. None of them talk
+              to each other. Calls get missed. Forms go unanswered. Bookings
+              never confirm. Money walks out before the front desk notices.
             </p>
             <p>
-              I install the wiring, watch the metrics for thirty days, and send
-              a weekly report that names every recovered call, every booked
-              appointment, every payment collected. No agency layer, no junior
-              account manager, no 90-day onboarding. You get me, on the line.
+              I audit your stack, install the wiring, and watch the metrics for
+              thirty days. Then I send a weekly report that names every
+              recovered call, every booked appointment, every payment
+              collected. No agency, no junior account manager, no 90-day
+              onboarding. You get me, on the line.
             </p>
           </div>
 
@@ -86,7 +87,7 @@ export function About() {
               <div className="text-[14px] text-mute leading-[1.5]">
                 Whole Foods Market
                 <br />
-                Facebook ad ops
+                Facebook (now Meta)
               </div>
             </div>
           </div>

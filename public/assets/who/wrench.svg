@@ -1,21 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#1B1B17" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Wrench oriented diagonal, top-right to bottom-left -->
-  <!-- Open jaw end (top-right) -->
-  <path d="M 156 30 L 170 44 L 168 60 L 152 62 L 138 48 L 144 36 Z" />
-  <!-- Inner jaw notch -->
-  <path d="M 154 38 L 162 46 L 161 54 L 152 55 L 144 47 L 148 41 Z" stroke-width="0.6" />
-  <!-- Shaft -->
-  <line x1="148" y1="56" x2="56" y2="148" stroke-width="3" />
-  <line x1="146" y1="58" x2="54" y2="150" stroke-width="0.6" />
-  <line x1="150" y1="54" x2="58" y2="146" stroke-width="0.6" />
-  <!-- Closed end (box wrench) bottom-left -->
-  <circle cx="48" cy="156" r="14" />
-  <circle cx="48" cy="156" r="9" />
-  <!-- Hex pattern inside ring -->
-  <polygon points="48,148 55,152 55,160 48,164 41,160 41,152" stroke-width="0.6" />
-  <!-- Stipple -->
-  <circle cx="100" cy="100" r="0.5" fill="#1B1B17" stroke="none" />
-  <circle cx="120" cy="80" r="0.5" fill="#1B1B17" stroke="none" />
-  <circle cx="80" cy="120" r="0.5" fill="#1B1B17" stroke="none" />
-  <circle cx="160" cy="48" r="0.5" fill="#1B1B17" stroke="none" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#1B1B17" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Open-end wrench, horizontal silhouette -->
+  <path d="M 22 100
+           C 22 92, 28 88, 34 88
+           L 124 88
+           L 138 76
+           L 168 76
+           A 14 14 0 0 1 182 90
+           L 182 110
+           A 14 14 0 0 1 168 124
+           L 138 124
+           L 124 112
+           L 34 112
+           C 28 112, 22 108, 22 100 Z" />
+  <!-- Open jaw notch (right side) -->
+  <path d="M 168 90 L 156 92 L 152 96 L 152 104 L 156 108 L 168 110" />
+  <!-- Hex bolt inside jaw -->
+  <polygon points="146,94 142,98 142,102 146,106 152,106 154,102 154,98 152,94" stroke-width="0.8" />
+  <!-- Handle inner ridge -->
+  <line x1="48" y1="100" x2="118" y2="100" stroke-width="0.5" stroke-dasharray="3 3" />
+  <!-- Handle end pivot -->
+  <circle cx="32" cy="100" r="4" />
+  <!-- Stipple texture -->
+  <circle cx="60" cy="98" r="0.5" fill="#1B1B17" stroke="none" />
+  <circle cx="80" cy="102" r="0.5" fill="#1B1B17" stroke="none" />
+  <circle cx="100" cy="98" r="0.5" fill="#1B1B17" stroke="none" />
+  <circle cx="120" cy="102" r="0.5" fill="#1B1B17" stroke="none" />
 </svg>

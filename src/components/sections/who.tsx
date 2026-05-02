@@ -76,7 +76,7 @@ export function Who() {
                 src={v.icon}
                 alt=""
                 aria-hidden
-                className="mt-10 mb-12 w-12 h-12 lg:w-14 lg:h-14"
+                className="mt-10 mb-12 w-16 h-16 lg:w-16 lg:h-16"
               />
               <h3
                 className="uppercase font-bold leading-[0.95] tracking-[-0.01em] text-ink"
