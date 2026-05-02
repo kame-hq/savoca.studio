@@ -26,18 +26,8 @@ export function About() {
       </div>
 
       <div className="grid grid-cols-12 gap-x-6 lg:gap-x-8 mt-16 lg:mt-32">
-        {/* Portrait — left margin */}
-        <Reveal className="col-span-12 lg:col-span-3 lg:col-start-2 mb-8 lg:mb-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/assets/about/portrait.svg"
-            alt="Jack Savoca, illustrated portrait"
-            className="w-48 lg:w-full max-w-[240px]"
-          />
-        </Reveal>
-
-        {/* Bio block — right */}
-        <Reveal className="col-span-12 lg:col-span-7" delay={0.1}>
+        {/* Bio block */}
+        <Reveal className="col-span-12 lg:col-span-9 lg:col-start-3" delay={0.1}>
           <div className="space-y-6 text-[17px] leading-[1.65] text-ink-soft max-w-[60ch]">
             <p>
               I&apos;m Jack Savoca. I&apos;m a Program Manager at Indeed in
