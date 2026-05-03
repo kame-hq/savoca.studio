@@ -1,33 +1,42 @@
 "use client";
 
-import { Reveal } from "@/components/motion/reveal";
+import { useRef } from "react";
+import { RevealBlock, RevealWords } from "@/components/motion/reveal-words";
+import { SectionLine } from "@/components/motion/section-line";
 
 export function About() {
+  const ref = useRef<HTMLElement>(null);
+
   return (
     <section
+      ref={ref}
       id="about"
       className="relative px-6 lg:px-12 py-24 lg:py-44 border-t border-line"
     >
+      <SectionLine targetRef={ref} />
+
       <div className="grid grid-cols-12 gap-x-6 lg:gap-x-8">
         <div className="col-span-12 lg:col-span-2 mb-4 lg:mb-0 font-mono text-[11px] uppercase tracking-[0.18em] text-mute">
           Four / About
         </div>
-        <Reveal className="col-span-12 lg:col-span-8">
+        <div className="col-span-12 lg:col-span-8">
           <h2
             className="leading-[0.95] tracking-[-0.025em] text-ink font-medium"
             style={{ fontSize: "clamp(36px, 5vw, 80px)" }}
           >
-            Built for service businesses that run on{" "}
-            <span className="font-serif italic font-normal text-mute-soft">
-              calls, bookings, and follow-up.
-            </span>
+            <RevealWords text="Built for service businesses that run on" />{" "}
+            <RevealWords
+              text="calls, bookings, and follow-up."
+              className="font-serif italic font-normal text-mute-soft"
+              delay={0.22}
+            />
           </h2>
-        </Reveal>
+        </div>
       </div>
 
       <div className="grid grid-cols-12 gap-x-6 lg:gap-x-8 mt-16 lg:mt-32">
         {/* Bio block */}
-        <Reveal className="col-span-12 lg:col-span-9 lg:col-start-3" delay={0.1}>
+        <RevealBlock className="col-span-12 lg:col-span-9 lg:col-start-3" delay={0.1}>
           <div className="space-y-6 text-[17px] leading-[1.65] text-ink-soft max-w-[60ch]">
             <p>
               I&apos;m Jack Savoca. I&apos;m a Program Manager at Indeed in
@@ -86,7 +95,7 @@ export function About() {
               </div>
             </div>
           </div>
-        </Reveal>
+        </RevealBlock>
       </div>
     </section>
   );

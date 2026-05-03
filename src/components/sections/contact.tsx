@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
-import { Reveal } from "@/components/motion/reveal";
+import { useRef, useState } from "react";
+import { RevealBlock, RevealWords } from "@/components/motion/reveal-words";
+import { SectionLine } from "@/components/motion/section-line";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
 export function Contact() {
+  const ref = useRef<HTMLElement>(null);
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>("idle");
 
@@ -38,34 +40,37 @@ export function Contact() {
 
   return (
     <section
+      ref={ref}
       id="contact"
       className="relative px-6 lg:px-12 py-24 lg:py-48 border-t border-line"
     >
+      <SectionLine targetRef={ref} />
+
       <div className="grid grid-cols-12 gap-x-6 lg:gap-x-8">
         <div className="col-span-12 lg:col-span-2 mb-4 lg:mb-0 font-mono text-[11px] uppercase tracking-[0.18em] text-mute">
           Five / Contact
         </div>
         <div className="col-span-12 lg:col-span-9">
-          <Reveal>
-            <h2
-              className="leading-[0.9] tracking-[-0.04em] text-ink font-medium"
-              style={{ fontSize: "clamp(56px, 10vw, 184px)" }}
-            >
-              Stop losing money{" "}
-              <span className="font-serif italic font-normal tracking-[-0.045em] text-ink-soft">
-                between the cracks.
-              </span>
-            </h2>
-          </Reveal>
+          <h2
+            className="leading-[0.9] tracking-[-0.04em] text-ink font-medium"
+            style={{ fontSize: "clamp(56px, 10vw, 184px)" }}
+          >
+            <RevealWords text="Stop losing money" />{" "}
+            <RevealWords
+              text="between the cracks."
+              className="font-serif italic font-normal tracking-[-0.045em] text-ink-soft"
+              delay={0.2}
+            />
+          </h2>
 
-          <Reveal delay={0.15}>
+          <RevealBlock delay={0.4}>
             <p className="mt-20 lg:mt-32 text-[14px] text-mute max-w-[44ch] leading-[1.55]">
               No discovery deck. Thirty-minute call, plain talk. If we&apos;re
               not a fit, I&apos;ll tell you who is.
             </p>
-          </Reveal>
+          </RevealBlock>
 
-          <Reveal delay={0.2}>
+          <RevealBlock delay={0.5}>
             <form
               onSubmit={handleSubmit}
               className="mt-8 max-w-[680px] relative border-b border-ink"
@@ -106,7 +111,7 @@ export function Contact() {
                 directly.
               </p>
             )}
-          </Reveal>
+          </RevealBlock>
         </div>
       </div>
     </section>

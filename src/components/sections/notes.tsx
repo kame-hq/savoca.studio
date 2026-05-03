@@ -1,6 +1,8 @@
 "use client";
 
-import { Reveal } from "@/components/motion/reveal";
+import { useRef } from "react";
+import { RevealBlock, RevealWords } from "@/components/motion/reveal-words";
+import { SectionLine } from "@/components/motion/section-line";
 
 const notes = [
   {
@@ -24,31 +26,38 @@ const notes = [
 ];
 
 export function Notes() {
+  const ref = useRef<HTMLElement>(null);
+
   return (
     <section
+      ref={ref}
       id="notes"
       className="relative px-6 lg:px-12 py-24 lg:py-44 border-t border-line bg-bg-alt"
     >
+      <SectionLine targetRef={ref} />
+
       <div className="grid grid-cols-12 gap-x-6 lg:gap-x-8 mb-20 lg:mb-32">
         <div className="col-span-12 lg:col-span-2 mb-4 lg:mb-0 font-mono text-[11px] uppercase tracking-[0.18em] text-mute">
           Three / Field Notes
         </div>
-        <Reveal className="col-span-12 lg:col-span-9">
+        <div className="col-span-12 lg:col-span-9">
           <h2
             className="leading-[0.95] tracking-[-0.025em] text-ink font-medium"
             style={{ fontSize: "clamp(40px, 6vw, 96px)" }}
           >
-            Things I keep{" "}
-            <span className="font-serif italic font-normal text-mute-soft">
-              learning the hard way.
-            </span>
+            <RevealWords text="Things I keep" />{" "}
+            <RevealWords
+              text="learning the hard way."
+              className="font-serif italic font-normal text-mute-soft"
+              delay={0.16}
+            />
           </h2>
-        </Reveal>
+        </div>
       </div>
 
       <ul className="grid grid-cols-12 gap-x-6 lg:gap-x-8 gap-y-12 lg:gap-y-20">
         {notes.map((n, i) => (
-          <Reveal
+          <RevealBlock
             key={n.label}
             delay={i * 0.06}
             className={
@@ -82,7 +91,7 @@ export function Notes() {
                 {n.body}
               </p>
             </article>
-          </Reveal>
+          </RevealBlock>
         ))}
       </ul>
     </section>

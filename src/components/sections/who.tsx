@@ -1,6 +1,8 @@
 "use client";
 
-import { Reveal } from "@/components/motion/reveal";
+import { useRef } from "react";
+import { RevealBlock, RevealWords } from "@/components/motion/reveal-words";
+import { SectionLine } from "@/components/motion/section-line";
 
 const verticals = [
   {
@@ -30,31 +32,38 @@ const verticals = [
 ];
 
 export function Who() {
+  const ref = useRef<HTMLElement>(null);
+
   return (
     <section
+      ref={ref}
       id="who"
       className="relative px-6 lg:px-12 py-24 lg:py-44 border-t border-line"
     >
+      <SectionLine targetRef={ref} />
+
       <div className="grid grid-cols-12 gap-x-6 lg:gap-x-8 mb-20 lg:mb-32">
         <div className="col-span-12 lg:col-span-2 mb-4 lg:mb-0 font-mono text-[11px] uppercase tracking-[0.18em] text-mute">
           One / Who
         </div>
-        <Reveal className="col-span-12 lg:col-span-9">
+        <div className="col-span-12 lg:col-span-9">
           <h2
             className="leading-[0.95] tracking-[-0.025em] text-ink font-medium"
             style={{ fontSize: "clamp(40px, 6vw, 96px)" }}
           >
-            If you run one of these,{" "}
-            <span className="font-serif italic font-normal text-mute-soft">
-              we should talk.
-            </span>
+            <RevealWords text="If you run one of these," />{" "}
+            <RevealWords
+              text="we should talk."
+              className="font-serif italic font-normal text-mute-soft"
+              delay={0.18}
+            />
           </h2>
-        </Reveal>
+        </div>
       </div>
 
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-line">
         {verticals.map((v, i) => (
-          <Reveal
+          <RevealBlock
             key={v.no}
             delay={i * 0.06}
             className={[
@@ -88,7 +97,7 @@ export function Who() {
                 {v.note}
               </p>
             </article>
-          </Reveal>
+          </RevealBlock>
         ))}
       </ul>
     </section>

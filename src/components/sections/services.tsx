@@ -1,7 +1,9 @@
 "use client";
 
+import { useRef } from "react";
 import Link from "next/link";
-import { Reveal } from "@/components/motion/reveal";
+import { RevealBlock, RevealWords } from "@/components/motion/reveal-words";
+import { SectionLine } from "@/components/motion/section-line";
 
 const tiers = [
   {
@@ -50,31 +52,38 @@ const tiers = [
 ];
 
 export function Services() {
+  const ref = useRef<HTMLElement>(null);
+
   return (
     <section
+      ref={ref}
       id="services"
       className="relative px-6 lg:px-12 py-24 lg:py-44 border-t border-line"
     >
+      <SectionLine targetRef={ref} />
+
       <div className="grid grid-cols-12 gap-x-6 lg:gap-x-8 mb-20 lg:mb-32">
         <div className="col-span-12 lg:col-span-2 mb-4 lg:mb-0 font-mono text-[11px] uppercase tracking-[0.18em] text-mute">
           Two / Services
         </div>
-        <Reveal className="col-span-12 lg:col-span-9">
+        <div className="col-span-12 lg:col-span-9">
           <h2
             className="leading-[0.95] tracking-[-0.025em] text-ink font-medium"
             style={{ fontSize: "clamp(40px, 6vw, 96px)" }}
           >
-            Three ways to{" "}
-            <span className="font-serif italic font-normal text-mute-soft">
-              stop losing revenue.
-            </span>
+            <RevealWords text="Three ways to" />{" "}
+            <RevealWords
+              text="stop losing revenue."
+              className="font-serif italic font-normal text-mute-soft"
+              delay={0.18}
+            />
           </h2>
-        </Reveal>
+        </div>
       </div>
 
       <ul className="space-y-12 lg:space-y-16">
         {tiers.map((t, i) => (
-          <Reveal key={t.no} delay={i * 0.05}>
+          <RevealBlock key={t.no} delay={i * 0.05}>
             <li
               className={
                 "group grid grid-cols-12 gap-x-6 lg:gap-x-8 items-start border-t pt-7 lg:pt-9 pb-7 lg:pb-9 transition-colors duration-500 " +
@@ -144,7 +153,7 @@ export function Services() {
                 </Link>
               </div>
             </li>
-          </Reveal>
+          </RevealBlock>
         ))}
       </ul>
     </section>
