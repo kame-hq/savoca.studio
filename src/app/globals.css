@@ -68,6 +68,20 @@ body::before {
   animation: grain 8s steps(6) infinite;
 }
 
+/* Mobile: lighter grain, slower animation — saves GPU + battery */
+@media (max-width: 768px) {
+  body::before {
+    opacity: 0.05;
+    animation-duration: 16s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
+}
+
 @keyframes grain {
   0%, 100% { transform: translate(0, 0); }
   10%      { transform: translate(-3%, -2%); }

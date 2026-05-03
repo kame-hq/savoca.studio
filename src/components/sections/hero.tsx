@@ -69,19 +69,19 @@ export function Hero() {
               enterprise PM who got tired of watching shops, clinics, and firms
               lose money to tools they already pay for.
             </p>
-            <div className="col-span-12 md:col-span-5 md:col-start-8 flex md:justify-end gap-8 items-end">
+            <div className="col-span-12 md:col-span-5 md:col-start-8 flex flex-col sm:flex-row md:justify-end gap-4 sm:gap-8 items-stretch sm:items-end">
               <Link
                 href="#contact"
                 className="group relative inline-flex items-center gap-3 text-[14px] text-ink font-medium"
                 data-cursor-grow
               >
-                <span className="h-12 px-7 rounded-full bg-ink text-bg inline-flex items-center transition-transform duration-300 group-hover:-translate-y-0.5">
+                <span className="h-12 px-7 rounded-full bg-ink text-bg inline-flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-0.5">
                   Book a call
                 </span>
               </Link>
               <Link
                 href="#services"
-                className="group inline-flex items-center gap-2 text-[14px] text-ink h-12"
+                className="group inline-flex items-center gap-2 text-[14px] text-ink min-h-[44px] py-3 sm:py-0 sm:h-12"
                 data-cursor-grow
               >
                 <span>See pricing</span>
