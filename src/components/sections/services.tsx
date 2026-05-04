@@ -11,13 +11,12 @@ const tiers = [
     name: "The Catcher",
     price: "249",
     cadence: "one-time",
-    pitch:
-      "Lead-capture audit. Every leak in your inbound stack found in one week.",
+    pitch: "Find where leads drop.",
     bullets: [
-      "Audit of phone, web form, and booking funnel",
-      "Map of where leads die between systems",
+      "Audit calls, forms, booking",
+      "Map where follow-up breaks",
     ],
-    cta: "Start an audit",
+    cta: "Start audit",
     icon: "/assets/services/net.svg",
   },
   {
@@ -25,11 +24,11 @@ const tiers = [
     name: "The Stack",
     price: "999",
     cadence: "one-time",
-    pitch:
-      "We wire your tools so no inbound goes unanswered. Two-week build.",
+    pitch: "Make sure every lead gets worked.",
     bullets: [
-      "Phone, CRM, calendar, follow-up sequence wired end to end",
-      "Missed-call text-back, after-hours capture",
+      "Phone → CRM → calendar → follow-up connected",
+      "Missed-call text-back",
+      "After-hours capture",
     ],
     cta: "Build my stack",
     feature: true,
@@ -40,11 +39,10 @@ const tiers = [
     name: "Operator Partner",
     price: "2,995",
     cadence: "per month",
-    pitch:
-      "I run point on RevOps every week. You stop losing money between the cracks.",
+    pitch: "I stay on it every week.",
     bullets: [
-      "Weekly review of pipeline and capture metrics",
-      "On-call for tool decisions, vendor calls, hires",
+      "Pipeline + capture metrics",
+      "On-call for tools, vendors, hires",
     ],
     cta: "Talk through fit",
     icon: "/assets/services/compass.svg",
@@ -116,7 +114,7 @@ export function Services() {
                     </span>
                   )}
                 </div>
-                <p className="mt-5 text-[15px] leading-[1.55] text-mute max-w-[46ch]">
+                <p className="mt-5 text-[16px] leading-[1.55] text-ink-soft max-w-[46ch]">
                   {t.pitch}
                 </p>
               </div>

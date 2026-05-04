@@ -19,14 +19,14 @@ export function About() {
         <div className="col-span-12 lg:col-span-2 mb-4 lg:mb-0 font-mono text-[11px] uppercase tracking-[0.18em] text-mute">
           Four / About
         </div>
-        <div className="col-span-12 lg:col-span-8">
+        <div className="col-span-12 lg:col-span-9">
           <h2
             className="leading-[0.95] tracking-[-0.025em] text-ink font-medium"
-            style={{ fontSize: "clamp(36px, 5vw, 80px)" }}
+            style={{ fontSize: "clamp(36px, 5.4vw, 88px)" }}
           >
-            <RevealWords text="Built for service businesses that run on" />{" "}
+            <RevealWords text="I fix the part where" />{" "}
             <RevealWords
-              text="calls, bookings, and follow-up."
+              text="revenue falls through."
               className="font-serif italic font-normal text-mute-soft"
               delay={0.22}
             />
@@ -35,64 +35,61 @@ export function About() {
       </div>
 
       <div className="grid grid-cols-12 gap-x-6 lg:gap-x-8 mt-16 lg:mt-32">
-        {/* Bio block */}
         <RevealBlock className="col-span-12 lg:col-span-9 lg:col-start-3" delay={0.1}>
-          <div className="space-y-6 text-[17px] leading-[1.65] text-ink-soft max-w-[60ch]">
-            <p>
-              I&apos;m Jack Savoca. I&apos;m a Program Manager at Indeed in
-              global product commercialization, where the programs I&apos;ve
-              led drove{" "}
-              <span className="text-ink font-medium">
-                $100M and $30M in incremental revenue
-              </span>{" "}
-              for two of the company&apos;s flagship products. Before Indeed,
-              I worked at Whole Foods Market and Facebook (now Meta).{" "}
-              <span className="font-serif italic text-mute">
-                Savoca Studio is the side of my work I run on my own — RevOps
-                for service businesses that lose money between the cracks.
-              </span>
-            </p>
-            <p>
-              Most service businesses already pay for every tool they need.
-              Phone, CRM, booking page, follow-up, payments. None of them talk
-              to each other. Calls get missed. Forms go unanswered. Bookings
-              never confirm. Money walks out before the front desk notices.
-            </p>
-            <p>
-              I audit your stack, install the wiring, and watch the metrics for
-              thirty days. Then I send a weekly report that names every
-              recovered call, every booked appointment, every payment
-              collected. No agency, no junior account manager, no 90-day
-              onboarding. You get me, on the line.
-            </p>
-          </div>
+          <div className="space-y-12 lg:space-y-14 max-w-[60ch]">
+            {/* Bio block */}
+            <div className="space-y-4 text-[17px] leading-[1.55] text-ink-soft">
+              <p className="text-ink font-medium">
+                Global Product Commercialization Program Manager.
+              </p>
+              <p>
+                Built my career at{" "}
+                <span className="text-ink">Whole Foods Market</span> and{" "}
+                <span className="text-ink">Meta</span> connecting people,
+                processes, platforms, and products to drive revenue.
+              </p>
+            </div>
 
-          {/* Credit row — moved here */}
-          <div className="mt-12 pt-6 border-t border-line grid grid-cols-2 gap-x-6">
-            <div>
-              <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute mb-2">
-                The operator
+            {/* Diagnosis block */}
+            <div className="space-y-3 text-[17px] leading-[1.55] text-ink-soft">
+              <p>Most service businesses already have what they need.</p>
+              <p className="font-serif italic text-mute">
+                Phone. CRM. Booking. Payments.
+              </p>
+              <p>They just don&apos;t work together.</p>
+              <p className="text-mute">Calls get missed.</p>
+              <p className="text-mute">Forms sit.</p>
+              <p className="text-mute">Bookings don&apos;t confirm.</p>
+            </div>
+
+            {/* Process block */}
+            <div className="grid grid-cols-2 gap-x-6 lg:gap-x-12 gap-y-10">
+              <div>
+                <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute mb-4">
+                  I:
+                </div>
+                <ul className="space-y-2.5 text-[16px] text-ink leading-[1.45]">
+                  <li>Audit what&apos;s happening</li>
+                  <li>Fix the system</li>
+                  <li>Track what changes</li>
+                </ul>
               </div>
-              <div className="text-[14px] text-ink leading-[1.5]">
-                Jack Savoca
-              </div>
-              <div className="text-[14px] text-mute leading-[1.5]">
-                Solo, by design
+              <div>
+                <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute mb-4">
+                  For 30 days, you&apos;ll see:
+                </div>
+                <ul className="space-y-2.5 text-[16px] text-ink leading-[1.45]">
+                  <li>Calls recovered</li>
+                  <li>Appointments booked</li>
+                  <li>Payments captured</li>
+                </ul>
               </div>
             </div>
-            <div>
-              <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute mb-2">
-                Track record
-              </div>
-              <div className="text-[14px] text-ink leading-[1.5]">
-                Indeed
-                <span className="text-mute"> — current</span>
-              </div>
-              <div className="text-[14px] text-mute leading-[1.5]">
-                Whole Foods Market
-                <br />
-                Facebook (now Meta)
-              </div>
+
+            {/* Closing line */}
+            <div className="space-y-1 text-[18px] leading-[1.4]">
+              <p className="text-ink font-medium">No agency. No handoffs.</p>
+              <p className="font-serif italic text-mute">You work with me.</p>
             </div>
           </div>
         </RevealBlock>

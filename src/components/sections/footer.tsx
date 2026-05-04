@@ -12,8 +12,9 @@ export function Footer() {
               Studio.
             </span>
           </div>
-          <div className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-mute max-w-[40ch]">
-            RevOps for service businesses. Solo, by design.
+          <div className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-mute max-w-[40ch] space-y-1">
+            <div>RevOps for service businesses</div>
+            <div>Solo, by design</div>
           </div>
         </div>
 

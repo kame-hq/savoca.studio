@@ -8,25 +8,41 @@ const verticals = [
   {
     no: "01",
     name: "Medspas.",
-    note: "Bookings, deposits, rebooks. Each step in the funnel loses near 15%.",
+    lines: [
+      "Forms convert higher than calls.",
+      "But no deposit. No follow-up.",
+      "They browse. They leave. They book somewhere else.",
+    ],
     icon: "/assets/who/syringe.svg",
   },
   {
     no: "02",
     name: "Dental.",
-    note: "New-patient calls dropped, no callback. Insurance verification eats a day.",
+    lines: [
+      "Up to 40% of calls go unanswered.",
+      "No callback. No recovery.",
+      "That patient is gone.",
+    ],
     icon: "/assets/who/tooth.svg",
   },
   {
     no: "03",
     name: "Home services.",
-    note: "After-hours calls, dispatcher SLAs, follow-up on quoted work, second-visit revenue.",
+    lines: [
+      "Most demand hits after hours.",
+      "You're closed when the phone rings.",
+      "First company to respond wins the job.",
+    ],
     icon: "/assets/who/wrench.svg",
   },
   {
     no: "04",
     name: "Pro services.",
-    note: "Legal, fitness, accounting, consulting. Five-minute reply window — most miss it by an hour.",
+    lines: [
+      "Speed decides everything.",
+      "Inside 5 minutes: 21× more likely to convert.",
+      "After 30: you're a backup option.",
+    ],
     icon: "/assets/notes/clipboard.svg",
   },
 ];
@@ -51,9 +67,9 @@ export function Who() {
             className="leading-[0.95] tracking-[-0.025em] text-ink font-medium"
             style={{ fontSize: "clamp(40px, 6vw, 96px)" }}
           >
-            <RevealWords text="If you run one of these," />{" "}
+            <RevealWords text="Your funnel isn't broken." />{" "}
             <RevealWords
-              text="we should talk."
+              text="Your follow-through is."
               className="font-serif italic font-normal text-mute-soft"
               delay={0.18}
             />
@@ -93,9 +109,11 @@ export function Who() {
               >
                 {v.name}
               </h3>
-              <p className="mt-6 font-serif italic text-[15px] leading-[1.55] text-mute max-w-[28ch]">
-                {v.note}
-              </p>
+              <div className="mt-6 space-y-2 font-serif italic text-[15px] leading-[1.5] text-mute max-w-[30ch]">
+                {v.lines.map((line, j) => (
+                  <p key={j}>{line}</p>
+                ))}
+              </div>
             </article>
           </RevealBlock>
         ))}

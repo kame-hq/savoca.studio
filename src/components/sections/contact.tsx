@@ -24,7 +24,7 @@ export function Contact() {
         },
         body: JSON.stringify({
           email,
-          _subject: "New medspa audit request — savoca.studio",
+          _subject: "New audit request — savoca.studio",
           _template: "table",
           _captcha: "false",
         }),
@@ -48,25 +48,25 @@ export function Contact() {
 
       <div className="grid grid-cols-12 gap-x-6 lg:gap-x-8">
         <div className="col-span-12 lg:col-span-2 mb-4 lg:mb-0 font-mono text-[11px] uppercase tracking-[0.18em] text-mute">
-          Five / Contact
+          Five / Close
         </div>
         <div className="col-span-12 lg:col-span-9">
           <h2
-            className="leading-[0.9] tracking-[-0.04em] text-ink font-medium"
-            style={{ fontSize: "clamp(56px, 10vw, 184px)" }}
+            className="leading-[0.92] tracking-[-0.035em] text-ink font-medium"
+            style={{ fontSize: "clamp(44px, 7.5vw, 132px)" }}
           >
-            <RevealWords text="Stop losing money" />{" "}
+            <RevealWords text="If leads aren't turning into revenue," />{" "}
             <RevealWords
-              text="between the cracks."
-              className="font-serif italic font-normal tracking-[-0.045em] text-ink-soft"
-              delay={0.2}
+              text="something's not getting done."
+              className="font-serif italic font-normal tracking-[-0.04em] text-ink-soft"
+              delay={0.25}
             />
           </h2>
 
           <RevealBlock delay={0.4}>
-            <p className="mt-20 lg:mt-32 text-[14px] text-mute max-w-[44ch] leading-[1.55]">
-              No discovery deck. Thirty-minute call, plain talk. If we&apos;re
-              not a fit, I&apos;ll tell you who is.
+            <p className="mt-16 lg:mt-24 text-[14px] text-mute max-w-[44ch] leading-[1.55]">
+              30 minutes. Straight answers. If it&apos;s not a fit, I&apos;ll
+              tell you.
             </p>
           </RevealBlock>
 
@@ -80,7 +80,7 @@ export function Contact() {
                   <input
                     type="email"
                     required
-                    placeholder="you@yourclinic.com"
+                    placeholder="you@yourbusiness.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     disabled={status === "submitting"}
