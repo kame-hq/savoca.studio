@@ -26,7 +26,7 @@
   --color-background: var(--bg);
   --color-foreground: var(--ink);
 
-  --font-sans: "Switzer", system-ui, -apple-system, sans-serif;
+  --font-sans: "Satoshi", system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-geist-mono);
   --font-serif: "Boska", Georgia, serif;
 }
@@ -34,7 +34,7 @@
 html {
   background: var(--bg);
   color: var(--ink);
-  font-family: "Switzer", system-ui, -apple-system, sans-serif;
+  font-family: "Satoshi", system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -42,7 +42,7 @@ html {
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: "Switzer", system-ui, -apple-system, sans-serif;
+  font-family: "Satoshi", system-ui, -apple-system, sans-serif;
   position: relative;
   overflow-x: hidden;
   cursor: none;
