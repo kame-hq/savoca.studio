@@ -35,6 +35,22 @@ export function About() {
       </div>
 
       <div className="grid grid-cols-12 gap-x-6 lg:gap-x-8 mt-16 lg:mt-32">
+        {/* Portrait — left rail under eyebrow */}
+        <RevealBlock className="col-span-6 md:col-span-4 lg:col-span-2 mb-12 lg:mb-0" delay={0.05}>
+          <figure className="relative aspect-square overflow-hidden bg-bg-alt">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/about/jack.jpg"
+              alt="Jack Savoca"
+              className="w-full h-full object-cover grayscale contrast-[1.05] mix-blend-multiply"
+            />
+            <figcaption className="sr-only">Jack Savoca, founder of Savoca Studio</figcaption>
+          </figure>
+          <div className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-mute tabular">
+            Jack Savoca · 2026
+          </div>
+        </RevealBlock>
+
         <RevealBlock className="col-span-12 lg:col-span-9 lg:col-start-3" delay={0.1}>
           <div className="space-y-12 lg:space-y-14 max-w-[60ch]">
             {/* Bio block */}
