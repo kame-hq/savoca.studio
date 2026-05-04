@@ -44,6 +44,7 @@ export function About() {
                 <span className="text-ink font-medium">
                   global product commercialization program manager
                 </span>{" "}
+                at <span className="text-ink font-medium">Indeed</span>,
                 focused on{" "}
                 <span className="font-serif italic text-ink">
                   go-to-market strategy and execution.
