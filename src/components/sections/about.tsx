@@ -38,7 +38,7 @@ export function About() {
         <RevealBlock className="col-span-12 lg:col-span-9 lg:col-start-3" delay={0.1}>
           <div className="space-y-12 lg:space-y-14 max-w-[60ch]">
             {/* Bio block */}
-            <div className="text-[17px] leading-[1.55] text-ink-soft">
+            <div className="space-y-4 text-[17px] leading-[1.55] text-ink-soft">
               <p>
                 I&apos;m a{" "}
                 <span className="text-ink font-medium">
@@ -49,6 +49,11 @@ export function About() {
                 <span className="font-serif italic text-ink">
                   go-to-market strategy and execution.
                 </span>
+              </p>
+              <p className="text-mute">
+                Previously at{" "}
+                <span className="text-ink-soft">Whole Foods Market</span> and{" "}
+                <span className="text-ink-soft">Facebook (now Meta)</span>.
               </p>
             </div>
 
