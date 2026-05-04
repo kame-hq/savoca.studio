@@ -26,15 +26,15 @@
   --color-background: var(--bg);
   --color-foreground: var(--ink);
 
-  --font-sans: var(--font-geist-sans);
+  --font-sans: "Switzer", system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-geist-mono);
-  --font-serif: var(--font-instrument-serif);
+  --font-serif: "Boska", Georgia, serif;
 }
 
 html {
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  font-family: "Switzer", system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -42,10 +42,9 @@ html {
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  font-family: "Switzer", system-ui, -apple-system, sans-serif;
   position: relative;
   overflow-x: hidden;
-  font-feature-settings: "ss01", "cv11";
   cursor: none;
 }
 
@@ -109,7 +108,7 @@ body::before {
 }
 
 .font-serif {
-  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-family: "Boska", Georgia, serif;
 }
 
 /* Custom cursor — ink dot + outline ring */
