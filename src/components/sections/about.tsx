@@ -38,15 +38,16 @@ export function About() {
         <RevealBlock className="col-span-12 lg:col-span-9 lg:col-start-3" delay={0.1}>
           <div className="space-y-12 lg:space-y-14 max-w-[60ch]">
             {/* Bio block */}
-            <div className="space-y-4 text-[17px] leading-[1.55] text-ink-soft">
-              <p className="text-ink font-medium">
-                Global Product Commercialization Program Manager.
-              </p>
+            <div className="text-[17px] leading-[1.55] text-ink-soft">
               <p>
-                Built my career at{" "}
-                <span className="text-ink">Whole Foods Market</span> and{" "}
-                <span className="text-ink">Meta</span> connecting people,
-                processes, platforms, and products to drive revenue.
+                I&apos;m a{" "}
+                <span className="text-ink font-medium">
+                  global product commercialization program manager
+                </span>{" "}
+                focused on{" "}
+                <span className="font-serif italic text-ink">
+                  go-to-market strategy and execution.
+                </span>
               </p>
             </div>
 
