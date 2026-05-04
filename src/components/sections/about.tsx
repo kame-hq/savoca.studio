@@ -92,6 +92,35 @@ export function About() {
               <p className="font-serif italic text-mute">You work with me.</p>
             </div>
           </div>
+
+          {/* Credit row */}
+          <div className="mt-12 pt-6 border-t border-line grid grid-cols-2 gap-x-6 max-w-[60ch]">
+            <div>
+              <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute mb-2">
+                The operator
+              </div>
+              <div className="text-[14px] text-ink leading-[1.5]">
+                Jack Savoca
+              </div>
+              <div className="text-[14px] text-mute leading-[1.5]">
+                Solo, by design
+              </div>
+            </div>
+            <div>
+              <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute mb-2">
+                Track record
+              </div>
+              <div className="text-[14px] text-ink leading-[1.5]">
+                Indeed
+                <span className="text-mute"> — current</span>
+              </div>
+              <div className="text-[14px] text-mute leading-[1.5]">
+                Whole Foods Market
+                <br />
+                Facebook (now Meta)
+              </div>
+            </div>
+          </div>
         </RevealBlock>
       </div>
     </section>

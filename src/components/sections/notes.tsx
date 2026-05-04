@@ -40,18 +40,22 @@ export function Notes() {
         </div>
       </div>
 
-      <ol className="grid grid-cols-12 gap-x-6 lg:gap-x-8">
+      <ul className="grid grid-cols-12 gap-x-6 lg:gap-x-8">
         {proof.map((line, i) => (
           <RevealBlock
             key={line}
             delay={i * 0.08}
             className="col-span-12 lg:col-span-9 lg:col-start-3 border-t border-line py-8 lg:py-10 flex items-start gap-6 lg:gap-10"
           >
-            <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-stamp pt-2 tabular shrink-0 w-10">
-              {String(i + 1).padStart(2, "0")}
+            <span
+              aria-hidden
+              className="shrink-0 mt-[0.85em] lg:mt-[1.1em] flex items-center gap-2"
+            >
+              <span className="block w-1.5 h-1.5 rounded-full bg-stamp" />
+              <span className="block w-8 h-px bg-stamp/60" />
             </span>
             <p
-              className="leading-[1.05] tracking-[-0.02em] text-ink font-medium"
+              className="leading-[1.1] tracking-[-0.02em] text-ink font-medium"
               style={{ fontSize: "clamp(22px, 2.8vw, 40px)" }}
             >
               {line}
@@ -69,7 +73,7 @@ export function Notes() {
             If you&apos;re slow or inconsistent, you lose.
           </p>
         </RevealBlock>
-      </ol>
+      </ul>
     </section>
   );
 }
