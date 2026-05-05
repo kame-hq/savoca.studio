@@ -11,7 +11,7 @@ const tiers = [
     name: "The Catcher",
     price: "249",
     cadence: "one-time",
-    pitch: "Find where leads drop.",
+    pitch: "An audit, not a pitch. We find the money walking out the door — calls, forms, follow-ups — and hand you the receipts.",
     features: [
       "Lead-capture audit",
       "Map of follow-up gaps",
@@ -25,7 +25,7 @@ const tiers = [
     name: "The Stacker",
     price: "999",
     cadence: "one-time",
-    pitch: "Make sure every lead gets worked.",
+    pitch: "Your phone, CRM, and calendar — finally on speaking terms. Two weeks to wired, plus the missed-call text-back you keep meaning to set up.",
     features: [
       "Lead-capture audit",
       "Map of follow-up gaps",
@@ -42,7 +42,7 @@ const tiers = [
     name: "The Operator",
     price: "2,995",
     cadence: "per month",
-    pitch: "I stay on it every week.",
+    pitch: "Your weekly RevOps, on retainer. No agency, no junior account manager, no 90-day onboarding — just me, looking at your numbers every week.",
     features: [
       "Everything in The Stacker",
       "Weekly pipeline review",
