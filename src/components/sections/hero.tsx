@@ -103,7 +103,14 @@ function RevealLine({
   delay: number;
 }) {
   return (
-    <span className="block overflow-hidden pb-[0.05em]">
+    <span
+      className="block overflow-hidden"
+      style={{
+        paddingTop: "0.05em",
+        paddingBottom: "0.28em",
+        marginBottom: "-0.28em",
+      }}
+    >
       <motion.span
         initial={{ y: "110%" }}
         animate={{ y: 0 }}

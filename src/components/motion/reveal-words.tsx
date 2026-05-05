@@ -40,8 +40,13 @@ export function RevealWords({
       {words.map((word, i) => (
         <span
           key={`${word}-${i}`}
-          className="inline-block overflow-hidden align-baseline pb-[0.08em]"
-          style={{ verticalAlign: "baseline" }}
+          className="inline-block overflow-hidden align-baseline"
+          style={{
+            verticalAlign: "baseline",
+            paddingTop: "0.05em",
+            paddingBottom: "0.28em",
+            marginBottom: "-0.28em",
+          }}
         >
           <motion.span
             className="inline-block"
