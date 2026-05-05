@@ -11,7 +11,13 @@ const tiers = [
     name: "The Catcher",
     price: "249",
     cadence: "one-time",
+    pitch: "Find where leads drop.",
+    features: [
+      "Lead-capture audit",
+      "Map of follow-up gaps",
+    ],
     cta: "Start audit",
+    icon: "/assets/services/net.svg",
     feature: false,
   },
   {
@@ -19,7 +25,16 @@ const tiers = [
     name: "The Stacker",
     price: "999",
     cadence: "one-time",
+    pitch: "Make sure every lead gets worked.",
+    features: [
+      "Lead-capture audit",
+      "Map of follow-up gaps",
+      "Phone → CRM → calendar wired",
+      "Missed-call text-back",
+      "After-hours capture",
+    ],
     cta: "Build with Stacker",
+    icon: "/assets/services/stack.svg",
     feature: true,
   },
   {
@@ -27,19 +42,16 @@ const tiers = [
     name: "The Operator",
     price: "2,995",
     cadence: "per month",
+    pitch: "I stay on it every week.",
+    features: [
+      "Everything in The Stacker",
+      "Weekly pipeline review",
+      "On-call: tools, vendors, hires",
+    ],
     cta: "Talk through fit",
+    icon: "/assets/services/compass.svg",
     feature: false,
   },
-];
-
-const features: { label: string; tiers: [boolean, boolean, boolean] }[] = [
-  { label: "Lead-capture audit", tiers: [true, true, true] },
-  { label: "Map of follow-up gaps", tiers: [true, true, true] },
-  { label: "Phone → CRM → calendar wired", tiers: [false, true, true] },
-  { label: "Missed-call text-back", tiers: [false, true, true] },
-  { label: "After-hours capture", tiers: [false, true, true] },
-  { label: "Weekly pipeline review", tiers: [false, false, true] },
-  { label: "On-call: tools, vendors, hires", tiers: [false, false, true] },
 ];
 
 export function Services() {
@@ -72,159 +84,90 @@ export function Services() {
         </div>
       </div>
 
-      {/* DESKTOP TABLE — 4-col grid, hairline rules, no cell boxes */}
-      <RevealBlock className="hidden lg:block" delay={0.05}>
-        <div className="grid grid-cols-12 gap-x-8 border-t border-ink pt-8">
-          {/* Header row */}
-          <div className="col-span-3" />
-          {tiers.map((t) => (
-            <div key={t.no} className="col-span-3 relative">
-              {t.feature && (
-                <span className="block font-mono text-[10px] uppercase tracking-[0.22em] text-stamp mb-2">
-                  Most picked
-                </span>
-              )}
-              <h3
-                className="leading-[1] tracking-[-0.025em] text-ink font-medium"
-                style={{ fontSize: "clamp(28px, 2.6vw, 40px)" }}
-              >
-                <span className="font-serif italic">{t.name}</span>
-              </h3>
-              <div className="mt-4 flex items-baseline gap-1">
-                <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute pb-1">
-                  $
-                </span>
-                <span
-                  className="text-ink font-medium tracking-[-0.03em] tabular leading-[1] font-serif"
-                  style={{ fontSize: "clamp(36px, 3.6vw, 56px)" }}
-                >
-                  {t.price}
-                </span>
-              </div>
-              <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute mt-1">
-                {t.cadence}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Feature rows */}
-        <ul className="mt-10 grid grid-cols-12 gap-x-8 border-t border-line">
-          {features.map((f) => (
+      <ul className="space-y-10 lg:space-y-14">
+        {tiers.map((t, i) => (
+          <RevealBlock key={t.no} delay={i * 0.06}>
             <li
-              key={f.label}
-              className="col-span-12 grid grid-cols-12 gap-x-8 py-4 border-b border-line items-center"
+              className={
+                "group grid grid-cols-12 gap-x-6 lg:gap-x-8 items-start border-t pt-7 lg:pt-10 pb-7 lg:pb-10 transition-colors duration-500 " +
+                (t.feature ? "border-ink" : "border-line hover:border-ink")
+              }
             >
-              <div className="col-span-3 text-[15px] text-ink-soft leading-[1.4]">
-                {f.label}
+              {/* Left rail: number + icon */}
+              <div className="col-span-3 md:col-span-1 flex flex-col items-start gap-3 pt-2">
+                <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute tabular">
+                  {t.no}
+                </span>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={t.icon}
+                  alt=""
+                  aria-hidden
+                  className="w-14 h-14 lg:w-20 lg:h-20"
+                />
               </div>
-              {f.tiers.map((included, i) => (
-                <div
-                  key={i}
-                  className={
-                    "col-span-3 flex items-center " +
-                    (tiers[i].feature ? "" : "")
-                  }
-                >
-                  {included ? (
-                    <span aria-label="Included" className="flex items-center gap-2">
-                      <span className="block w-1.5 h-1.5 rounded-full bg-stamp" />
-                      <span className="block w-6 h-px bg-stamp/60" />
-                    </span>
-                  ) : (
-                    <span aria-label="Not included" className="text-mute-soft text-[18px] leading-none">
-                      —
+
+              {/* Middle: name + pitch */}
+              <div className="col-span-9 md:col-span-5">
+                <div className="flex items-baseline gap-3 flex-wrap">
+                  <h3
+                    className="leading-[0.98] tracking-[-0.025em] text-ink font-medium"
+                    style={{ fontSize: "clamp(36px, 4.4vw, 64px)" }}
+                  >
+                    <span className="font-serif italic">{t.name}</span>
+                  </h3>
+                  {t.feature && (
+                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-stamp">
+                      Most picked
                     </span>
                   )}
                 </div>
-              ))}
-            </li>
-          ))}
-        </ul>
-
-        {/* CTA row */}
-        <div className="mt-8 grid grid-cols-12 gap-x-8">
-          <div className="col-span-3" />
-          {tiers.map((t) => (
-            <div key={t.no} className="col-span-3">
-              <Link
-                href="#contact"
-                className="group inline-flex items-center gap-2 text-[14px] text-ink font-medium"
-                data-cursor-grow
-              >
-                <span>{t.cta}</span>
-                <span className="block w-5 h-px bg-stamp transition-all duration-500 group-hover:w-12" />
-              </Link>
-            </div>
-          ))}
-        </div>
-      </RevealBlock>
-
-      {/* MOBILE — stacked tier cards with included features only */}
-      <ul className="lg:hidden space-y-10 border-t border-ink pt-8">
-        {tiers.map((t, ti) => (
-          <RevealBlock key={t.no} delay={ti * 0.06}>
-            <li
-              className={
-                "border-t pt-6 " +
-                (t.feature ? "border-ink" : "border-line")
-              }
-            >
-              {t.feature && (
-                <span className="block font-mono text-[10px] uppercase tracking-[0.22em] text-stamp mb-2">
-                  Most picked
-                </span>
-              )}
-              <div className="flex items-end justify-between gap-4 flex-wrap">
-                <h3
-                  className="leading-[1] tracking-[-0.025em] text-ink font-medium"
-                  style={{ fontSize: "clamp(30px, 8vw, 44px)" }}
-                >
-                  <span className="font-serif italic">{t.name}</span>
-                </h3>
-                <div className="text-right">
-                  <div className="flex items-baseline justify-end gap-1">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-mute pb-1">
-                      $
-                    </span>
-                    <span
-                      className="text-ink font-medium tracking-[-0.03em] tabular leading-[1] font-serif"
-                      style={{ fontSize: "clamp(34px, 9vw, 52px)" }}
-                    >
-                      {t.price}
-                    </span>
-                  </div>
-                  <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-mute mt-1">
-                    {t.cadence}
-                  </div>
-                </div>
+                <p className="mt-4 text-[16px] leading-[1.5] text-ink-soft max-w-[46ch]">
+                  {t.pitch}
+                </p>
               </div>
 
-              <ul className="mt-6 space-y-2.5 text-[14px] text-ink-soft leading-[1.45]">
-                {features
-                  .filter((f) => f.tiers[ti])
-                  .map((f) => (
-                    <li key={f.label} className="flex items-start gap-3">
-                      <span
-                        aria-hidden
-                        className="flex items-center gap-1.5 shrink-0 mt-2"
-                      >
-                        <span className="block w-1.5 h-1.5 rounded-full bg-stamp" />
-                        <span className="block w-4 h-px bg-stamp/60" />
-                      </span>
-                      <span>{f.label}</span>
-                    </li>
-                  ))}
+              {/* Features list */}
+              <ul className="col-span-12 md:col-span-4 mt-6 md:mt-3 space-y-2.5 text-[14px] text-ink/90 leading-[1.5]">
+                {t.features.map((f) => (
+                  <li key={f} className="flex items-start gap-3">
+                    <span
+                      aria-hidden
+                      className="flex items-center gap-1.5 shrink-0 mt-2"
+                    >
+                      <span className="block w-1.5 h-1.5 rounded-full bg-stamp" />
+                      <span className="block w-4 h-px bg-stamp/60" />
+                    </span>
+                    <span>{f}</span>
+                  </li>
+                ))}
               </ul>
 
-              <Link
-                href="#contact"
-                className="mt-7 inline-flex items-center gap-2 text-[14px] text-ink font-medium group/cta"
-                data-cursor-grow
-              >
-                <span>{t.cta}</span>
-                <span className="block w-5 h-px bg-stamp transition-all duration-500 group-hover/cta:w-12" />
-              </Link>
+              {/* Right: price + CTA */}
+              <div className="col-span-12 md:col-span-2 mt-8 md:mt-0 md:text-right">
+                <div className="flex items-baseline md:justify-end gap-1">
+                  <span className="font-mono text-[12px] uppercase tracking-[0.18em] text-mute pb-1.5">
+                    $
+                  </span>
+                  <span
+                    className="text-ink font-medium tracking-[-0.03em] tabular leading-[1] font-serif"
+                    style={{ fontSize: "clamp(48px, 5vw, 72px)" }}
+                  >
+                    {t.price}
+                  </span>
+                </div>
+                <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute mt-2">
+                  {t.cadence}
+                </div>
+                <Link
+                  href="#contact"
+                  className="mt-7 inline-flex items-center gap-2 text-[13px] text-ink font-medium group/cta"
+                  data-cursor-grow
+                >
+                  <span>{t.cta}</span>
+                  <span className="block w-5 h-px bg-stamp transition-all duration-500 group-hover/cta:w-12" />
+                </Link>
+              </div>
             </li>
           </RevealBlock>
         ))}
