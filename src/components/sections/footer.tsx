@@ -23,9 +23,9 @@ export function Footer() {
             Services
           </h4>
           <ul className="space-y-2.5 text-[14px] text-ink">
-            <li><a href="#services" className="hover:text-mute transition-colors">Catcher</a></li>
-            <li><a href="#services" className="hover:text-mute transition-colors">Stack</a></li>
-            <li><a href="#services" className="hover:text-mute transition-colors">Operator Partner</a></li>
+            <li><a href="#services" className="hover:text-mute transition-colors">The Catcher</a></li>
+            <li><a href="#services" className="hover:text-mute transition-colors">The Stacker</a></li>
+            <li><a href="#services" className="hover:text-mute transition-colors">The Operator</a></li>
           </ul>
         </div>
 

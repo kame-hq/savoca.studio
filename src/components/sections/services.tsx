@@ -16,15 +16,15 @@ const tiers = [
   },
   {
     no: "02",
-    name: "The Stack",
+    name: "The Stacker",
     price: "999",
     cadence: "one-time",
-    cta: "Build my stack",
+    cta: "Build with Stacker",
     feature: true,
   },
   {
     no: "03",
-    name: "Operator Partner",
+    name: "The Operator",
     price: "2,995",
     cadence: "per month",
     cta: "Talk through fit",
