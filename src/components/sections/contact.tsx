@@ -39,7 +39,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="grain relative px-6 md:px-10 lg:px-12 pt-20 lg:pt-28 pb-24 lg:pb-32"
+      className="grain px-6 md:px-10 lg:px-12 pt-20 lg:pt-28 pb-12 lg:pb-16"
       style={{ background: "var(--ink)", color: "var(--bone)" }}
     >
       <Eyebrow color="var(--steel-2)" dotColor="var(--signal)">
@@ -53,6 +53,7 @@ export function Contact() {
           lineHeight: 0.92,
           letterSpacing: "-0.035em",
           fontWeight: 400,
+          fontVariationSettings: '"opsz" 144',
         }}
       >
         If leads aren&apos;t turning into revenue,
@@ -73,7 +74,7 @@ export function Contact() {
       <div className="mt-8 flex flex-wrap items-center gap-3.5">
         <a
           href="#book"
-          className="font-mono transition-opacity hover:opacity-90"
+          className="cta-fill font-mono"
           style={{
             background: "var(--bone)",
             color: "var(--ink)",
@@ -88,7 +89,7 @@ export function Contact() {
         </a>
         <a
           href="mailto:jack@savoca.studio"
-          className="font-mono transition-colors"
+          className="cta-fill font-mono"
           style={{
             border: "1.5px solid var(--bone)",
             color: "var(--bone)",
@@ -103,7 +104,6 @@ export function Contact() {
         </a>
       </div>
 
-      {/* Inline email-capture form (kept from v1, restyled for dark) */}
       <form
         onSubmit={handleSubmit}
         className="mt-8 max-w-[680px] relative"
@@ -124,13 +124,17 @@ export function Contact() {
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="font-mono absolute right-0 top-1/2 -translate-y-1/2 inline-flex items-center gap-2 disabled:opacity-60"
+              className="cta-line font-mono absolute right-0 top-1/2 -translate-y-1/2 inline-flex items-center gap-2 disabled:opacity-60"
               style={{
                 fontSize: 11,
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
                 color: "var(--bone)",
                 fontWeight: 500,
+                background: "transparent",
+                border: 0,
+                padding: 0,
+                cursor: "pointer",
               }}
             >
               <span>{status === "submitting" ? "Sending" : "Or send →"}</span>
@@ -155,15 +159,17 @@ export function Contact() {
         </p>
       )}
 
-      {/* Footer row pinned to bottom */}
+      {/* Footer row — relative flex flow at end of section (not absolute).
+          Fixes mobile breakage at low heights. */}
       <div
-        className="absolute bottom-9 left-6 md:left-10 lg:left-12 right-6 md:right-10 lg:right-12 flex items-center justify-between font-mono pt-3.5"
+        className="mt-16 flex items-center justify-between font-mono pt-3.5"
         style={{
           borderTop: "1px solid rgba(245,242,236,0.25)",
           fontSize: 10,
           letterSpacing: "0.16em",
           textTransform: "uppercase",
           color: "var(--bone-2)",
+          fontWeight: 500,
         }}
       >
         <span>Savoca Studio · 2026</span>

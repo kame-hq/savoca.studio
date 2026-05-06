@@ -63,6 +63,7 @@ export function Services() {
           lineHeight: 0.95,
           letterSpacing: "-0.035em",
           fontWeight: 400,
+          fontVariationSettings: '"opsz" 96',
         }}
       >
         Three ways to stop
@@ -79,7 +80,10 @@ export function Services() {
           return (
             <li
               key={t.n}
-              className="relative flex flex-col p-5 lg:p-[22px]"
+              className={
+                "glyph-host relative flex flex-col p-5 lg:p-[22px] " +
+                (featured ? "tier-featured" : "")
+              }
               style={{
                 border: "1px solid var(--rule)",
                 background: cardBg,
@@ -117,7 +121,9 @@ export function Services() {
                 >
                   No. {t.n}
                 </span>
-                <Glyph name={t.icon} size={32} color={cardFg} />
+                <span className="glyph-svg">
+                  <Glyph name={t.icon} size={32} color={cardFg} />
+                </span>
               </div>
 
               <h3
@@ -128,6 +134,7 @@ export function Services() {
                   letterSpacing: "-0.035em",
                   marginTop: 26,
                   fontWeight: 400,
+                  fontVariationSettings: '"opsz" 96',
                 }}
               >
                 {t.name}
@@ -174,6 +181,7 @@ export function Services() {
                     letterSpacing: "-0.035em",
                     color: featured ? "var(--bone)" : "var(--money)",
                     fontWeight: 400,
+                    fontVariationSettings: '"opsz" 72',
                   }}
                 >
                   {t.price}
@@ -194,7 +202,7 @@ export function Services() {
 
               <Link
                 href="#contact"
-                className="font-mono mt-4 text-center transition-colors"
+                className="cta-fill font-mono mt-4 text-center"
                 style={{
                   padding: "12px 14px",
                   fontSize: 11,

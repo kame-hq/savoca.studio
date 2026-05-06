@@ -23,6 +23,7 @@ export function Notes() {
           lineHeight: 0.95,
           letterSpacing: "-0.035em",
           fontWeight: 400,
+          fontVariationSettings: '"opsz" 96',
         }}
       >
         What actually
@@ -37,24 +38,33 @@ export function Notes() {
         {proof.map((line, i) => (
           <li
             key={line}
-            className="flex items-start gap-5 lg:gap-8 py-5 lg:py-6"
+            className="flex items-baseline gap-4 lg:gap-8 py-5 lg:py-6"
             style={{ borderTop: i === 0 ? "0" : "1px solid var(--rule)" }}
           >
-            <span aria-hidden className="shrink-0 mt-3 flex items-center gap-1.5">
-              <span
-                className="block w-1.5 h-1.5 rounded-full"
-                style={{ background: "var(--signal)" }}
-              />
-              <span className="block w-7 h-px" style={{ background: "var(--rule)" }} />
+            {/* Tabular tick prefix — editorial weight */}
+            <span
+              className="font-mono tabular shrink-0"
+              style={{
+                fontSize: 11,
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: "var(--signal)",
+                fontWeight: 500,
+                paddingTop: 6,
+                width: 24,
+              }}
+            >
+              {String(i + 1).padStart(2, "0")}
             </span>
             <p
-              className="font-serif"
+              className="font-serif flex-1"
               style={{
                 fontSize: "clamp(22px, 3vw, 36px)",
                 lineHeight: 1.1,
                 letterSpacing: "-0.025em",
                 fontWeight: 400,
                 color: "var(--ink)",
+                fontVariationSettings: '"opsz" 96',
               }}
             >
               {line}
@@ -62,17 +72,39 @@ export function Notes() {
           </li>
         ))}
         <li
-          className="font-serif italic mt-2 pt-6 list-none"
+          className="font-serif italic mt-2 pt-6 list-none flex items-baseline gap-4 lg:gap-8"
           style={{
             borderTop: "2px solid var(--ink)",
-            fontSize: "clamp(22px, 3vw, 36px)",
-            lineHeight: 1.1,
-            letterSpacing: "-0.025em",
-            color: "var(--ink-2)",
-            fontWeight: 400,
           }}
         >
-          If you&apos;re slow or inconsistent, you lose.
+          <span
+            className="font-mono tabular shrink-0"
+            style={{
+              fontSize: 11,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "var(--signal)",
+              fontWeight: 500,
+              fontStyle: "normal",
+              paddingTop: 6,
+              width: 24,
+            }}
+          >
+            §
+          </span>
+          <span
+            className="flex-1"
+            style={{
+              fontSize: "clamp(22px, 3vw, 36px)",
+              lineHeight: 1.1,
+              letterSpacing: "-0.025em",
+              color: "var(--ink-2)",
+              fontWeight: 400,
+              fontVariationSettings: '"opsz" 96',
+            }}
+          >
+            If you&apos;re slow or inconsistent, you lose.
+          </span>
         </li>
       </ol>
     </section>

@@ -60,6 +60,7 @@ export function Who() {
           lineHeight: 0.95,
           letterSpacing: "-0.035em",
           fontWeight: 400,
+          fontVariationSettings: '"opsz" 96',
         }}
       >
         Your funnel isn&apos;t broken.
@@ -74,7 +75,7 @@ export function Who() {
         {rows.map((r, i) => (
           <li
             key={r.n}
-            className="grid items-center py-5 lg:py-6 grid-cols-[42px_42px_1fr] md:grid-cols-[64px_56px_1fr_2fr] gap-5"
+            className="who-row glyph-host grid items-center py-5 lg:py-6 grid-cols-[42px_42px_1fr] md:grid-cols-[64px_56px_1fr_2fr] gap-5"
             style={{ borderTop: i === 0 ? "0" : "1px solid var(--rule)" }}
           >
             <div
@@ -89,7 +90,9 @@ export function Who() {
             >
               No. {r.n}
             </div>
-            <Glyph name={r.icon} size={42} color="var(--money)" />
+            <span className="glyph-svg">
+              <Glyph name={r.icon} size={42} color="var(--money)" />
+            </span>
             <h3
               className="font-serif col-span-3 md:col-span-1"
               style={{
