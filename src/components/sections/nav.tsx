@@ -22,7 +22,7 @@ export function Nav() {
 
   return (
     <header
-      className="fixed top-0 inset-x-0 z-50 transition-colors duration-300"
+      className="nav-enter fixed top-0 inset-x-0 z-50 transition-colors duration-300"
       style={{
         background: scrolled ? "rgba(251, 249, 244, 0.85)" : "transparent",
         backdropFilter: scrolled ? "blur(10px)" : "none",
@@ -30,7 +30,11 @@ export function Nav() {
       }}
     >
       <div className="grid grid-cols-[auto_1fr_auto] md:grid-cols-3 items-center gap-3 md:gap-0 px-5 md:px-10 lg:px-12 py-4">
-        <Link href="/" aria-label="Savoca Studio" className="justify-self-start min-w-0">
+        <Link
+          href="/"
+          aria-label="Savoca Studio"
+          className="logo-host justify-self-start min-w-0"
+        >
           <span className="md:hidden">
             <SVLogo size={20} layout="inline" />
           </span>
@@ -49,9 +53,9 @@ export function Nav() {
 
         <Link
           href="#contact"
-          className="justify-self-end font-mono uppercase text-bone bg-ink hover:bg-money transition-colors text-[10px] md:text-[11px] tracking-[0.12em] md:tracking-[0.14em] px-3 md:px-4 py-2 md:py-2.5 whitespace-nowrap"
+          className="cta-arrow-host justify-self-end font-mono uppercase text-bone bg-ink hover:bg-money transition-colors text-[10px] md:text-[11px] tracking-[0.12em] md:tracking-[0.14em] px-3 md:px-4 py-2 md:py-2.5 whitespace-nowrap inline-flex items-center gap-2"
         >
-          Book a call →
+          Book a call <span className="cta-arrow">→</span>
         </Link>
       </div>
     </header>
