@@ -250,7 +250,7 @@ export function NoMarker({ n, color = "var(--steel)" }: { n: string | number; co
 type GlyphName =
   | "drop"
   | "tooth"
-  | "wrench"
+  | "house"
   | "clipboard"
   | "net"
   | "stack"
@@ -276,16 +276,19 @@ const GLYPHS: Record<GlyphName, ReactNode> = {
       <path d="M16 16 C18 18 22 18 24 18 C26 18 30 18 32 16" strokeWidth="1.2" opacity="0.7" />
     </svg>
   ),
-  // Wrench — literal combination wrench (open-end + ring)
-  wrench: (
+  // House — literal house silhouette (roof + walls + door + chimney)
+  house: (
     <svg viewBox="0 0 48 48" width="100%" height="100%" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      {/* ring end (top-left) */}
-      <circle cx="14" cy="14" r="6" />
-      <circle cx="14" cy="14" r="3.5" />
-      {/* shaft */}
-      <path d="M18 18 L34 34" />
-      {/* open-end (bottom-right) */}
-      <path d="M30 32 L36 26 L40 30 L36 34 L42 40 L40 42 L34 36 L30 40 L26 36 Z" />
+      {/* roof */}
+      <path d="M6 24 L24 8 L42 24" />
+      {/* chimney */}
+      <path d="M34 14 L34 9 L38 9 L38 17" />
+      {/* walls */}
+      <path d="M10 22 L10 42 L38 42 L38 22" />
+      {/* door */}
+      <path d="M20 42 L20 30 L28 30 L28 42" />
+      {/* door knob */}
+      <circle cx="26" cy="36" r="0.6" fill="currentColor" stroke="none" />
     </svg>
   ),
   // Clipboard — literal (board + clip + paper lines)
@@ -401,8 +404,17 @@ export function IndustryStrip({
             style={{ display: "inline-flex", alignItems: "center", gap: 36 }}
           >
             <span style={{ fontStyle: i % 2 ? "italic" : "normal" }}>{w}</span>
-            <span className="font-serif" style={{ fontSize: 18, color: "var(--signal)" }}>
-              ✳
+            {/* SVG separator — avoids unicode emoji rendering on iOS */}
+            <span
+              aria-hidden
+              style={{ display: "inline-flex", alignItems: "center", color: "var(--signal)" }}
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round">
+                <path d="M7 1 L7 13" />
+                <path d="M1 7 L13 7" />
+                <path d="M2.5 2.5 L11.5 11.5" />
+                <path d="M11.5 2.5 L2.5 11.5" />
+              </svg>
             </span>
           </span>
         ))}

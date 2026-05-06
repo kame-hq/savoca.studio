@@ -25,7 +25,7 @@ const rows = [
   },
   {
     n: "03",
-    icon: "wrench" as const,
+    icon: "house" as const,
     name: "Home services.",
     lines: [
       "Most demand hits after hours.",

@@ -67,6 +67,10 @@ body {
 
 .font-serif {
   font-family: var(--font-fraunces), Georgia, serif;
+  /* Fraunces variable axes — opsz 96 (display-leaning) + SOFT 0 (conventional letterforms).
+     Without this, Fraunces defaults to text-tuned glyphs at small opsz which look
+     warped at display sizes (especially the lowercase f descender). */
+  font-variation-settings: "opsz" 96, "SOFT" 0;
 }
 
 .font-mono {
