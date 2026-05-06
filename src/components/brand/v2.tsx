@@ -248,7 +248,7 @@ export function NoMarker({ n, color = "var(--steel)" }: { n: string | number; co
 /* -------------------------------------------------------------------------- */
 
 type GlyphName =
-  | "syringe"
+  | "drop"
   | "tooth"
   | "wrench"
   | "clipboard"
@@ -258,26 +258,13 @@ type GlyphName =
   | "arrow";
 
 const GLYPHS: Record<GlyphName, ReactNode> = {
-  // Syringe — literal medspa needle (barrel + plunger + needle + tick marks)
-  syringe: (
+  // Drop — water/serum droplet for Medspas
+  drop: (
     <svg viewBox="0 0 48 48" width="100%" height="100%" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      {/* needle */}
-      <path d="M4 28 L10 28" />
-      {/* hub */}
-      <path d="M10 25 L10 31 L13 31 L13 25 Z" />
-      {/* barrel */}
-      <path d="M13 23 L13 33 L34 33 L34 23 Z" />
-      {/* tick marks on barrel */}
-      <path d="M18 26 L18 28" />
-      <path d="M22 26 L22 28" />
-      <path d="M26 26 L26 28" />
-      <path d="M30 26 L30 28" />
-      {/* plunger flange */}
-      <path d="M34 21 L34 35" />
-      {/* plunger rod */}
-      <path d="M34 28 L42 28" />
-      {/* thumb rest */}
-      <path d="M42 24 L42 32" />
+      {/* teardrop body */}
+      <path d="M24 6 C24 6 12 22 12 30 A12 12 0 0 0 36 30 C36 22 24 6 24 6 Z" />
+      {/* highlight glint inside */}
+      <path d="M19 30 A4 4 0 0 0 24 34" strokeWidth="1.2" opacity="0.7" />
     </svg>
   ),
   // Tooth — literal molar (crown + two roots)

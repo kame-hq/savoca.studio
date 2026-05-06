@@ -5,7 +5,7 @@ import { Eyebrow, Glyph, Rule, RuleThick } from "@/components/brand/v2";
 const rows = [
   {
     n: "01",
-    icon: "syringe" as const,
+    icon: "drop" as const,
     name: "Medspas.",
     lines: [
       "Forms convert higher than calls.",
