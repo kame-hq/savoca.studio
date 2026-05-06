@@ -53,9 +53,7 @@ export function Hero() {
           >
             No revenue
             <br />
-            <span style={{ fontStyle: "italic", color: "var(--money)" }}>
-              left behind.
-            </span>
+            <span style={{ fontStyle: "italic" }}>left behind.</span>
             <SVInitial
               size={36}
               color="var(--money-2)"
