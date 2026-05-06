@@ -17,25 +17,29 @@ export function Hero() {
     >
       {/* Status row */}
       <div
-        className="grid grid-cols-3 items-center px-6 md:px-10 lg:px-12 py-3.5 font-mono"
+        className="grid grid-cols-3 items-start md:items-center px-5 md:px-10 lg:px-12 py-3 md:py-3.5 gap-3 md:gap-4 font-mono"
         style={{
           fontSize: 10,
-          letterSpacing: "0.16em",
+          letterSpacing: "0.14em",
           textTransform: "uppercase",
           color: "var(--steel)",
           borderBottom: "1px solid var(--rule)",
         }}
       >
         <div>2026 / Q2</div>
-        <div className="flex items-center justify-center gap-2">
+        <div className="flex items-center justify-center gap-2 flex-wrap">
           <span
             aria-hidden
-            className="inline-block w-1.5 h-1.5 rounded-full"
+            className="inline-block w-1.5 h-1.5 rounded-full shrink-0"
             style={{ background: "var(--money-2)" }}
           />
-          Now booking
+          <span>Now booking</span>
         </div>
-        <div className="text-right">Program Manager · Indeed</div>
+        <div className="text-right leading-[1.5]">
+          <span className="block md:inline">Program Manager</span>
+          <span className="hidden md:inline"> · </span>
+          <span className="block md:inline">Indeed</span>
+        </div>
       </div>
 
       {/* Headline + stat block */}
