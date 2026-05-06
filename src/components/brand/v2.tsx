@@ -258,36 +258,60 @@ type GlyphName =
   | "arrow";
 
 const GLYPHS: Record<GlyphName, ReactNode> = {
+  // Syringe — literal medspa needle (barrel + plunger + needle + tick marks)
   syringe: (
     <svg viewBox="0 0 48 48" width="100%" height="100%" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <path d="M24 6 C24 6 12 22 12 30 A12 12 0 0 0 36 30 C36 22 24 6 24 6 Z" />
-      <path d="M19 30 A4 4 0 0 0 24 34" strokeWidth="1.4" />
+      {/* needle */}
+      <path d="M4 28 L10 28" />
+      {/* hub */}
+      <path d="M10 25 L10 31 L13 31 L13 25 Z" />
+      {/* barrel */}
+      <path d="M13 23 L13 33 L34 33 L34 23 Z" />
+      {/* tick marks on barrel */}
+      <path d="M18 26 L18 28" />
+      <path d="M22 26 L22 28" />
+      <path d="M26 26 L26 28" />
+      <path d="M30 26 L30 28" />
+      {/* plunger flange */}
+      <path d="M34 21 L34 35" />
+      {/* plunger rod */}
+      <path d="M34 28 L42 28" />
+      {/* thumb rest */}
+      <path d="M42 24 L42 32" />
     </svg>
   ),
+  // Tooth — literal molar (crown + two roots)
   tooth: (
     <svg viewBox="0 0 48 48" width="100%" height="100%" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <path d="M10 12 C10 8 14 6 18 8 L22 14 C23 16 22 18 20 19 L18 20 C20 26 24 30 30 32 L31 30 C32 28 34 27 36 28 L42 32 C44 36 42 40 38 40 C22 40 8 26 10 12 Z" />
-      <path d="M8 8 L40 40" strokeWidth="2" />
+      {/* crown — top rounded shape */}
+      <path d="M14 8 C12 8 10 10 10 14 C10 18 12 22 12 26 C12 30 13 34 15 38 C16 41 17 42 18 42 C19 42 20 40 20 36 C20 32 21 30 22 30 C23 30 24 30 24 30 C24 30 25 30 26 30 C27 30 28 32 28 36 C28 40 29 42 30 42 C31 42 32 41 33 38 C35 34 36 30 36 26 C36 22 38 18 38 14 C38 10 36 8 34 8 C30 8 28 10 24 10 C20 10 18 8 14 8 Z" />
+      {/* surface ridge */}
+      <path d="M16 16 C18 18 22 18 24 18 C26 18 30 18 32 16" strokeWidth="1.2" opacity="0.7" />
     </svg>
   ),
+  // Wrench — literal combination wrench (open-end + ring)
   wrench: (
     <svg viewBox="0 0 48 48" width="100%" height="100%" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <circle cx="24" cy="24" r="18" />
-      <path d="M24 12 L24 24 L34 30" strokeWidth="2" />
-      <path d="M24 4 L24 7" />
-      <path d="M44 24 L41 24" />
-      <path d="M24 44 L24 41" />
-      <path d="M4 24 L7 24" />
+      {/* ring end (top-left) */}
+      <circle cx="14" cy="14" r="6" />
+      <circle cx="14" cy="14" r="3.5" />
+      {/* shaft */}
+      <path d="M18 18 L34 34" />
+      {/* open-end (bottom-right) */}
+      <path d="M30 32 L36 26 L40 30 L36 34 L42 40 L40 42 L34 36 L30 40 L26 36 Z" />
     </svg>
   ),
+  // Clipboard — literal (board + clip + paper lines)
   clipboard: (
     <svg viewBox="0 0 48 48" width="100%" height="100%" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <circle cx="24" cy="28" r="16" />
-      <path d="M19 6 L29 6" />
-      <path d="M24 6 L24 12" />
-      <path d="M36 14 L40 10" />
-      <path d="M24 28 L33 22" strokeWidth="2" />
-      <circle cx="24" cy="28" r="1.5" fill="currentColor" stroke="none" />
+      {/* board */}
+      <path d="M10 10 L38 10 L38 42 L10 42 Z" />
+      {/* clip */}
+      <path d="M19 6 L29 6 L29 13 L19 13 Z" />
+      {/* paper lines */}
+      <path d="M16 22 L32 22" />
+      <path d="M16 28 L32 28" />
+      <path d="M16 34 L26 34" />
     </svg>
   ),
   net: (
