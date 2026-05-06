@@ -145,3 +145,85 @@ body {
     transition: none !important;
   }
 }
+
+/* ─────────────────────────────────────────────────────────────────
+   Site-wide motion patterns — tasteful, subtle, once-on-enter
+   ───────────────────────────────────────────────────────────────── */
+
+/* Hero load reveal — staggered fade-up via animation-delay.
+   Apply .hero-rise to elements that should rise on initial page load. */
+@keyframes hero-rise {
+  0%   { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.hero-rise {
+  animation: hero-rise 800ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+.hero-rise-1 { animation-delay: 100ms; }
+.hero-rise-2 { animation-delay: 250ms; }
+.hero-rise-3 { animation-delay: 400ms; }
+.hero-rise-4 { animation-delay: 550ms; }
+
+/* Glyph icon hover — stroke shifts money → money-2 in 200ms */
+.glyph-host:hover .glyph-svg {
+  color: var(--money-2);
+}
+.glyph-svg {
+  transition: color 200ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Who row hover — subtle 2px money-green left bar (lg + hover only) */
+@media (min-width: 1024px) and (hover: hover) {
+  .who-row::before {
+    content: "";
+    position: absolute;
+    left: -16px;
+    top: 12px;
+    bottom: 12px;
+    width: 2px;
+    background: var(--money);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 250ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .who-row:hover::before {
+    transform: scaleY(1);
+  }
+}
+
+/* Featured tier card — subtle hover lift (lg + hover only) */
+@media (min-width: 1024px) and (hover: hover) {
+  .tier-featured {
+    transition: transform 200ms cubic-bezier(0.22, 0.61, 0.36, 1),
+                box-shadow 200ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .tier-featured:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(14, 14, 12, 0.06);
+  }
+}
+
+/* Stat block tick prefix — subtle scale-x on entry. Used on .stat-row */
+.stat-tick {
+  transform-origin: left;
+  animation: stat-tick-grow 800ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation-delay: 600ms;
+}
+@keyframes stat-tick-grow {
+  0%   { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+/* Reduced-motion override for everything in this block */
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise,
+  .glyph-svg,
+  .who-row::before,
+  .tier-featured,
+  .stat-tick {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

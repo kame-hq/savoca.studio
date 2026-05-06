@@ -1,6 +1,7 @@
 "use client";
 
 import { Eyebrow, Rule } from "@/components/brand/v2";
+import { Reveal } from "@/components/motion/reveal";
 
 const triplet: [string, string][] = [
   ["Audit.", "what's happening"],
@@ -15,25 +16,27 @@ export function About() {
       className="grain px-6 md:px-10 lg:px-12 py-20 lg:py-28"
       style={{ background: "var(--paper)" }}
     >
-      <Eyebrow>Four · About</Eyebrow>
-      <h2
-        className="font-serif mt-2 max-w-[900px]"
-        style={{
-          fontSize: "clamp(36px, 6vw, 64px)",
-          lineHeight: 0.95,
-          letterSpacing: "-0.035em",
-          fontWeight: 400,
-        }}
-      >
-        I fix the part where revenue
-        <br />
-        <span style={{ fontStyle: "italic", color: "var(--money)" }}>
-          falls through.
-        </span>
-      </h2>
-      <Rule style={{ marginTop: 22 }} />
+      <Reveal>
+        <Eyebrow>Four · About</Eyebrow>
+        <h2
+          className="font-serif mt-2 max-w-[900px]"
+          style={{
+            fontSize: "clamp(36px, 6vw, 64px)",
+            lineHeight: 0.95,
+            letterSpacing: "-0.035em",
+            fontWeight: 400,
+          }}
+        >
+          I fix the part where revenue
+          <br />
+          <span style={{ fontStyle: "italic", color: "var(--money)" }}>
+            falls through.
+          </span>
+        </h2>
+        <Rule style={{ marginTop: 22 }} />
+      </Reveal>
 
-      <div className="mt-8 max-w-[680px]">
+      <Reveal delay={120} className="mt-8 max-w-[680px]">
         <p
           className="font-sans"
           style={{ fontSize: 16, lineHeight: 1.55, color: "var(--ink)" }}
@@ -49,10 +52,11 @@ export function About() {
           Booking. Payments. They just don&apos;t work together. Calls get
           missed. Forms sit. Bookings don&apos;t confirm.
         </p>
-      </div>
+      </Reveal>
 
       {/* Audit / Fix / Track strip */}
-      <div
+      <Reveal
+        delay={200}
         className="mt-8 grid grid-cols-3 max-w-[680px]"
         style={{ border: "1px solid var(--rule)" }}
       >
@@ -91,15 +95,17 @@ export function About() {
             </div>
           </div>
         ))}
-      </div>
+      </Reveal>
 
-      <p
+      <Reveal
+        delay={300}
+        as="p"
         className="font-serif italic mt-6"
         style={{ fontSize: 18, color: "var(--ink)", fontWeight: 400 }}
       >
         No agency. No handoffs.{" "}
         <span style={{ color: "var(--money)" }}>You work with me.</span>
-      </p>
+      </Reveal>
     </section>
   );
 }

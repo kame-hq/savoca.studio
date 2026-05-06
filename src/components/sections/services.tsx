@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Eyebrow, Glyph, Rule } from "@/components/brand/v2";
+import { Reveal } from "@/components/motion/reveal";
 
 const tiers = [
   {
@@ -55,31 +56,38 @@ export function Services() {
       className="px-6 md:px-10 lg:px-12 py-20 lg:py-28"
       style={{ background: "var(--paper)" }}
     >
-      <Eyebrow>Two · Services</Eyebrow>
-      <h2
-        className="font-serif mt-2"
-        style={{
-          fontSize: "clamp(36px, 6vw, 64px)",
-          lineHeight: 0.95,
-          letterSpacing: "-0.035em",
-          fontWeight: 400,
-        }}
-      >
-        Three ways to stop
-        <br />
-        losing revenue.
-      </h2>
-      <Rule style={{ marginTop: 22 }} />
+      <Reveal>
+        <Eyebrow>Two · Services</Eyebrow>
+        <h2
+          className="font-serif mt-2"
+          style={{
+            fontSize: "clamp(36px, 6vw, 64px)",
+            lineHeight: 0.95,
+            letterSpacing: "-0.035em",
+            fontWeight: 400,
+          }}
+        >
+          Three ways to stop
+          <br />
+          losing revenue.
+        </h2>
+        <Rule style={{ marginTop: 22 }} />
+      </Reveal>
 
       <ul className="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-3.5">
-        {tiers.map((t) => {
+        {tiers.map((t, i) => {
           const featured = t.featured;
           const cardBg = featured ? "var(--ink)" : "var(--paper)";
           const cardFg = featured ? "var(--bone)" : "var(--ink)";
           return (
-            <li
+            <Reveal
               key={t.n}
-              className="relative flex flex-col p-5 lg:p-[22px]"
+              as="li"
+              delay={i * 100}
+              className={
+                "glyph-host relative flex flex-col p-5 lg:p-[22px] " +
+                (featured ? "tier-featured" : "")
+              }
               style={{
                 border: "1px solid var(--rule)",
                 background: cardBg,
@@ -117,7 +125,9 @@ export function Services() {
                 >
                   No. {t.n}
                 </span>
-                <Glyph name={t.icon} size={32} color={cardFg} />
+                <span className="glyph-svg">
+                  <Glyph name={t.icon} size={32} color={cardFg} />
+                </span>
               </div>
 
               <h3
@@ -194,7 +204,7 @@ export function Services() {
 
               <Link
                 href="#contact"
-                className="font-mono mt-4 text-center transition-colors"
+                className="cta-arrow-host font-mono mt-4 inline-flex items-center justify-center gap-2 transition-colors"
                 style={{
                   padding: "12px 14px",
                   fontSize: 11,
@@ -205,9 +215,10 @@ export function Services() {
                   fontWeight: 500,
                 }}
               >
-                {t.cta}
+                <span>{t.cta.replace(" →", "")}</span>
+                <span className="cta-arrow">→</span>
               </Link>
-            </li>
+            </Reveal>
           );
         })}
       </ul>

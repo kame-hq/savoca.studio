@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Eyebrow, SVInitial } from "@/components/brand/v2";
+import { Reveal } from "@/components/motion/reveal";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -42,25 +43,27 @@ export function Contact() {
       className="grain relative px-6 md:px-10 lg:px-12 pt-20 lg:pt-28 pb-24 lg:pb-32"
       style={{ background: "var(--ink)", color: "var(--bone)" }}
     >
-      <Eyebrow color="var(--steel-2)" dotColor="var(--signal)">
-        Five · Close
-      </Eyebrow>
+      <Reveal>
+        <Eyebrow color="var(--steel-2)" dotColor="var(--signal)">
+          Five · Close
+        </Eyebrow>
 
-      <h2
-        className="font-serif mt-3 max-w-[1200px]"
-        style={{
-          fontSize: "clamp(40px, 8vw, 88px)",
-          lineHeight: 0.92,
-          letterSpacing: "-0.035em",
-          fontWeight: 400,
-        }}
-      >
-        If leads aren&apos;t turning into revenue,
-        <br />
-        <span style={{ fontStyle: "italic", color: "var(--signal)" }}>
-          something&apos;s not getting done.
-        </span>
-      </h2>
+        <h2
+          className="font-serif mt-3 max-w-[1200px]"
+          style={{
+            fontSize: "clamp(40px, 8vw, 88px)",
+            lineHeight: 0.92,
+            letterSpacing: "-0.035em",
+            fontWeight: 400,
+          }}
+        >
+          If leads aren&apos;t turning into revenue,
+          <br />
+          <span style={{ fontStyle: "italic", color: "var(--signal)" }}>
+            something&apos;s not getting done.
+          </span>
+        </h2>
+      </Reveal>
 
       <p
         className="font-sans mt-7 max-w-[540px]"

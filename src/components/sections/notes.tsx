@@ -1,6 +1,7 @@
 "use client";
 
 import { Eyebrow, Rule } from "@/components/brand/v2";
+import { Reveal } from "@/components/motion/reveal";
 
 const proof = [
   "Most home service demand happens after hours.",
@@ -15,28 +16,32 @@ export function Notes() {
       className="px-6 md:px-10 lg:px-12 py-20 lg:py-28"
       style={{ background: "var(--bone)" }}
     >
-      <Eyebrow>Three · Proof</Eyebrow>
-      <h2
-        className="font-serif mt-2"
-        style={{
-          fontSize: "clamp(36px, 6vw, 64px)",
-          lineHeight: 0.95,
-          letterSpacing: "-0.035em",
-          fontWeight: 400,
-        }}
-      >
-        What actually
-        <br />
-        <span style={{ fontStyle: "italic", color: "var(--money)" }}>
-          drives bookings.
-        </span>
-      </h2>
-      <Rule style={{ marginTop: 22 }} />
+      <Reveal>
+        <Eyebrow>Three · Proof</Eyebrow>
+        <h2
+          className="font-serif mt-2"
+          style={{
+            fontSize: "clamp(36px, 6vw, 64px)",
+            lineHeight: 0.95,
+            letterSpacing: "-0.035em",
+            fontWeight: 400,
+          }}
+        >
+          What actually
+          <br />
+          <span style={{ fontStyle: "italic", color: "var(--money)" }}>
+            drives bookings.
+          </span>
+        </h2>
+        <Rule style={{ marginTop: 22 }} />
+      </Reveal>
 
       <ol className="mt-6 max-w-[820px]">
         {proof.map((line, i) => (
-          <li
+          <Reveal
             key={line}
+            as="li"
+            delay={i * 80}
             className="flex items-start gap-5 lg:gap-8 py-5 lg:py-6"
             style={{ borderTop: i === 0 ? "0" : "1px solid var(--rule)" }}
           >
@@ -59,9 +64,11 @@ export function Notes() {
             >
               {line}
             </p>
-          </li>
+          </Reveal>
         ))}
-        <li
+        <Reveal
+          as="li"
+          delay={proof.length * 80}
           className="font-serif italic mt-2 pt-6 list-none"
           style={{
             borderTop: "2px solid var(--ink)",
@@ -73,7 +80,7 @@ export function Notes() {
           }}
         >
           If you&apos;re slow or inconsistent, you lose.
-        </li>
+        </Reveal>
       </ol>
     </section>
   );

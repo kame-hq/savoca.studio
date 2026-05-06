@@ -47,7 +47,7 @@ export function Hero() {
         {/* Left — display */}
         <div>
           <h1
-            className="font-serif text-ink"
+            className="hero-rise hero-rise-1 font-serif text-ink"
             style={{
               fontSize: "clamp(56px, 11vw, 132px)",
               lineHeight: 0.86,
@@ -72,7 +72,7 @@ export function Hero() {
           </h1>
 
           <p
-            className="font-sans"
+            className="hero-rise hero-rise-2 font-sans"
             style={{
               marginTop: 22,
               fontSize: 17,
@@ -86,10 +86,10 @@ export function Hero() {
             shops, clinics, and firms lose money to tools they already pay for.
           </p>
 
-          <div className="flex flex-wrap gap-3 mt-7">
+          <div className="hero-rise hero-rise-3 flex flex-wrap gap-3 mt-7">
             <Link
               href="#contact"
-              className="font-mono transition-colors"
+              className="cta-arrow-host font-mono transition-colors inline-flex items-center gap-2"
               style={{
                 background: "var(--ink)",
                 color: "var(--bone)",
@@ -99,11 +99,11 @@ export function Hero() {
                 textTransform: "uppercase",
               }}
             >
-              Book a call →
+              Book a call <span className="cta-arrow">→</span>
             </Link>
             <Link
               href="#services"
-              className="font-mono transition-colors"
+              className="font-mono transition-colors hover:bg-ink hover:text-bone"
               style={{
                 border: "1.5px solid var(--ink)",
                 color: "var(--ink)",
@@ -120,7 +120,7 @@ export function Hero() {
 
         {/* Right — stat block */}
         <div
-          className="lg:border-l lg:pl-6 lg:pt-0 pt-10 border-t lg:border-t-0"
+          className="hero-rise hero-rise-4 lg:border-l lg:pl-6 lg:pt-0 pt-10 border-t lg:border-t-0"
           style={{ borderColor: "var(--rule)" }}
         >
           <div

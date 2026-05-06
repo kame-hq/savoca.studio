@@ -1,6 +1,7 @@
 "use client";
 
 import { Eyebrow, Glyph, Rule, RuleThick } from "@/components/brand/v2";
+import { Reveal } from "@/components/motion/reveal";
 
 const rows = [
   {
@@ -52,29 +53,33 @@ export function Who() {
       className="px-6 md:px-10 lg:px-12 py-20 lg:py-28"
       style={{ background: "var(--paper)" }}
     >
-      <Eyebrow>One · Who</Eyebrow>
-      <h2
-        className="font-serif mt-2"
-        style={{
-          fontSize: "clamp(36px, 6vw, 64px)",
-          lineHeight: 0.95,
-          letterSpacing: "-0.035em",
-          fontWeight: 400,
-        }}
-      >
-        Your funnel isn&apos;t broken.
-        <br />
-        <span style={{ fontStyle: "italic", color: "var(--money)" }}>
-          Your follow-through is.
-        </span>
-      </h2>
-      <Rule style={{ marginTop: 22 }} />
+      <Reveal>
+        <Eyebrow>One · Who</Eyebrow>
+        <h2
+          className="font-serif mt-2"
+          style={{
+            fontSize: "clamp(36px, 6vw, 64px)",
+            lineHeight: 0.95,
+            letterSpacing: "-0.035em",
+            fontWeight: 400,
+          }}
+        >
+          Your funnel isn&apos;t broken.
+          <br />
+          <span style={{ fontStyle: "italic", color: "var(--money)" }}>
+            Your follow-through is.
+          </span>
+        </h2>
+        <Rule style={{ marginTop: 22 }} />
+      </Reveal>
 
       <ul className="mt-6">
         {rows.map((r, i) => (
-          <li
+          <Reveal
             key={r.n}
-            className="grid items-center py-5 lg:py-6 grid-cols-[42px_42px_1fr] md:grid-cols-[64px_56px_1fr_2fr] gap-5"
+            delay={i * 80}
+            as="li"
+            className="who-row glyph-host relative grid items-center py-5 lg:py-6 grid-cols-[42px_42px_1fr] md:grid-cols-[64px_56px_1fr_2fr] gap-5"
             style={{ borderTop: i === 0 ? "0" : "1px solid var(--rule)" }}
           >
             <div
@@ -89,7 +94,9 @@ export function Who() {
             >
               No. {r.n}
             </div>
-            <Glyph name={r.icon} size={42} color="var(--money)" />
+            <span className="glyph-svg">
+              <Glyph name={r.icon} size={42} color="var(--money)" />
+            </span>
             <h3
               className="font-serif col-span-3 md:col-span-1"
               style={{
@@ -115,7 +122,7 @@ export function Who() {
                 </div>
               ))}
             </div>
-          </li>
+          </Reveal>
         ))}
       </ul>
       <RuleThick style={{ marginTop: 6 }} />
