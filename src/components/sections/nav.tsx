@@ -31,7 +31,12 @@ export function Nav() {
     >
       <div className="grid grid-cols-3 items-center px-6 md:px-10 lg:px-12 py-4">
         <Link href="/" aria-label="Savoca Studio" className="justify-self-start">
-          <SVLogo size={20} layout="inline" />
+          <span className="md:hidden">
+            <SVLogo size={26} layout="inline" />
+          </span>
+          <span className="hidden md:inline-block">
+            <SVLogo size={20} layout="inline" />
+          </span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-7 justify-self-center font-mono text-[11px] uppercase tracking-[0.16em] text-ink-2">
