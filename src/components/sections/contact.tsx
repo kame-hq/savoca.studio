@@ -1,13 +1,11 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { RevealBlock, RevealWords } from "@/components/motion/reveal-words";
-import { SectionLine } from "@/components/motion/section-line";
+import { useState } from "react";
+import { Eyebrow, SVInitial } from "@/components/brand/v2";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
 export function Contact() {
-  const ref = useRef<HTMLElement>(null);
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>("idle");
 
@@ -40,79 +38,137 @@ export function Contact() {
 
   return (
     <section
-      ref={ref}
       id="contact"
-      className="relative px-6 lg:px-12 py-24 lg:py-48 border-t border-line"
+      className="grain relative px-6 md:px-10 lg:px-12 pt-20 lg:pt-28 pb-24 lg:pb-32"
+      style={{ background: "var(--ink)", color: "var(--bone)" }}
     >
-      <SectionLine targetRef={ref} />
+      <Eyebrow color="var(--steel-2)" dotColor="var(--signal)">
+        Five · Close
+      </Eyebrow>
 
-      <div className="grid grid-cols-12 gap-x-6 lg:gap-x-8">
-        <div className="col-span-12 lg:col-span-2 mb-4 lg:mb-0 font-mono text-[11px] uppercase tracking-[0.18em] text-mute">
-          Five / Close
-        </div>
-        <div className="col-span-12 lg:col-span-9">
-          <h2
-            className="leading-[0.92] tracking-[-0.035em] text-ink font-medium"
-            style={{ fontSize: "clamp(44px, 7.5vw, 132px)" }}
-          >
-            <RevealWords text="If leads aren't turning into revenue," />{" "}
-            <RevealWords
-              text="something's not getting done."
-              className="font-serif italic font-normal tracking-[-0.04em] text-ink-soft"
-              delay={0.25}
+      <h2
+        className="font-serif mt-3 max-w-[1200px]"
+        style={{
+          fontSize: "clamp(40px, 8vw, 88px)",
+          lineHeight: 0.92,
+          letterSpacing: "-0.035em",
+          fontWeight: 400,
+        }}
+      >
+        If leads aren&apos;t turning into revenue,
+        <br />
+        <span style={{ fontStyle: "italic", color: "var(--signal)" }}>
+          something&apos;s not getting done.
+        </span>
+      </h2>
+
+      <p
+        className="font-sans mt-7 max-w-[540px]"
+        style={{ fontSize: 17, lineHeight: 1.5, color: "var(--bone-2)" }}
+      >
+        30 minutes. Straight answers. If it&apos;s not a fit, I&apos;ll tell
+        you.
+      </p>
+
+      <div className="mt-8 flex flex-wrap items-center gap-3.5">
+        <a
+          href="#book"
+          className="font-mono transition-opacity hover:opacity-90"
+          style={{
+            background: "var(--bone)",
+            color: "var(--ink)",
+            padding: "16px 22px",
+            fontSize: 12,
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            fontWeight: 500,
+          }}
+        >
+          Get a call →
+        </a>
+        <a
+          href="mailto:jack@savoca.studio"
+          className="font-mono transition-colors"
+          style={{
+            border: "1.5px solid var(--bone)",
+            color: "var(--bone)",
+            padding: "16px 22px",
+            fontSize: 12,
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            fontWeight: 500,
+          }}
+        >
+          jack@savoca.studio
+        </a>
+      </div>
+
+      {/* Inline email-capture form (kept from v1, restyled for dark) */}
+      <form
+        onSubmit={handleSubmit}
+        className="mt-8 max-w-[680px] relative"
+        style={{ borderBottom: "1px solid rgba(245,242,236,0.4)" }}
+      >
+        {!submitted ? (
+          <>
+            <input
+              type="email"
+              required
+              placeholder="you@yourbusiness.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              disabled={status === "submitting"}
+              className="w-full bg-transparent py-4 pr-36 text-bone focus:outline-none placeholder:opacity-40 disabled:opacity-60"
+              style={{ fontSize: 18 }}
             />
-          </h2>
-
-          <RevealBlock delay={0.4}>
-            <p className="mt-16 lg:mt-24 text-[14px] text-mute max-w-[44ch] leading-[1.55]">
-              30 minutes. Straight answers. If it&apos;s not a fit, I&apos;ll
-              tell you.
-            </p>
-          </RevealBlock>
-
-          <RevealBlock delay={0.5}>
-            <form
-              onSubmit={handleSubmit}
-              className="mt-8 max-w-[680px] relative border-b border-ink"
+            <button
+              type="submit"
+              disabled={status === "submitting"}
+              className="font-mono absolute right-0 top-1/2 -translate-y-1/2 inline-flex items-center gap-2 disabled:opacity-60"
+              style={{
+                fontSize: 11,
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: "var(--bone)",
+                fontWeight: 500,
+              }}
             >
-              {!submitted ? (
-                <>
-                  <input
-                    type="email"
-                    required
-                    placeholder="you@yourbusiness.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    disabled={status === "submitting"}
-                    className="w-full bg-transparent py-5 pr-36 text-[20px] text-ink focus:outline-none placeholder:text-mute-soft/60 disabled:opacity-60"
-                  />
-                  <button
-                    type="submit"
-                    disabled={status === "submitting"}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 group inline-flex items-center gap-2 text-[13px] uppercase tracking-[0.18em] text-ink font-medium disabled:opacity-60"
-                    data-cursor-grow
-                  >
-                    <span>{status === "submitting" ? "Sending" : "Get a call"}</span>
-                    <span className="block w-6 h-px bg-ink transition-all duration-500 group-hover:w-14" />
-                  </button>
-                </>
-              ) : (
-                <p className="py-5 text-[18px] text-ink font-serif italic">
-                  Got it. Reply within one business day.
-                </p>
-              )}
-            </form>
-            {status === "error" && (
-              <p className="mt-4 text-[13px] text-stamp">
-                Something broke on our side. Email{" "}
-                <a href="mailto:jack@savoca.studio" className="underline">
-                  jack@savoca.studio
-                </a>{" "}
-                directly.
-              </p>
-            )}
-          </RevealBlock>
-        </div>
+              <span>{status === "submitting" ? "Sending" : "Or send →"}</span>
+            </button>
+          </>
+        ) : (
+          <p
+            className="font-serif italic py-4"
+            style={{ fontSize: 18, color: "var(--bone)" }}
+          >
+            Got it. Reply within one business day.
+          </p>
+        )}
+      </form>
+      {status === "error" && (
+        <p className="mt-4 font-sans" style={{ fontSize: 13, color: "var(--signal)" }}>
+          Something broke on our side. Email{" "}
+          <a href="mailto:jack@savoca.studio" className="underline">
+            jack@savoca.studio
+          </a>{" "}
+          directly.
+        </p>
+      )}
+
+      {/* Footer row pinned to bottom */}
+      <div
+        className="absolute bottom-9 left-6 md:left-10 lg:left-12 right-6 md:right-10 lg:right-12 flex items-center justify-between font-mono pt-3.5"
+        style={{
+          borderTop: "1px solid rgba(245,242,236,0.25)",
+          fontSize: 10,
+          letterSpacing: "0.16em",
+          textTransform: "uppercase",
+          color: "var(--bone-2)",
+        }}
+      >
+        <span>Savoca Studio · 2026</span>
+        <SVInitial size={22} color="var(--money-2)" />
+        <span>savoca.studio</span>
       </div>
     </section>
   );

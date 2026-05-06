@@ -1,123 +1,124 @@
 "use client";
 
-import { useRef } from "react";
-import { RevealBlock, RevealWords } from "@/components/motion/reveal-words";
-import { SectionLine } from "@/components/motion/section-line";
+import { Eyebrow, Glyph, Rule, RuleThick } from "@/components/brand/v2";
 
-const verticals = [
+const rows = [
   {
-    no: "01",
+    n: "01",
+    icon: "syringe" as const,
     name: "Medspas.",
     lines: [
       "Forms convert higher than calls.",
       "But no deposit. No follow-up.",
-      "They browse. They leave. They book somewhere else.",
+      "They book somewhere else.",
     ],
-    icon: "/assets/who/syringe.svg",
   },
   {
-    no: "02",
+    n: "02",
+    icon: "tooth" as const,
     name: "Dental.",
     lines: [
       "Up to 40% of calls go unanswered.",
       "No callback. No recovery.",
       "That patient is gone.",
     ],
-    icon: "/assets/who/tooth.svg",
   },
   {
-    no: "03",
+    n: "03",
+    icon: "wrench" as const,
     name: "Home services.",
     lines: [
       "Most demand hits after hours.",
       "You're closed when the phone rings.",
-      "First company to respond wins the job.",
+      "First to respond wins the job.",
     ],
-    icon: "/assets/who/wrench.svg",
   },
   {
-    no: "04",
+    n: "04",
+    icon: "clipboard" as const,
     name: "Pro services.",
     lines: [
       "Speed decides everything.",
-      "Inside 5 minutes: 21× more likely to convert.",
+      "Inside 5 min: 21× more likely to convert.",
       "After 30: you're a backup option.",
     ],
-    icon: "/assets/notes/clipboard.svg",
   },
 ];
 
 export function Who() {
-  const ref = useRef<HTMLElement>(null);
-
   return (
     <section
-      ref={ref}
       id="who"
-      className="relative px-6 lg:px-12 py-24 lg:py-44 border-t border-line"
+      className="px-6 md:px-10 lg:px-12 py-20 lg:py-28"
+      style={{ background: "var(--paper)" }}
     >
-      <SectionLine targetRef={ref} />
+      <Eyebrow>One · Who</Eyebrow>
+      <h2
+        className="font-serif mt-2"
+        style={{
+          fontSize: "clamp(36px, 6vw, 64px)",
+          lineHeight: 0.95,
+          letterSpacing: "-0.035em",
+          fontWeight: 400,
+        }}
+      >
+        Your funnel isn&apos;t broken.
+        <br />
+        <span style={{ fontStyle: "italic", color: "var(--money)" }}>
+          Your follow-through is.
+        </span>
+      </h2>
+      <Rule style={{ marginTop: 22 }} />
 
-      <div className="grid grid-cols-12 gap-x-6 lg:gap-x-8 mb-20 lg:mb-32">
-        <div className="col-span-12 lg:col-span-2 mb-4 lg:mb-0 font-mono text-[11px] uppercase tracking-[0.18em] text-mute">
-          One / Who
-        </div>
-        <div className="col-span-12 lg:col-span-9">
-          <h2
-            className="leading-[0.95] tracking-[-0.025em] text-ink font-medium"
-            style={{ fontSize: "clamp(40px, 6vw, 96px)" }}
+      <ul className="mt-6">
+        {rows.map((r, i) => (
+          <li
+            key={r.n}
+            className="grid items-center py-5 lg:py-6 grid-cols-[42px_42px_1fr] md:grid-cols-[64px_56px_1fr_2fr] gap-5"
+            style={{ borderTop: i === 0 ? "0" : "1px solid var(--rule)" }}
           >
-            <RevealWords text="Your funnel isn't broken." />{" "}
-            <RevealWords
-              text="Your follow-through is."
-              className="font-serif italic font-normal text-mute-soft"
-              delay={0.18}
-            />
-          </h2>
-        </div>
-      </div>
-
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-line">
-        {verticals.map((v, i) => (
-          <RevealBlock
-            key={v.no}
-            delay={i * 0.06}
-            className={[
-              "border-line",
-              i < verticals.length - 1 ? "border-b" : "",
-              "md:border-b-0",
-              i % 2 === 0 ? "md:border-r" : "",
-              i < 2 ? "md:border-b" : "",
-              "lg:border-b-0",
-              i < verticals.length - 1 ? "lg:border-r" : "",
-            ].join(" ")}
-          >
-            <article className="h-full px-2 py-10 lg:px-6 lg:py-12 flex flex-col">
-              <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-stamp">
-                No. {v.no}
-              </div>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={v.icon}
-                alt=""
-                aria-hidden
-                className="mt-10 mb-12 w-16 h-16 lg:w-16 lg:h-16"
-              />
-              <h3
-                className="uppercase font-bold leading-[0.95] tracking-[-0.01em] text-ink"
-                style={{ fontSize: "clamp(28px, 2.6vw, 38px)" }}
-              >
-                {v.name}
-              </h3>
-              <div className="mt-6 space-y-2 font-serif italic text-[15px] leading-[1.5] text-mute max-w-[30ch]">
-                {v.lines.map((line, j) => (
-                  <p key={j}>{line}</p>
-                ))}
-              </div>
-            </article>
-          </RevealBlock>
+            <div
+              className="font-mono"
+              style={{
+                fontSize: 11,
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: "var(--steel)",
+                fontWeight: 500,
+              }}
+            >
+              No. {r.n}
+            </div>
+            <Glyph name={r.icon} size={42} color="var(--money)" />
+            <h3
+              className="font-serif col-span-3 md:col-span-1"
+              style={{
+                fontSize: "clamp(26px, 3vw, 36px)",
+                lineHeight: 1,
+                letterSpacing: "-0.025em",
+                fontWeight: 400,
+                color: "var(--ink)",
+              }}
+            >
+              {r.name}
+            </h3>
+            <div
+              className="font-sans col-span-3 md:col-span-1 -mt-2 md:mt-0"
+              style={{ fontSize: 14, lineHeight: 1.55, color: "var(--ink-2)" }}
+            >
+              {r.lines.map((l, k) => (
+                <div
+                  key={k}
+                  style={{ opacity: k === r.lines.length - 1 ? 1 : 0.85 }}
+                >
+                  {l}
+                </div>
+              ))}
+            </div>
+          </li>
         ))}
       </ul>
+      <RuleThick style={{ marginTop: 6 }} />
     </section>
   );
 }

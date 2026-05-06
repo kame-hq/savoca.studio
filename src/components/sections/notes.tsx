@@ -1,8 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import { RevealBlock, RevealWords } from "@/components/motion/reveal-words";
-import { SectionLine } from "@/components/motion/section-line";
+import { Eyebrow, Rule } from "@/components/brand/v2";
 
 const proof = [
   "Most home service demand happens after hours.",
@@ -11,69 +9,72 @@ const proof = [
 ];
 
 export function Notes() {
-  const ref = useRef<HTMLElement>(null);
-
   return (
     <section
-      ref={ref}
       id="proof"
-      className="relative px-6 lg:px-12 py-24 lg:py-44 border-t border-line bg-bg-alt"
+      className="px-6 md:px-10 lg:px-12 py-20 lg:py-28"
+      style={{ background: "var(--bone)" }}
     >
-      <SectionLine targetRef={ref} />
+      <Eyebrow>Three · Proof</Eyebrow>
+      <h2
+        className="font-serif mt-2"
+        style={{
+          fontSize: "clamp(36px, 6vw, 64px)",
+          lineHeight: 0.95,
+          letterSpacing: "-0.035em",
+          fontWeight: 400,
+        }}
+      >
+        What actually
+        <br />
+        <span style={{ fontStyle: "italic", color: "var(--money)" }}>
+          drives bookings.
+        </span>
+      </h2>
+      <Rule style={{ marginTop: 22 }} />
 
-      <div className="grid grid-cols-12 gap-x-6 lg:gap-x-8 mb-20 lg:mb-32">
-        <div className="col-span-12 lg:col-span-2 mb-4 lg:mb-0 font-mono text-[11px] uppercase tracking-[0.18em] text-mute">
-          Three / Proof
-        </div>
-        <div className="col-span-12 lg:col-span-9">
-          <h2
-            className="leading-[0.95] tracking-[-0.025em] text-ink font-medium"
-            style={{ fontSize: "clamp(40px, 6vw, 96px)" }}
-          >
-            <RevealWords text="What actually" />{" "}
-            <RevealWords
-              text="drives bookings."
-              className="font-serif italic font-normal text-mute-soft"
-              delay={0.16}
-            />
-          </h2>
-        </div>
-      </div>
-
-      <ul className="grid grid-cols-12 gap-x-6 lg:gap-x-8">
+      <ol className="mt-6 max-w-[820px]">
         {proof.map((line, i) => (
-          <RevealBlock
+          <li
             key={line}
-            delay={i * 0.08}
-            className="col-span-12 lg:col-span-9 lg:col-start-3 border-t border-line py-8 lg:py-10 flex items-start gap-6 lg:gap-10"
+            className="flex items-start gap-5 lg:gap-8 py-5 lg:py-6"
+            style={{ borderTop: i === 0 ? "0" : "1px solid var(--rule)" }}
           >
-            <span
-              aria-hidden
-              className="shrink-0 mt-[0.85em] lg:mt-[1.1em] flex items-center gap-2"
-            >
-              <span className="block w-1.5 h-1.5 rounded-full bg-stamp" />
-              <span className="block w-8 h-px bg-stamp/60" />
+            <span aria-hidden className="shrink-0 mt-3 flex items-center gap-1.5">
+              <span
+                className="block w-1.5 h-1.5 rounded-full"
+                style={{ background: "var(--signal)" }}
+              />
+              <span className="block w-7 h-px" style={{ background: "var(--rule)" }} />
             </span>
             <p
-              className="leading-[1.1] tracking-[-0.02em] text-ink font-medium"
-              style={{ fontSize: "clamp(22px, 2.8vw, 40px)" }}
+              className="font-serif"
+              style={{
+                fontSize: "clamp(22px, 3vw, 36px)",
+                lineHeight: 1.1,
+                letterSpacing: "-0.025em",
+                fontWeight: 400,
+                color: "var(--ink)",
+              }}
             >
               {line}
             </p>
-          </RevealBlock>
+          </li>
         ))}
-        <RevealBlock
-          delay={proof.length * 0.08 + 0.1}
-          className="col-span-12 lg:col-span-9 lg:col-start-3 border-t border-ink py-10 lg:py-14"
+        <li
+          className="font-serif italic mt-2 pt-6 list-none"
+          style={{
+            borderTop: "2px solid var(--ink)",
+            fontSize: "clamp(22px, 3vw, 36px)",
+            lineHeight: 1.1,
+            letterSpacing: "-0.025em",
+            color: "var(--ink-2)",
+            fontWeight: 400,
+          }}
         >
-          <p
-            className="font-serif italic leading-[1.05] tracking-[-0.02em] text-ink-soft"
-            style={{ fontSize: "clamp(24px, 3.2vw, 48px)" }}
-          >
-            If you&apos;re slow or inconsistent, you lose.
-          </p>
-        </RevealBlock>
-      </ul>
+          If you&apos;re slow or inconsistent, you lose.
+        </li>
+      </ol>
     </section>
   );
 }

@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "motion/react";
+import { useEffect, useState } from "react";
+import { SVLogo } from "@/components/brand/v2";
 
 const links = [
   { label: "Services", href: "#services" },
@@ -10,43 +11,44 @@ const links = [
 ];
 
 export function Nav() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <motion.header
-      initial={{ y: -12, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
-      className="fixed top-0 inset-x-0 z-50 mix-blend-difference text-bg"
+    <header
+      className="fixed top-0 inset-x-0 z-50 transition-colors duration-300"
+      style={{
+        background: scrolled ? "rgba(251, 249, 244, 0.85)" : "transparent",
+        backdropFilter: scrolled ? "blur(10px)" : "none",
+        borderBottom: scrolled ? "1px solid var(--rule)" : "1px solid transparent",
+      }}
     >
-      <div className="px-6 lg:px-12 h-16 flex items-center justify-between">
-        <Link
-          href="/"
-          className="text-[14px] tracking-[-0.01em] font-medium"
-          data-cursor-grow
-        >
-          Savoca <span className="font-serif italic">Studio</span>
+      <div className="grid grid-cols-3 items-center px-6 md:px-10 lg:px-12 py-4">
+        <Link href="/" aria-label="Savoca Studio" className="justify-self-start">
+          <SVLogo size={20} layout="inline" />
         </Link>
-        <nav className="hidden md:flex items-center gap-10 text-[13px]">
+
+        <nav className="hidden md:flex items-center gap-7 justify-self-center font-mono text-[11px] uppercase tracking-[0.16em] text-ink-2">
           {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="relative group"
-              data-cursor-grow
-            >
+            <Link key={l.href} href={l.href} className="hover:text-money transition-colors">
               {l.label}
-              <span className="absolute left-0 right-0 -bottom-1 h-px bg-bg scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out" />
             </Link>
           ))}
         </nav>
+
         <Link
           href="#contact"
-          className="text-[13px] inline-flex items-center gap-2 group"
-          data-cursor-grow
+          className="justify-self-end font-mono text-[11px] uppercase tracking-[0.14em] text-bone bg-ink hover:bg-money transition-colors px-4 py-2.5"
         >
-          <span>Book a call</span>
-          <span className="block w-5 h-px bg-bg transition-all duration-500 group-hover:w-10" />
+          Book a call →
         </Link>
       </div>
-    </motion.header>
+    </header>
   );
 }
