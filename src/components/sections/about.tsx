@@ -1,123 +1,105 @@
 "use client";
 
-import { useRef } from "react";
-import { RevealBlock, RevealWords } from "@/components/motion/reveal-words";
-import { SectionLine } from "@/components/motion/section-line";
+import { Eyebrow, Rule } from "@/components/brand/v2";
+
+const triplet: [string, string][] = [
+  ["Audit.", "what's happening"],
+  ["Fix.", "the system"],
+  ["Track.", "what changes"],
+];
 
 export function About() {
-  const ref = useRef<HTMLElement>(null);
-
   return (
     <section
-      ref={ref}
       id="about"
-      className="relative px-6 lg:px-12 py-24 lg:py-44 border-t border-line"
+      className="grain px-6 md:px-10 lg:px-12 py-20 lg:py-28"
+      style={{ background: "var(--paper)" }}
     >
-      <SectionLine targetRef={ref} />
+      <Eyebrow>Four · About</Eyebrow>
+      <h2
+        className="font-serif mt-2 max-w-[900px]"
+        style={{
+          fontSize: "clamp(36px, 6vw, 64px)",
+          lineHeight: 0.95,
+          letterSpacing: "-0.035em",
+          fontWeight: 400,
+        }}
+      >
+        I fix the part where revenue
+        <br />
+        <span style={{ fontStyle: "italic", color: "var(--money)" }}>
+          falls through.
+        </span>
+      </h2>
+      <Rule style={{ marginTop: 22 }} />
 
-      <div className="grid grid-cols-12 gap-x-6 lg:gap-x-8">
-        <div className="col-span-12 lg:col-span-2 mb-4 lg:mb-0 font-mono text-[11px] uppercase tracking-[0.18em] text-mute">
-          Four / About
-        </div>
-        <div className="col-span-12 lg:col-span-9">
-          <h2
-            className="leading-[0.95] tracking-[-0.025em] text-ink font-medium"
-            style={{ fontSize: "clamp(36px, 5.4vw, 88px)" }}
+      <div className="mt-8 max-w-[680px]">
+        <p
+          className="font-sans"
+          style={{ fontSize: 16, lineHeight: 1.55, color: "var(--ink)" }}
+        >
+          Global product commercialization PM at Indeed. Previously Whole Foods
+          Market and Facebook (now Meta).
+        </p>
+        <p
+          className="font-sans mt-4"
+          style={{ fontSize: 16, lineHeight: 1.55, color: "var(--ink-2)" }}
+        >
+          Most service businesses already have what they need. Phone. CRM.
+          Booking. Payments. They just don&apos;t work together. Calls get
+          missed. Forms sit. Bookings don&apos;t confirm.
+        </p>
+      </div>
+
+      {/* Audit / Fix / Track strip */}
+      <div
+        className="mt-8 grid grid-cols-3 max-w-[680px]"
+        style={{ border: "1px solid var(--rule)" }}
+      >
+        {triplet.map(([word, caption], i) => (
+          <div
+            key={word}
+            className="p-4"
+            style={{
+              borderRight: i < 2 ? "1px solid var(--rule)" : "0",
+              background: i === 1 ? "var(--bone-2)" : "transparent",
+            }}
           >
-            <RevealWords text="I fix the part where" />{" "}
-            <RevealWords
-              text="revenue falls through."
-              className="font-serif italic font-normal text-mute-soft"
-              delay={0.22}
-            />
-          </h2>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-12 gap-x-6 lg:gap-x-8 mt-16 lg:mt-32">
-        {/* Portrait — left rail under eyebrow */}
-        <RevealBlock className="col-span-6 md:col-span-4 lg:col-span-2 mb-12 lg:mb-0" delay={0.05}>
-          <figure className="relative aspect-square overflow-hidden bg-bg-alt">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/assets/about/jack.jpg"
-              alt="Jack Savoca"
-              className="w-full h-full object-cover grayscale contrast-[1.05] mix-blend-multiply"
-            />
-            <figcaption className="sr-only">Jack Savoca, founder of Savoca Studio</figcaption>
-          </figure>
-          <div className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-mute tabular">
-            Jack Savoca · 2026
-          </div>
-        </RevealBlock>
-
-        <RevealBlock className="col-span-12 lg:col-span-9 lg:col-start-3" delay={0.1}>
-          <div className="space-y-12 lg:space-y-14 max-w-[60ch]">
-            {/* Bio block */}
-            <div className="space-y-4 text-[17px] leading-[1.55] text-ink-soft">
-              <p>
-                I&apos;m a{" "}
-                <span className="text-ink font-medium">
-                  global product commercialization program manager
-                </span>{" "}
-                at <span className="text-ink font-medium">Indeed</span>,
-                focused on{" "}
-                <span className="font-serif italic text-ink">
-                  go-to-market strategy and execution.
-                </span>
-              </p>
-              <p className="text-mute">
-                Previously at{" "}
-                <span className="text-ink-soft">Whole Foods Market</span> and{" "}
-                <span className="text-ink-soft">Facebook (now Meta)</span>.
-              </p>
+            <div
+              className="font-serif"
+              style={{
+                fontSize: "clamp(22px, 3vw, 30px)",
+                color: "var(--money)",
+                letterSpacing: "-0.035em",
+                lineHeight: 1,
+                fontWeight: 400,
+              }}
+            >
+              {word}
             </div>
-
-            {/* Diagnosis block */}
-            <div className="space-y-3 text-[17px] leading-[1.55] text-ink-soft">
-              <p>Most service businesses already have what they need.</p>
-              <p className="font-serif italic text-mute">
-                Phone. CRM. Booking. Payments.
-              </p>
-              <p>They just don&apos;t work together.</p>
-              <p className="text-mute">Calls get missed.</p>
-              <p className="text-mute">Forms sit.</p>
-              <p className="text-mute">Bookings don&apos;t confirm.</p>
-            </div>
-
-            {/* Process block */}
-            <div className="grid grid-cols-2 gap-x-6 lg:gap-x-12 gap-y-10">
-              <div>
-                <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute mb-4">
-                  I:
-                </div>
-                <ul className="space-y-2.5 text-[16px] text-ink leading-[1.45]">
-                  <li>Audit what&apos;s happening</li>
-                  <li>Fix the system</li>
-                  <li>Track what changes</li>
-                </ul>
-              </div>
-              <div>
-                <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute mb-4">
-                  For 30 days, you&apos;ll see:
-                </div>
-                <ul className="space-y-2.5 text-[16px] text-ink leading-[1.45]">
-                  <li>Calls recovered</li>
-                  <li>Appointments booked</li>
-                  <li>Payments captured</li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Closing line */}
-            <div className="space-y-1 text-[18px] leading-[1.4]">
-              <p className="text-ink font-medium">No agency. No handoffs.</p>
-              <p className="font-serif italic text-mute">You work with me.</p>
+            <div
+              className="font-mono mt-2"
+              style={{
+                fontSize: 11,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "var(--steel)",
+                fontWeight: 500,
+              }}
+            >
+              {caption}
             </div>
           </div>
-
-        </RevealBlock>
+        ))}
       </div>
+
+      <p
+        className="font-serif italic mt-6"
+        style={{ fontSize: 18, color: "var(--ink)", fontWeight: 400 }}
+      >
+        No agency. No handoffs.{" "}
+        <span style={{ color: "var(--money)" }}>You work with me.</span>
+      </p>
     </section>
   );
 }
