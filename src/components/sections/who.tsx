@@ -26,7 +26,7 @@ const rows = [
   {
     n: "03",
     icon: "house" as const,
-    name: "Home services.",
+    name: "Home Services.",
     lines: [
       "Most demand hits after hours.",
       "You're closed when the phone rings.",
@@ -36,7 +36,7 @@ const rows = [
   {
     n: "04",
     icon: "clipboard" as const,
-    name: "Pro services.",
+    name: "Pro Services.",
     lines: [
       "Speed decides everything.",
       "Inside 5 min: 21× more likely to convert.",
