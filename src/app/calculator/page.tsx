@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+/* Link import retained for in-app routes (header, etc.) */
 import { Eyebrow, SVInitial, Rule } from "@/components/brand/v2";
 
 type Vertical = "medspa" | "dental" | "home" | "pro" | "other";
@@ -469,8 +470,8 @@ export default function CalculatorPage() {
 
           {/* CTAs */}
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/#contact"
+            <a
+              href="mailto:jack@savoca.studio?subject=Catcher%20%C2%B7%20%24349%20audit&body=Hi%20Jack%20%E2%80%94%20just%20ran%20the%20calculator.%20Interested%20in%20the%20Catcher%20audit.%0A%0AA%20bit%20about%20us%3A%0A-%20Business%20name%3A%0A-%20Vertical%3A%0A-%20City%3A%0A-%20Approx%20monthly%20inbound%20calls%3A%0A%0ABest%20time%20to%20talk%20this%20week%3A%0A%0AThanks%2C%0A"
               className="cta-arrow-host font-mono inline-flex items-center gap-2 transition-colors"
               style={{
                 background: "var(--ink)",
@@ -483,7 +484,7 @@ export default function CalculatorPage() {
               }}
             >
               Book the audit · $349 <span className="cta-arrow">→</span>
-            </Link>
+            </a>
             <a
               href="mailto:jack@savoca.studio?subject=Calculator%20follow-up"
               className="font-mono inline-flex items-center gap-2 transition-colors hover:bg-ink hover:text-bone"

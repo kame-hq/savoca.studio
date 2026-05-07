@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { Eyebrow, Glyph, Rule } from "@/components/brand/v2";
 import { Reveal } from "@/components/motion/reveal";
 
@@ -16,6 +15,7 @@ type Tier = {
   dark: boolean;
   mostPicked: boolean;
   proof: { label: string; href: string; caption: string } | null;
+  inquirySubject: string;
 };
 
 const tiers: Tier[] = [
@@ -31,6 +31,7 @@ const tiers: Tier[] = [
     dark: false,
     mostPicked: false,
     proof: null,
+    inquirySubject: "Catcher · $349 audit",
   },
   {
     n: "02",
@@ -49,6 +50,7 @@ const tiers: Tier[] = [
     dark: true,
     mostPicked: true,
     proof: null,
+    inquirySubject: "Stacker · $997 build",
   },
   {
     n: "03",
@@ -70,6 +72,7 @@ const tiers: Tier[] = [
       href: "https://astroturf.dev",
       caption: "astroturf.dev — RevOps OS for synthetic turf",
     },
+    inquirySubject: "Operator · $4,997 custom build",
   },
   {
     n: "04",
@@ -87,8 +90,13 @@ const tiers: Tier[] = [
     dark: false,
     mostPicked: false,
     proof: null,
+    inquirySubject: "Partner · $2,495/mo retainer",
   },
 ];
+
+const INQUIRY_BODY = encodeURIComponent(
+  "Hi Jack — interested in the {tier}.\n\nA bit about us:\n- Business name:\n- Vertical (medspa / dental / home services / pro services):\n- City:\n- Approx monthly inbound calls:\n\nBest time to talk this week:\n\nThanks,\n"
+);
 
 export function Services() {
   return (
@@ -273,8 +281,8 @@ export function Services() {
                 </span>
               </div>
 
-              <Link
-                href="#contact"
+              <a
+                href={`mailto:jack@savoca.studio?subject=${encodeURIComponent(t.inquirySubject)}&body=${INQUIRY_BODY.replace("{tier}", encodeURIComponent(t.name))}`}
                 className="cta-arrow-host font-mono mt-4 inline-flex items-center justify-center gap-2 transition-colors"
                 style={{
                   padding: "12px 14px",
@@ -288,7 +296,7 @@ export function Services() {
               >
                 <span>{t.cta.replace(" →", "")}</span>
                 <span className="cta-arrow">→</span>
-              </Link>
+              </a>
             </Reveal>
           );
         })}
