@@ -10,18 +10,19 @@ const tiers = [
     icon: "net" as const,
     name: "The Catcher",
     pitch: "1-week audit. A written map of every place leads die.",
-    price: "$249",
+    price: "$349",
     unit: "one-time",
     cta: "Start audit →",
     bullets: ["Lead-capture audit", "Map of follow-up gaps"],
     featured: false,
+    proof: null,
   },
   {
     n: "02",
     icon: "stack" as const,
     name: "The Stacker",
-    pitch: "2-week build. Phone, CRM, calendar, follow-up wired.",
-    price: "$999",
+    pitch: "2-week build. Phone, CRM, calendar, follow-up wired with off-the-shelf tools.",
+    price: "$997",
     unit: "one-time",
     cta: "Build with Stacker →",
     bullets: [
@@ -31,21 +32,43 @@ const tiers = [
       "After-hours capture",
     ],
     featured: true,
+    proof: null,
   },
   {
     n: "03",
     icon: "compass" as const,
     name: "The Operator",
+    pitch: "Custom-built system. When off-the-shelf tools don't fit your operating motion.",
+    price: "$4,997",
+    unit: "one-time",
+    cta: "Talk through fit →",
+    bullets: [
+      "Vertical-specific data model",
+      "Custom integrations + automations",
+      "Live, owned by you, no vendor lock",
+    ],
+    featured: false,
+    proof: {
+      label: "Live example",
+      href: "https://astroturf.dev",
+      caption: "astroturf.dev — RevOps OS for synthetic turf",
+    },
+  },
+  {
+    n: "04",
+    icon: "clipboard" as const,
+    name: "The Partner",
     pitch: "Monthly retainer. Weekly review. On call for the hard calls.",
-    price: "$2,995",
+    price: "$2,495",
     unit: "per month",
     cta: "Talk through fit →",
     bullets: [
-      "Everything in Stacker",
       "Weekly pipeline review",
       "On-call: tools, vendors, hires",
+      "Monthly deep-dive + report",
     ],
     featured: false,
+    proof: null,
   },
 ];
 
@@ -67,14 +90,14 @@ export function Services() {
             fontWeight: 400,
           }}
         >
-          Three ways to stop
+          Four ways to stop
           <br />
           losing revenue.
         </h2>
         <Rule style={{ marginTop: 22 }} />
       </Reveal>
 
-      <ul className="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-3.5">
+      <ul className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5">
         {tiers.map((t, i) => {
           const featured = t.featured;
           const cardBg = featured ? "var(--ink)" : "var(--paper)";
@@ -83,9 +106,9 @@ export function Services() {
             <Reveal
               key={t.n}
               as="li"
-              delay={i * 100}
+              delay={i * 80}
               className={
-                "glyph-host relative flex flex-col p-5 lg:p-[22px] " +
+                "glyph-host relative flex flex-col p-5 lg:p-[20px] " +
                 (featured ? "tier-featured" : "")
               }
               style={{
@@ -126,17 +149,17 @@ export function Services() {
                   No. {t.n}
                 </span>
                 <span className="glyph-svg">
-                  <Glyph name={t.icon} size={32} color={cardFg} />
+                  <Glyph name={t.icon} size={28} color={cardFg} />
                 </span>
               </div>
 
               <h3
                 className="font-serif"
                 style={{
-                  fontSize: 38,
+                  fontSize: "clamp(28px, 2.4vw, 34px)",
                   lineHeight: 1,
                   letterSpacing: "-0.035em",
-                  marginTop: 26,
+                  marginTop: 24,
                   fontWeight: 400,
                 }}
               >
@@ -173,13 +196,42 @@ export function Services() {
                 ))}
               </ul>
 
+              {/* Proof link — only on tiers with a proof object */}
+              {t.proof && (
+                <a
+                  href={t.proof.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono mt-3 inline-flex items-center gap-2 transition-colors hover:text-money-2"
+                  style={{
+                    fontSize: 10,
+                    letterSpacing: "0.14em",
+                    textTransform: "uppercase",
+                    color: featured ? "var(--steel-2)" : "var(--money-2)",
+                    fontWeight: 600,
+                    paddingTop: 6,
+                    borderTop:
+                      "1px solid " +
+                      (featured ? "rgba(245,242,236,0.15)" : "var(--rule)"),
+                  }}
+                >
+                  <span>↗ {t.proof.label}</span>
+                  <span
+                    className="opacity-70"
+                    style={{ fontWeight: 400, letterSpacing: "0.08em" }}
+                  >
+                    {t.proof.caption}
+                  </span>
+                </a>
+              )}
+
               <div className="flex-1" />
 
               <div className="mt-5 flex items-baseline gap-2">
                 <span
                   className="font-serif"
                   style={{
-                    fontSize: 36,
+                    fontSize: "clamp(28px, 2.6vw, 34px)",
                     lineHeight: 1,
                     letterSpacing: "-0.035em",
                     color: featured ? "var(--bone)" : "var(--money)",

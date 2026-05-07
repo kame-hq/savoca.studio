@@ -482,7 +482,7 @@ export default function CalculatorPage() {
                 fontWeight: 500,
               }}
             >
-              Book the audit · $249 <span className="cta-arrow">→</span>
+              Book the audit · $349 <span className="cta-arrow">→</span>
             </Link>
             <a
               href="mailto:jack@savoca.studio?subject=Calculator%20follow-up"
