@@ -7,6 +7,7 @@ import { SVLogo } from "@/components/brand/v2";
 const links = [
   { label: "Services", href: "#services" },
   { label: "Proof", href: "#proof" },
+  { label: "Calculator", href: "/calculator" },
   { label: "About", href: "#about" },
 ];
 
