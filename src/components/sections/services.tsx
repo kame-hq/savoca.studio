@@ -4,22 +4,37 @@ import Link from "next/link";
 import { Eyebrow, Glyph, Rule } from "@/components/brand/v2";
 import { Reveal } from "@/components/motion/reveal";
 
-const tiers = [
+type Tier = {
+  n: string;
+  icon: "net" | "stack" | "compass" | "clipboard";
+  name: string;
+  pitch: string;
+  price: string;
+  unit: string;
+  cta: string;
+  bullets: string[];
+  dark: boolean;
+  mostPicked: boolean;
+  proof: { label: string; href: string; caption: string } | null;
+};
+
+const tiers: Tier[] = [
   {
     n: "01",
-    icon: "net" as const,
+    icon: "net",
     name: "The Catcher",
     pitch: "1-week audit. A written map of every place leads die.",
     price: "$349",
     unit: "one-time",
     cta: "Start audit →",
     bullets: ["Lead-capture audit", "Map of follow-up gaps"],
-    featured: false,
+    dark: false,
+    mostPicked: false,
     proof: null,
   },
   {
     n: "02",
-    icon: "stack" as const,
+    icon: "stack",
     name: "The Stacker",
     pitch: "2-week build. Phone, CRM, calendar, follow-up wired with off-the-shelf tools.",
     price: "$997",
@@ -31,12 +46,13 @@ const tiers = [
       "Missed-call text-back",
       "After-hours capture",
     ],
-    featured: true,
+    dark: true,
+    mostPicked: true,
     proof: null,
   },
   {
     n: "03",
-    icon: "compass" as const,
+    icon: "compass",
     name: "The Operator",
     pitch: "Custom-built system. When off-the-shelf tools don't fit your operating motion.",
     price: "$4,997",
@@ -47,7 +63,8 @@ const tiers = [
       "Custom integrations + automations",
       "Live, owned by you, no vendor lock",
     ],
-    featured: false,
+    dark: true,
+    mostPicked: false,
     proof: {
       label: "Live example",
       href: "https://astroturf.dev",
@@ -56,7 +73,7 @@ const tiers = [
   },
   {
     n: "04",
-    icon: "clipboard" as const,
+    icon: "clipboard",
     name: "The Partner",
     pitch: "Monthly retainer. Weekly review. On call for the hard calls.",
     price: "$2,495",
@@ -67,7 +84,8 @@ const tiers = [
       "On-call: tools, vendors, hires",
       "Monthly deep-dive + report",
     ],
-    featured: false,
+    dark: false,
+    mostPicked: false,
     proof: null,
   },
 ];
@@ -99,9 +117,10 @@ export function Services() {
 
       <ul className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5">
         {tiers.map((t, i) => {
-          const featured = t.featured;
-          const cardBg = featured ? "var(--ink)" : "var(--paper)";
-          const cardFg = featured ? "var(--bone)" : "var(--ink)";
+          const dark = t.dark;
+          const mostPicked = t.mostPicked;
+          const cardBg = dark ? "var(--ink)" : "var(--paper)";
+          const cardFg = dark ? "var(--bone)" : "var(--ink)";
           return (
             <Reveal
               key={t.n}
@@ -109,7 +128,7 @@ export function Services() {
               delay={i * 80}
               className={
                 "glyph-host relative flex flex-col p-5 lg:p-[20px] " +
-                (featured ? "tier-featured" : "")
+                (dark ? "tier-featured" : "")
               }
               style={{
                 border: "1px solid var(--rule)",
@@ -117,7 +136,7 @@ export function Services() {
                 color: cardFg,
               }}
             >
-              {featured && (
+              {mostPicked && (
                 <span
                   className="font-mono absolute"
                   style={{
@@ -142,7 +161,7 @@ export function Services() {
                   style={{
                     fontSize: 11,
                     letterSpacing: "0.18em",
-                    color: featured ? "var(--steel-2)" : "var(--steel)",
+                    color: dark ? "var(--steel-2)" : "var(--steel)",
                     fontWeight: 500,
                   }}
                 >
@@ -171,7 +190,7 @@ export function Services() {
                 style={{
                   fontSize: 13,
                   lineHeight: 1.5,
-                  color: featured ? "var(--bone-2)" : "var(--ink-2)",
+                  color: dark ? "var(--bone-2)" : "var(--ink-2)",
                 }}
               >
                 {t.pitch}
@@ -184,7 +203,7 @@ export function Services() {
                     style={{
                       borderTop:
                         "1px solid " +
-                        (featured ? "rgba(245,242,236,0.15)" : "var(--rule)"),
+                        (dark ? "rgba(245,242,236,0.15)" : "var(--rule)"),
                       padding: "5px 0",
                       fontSize: 12,
                       lineHeight: 1.7,
@@ -207,12 +226,12 @@ export function Services() {
                     fontSize: 10,
                     letterSpacing: "0.14em",
                     textTransform: "uppercase",
-                    color: featured ? "var(--steel-2)" : "var(--money-2)",
+                    color: dark ? "var(--steel-2)" : "var(--money-2)",
                     fontWeight: 600,
                     paddingTop: 6,
                     borderTop:
                       "1px solid " +
-                      (featured ? "rgba(245,242,236,0.15)" : "var(--rule)"),
+                      (dark ? "rgba(245,242,236,0.15)" : "var(--rule)"),
                   }}
                 >
                   <span>↗ {t.proof.label}</span>
@@ -234,7 +253,7 @@ export function Services() {
                     fontSize: "clamp(28px, 2.6vw, 34px)",
                     lineHeight: 1,
                     letterSpacing: "-0.035em",
-                    color: featured ? "var(--bone)" : "var(--money)",
+                    color: dark ? "var(--bone)" : "var(--money)",
                     fontWeight: 400,
                   }}
                 >
@@ -246,7 +265,7 @@ export function Services() {
                     fontSize: 10,
                     letterSpacing: "0.14em",
                     textTransform: "uppercase",
-                    color: featured ? "var(--steel-2)" : "var(--steel)",
+                    color: dark ? "var(--steel-2)" : "var(--steel)",
                     fontWeight: 500,
                   }}
                 >
@@ -262,7 +281,7 @@ export function Services() {
                   fontSize: 11,
                   letterSpacing: "0.14em",
                   textTransform: "uppercase",
-                  background: featured ? "var(--money)" : "var(--ink)",
+                  background: dark ? "var(--money)" : "var(--ink)",
                   color: "var(--bone)",
                   fontWeight: 500,
                 }}
