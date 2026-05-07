@@ -7,7 +7,8 @@ import { Reveal } from "@/components/motion/reveal";
 /**
  * Inline banner — soft pre-rate-card CTA pointing prospects at the calculator
  * so they can run their own numbers before reading the price tiers.
- * Lives between Who and Services.
+ * Lives between Who and Services. Dark treatment matches the Close section's
+ * editorial weight — full-bleed ink, signal-red italic, inverse CTA.
  */
 export function CalculatorCTA() {
   return (
@@ -15,20 +16,18 @@ export function CalculatorCTA() {
       aria-label="Revenue calculator preview"
       className="relative px-6 md:px-10 lg:px-12 py-12 lg:py-16"
       style={{
-        background: "var(--bone-2)",
-        borderTop: "1px solid var(--rule)",
-        borderBottom: "1px solid var(--rule)",
+        background: "var(--ink)",
+        color: "var(--bone)",
       }}
     >
       <div className="grid grid-cols-12 gap-x-6 lg:gap-x-8 items-end">
         <Reveal className="col-span-12 lg:col-span-2 mb-4 lg:mb-0">
-          <Eyebrow dotColor="var(--money-2)">§ Calculator</Eyebrow>
+          <Eyebrow color="var(--steel-2)" dotColor="var(--signal)">
+            § Calculator
+          </Eyebrow>
         </Reveal>
 
-        <Reveal
-          delay={80}
-          className="col-span-12 lg:col-span-7"
-        >
+        <Reveal delay={80} className="col-span-12 lg:col-span-7">
           <p
             className="font-serif"
             style={{
@@ -36,12 +35,12 @@ export function CalculatorCTA() {
               lineHeight: 1,
               letterSpacing: "-0.03em",
               fontWeight: 400,
-              color: "var(--ink)",
+              color: "var(--bone)",
             }}
           >
             Want to know what you&apos;re losing before you read the prices?
             <br />
-            <span style={{ fontStyle: "italic", color: "var(--money)" }}>
+            <span style={{ fontStyle: "italic", color: "var(--signal)" }}>
               Run the math.
             </span>
           </p>
@@ -53,10 +52,10 @@ export function CalculatorCTA() {
         >
           <Link
             href="/calculator"
-            className="cta-arrow-host font-mono inline-flex items-center gap-2 transition-colors"
+            className="cta-arrow-host font-mono inline-flex items-center gap-2 transition-opacity hover:opacity-90"
             style={{
-              background: "var(--ink)",
-              color: "var(--bone)",
+              background: "var(--bone)",
+              color: "var(--ink)",
               padding: "14px 20px",
               fontSize: 12,
               letterSpacing: "0.14em",
@@ -69,7 +68,7 @@ export function CalculatorCTA() {
         </Reveal>
       </div>
 
-      <Rule style={{ marginTop: 32 }} />
+      <Rule color="rgba(245,242,236,0.25)" style={{ marginTop: 32 }} />
 
       <div className="mt-3 flex items-center gap-2">
         <SVInitial size={16} color="var(--money-2)" />
@@ -79,7 +78,7 @@ export function CalculatorCTA() {
             fontSize: 10,
             letterSpacing: "0.18em",
             textTransform: "uppercase",
-            color: "var(--steel)",
+            color: "var(--steel-2)",
           }}
         >
           30-second estimate · no email required
