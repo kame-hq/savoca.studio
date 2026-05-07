@@ -15,7 +15,7 @@ export function CalculatorCTA() {
       aria-label="Revenue calculator preview"
       className="relative px-6 md:px-10 lg:px-12 py-12 lg:py-16"
       style={{
-        background: "var(--bone)",
+        background: "var(--bone-2)",
         borderTop: "1px solid var(--rule)",
         borderBottom: "1px solid var(--rule)",
       }}
