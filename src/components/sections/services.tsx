@@ -13,6 +13,7 @@ type Tier = {
   price: string;
   unit: string;
   bullets: string[];
+  addOn?: string;
   dark: boolean;
   mostPicked: boolean;
   proof: { label: string; href: string; caption: string } | null;
@@ -46,6 +47,7 @@ const tiers: Tier[] = [
       "Missed-call text-back",
       "After-hours capture",
     ],
+    addOn: "+ Landing page setup · $497–1,497 if needed",
     dark: true,
     mostPicked: true,
     proof: null,
@@ -214,6 +216,22 @@ export function Services() {
                   </li>
                 ))}
               </ul>
+
+              {/* Optional add-on note (subtle, mono, no bullet) */}
+              {t.addOn && (
+                <p
+                  className="font-mono mt-2.5"
+                  style={{
+                    fontSize: 10,
+                    letterSpacing: "0.08em",
+                    color: dark ? "var(--steel-2)" : "var(--steel)",
+                    fontStyle: "italic",
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {t.addOn}
+                </p>
+              )}
 
               {/* Proof link — only on tiers with a proof object */}
               {t.proof && (
