@@ -88,7 +88,7 @@ export function Hero() {
 
           <div className="hero-rise hero-rise-3 flex flex-wrap gap-3 mt-7">
             <Link
-              href="#contact"
+              href="/book"
               className="cta-arrow-host font-mono transition-colors inline-flex items-center gap-2"
               style={{
                 background: "var(--ink)",

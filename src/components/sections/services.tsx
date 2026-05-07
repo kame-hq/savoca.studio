@@ -2,45 +2,44 @@
 
 import { Eyebrow, Glyph, Rule } from "@/components/brand/v2";
 import { Reveal } from "@/components/motion/reveal";
+import { tierCtas, type TierSlug } from "@/lib/cta-links";
 
 type Tier = {
+  slug: TierSlug;
   n: string;
   icon: "net" | "stack" | "compass" | "clipboard";
   name: string;
   pitch: string;
   price: string;
   unit: string;
-  cta: string;
   bullets: string[];
   dark: boolean;
   mostPicked: boolean;
   proof: { label: string; href: string; caption: string } | null;
-  inquirySubject: string;
 };
 
 const tiers: Tier[] = [
   {
+    slug: "catcher",
     n: "01",
     icon: "net",
     name: "The Catcher",
     pitch: "1-week audit. A written map of every place leads die.",
     price: "$349",
     unit: "one-time",
-    cta: "Start audit →",
     bullets: ["Lead-capture audit", "Map of follow-up gaps"],
     dark: false,
     mostPicked: false,
     proof: null,
-    inquirySubject: "Catcher · $349 audit",
   },
   {
+    slug: "stacker",
     n: "02",
     icon: "stack",
     name: "The Stacker",
     pitch: "2-week build. Phone, CRM, calendar, follow-up wired with off-the-shelf tools.",
     price: "$997",
     unit: "one-time",
-    cta: "Build with Stacker →",
     bullets: [
       "Everything in Catcher",
       "Phone → CRM → calendar wired",
@@ -50,16 +49,15 @@ const tiers: Tier[] = [
     dark: true,
     mostPicked: true,
     proof: null,
-    inquirySubject: "Stacker · $997 build",
   },
   {
+    slug: "operator",
     n: "03",
     icon: "compass",
     name: "The Operator",
     pitch: "Custom-built system. When off-the-shelf tools don't fit your operating motion.",
     price: "$4,997",
     unit: "one-time",
-    cta: "Talk through fit →",
     bullets: [
       "Vertical-specific data model",
       "Custom integrations + automations",
@@ -72,16 +70,15 @@ const tiers: Tier[] = [
       href: "https://astroturf.dev",
       caption: "astroturf.dev — RevOps OS for synthetic turf",
     },
-    inquirySubject: "Operator · $4,997 custom build",
   },
   {
+    slug: "partner",
     n: "04",
     icon: "clipboard",
     name: "The Partner",
     pitch: "Monthly retainer. Weekly review. On call for the hard calls.",
     price: "$2,495",
     unit: "per month",
-    cta: "Talk through fit →",
     bullets: [
       "Weekly pipeline review",
       "On-call: tools, vendors, hires",
@@ -90,13 +87,8 @@ const tiers: Tier[] = [
     dark: false,
     mostPicked: false,
     proof: null,
-    inquirySubject: "Partner · $2,495/mo retainer",
   },
 ];
-
-const INQUIRY_BODY = encodeURIComponent(
-  "Hi Jack — interested in the {tier}.\n\nA bit about us:\n- Business name:\n- Vertical (medspa / dental / home services / pro services):\n- City:\n- Approx monthly inbound calls:\n\nBest time to talk this week:\n\nThanks,\n"
-);
 
 export function Services() {
   return (
@@ -281,22 +273,43 @@ export function Services() {
                 </span>
               </div>
 
-              <a
-                href={`mailto:jack@savoca.studio?subject=${encodeURIComponent(t.inquirySubject)}&body=${INQUIRY_BODY.replace("{tier}", encodeURIComponent(t.name))}`}
-                className="cta-arrow-host font-mono mt-4 inline-flex items-center justify-center gap-2 transition-colors"
-                style={{
-                  padding: "12px 14px",
-                  fontSize: 11,
-                  letterSpacing: "0.14em",
-                  textTransform: "uppercase",
-                  background: dark ? "var(--money)" : "var(--ink)",
-                  color: "var(--bone)",
-                  fontWeight: 500,
-                }}
-              >
-                <span>{t.cta.replace(" →", "")}</span>
-                <span className="cta-arrow">→</span>
-              </a>
+              {(() => {
+                const ctas = tierCtas(t.slug, t.name, t.price);
+                return (
+                  <div className="mt-4 flex flex-col gap-2">
+                    <a
+                      href={ctas.primary.href}
+                      className="cta-arrow-host font-mono inline-flex items-center justify-center gap-2 transition-colors"
+                      style={{
+                        padding: "12px 14px",
+                        fontSize: 11,
+                        letterSpacing: "0.14em",
+                        textTransform: "uppercase",
+                        background: dark ? "var(--money)" : "var(--ink)",
+                        color: "var(--bone)",
+                        fontWeight: 500,
+                      }}
+                    >
+                      <span>{ctas.primary.label}</span>
+                      <span className="cta-arrow">→</span>
+                    </a>
+                    <a
+                      href={ctas.secondary.href}
+                      className="font-mono inline-flex items-center justify-center gap-1 transition-opacity hover:opacity-70"
+                      style={{
+                        padding: "6px 8px",
+                        fontSize: 10,
+                        letterSpacing: "0.14em",
+                        textTransform: "uppercase",
+                        color: dark ? "var(--steel-2)" : "var(--steel)",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {ctas.secondary.label}
+                    </a>
+                  </div>
+                );
+              })()}
             </Reveal>
           );
         })}

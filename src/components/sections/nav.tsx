@@ -53,7 +53,7 @@ export function Nav() {
         </nav>
 
         <Link
-          href="#contact"
+          href="/book"
           className="cta-arrow-host justify-self-end font-mono uppercase text-bone bg-ink hover:bg-money transition-colors text-[10px] md:text-[11px] tracking-[0.12em] md:tracking-[0.14em] px-3 md:px-4 py-2 md:py-2.5 whitespace-nowrap inline-flex items-center gap-2"
         >
           Book a call <span className="cta-arrow">→</span>
