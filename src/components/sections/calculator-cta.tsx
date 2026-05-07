@@ -5,10 +5,9 @@ import { Eyebrow, Rule, SVInitial } from "@/components/brand/v2";
 import { Reveal } from "@/components/motion/reveal";
 
 /**
- * Inline banner — soft pre-rate-card CTA pointing prospects at the calculator
- * so they can run their own numbers before reading the price tiers.
- * Lives between Who and Services. Dark treatment matches the Close section's
- * editorial weight — full-bleed ink, signal-red italic, inverse CTA.
+ * Inline banner — soft pre-rate-card CTA pointing prospects at the calculator.
+ * Money-green accent block. Breaks the page rhythm between Who and Services
+ * without adding another dark slab (Stacker + Operator + Close are already ink).
  */
 export function CalculatorCTA() {
   return (
@@ -16,13 +15,13 @@ export function CalculatorCTA() {
       aria-label="Revenue calculator preview"
       className="relative px-6 md:px-10 lg:px-12 py-12 lg:py-16"
       style={{
-        background: "var(--ink)",
+        background: "var(--money)",
         color: "var(--bone)",
       }}
     >
       <div className="grid grid-cols-12 gap-x-6 lg:gap-x-8 items-end">
         <Reveal className="col-span-12 lg:col-span-2 mb-4 lg:mb-0">
-          <Eyebrow color="var(--steel-2)" dotColor="var(--signal)">
+          <Eyebrow color="var(--bone)" dotColor="var(--signal)">
             § Calculator
           </Eyebrow>
         </Reveal>
@@ -40,7 +39,7 @@ export function CalculatorCTA() {
           >
             Want to know what you&apos;re losing before you read the prices?
             <br />
-            <span style={{ fontStyle: "italic", color: "var(--signal)" }}>
+            <span style={{ fontStyle: "italic", color: "var(--gold)" }}>
               Run the math.
             </span>
           </p>
@@ -71,14 +70,14 @@ export function CalculatorCTA() {
       <Rule color="rgba(245,242,236,0.25)" style={{ marginTop: 32 }} />
 
       <div className="mt-3 flex items-center gap-2">
-        <SVInitial size={16} color="var(--money-2)" />
+        <SVInitial size={16} color="var(--gold)" />
         <span
           className="font-mono"
           style={{
             fontSize: 10,
             letterSpacing: "0.18em",
             textTransform: "uppercase",
-            color: "var(--steel-2)",
+            color: "rgba(245,242,236,0.7)",
           }}
         >
           30-second estimate · no email required
