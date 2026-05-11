@@ -1,0 +1,404 @@
+/* ────────────────────────────────────────────────────────────
+   Savoca.Studio — Pitch deck print + screen layout
+   16:9 landscape slides — 11in × 6.1875in for letter-landscape PDF
+   ──────────────────────────────────────────────────────────── */
+
+.deck {
+  --slide-w: 11in;
+  --slide-h: 6.1875in;   /* 16:9 aspect, fits letter landscape */
+  --slide-pad: 0.65in;
+
+  background: var(--bone-2);
+  padding: 4rem 1rem;
+  min-height: 100vh;
+}
+
+.deck .slide {
+  position: relative;
+  width: var(--slide-w);
+  min-height: var(--slide-h);
+  max-width: 100%;
+  margin: 0 auto 2rem;
+  padding: var(--slide-pad);
+  background: var(--paper);
+  box-shadow: 0 4px 20px rgba(14, 14, 12, 0.08);
+  page-break-after: always;
+  break-after: page;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-inter);
+}
+
+.deck .slide:last-child {
+  page-break-after: auto;
+  break-after: auto;
+}
+
+/* Slide chrome — top + bottom */
+.slide-chrome-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-jetbrains-mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.slide-chrome-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-jetbrains-mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+/* Slide eyebrow */
+.slide-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-jetbrains-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--money);
+  margin-bottom: 1.25rem;
+}
+.slide-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--money-2);
+  display: inline-block;
+}
+
+/* Slide title — Newsreader display */
+.slide-title {
+  font-family: var(--font-fraunces);
+  font-size: 60px;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  font-weight: 400;
+  font-variation-settings: "opsz" 120;
+  margin: 0 0 1.5rem;
+  max-width: 9in;
+}
+.slide-title-money {
+  color: var(--money);
+}
+.slide-title-italic {
+  font-style: italic;
+  color: var(--money);
+}
+
+/* Body */
+.slide-body {
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  max-width: 8in;
+}
+.slide-body p {
+  margin: 0 0 0.75rem;
+}
+.slide-body strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ── Cover slide ────────────────────────────────── */
+.slide-cover {
+  justify-content: space-between;
+}
+.slide-cover-mark {
+  font-family: var(--font-fraunces);
+  font-size: 200px;
+  line-height: 0.9;
+  color: var(--money);
+  font-weight: 700;
+  font-variation-settings: "opsz" 144;
+  text-align: center;
+  margin: auto 0;
+}
+.slide-cover-vertical {
+  font-family: var(--font-fraunces);
+  font-size: 56px;
+  line-height: 1;
+  color: var(--ink);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  text-align: center;
+  margin: 0;
+  font-variation-settings: "opsz" 96;
+}
+.slide-cover-sub {
+  font-family: var(--font-jetbrains-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--steel);
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* ── Math slide — money-green panel ─────────────── */
+.slide-math {
+  background: var(--bone) !important;
+}
+.slide-math .slide-title {
+  color: var(--money);
+}
+.math-headline {
+  font-family: var(--font-fraunces);
+  font-size: 78px;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  font-weight: 400;
+  font-variation-settings: "opsz" 144;
+  margin: 0 0 1rem;
+}
+.math-headline .accent {
+  color: var(--money);
+}
+.math-sub {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  margin-top: 1rem;
+}
+
+/* ── Stats grid (pattern slide) ─────────────────── */
+.slide-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 2rem;
+  margin-top: 1rem;
+}
+.slide-stat {
+  padding: 0.75rem 0 0.75rem 1rem;
+  border-left: 2px solid var(--money);
+}
+.slide-stat-value {
+  font-family: var(--font-fraunces);
+  font-size: 48px;
+  line-height: 1;
+  color: var(--ink);
+  font-weight: 400;
+  font-variation-settings: "opsz" 72;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.25rem;
+}
+.slide-stat-label {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--ink-2);
+}
+
+/* ── Tier ladder (services slide) ───────────────── */
+.tier-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.tier-card {
+  border: 1px solid var(--rule);
+  padding: 1rem;
+  background: var(--bone);
+  display: flex;
+  flex-direction: column;
+}
+.tier-card-eyebrow {
+  font-family: var(--font-jetbrains-mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--money);
+  margin-bottom: 0.5rem;
+}
+.tier-card-name {
+  font-family: var(--font-fraunces);
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+  line-height: 1;
+}
+.tier-card-price {
+  font-family: var(--font-jetbrains-mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--money);
+  margin-bottom: 0.5rem;
+}
+.tier-card-body {
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--ink-2);
+}
+
+/* ── Timeline (how slide) ───────────────────────── */
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.timeline-step {
+  padding: 1rem;
+  border-top: 2px solid var(--money);
+  background: var(--bone);
+}
+.timeline-step-eyebrow {
+  font-family: var(--font-jetbrains-mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--money);
+  margin-bottom: 0.5rem;
+}
+.timeline-step-name {
+  font-family: var(--font-fraunces);
+  font-size: 20px;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+.timeline-step-body {
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+/* ── Quote slide ────────────────────────────────── */
+.slide-quote {
+  background: var(--bone) !important;
+}
+.quote-mark {
+  font-family: var(--font-fraunces);
+  font-size: 140px;
+  line-height: 0.6;
+  color: var(--money);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+.quote-text {
+  font-family: var(--font-fraunces);
+  font-size: 38px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  font-weight: 400;
+  font-variation-settings: "opsz" 72;
+  margin-bottom: 1rem;
+  max-width: 8.5in;
+  font-style: italic;
+}
+.quote-attr {
+  font-family: var(--font-jetbrains-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+/* ── CTA slide (dark) ────────────────────────────── */
+.slide-cta {
+  background: var(--ink) !important;
+  color: var(--bone);
+  justify-content: center;
+}
+.slide-cta .slide-chrome-top,
+.slide-cta .slide-chrome-bottom {
+  color: var(--bone-2);
+  border-color: rgba(245, 242, 236, 0.18);
+}
+.cta-headline {
+  font-family: var(--font-fraunces);
+  font-size: 72px;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--bone);
+  font-weight: 400;
+  font-variation-settings: "opsz" 144;
+  margin: 0 0 1.5rem;
+  max-width: 9in;
+}
+.cta-headline .accent {
+  color: var(--gold);
+  font-style: italic;
+}
+.cta-body-dark {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--bone-2);
+  max-width: 7.5in;
+  margin: 0 0 2rem;
+}
+.cta-button-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 28px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--font-jetbrains-mono);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* ── Print rules ─────────────────────────────────── */
+@page {
+  size: 11in 6.1875in landscape;
+  margin: 0;
+}
+@media print {
+  body { background: white !important; }
+  .deck { background: white !important; padding: 0 !important; }
+  .deck .slide {
+    box-shadow: none !important;
+    margin: 0 !important;
+    page-break-after: always;
+    break-after: page;
+  }
+  .deck .slide:last-child {
+    page-break-after: auto;
+  }
+  body > *:not(main),
+  nav,
+  header.nav-enter {
+    display: none !important;
+  }
+}
+
+/* ── Responsive (mobile preview) ────────────────── */
+@media (max-width: 1100px) {
+  .deck .slide {
+    width: 100%;
+    min-height: auto;
+    padding: 1.5rem;
+  }
+  .slide-cover-mark { font-size: 120px; }
+  .slide-cover-vertical { font-size: 36px; }
+  .slide-title { font-size: 40px; }
+  .math-headline { font-size: 48px; }
+  .quote-text { font-size: 26px; }
+  .cta-headline { font-size: 44px; }
+  .slide-stats { grid-template-columns: 1fr; }
+  .tier-grid { grid-template-columns: 1fr 1fr; }
+  .timeline { grid-template-columns: 1fr 1fr; }
+}
