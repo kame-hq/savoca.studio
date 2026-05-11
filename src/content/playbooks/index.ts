@@ -12,6 +12,7 @@ import { roofing } from "./roofing";
 import { realEstate } from "./real-estate";
 import { landscaping } from "./landscaping";
 import { moving } from "./moving";
+import { insuranceAgents } from "./insurance-agents";
 
 // Attach icons (one per vertical — pulled from existing GLYPHS in brand/v2.tsx)
 const withIcons = (p: PlaybookContent, icon: PlaybookContent["icon"]): PlaybookContent => ({ ...p, icon });
@@ -30,6 +31,7 @@ export const playbooks: Record<string, PlaybookContent> = {
   "real-estate": withIcons(realEstate, "clipboard"),
   landscaping: withIcons(landscaping, "net"),
   moving: withIcons(moving, "arrow"),
+  "insurance-agents": withIcons(insuranceAgents, "compass"),
 };
 
 export const playbookSlugs = Object.keys(playbooks);
