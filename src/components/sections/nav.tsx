@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 import { SVLogo, SVInitial } from "@/components/brand/v2";
 
 const links = [
-  { label: "Services", href: "#services" },
-  { label: "Proof", href: "#proof" },
+  { label: "Services", href: "/#services" },
+  { label: "Playbooks", href: "/resources" },
   { label: "Calculator", href: "/calculator" },
-  { label: "About", href: "#about" },
+  { label: "About", href: "/#about" },
 ];
 
 export function Nav() {

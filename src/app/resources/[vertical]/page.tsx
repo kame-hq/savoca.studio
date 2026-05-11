@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { playbooks, playbookSlugs } from "@/content/playbooks";
 import { SVLogo } from "@/components/brand/v2";
+import { Nav } from "@/components/sections/nav";
 import "./playbook.css";
 
 export async function generateStaticParams() {
@@ -33,7 +34,9 @@ export default async function PlaybookPage({
   if (!p) notFound();
 
   return (
-    <main className="playbook">
+    <>
+      <Nav />
+      <main className="playbook">
       {/* ── Cover ───────────────────────────────────────────── */}
       <section className="page page-cover">
         <header className="cover-header">
@@ -202,7 +205,8 @@ export default async function PlaybookPage({
           ))}
         </ol>
       </section>
-    </main>
+      </main>
+    </>
   );
 }
 
