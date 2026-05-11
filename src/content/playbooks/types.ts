@@ -1,3 +1,13 @@
+export type GlyphIcon =
+  | "drop"
+  | "tooth"
+  | "house"
+  | "clipboard"
+  | "net"
+  | "stack"
+  | "compass"
+  | "arrow";
+
 export type Citation = {
   label: string;
   url?: string;
@@ -32,6 +42,7 @@ export type PlaybookContent = {
   title: string;
   subtitle: string;
   edition: string;
+  icon?: GlyphIcon;
 
   introBody: string;
 
