@@ -37,10 +37,10 @@ export function Nav() {
           className="logo-host justify-self-start min-w-0"
         >
           <span className="md:hidden">
-            <SVLogo size={20} layout="inline" />
+            <SVLogo size={26} layout="inline" />
           </span>
           <span className="hidden md:inline-block">
-            <SVLogo size={20} layout="inline" />
+            <SVLogo size={34} layout="inline" />
           </span>
         </Link>
 
