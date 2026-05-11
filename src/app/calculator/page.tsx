@@ -408,7 +408,10 @@ export default function CalculatorPage() {
                 fontWeight: 400,
               }}
             >
-              {fmtUsd(result.annualLost)} a year. That&apos;s the math.
+              <span style={{ marginRight: "0.35em" }}>
+                {fmtUsd(result.annualLost)}
+              </span>
+              a year. That&apos;s the math.
             </div>
 
             <Rule style={{ marginTop: 24, marginBottom: 16 }} />
