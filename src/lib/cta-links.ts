@@ -29,10 +29,10 @@
  * still reach you. Mailto-fallback logic lives in `tierCta()` below.
  */
 
-export const CAL_DISCOVERY = "https://cal.com/jacksavoca/discovery-call";
+export const CAL_DISCOVERY = "https://cal.com/savoca/audit";
 // Set this once Cal.com is configured. Until then, CTAs that point to
 // "book a call" will fall back to mailto.
-export const CAL_DISCOVERY_LIVE = false; // flip to true once URL above works
+export const CAL_DISCOVERY_LIVE = true;
 
 export const STRIPE_CATCHER = "https://buy.stripe.com/REPLACE_WITH_CATCHER_LINK";
 export const STRIPE_STACKER = "https://buy.stripe.com/REPLACE_WITH_STACKER_LINK";
