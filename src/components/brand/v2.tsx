@@ -129,24 +129,30 @@ export function SVMonogram({
   fg = "var(--bone)",
   bg = "var(--ink)",
   accent = "var(--signal)",
+  showRing = true,
+  showDot = true,
 }: {
   size?: number;
   fg?: string;
   bg?: string;
   accent?: string;
+  showRing?: boolean;
+  showDot?: boolean;
 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" style={{ display: "block" }} aria-hidden>
       <circle cx="50" cy="50" r="49" fill={bg} />
-      <circle cx="50" cy="50" r="44" fill="none" stroke={fg} strokeWidth="0.5" opacity="0.45" />
-      <circle cx="94" cy="50" r="1.4" fill={accent} />
+      {showRing && (
+        <circle cx="50" cy="50" r="44" fill="none" stroke={fg} strokeWidth="0.5" opacity="0.45" />
+      )}
+      {showDot && <circle cx="94" cy="50" r="1.4" fill={accent} />}
       <text
         x="50"
-        y="74"
+        y="78"
         textAnchor="middle"
-        fontFamily="Fraunces, Georgia, serif"
-        fontWeight="500"
-        fontSize="78"
+        style={{ fontFamily: "var(--font-fraunces-mono), Fraunces, Georgia, serif" }}
+        fontWeight="700"
+        fontSize="88"
         fill={fg}
       >
         §
@@ -157,21 +163,24 @@ export function SVMonogram({
 
 export function SVInitial({
   size = 56,
-  color = "var(--money-2)",
+  color = "var(--money)",
+  weight = 700,
   className,
   style,
 }: {
   size?: number;
   color?: string;
+  weight?: number;
   className?: string;
   style?: CSSProperties;
 }) {
   return (
     <span
       aria-hidden
-      className={"font-serif " + (className ?? "")}
+      className={className}
       style={{
-        fontWeight: 500,
+        fontFamily: "var(--font-fraunces-mono), Fraunces, Georgia, serif",
+        fontWeight: weight,
         fontSize: size,
         color,
         lineHeight: 1,

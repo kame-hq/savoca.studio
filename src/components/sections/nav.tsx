@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { SVLogo } from "@/components/brand/v2";
+import { SVLogo, SVInitial } from "@/components/brand/v2";
 
 const links = [
   { label: "Services", href: "#services" },
@@ -37,10 +37,11 @@ export function Nav() {
           className="logo-host justify-self-start min-w-0"
         >
           <span className="md:hidden">
-            <SVLogo size={26} layout="inline" />
+            <SVInitial size={38} color="var(--money)" />
           </span>
-          <span className="hidden md:inline-block">
-            <SVLogo size={34} layout="inline" />
+          <span className="hidden md:inline-flex items-baseline gap-3">
+            <SVInitial size={44} color="var(--money)" />
+            <SVLogo size={28} layout="inline" />
           </span>
         </Link>
 

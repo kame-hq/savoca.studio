@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Newsreader, Inter, JetBrains_Mono } from "next/font/google";
+import { Newsreader, Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -7,6 +7,15 @@ const newsreader = Newsreader({
   subsets: ["latin"],
   weight: "variable",
   style: ["normal", "italic"],
+  axes: ["opsz"],
+  display: "swap",
+});
+
+// Fraunces loaded ONLY for the § monogram glyph — display optical size, variable weight
+const fraunces = Fraunces({
+  variable: "--font-fraunces-mono",
+  subsets: ["latin"],
+  weight: "variable",
   axes: ["opsz"],
   display: "swap",
 });
@@ -37,7 +46,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${newsreader.variable} ${inter.variable} ${jetbrains.variable} h-full antialiased`}
+      className={`${newsreader.variable} ${fraunces.variable} ${inter.variable} ${jetbrains.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
