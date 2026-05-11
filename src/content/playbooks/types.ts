@@ -35,6 +35,30 @@ export type MathRow = {
   value: string;
 };
 
+export type ChartBar = {
+  label: string;
+  value: number;
+  display?: string; // optional rendered text (e.g. "$135K"); falls back to value
+  highlight?: boolean;
+};
+
+export type PlaybookChart = {
+  type: "bar" | "comparison" | "waterfall";
+  title: string;
+  subtitle?: string;
+  axis?: string; // e.g. "calls / week" or "% of buyers"
+  bars: ChartBar[];
+  footnote?: string;
+};
+
+// Vertical-unique "why this vertical bleeds different" sidebar
+export type Differentiator = {
+  eyebrow: string;          // e.g. "Why medspas are different"
+  headline: string;
+  body: string;
+  callout?: string;         // bold pull-stat
+};
+
 export type PlaybookContent = {
   slug: string;
   vertical: string;
@@ -55,18 +79,17 @@ export type PlaybookContent = {
   mathRows: MathRow[];
   mathConclusion: string;
 
+  chart?: PlaybookChart;
+  differentiator?: Differentiator;
+
   quotes: Quote[];
-
   auditMoves: AuditMove[];
-
   toolsBody: string;
   toolsList: string[];
 
   caseStudyHeadline: string;
   caseStudyBody: string;
-
   ctaHeadline: string;
   ctaBody: string;
-
   citations: Citation[];
 };

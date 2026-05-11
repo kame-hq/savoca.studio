@@ -1,4 +1,5 @@
-import type { PlaybookContent } from "./types";
+import type { PlaybookContent, GlyphIcon } from "./types";
+import { enhancements } from "./enhancements";
 import { medspa } from "./medspa";
 import { dental } from "./dental";
 import { hvac } from "./hvac";
@@ -14,26 +15,28 @@ import { landscaping } from "./landscaping";
 import { moving } from "./moving";
 import { insuranceAgents } from "./insurance-agents";
 
-// Attach icons (one per vertical — pulled from existing GLYPHS in brand/v2.tsx)
-const withIcons = (p: PlaybookContent, icon: PlaybookContent["icon"]): PlaybookContent => ({ ...p, icon });
+// Merge per-vertical chart + differentiator + icon into base playbook
+function enhance(slug: string, p: PlaybookContent, icon: GlyphIcon): PlaybookContent {
+  const ext = enhancements[slug] ?? {};
+  return { ...p, icon, ...ext };
+}
 
 export const playbooks: Record<string, PlaybookContent> = {
-  medspa: withIcons(medspa, "drop"),
-  dental: withIcons(dental, "tooth"),
-  hvac: withIcons(hvac, "house"),
-  "plumbing-electrical": withIcons(plumbingElectrical, "stack"),
-  "personal-injury-law": withIcons(personalInjuryLaw, "compass"),
-  veterinary: withIcons(veterinary, "net"),
-  "personal-trainer": withIcons(personalTrainer, "arrow"),
-  "wedding-planner": withIcons(weddingPlanner, "drop"),
-  "chiropractic-pt": withIcons(chiropracticPt, "stack"),
-  roofing: withIcons(roofing, "house"),
-  "real-estate": withIcons(realEstate, "clipboard"),
-  landscaping: withIcons(landscaping, "net"),
-  moving: withIcons(moving, "arrow"),
-  "insurance-agents": withIcons(insuranceAgents, "compass"),
+  medspa: enhance("medspa", medspa, "drop"),
+  dental: enhance("dental", dental, "tooth"),
+  hvac: enhance("hvac", hvac, "house"),
+  "plumbing-electrical": enhance("plumbing-electrical", plumbingElectrical, "stack"),
+  "personal-injury-law": enhance("personal-injury-law", personalInjuryLaw, "compass"),
+  veterinary: enhance("veterinary", veterinary, "net"),
+  "personal-trainer": enhance("personal-trainer", personalTrainer, "arrow"),
+  "wedding-planner": enhance("wedding-planner", weddingPlanner, "drop"),
+  "chiropractic-pt": enhance("chiropractic-pt", chiropracticPt, "stack"),
+  roofing: enhance("roofing", roofing, "house"),
+  "real-estate": enhance("real-estate", realEstate, "clipboard"),
+  landscaping: enhance("landscaping", landscaping, "net"),
+  moving: enhance("moving", moving, "arrow"),
+  "insurance-agents": enhance("insurance-agents", insuranceAgents, "compass"),
 };
 
 export const playbookSlugs = Object.keys(playbooks);
-
 export type { PlaybookContent } from "./types";

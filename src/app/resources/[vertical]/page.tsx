@@ -4,6 +4,7 @@ import Link from "next/link";
 import { playbooks, playbookSlugs } from "@/content/playbooks";
 import { SVLogo } from "@/components/brand/v2";
 import { Nav } from "@/components/sections/nav";
+import { PlaybookChart } from "@/components/playbook/playbook-chart";
 import "./playbook.css";
 
 export async function generateStaticParams() {
@@ -114,7 +115,32 @@ export default async function PlaybookPage({
         </table>
 
         <p className="math-conclusion font-serif">{p.mathConclusion}</p>
+
+        {p.chart && <PlaybookChart chart={p.chart} />}
       </section>
+
+      {/* ── Vertical-unique Differentiator ───────────────── */}
+      {p.differentiator && (
+        <section className="page">
+          <Eyebrow n="·" label="Why this vertical bleeds different" />
+          <div className="playbook-differentiator">
+            <span className="playbook-differentiator-eyebrow">
+              {p.differentiator.eyebrow}
+            </span>
+            <h3 className="playbook-differentiator-headline">
+              {p.differentiator.headline}
+            </h3>
+            <p className="playbook-differentiator-body">
+              {p.differentiator.body}
+            </p>
+            {p.differentiator.callout && (
+              <p className="playbook-differentiator-callout">
+                {p.differentiator.callout}
+              </p>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* ── Real Operator Voices ─────────────────────────────── */}
       <section className="page">
