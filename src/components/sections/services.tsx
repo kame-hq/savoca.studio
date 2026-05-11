@@ -79,7 +79,7 @@ const tiers: Tier[] = [
     icon: "clipboard",
     name: "The Partner",
     pitch: "Monthly retainer. Weekly review. On call for the hard calls.",
-    price: "$2,495",
+    price: "$1,495",
     unit: "per month",
     bullets: [
       "Weekly pipeline review",
