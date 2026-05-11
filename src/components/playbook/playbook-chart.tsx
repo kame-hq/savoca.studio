@@ -88,8 +88,8 @@ export function PlaybookChart({ chart }: { chart: ChartType }) {
                 fontFamily="var(--font-jetbrains-mono), monospace"
                 fontSize="10"
                 letterSpacing="0.05em"
-                textTransform="uppercase"
                 fill="var(--steel)"
+                style={{ textTransform: "uppercase" }}
               >
                 {bar.label}
               </text>
