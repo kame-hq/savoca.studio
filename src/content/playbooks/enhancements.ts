@@ -301,6 +301,71 @@ export const enhancements: Record<string, Enhancement> = {
     },
   },
 
+  "pest-control": {
+    chart: {
+      type: "comparison",
+      title: "Owner thinks vs. reality — call answer rate",
+      subtitle: "The 31-point gap that defines the bottleneck",
+      axis: "% of inbound calls answered",
+      bars: [
+        { label: "Owner thinks", value: 97, display: "97%" },
+        { label: "Reality", value: 66, highlight: true, display: "66%" },
+        { label: "Best in class", value: 92, display: "92%" },
+      ],
+      footnote: "ServiceDirect: owners are off by 30 points on their own answer rate.",
+    },
+    differentiator: {
+      eyebrow: "Why pest control bleeds different",
+      headline: "The owner IS the dispatcher. That's the whole problem.",
+      body: "Unlike HVAC (where there's a separate office) or dental (where the front desk is a clinical role), pest control owners RUN dispatch — for their own truck AND every other tech's. 36.8% of owners report tech-shortage caps growth more than demand caps it. The leak isn't a 'phone problem.' It's a job-description problem. Until the owner is out of dispatch, every operational metric is capped by their bandwidth.",
+      callout: "Stop being the dispatcher. The growth ceiling lifts the moment you do.",
+    },
+  },
+
+  "pool-service": {
+    chart: {
+      type: "bar",
+      title: "Pool revenue mix — where margin really lives",
+      subtitle: "Recurring vs. repair-upsell economics",
+      axis: "% of annual revenue",
+      bars: [
+        { label: "Recurring", value: 45, display: "45%" },
+        { label: "Repair", value: 32, highlight: true, display: "32%" },
+        { label: "Renovation", value: 18, display: "18%" },
+        { label: "New install", value: 5, display: "5%" },
+      ],
+      footnote: "Skimmer 2026: industry growth shifted from new accounts to repair upsell.",
+    },
+    differentiator: {
+      eyebrow: "Why pool service bleeds different",
+      headline: "The missed call isn't $230/mo cleaning. It's a $1,500 pump.",
+      body: "Pool service is the only home-service vertical where industry-level growth has flipped from acquisition to repair-upsell. Skimmer's 2026 State of Pool Service report flagged the shift explicitly. Translation: the call you missed yesterday wasn't a $230/mo recurring contract — it was an $8K replaster, a $1,500 pump replacement, a $700 salt cell. The missed-call math math triples or 10×s when you reframe by ticket size.",
+      callout: "Stop measuring missed calls by cleaning revenue. Measure by repair tickets.",
+    },
+  },
+
+  "mental-health": {
+    chart: {
+      type: "waterfall",
+      title: "Continuity drops at the inquiry stage",
+      subtitle: "From inquiry to active client — industry pattern",
+      axis: "% of inquiries reaching each step",
+      bars: [
+        { label: "Inquiry", value: 100, display: "100%" },
+        { label: "Response", value: 60, display: "60%" },
+        { label: "Booked", value: 35, display: "35%" },
+        { label: "Session 3", value: 18, highlight: true, display: "18%" },
+      ],
+      footnote: "Premature dropout 20–57% in sessions 1–3. Most drop at the inquiry-response gap.",
+    },
+    differentiator: {
+      eyebrow: "Why mental health is different",
+      headline: "A 48-hour wait isn't a lost lead. It's someone who didn't get help.",
+      body: "Mental health is the only vertical where the operational metric IS the clinical metric. Every other category counts missed calls in dollars. Here, the cost of a 48-hour callback delay is measured in continuity of care. Industry data shows 80%+ higher conversion when response is under an hour — but the more important number is that response time correlates directly with whether someone gets care or doesn't. The economic case lands harder because the human case is intact.",
+      callout: "Continuity of care IS the operating metric. Revenue follows.",
+    },
+  },
+
   "insurance-agents": {
     chart: {
       type: "comparison",
