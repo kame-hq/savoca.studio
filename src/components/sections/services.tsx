@@ -58,7 +58,7 @@ const tiers: Tier[] = [
     icon: "compass",
     name: "The Operator",
     pitch: "Custom-built system. When off-the-shelf tools don't fit your operating motion.",
-    price: "$3,000",
+    price: "$2,997",
     unit: "one-time",
     bullets: [
       "Vertical-specific data model",

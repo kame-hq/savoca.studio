@@ -17,7 +17,7 @@
  *    - Create 4 Products:
  *      a. The Catcher — $349 one-time
  *      b. The Stacker — $997 one-time
- *      c. The Operator — $3,000 one-time
+ *      c. The Operator — $2,997 one-time
  *      d. The Partner — $1,497/mo recurring (monthly)
  *    - For each Product, create a Payment Link
  *    - Set Payment Link success URL to https://savoca.studio/thanks?tier=<slug>
