@@ -58,7 +58,7 @@ const tiers: Tier[] = [
     icon: "compass",
     name: "The Operator",
     pitch: "Custom-built system. When off-the-shelf tools don't fit your operating motion.",
-    price: "$4,997",
+    price: "$3,000",
     unit: "one-time",
     bullets: [
       "Vertical-specific data model",
@@ -79,7 +79,7 @@ const tiers: Tier[] = [
     icon: "clipboard",
     name: "The Partner",
     pitch: "Monthly retainer. Weekly review. On call for the hard calls.",
-    price: "$1,495",
+    price: "$1,000",
     unit: "per month",
     bullets: [
       "Weekly pipeline review",
