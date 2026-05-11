@@ -44,6 +44,36 @@ const rows = [
       "After 30: you're a backup option.",
     ],
   },
+  {
+    n: "05",
+    icon: "net" as const,
+    name: "Veterinary.",
+    lines: [
+      "Half of bookings happen after hours.",
+      "Your phone is closed. Corporate isn't.",
+      "Independence is operational.",
+    ],
+  },
+  {
+    n: "06",
+    icon: "arrow" as const,
+    name: "Personal Trainers.",
+    lines: [
+      "Empty slot. Same as no slot.",
+      "That DM sat 4 hours. They hired someone else.",
+      "Pour more leads. Same leaky bucket.",
+    ],
+  },
+  {
+    n: "07",
+    icon: "compass" as const,
+    name: "Personal Injury Law.",
+    lines: [
+      "The wreck happened at 7pm.",
+      "You picked up at 9am.",
+      "They signed with Morgan & Morgan.",
+    ],
+  },
 ];
 
 export function Who() {
