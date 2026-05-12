@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Newsreader, Fraunces, Inter, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -48,7 +49,24 @@ export default function RootLayout({
       lang="en"
       className={`${newsreader.variable} ${fraunces.variable} ${inter.variable} ${jetbrains.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        {/*
+          RB2B — Inbound-Led Outbound visitor ID.
+          To activate:
+          1. Sign up at rb2b.com (free tier)
+          2. Copy your script src URL (looks like https://b2bjsstore.s3.us-west-2.amazonaws.com/b/XXXXXX.js)
+          3. Paste full URL into NEXT_PUBLIC_RB2B_SRC env var on Vercel
+          4. Redeploy
+        */}
+        {process.env.NEXT_PUBLIC_RB2B_SRC && (
+          <Script
+            id="rb2b"
+            src={process.env.NEXT_PUBLIC_RB2B_SRC}
+            strategy="afterInteractive"
+          />
+        )}
+      </body>
     </html>
   );
 }
