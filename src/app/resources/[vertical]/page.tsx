@@ -115,9 +115,15 @@ export default async function PlaybookPage({
         </table>
 
         <p className="math-conclusion font-serif">{p.mathConclusion}</p>
-
-        {p.chart && <PlaybookChart chart={p.chart} />}
       </section>
+
+      {/* ── Chart (own page — keeps Math page from overflowing) ── */}
+      {p.chart && (
+        <section className="page page-money">
+          <Eyebrow n="03·" label="The math, charted" theme="money" />
+          <PlaybookChart chart={p.chart} />
+        </section>
+      )}
 
       {/* ── Vertical-unique Differentiator ───────────────── */}
       {p.differentiator && (

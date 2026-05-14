@@ -17,6 +17,8 @@ import { insuranceAgents } from "./insurance-agents";
 import { pestControl } from "./pest-control";
 import { poolService } from "./pool-service";
 import { mentalHealth } from "./mental-health";
+import { golfCourse } from "./golf-course";
+import { tattoo } from "./tattoo";
 
 // Merge per-vertical chart + differentiator + icon into base playbook
 function enhance(slug: string, p: PlaybookContent, icon: GlyphIcon): PlaybookContent {
@@ -42,6 +44,8 @@ export const playbooks: Record<string, PlaybookContent> = {
   "pest-control": enhance("pest-control", pestControl, "stack"),
   "pool-service": enhance("pool-service", poolService, "drop"),
   "mental-health": enhance("mental-health", mentalHealth, "net"),
+  "golf-course": enhance("golf-course", golfCourse, "compass"),
+  tattoo: enhance("tattoo", tattoo, "arrow"),
 };
 
 export const playbookSlugs = Object.keys(playbooks);

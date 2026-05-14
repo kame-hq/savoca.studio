@@ -16,14 +16,18 @@
 .playbook .page {
   position: relative;
   width: var(--page-w);
-  min-height: var(--page-h);
+  height: var(--page-h);
   max-width: 100%;
   margin: 0 auto 2rem;
   padding: var(--page-pad);
   background: var(--paper);
+  box-sizing: border-box;
   box-shadow: 0 2px 12px rgba(14, 14, 12, 0.06);
   page-break-after: always;
   break-after: page;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  overflow: hidden;
   font-feature-settings: "ss01", "kern";
 }
 
@@ -596,6 +600,8 @@
 @media print {
   body {
     background: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .playbook {
     background: white !important;
@@ -604,8 +610,15 @@
   .playbook .page {
     box-shadow: none !important;
     margin: 0 !important;
+    width: 8.5in !important;
+    height: 11in !important;
+    padding: 0.75in !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
     page-break-after: always;
+    page-break-inside: avoid;
     break-after: page;
+    break-inside: avoid;
   }
   .playbook .page:last-child {
     page-break-after: auto;
