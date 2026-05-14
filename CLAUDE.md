@@ -37,7 +37,7 @@ Use the `.font-serif` / `.font-sans` / `.font-mono` classes or the `--font-*` va
 - **The `§` IS the logo** (confirmed by Master Roshi 2026-05-14). The full lockup is the `§` mark + the wordmark **together** (like the nav). Use both where the primary logo goes.
 - Logo components live in `src/components/brand/v2.tsx`: `<SVInitial>` (the bare `§` mark, correct Fraunces font — THIS is the logo mark), `<SVLogo>` (the `savoca.studio` wordmark), `<SVMonogram>` (circular `§` logo).
 - The `§` is a brand atom **ONLY** through those components. **Never type a raw `§` character** in JSX/CSS — it inherits the wrong font every time. If a `§` belongs somewhere, it's `<SVInitial>`.
-- Brand name = **`savoca.studio`** — lowercase, with the period. That is the name AND the domain. Never "Savoca Studio" or "Savoca.Studio".
+- Brand name in prose / titles / labels = **Savoca Studio** (capitalized, with a space). `savoca.studio` lowercase is the domain/URL/email only — keep it lowercase there. The wordmark stylizes the name as "Savoca.studio"; that styling lives in `<SVLogo>` — don't hand-write it. (Locked 2026-05-14 after a round-trip: do NOT lowercase "Savoca Studio" in copy.)
 
 ### Color
 

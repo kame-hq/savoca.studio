@@ -15,7 +15,7 @@ export default function BookPage() {
         className="px-5 md:px-10 lg:px-12 py-4 flex items-center justify-between"
         style={{ borderBottom: "1px solid var(--rule)" }}
       >
-        <Link href="/" aria-label="savoca.studio" className="inline-flex">
+        <Link href="/" aria-label="Savoca Studio" className="inline-flex">
           <SVLogo size={20} layout="inline" />
         </Link>
         <Link
@@ -131,7 +131,7 @@ export default function BookPage() {
               color: "var(--steel)",
             }}
           >
-            savoca.studio · No revenue left behind.
+            Savoca Studio · No revenue left behind.
           </span>
         </div>
       </section>

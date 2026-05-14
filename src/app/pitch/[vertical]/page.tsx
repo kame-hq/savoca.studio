@@ -17,8 +17,8 @@ export async function generateMetadata({
   const p = playbooks[vertical];
   if (!p) return {};
   return {
-    title: `${p.vertical} — Pitch · savoca.studio`,
-    description: `savoca.studio pitch deck for ${p.vertical}.`,
+    title: `${p.vertical} — Pitch · Savoca Studio`,
+    description: `Savoca Studio pitch deck for ${p.vertical}.`,
   };
 }
 
@@ -69,7 +69,7 @@ export default async function PitchDeck({
       {/* ── Slide 1 — Cover ──────────────────────────────── */}
       <section className="slide slide-cover">
         <header className="slide-chrome-top">
-          <span>savoca.studio</span>
+          <span>Savoca Studio</span>
           <span>{p.edition}</span>
         </header>
 
@@ -333,7 +333,7 @@ export default async function PitchDeck({
         </div>
 
         <footer className="slide-chrome-bottom">
-          <span>savoca.studio · Austin TX</span>
+          <span>Savoca Studio · Austin TX</span>
           <span>jack@savoca.studio</span>
         </footer>
       </section>

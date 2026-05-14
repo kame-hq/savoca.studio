@@ -20,7 +20,7 @@ export async function generateMetadata({
   const p = playbooks[vertical];
   if (!p) return {};
   return {
-    title: `${p.title} — savoca.studio`,
+    title: `${p.title} — Savoca Studio`,
     description: p.subtitle,
   };
 }

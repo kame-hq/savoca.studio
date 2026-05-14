@@ -6,7 +6,7 @@ import { Nav } from "@/components/sections/nav";
 import { SVInitial } from "@/components/brand/v2";
 
 export const metadata: Metadata = {
-  title: "Portfolio — savoca.studio",
+  title: "Portfolio — Savoca Studio",
   description:
     "Real RevOps builds for service operators. The systems behind the businesses.",
 };

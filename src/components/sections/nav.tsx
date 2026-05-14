@@ -48,7 +48,7 @@ export function Nav() {
         <div className="grid grid-cols-[auto_1fr_auto] md:grid-cols-3 items-center gap-3 md:gap-0 px-5 md:px-10 lg:px-12 py-4">
           <Link
             href="/"
-            aria-label="savoca.studio"
+            aria-label="Savoca Studio"
             className="logo-host justify-self-start min-w-0"
           >
             <span className="md:hidden">

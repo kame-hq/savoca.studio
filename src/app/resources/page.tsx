@@ -6,7 +6,7 @@ import { Nav } from "@/components/sections/nav";
 import { VerticalLeaks } from "@/components/sections/vertical-leaks";
 
 export const metadata: Metadata = {
-  title: "Playbooks — savoca.studio",
+  title: "Playbooks — Savoca Studio",
   description:
     "Vertical-specific playbooks for service businesses — where revenue leaks, by industry. Free. Field-tested. No fluff.",
 };
