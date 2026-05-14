@@ -122,7 +122,7 @@ export default function PortfolioIndex() {
               href="/book"
               className="font-mono text-[11px] tracking-[0.18em] uppercase text-ink border-b border-money-2 pb-1 hover:text-money-2 transition-colors"
             >
-              Book a 30-min audit →
+              Book a 30-min call →
             </Link>
           </footer>
         </div>

@@ -4,10 +4,11 @@
  * Single source of truth for every booking + payment link on the site.
  *
  * OFFER MODEL (locked 2026-05-14 — see feedback_savoca_pricing memory):
- * One product, "The Partner", in 3 bands by client scale:
- *   - Solo      — $397/mo   retainer · live in ~1 week
- *   - Studio    — $1,497/mo retainer · live in ~2 weeks
- *   - Operation — $2,995/mo retainer · live in ~2-4 weeks
+ * One product, "The Partner", in 3 bands by client scale. Each band is a
+ * monthly range — current number is the floor, scope sets where in the range:
+ *   - Solo      — $397–$697/mo     retainer · live in ~1 week
+ *   - Studio    — $1,497–$2,497/mo retainer · live in ~2 weeks
+ *   - Operation — $2,995–$4,995/mo retainer · live in ~2-4 weeks
  * Flat $500 kickoff deposit (all bands), credited to month 1. The retainer
  * covers the build AND the run. Free discovery call scopes it. 3-month minimum.
  *

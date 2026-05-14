@@ -23,7 +23,7 @@ export function Contact() {
         },
         body: JSON.stringify({
           email,
-          _subject: "New audit request — savoca.studio",
+          _subject: "New inquiry — savoca.studio",
           _template: "table",
           _captcha: "false",
         }),
@@ -57,10 +57,10 @@ export function Contact() {
             fontWeight: 400,
           }}
         >
-          If leads aren&apos;t turning into revenue,
+          If the work comes in but the revenue doesn&apos;t,
           <br />
           <span style={{ fontStyle: "italic", color: "var(--signal)" }}>
-            something&apos;s not getting done.
+            something&apos;s leaking in the handoff.
           </span>
         </h2>
       </Reveal>
@@ -75,7 +75,7 @@ export function Contact() {
 
       <div className="mt-8 flex flex-wrap items-center gap-3.5">
         <a
-          href="#book"
+          href="/book"
           className="font-mono transition-opacity hover:opacity-90"
           style={{
             background: "var(--bone)",

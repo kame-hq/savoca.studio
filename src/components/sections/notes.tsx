@@ -4,9 +4,9 @@ import { Eyebrow, Rule } from "@/components/brand/v2";
 import { Reveal } from "@/components/motion/reveal";
 
 const proof = [
-  "Most home service demand happens after hours.",
-  "Deposits increase form conversions.",
-  "Fast response wins deals.",
+  "The fastest reply wins the job — not the best pitch.",
+  "Most lost revenue doesn't leak at the sale. It leaks after.",
+  "If you can't see the leak, you keep paying for it.",
 ];
 
 export function Notes() {
@@ -30,7 +30,7 @@ export function Notes() {
           What actually
           <br />
           <span style={{ fontStyle: "italic", color: "var(--money)" }}>
-            drives bookings.
+            moves the number.
           </span>
         </h2>
         <Rule style={{ marginTop: 22 }} />
@@ -79,7 +79,7 @@ export function Notes() {
             fontWeight: 400,
           }}
         >
-          If you&apos;re slow or inconsistent, you lose.
+          Hustle patches it for a week. A system fixes it for good.
         </Reveal>
       </ol>
     </section>

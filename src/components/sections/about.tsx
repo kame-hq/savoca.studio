@@ -4,9 +4,9 @@ import { Eyebrow, Rule } from "@/components/brand/v2";
 import { Reveal } from "@/components/motion/reveal";
 
 const triplet: [string, string][] = [
-  ["Audit.", "what's happening"],
-  ["Fix.", "the system"],
-  ["Track.", "what changes"],
+  ["Find.", "the leak"],
+  ["Build.", "the system"],
+  ["Run.", "what holds"],
 ];
 
 export function About() {
@@ -49,12 +49,13 @@ export function About() {
           style={{ fontSize: 16, lineHeight: 1.55, color: "var(--ink-2)" }}
         >
           Most service businesses already have what they need. Phone. CRM.
-          Booking. Payments. They just don&apos;t work together. Calls get
-          missed. Forms sit. Bookings don&apos;t confirm.
+          Booking. Payments. They just don&apos;t work together — so calls get
+          missed, jobs get run out of text threads, and nobody sees the leak
+          until the month is already over.
         </p>
       </Reveal>
 
-      {/* Audit / Fix / Track strip */}
+      {/* Find / Build / Run strip */}
       <Reveal
         delay={200}
         className="mt-8 grid grid-cols-3 max-w-[680px]"

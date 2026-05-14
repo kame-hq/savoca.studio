@@ -10,7 +10,7 @@ type Band = {
   icon: "net" | "stack" | "compass" | "clipboard";
   name: string;
   forWho: string;
-  retainer: string;
+  retainer: { lo: string; hi: string };
   buildTime: string;
   bullets: string[];
   dark: boolean;
@@ -25,7 +25,7 @@ const bands: Band[] = [
     icon: "net",
     name: "Solo",
     forWho: "Just you — owner-operator, one-person shop, solo practice.",
-    retainer: "397",
+    retainer: { lo: "397", hi: "697" },
     buildTime: "live in ~1 week",
     bullets: [
       "Site + booking + lead-capture, built",
@@ -44,7 +44,7 @@ const bands: Band[] = [
     icon: "stack",
     name: "Studio",
     forWho: "An established business with a team and real inbound volume.",
-    retainer: "1,497",
+    retainer: { lo: "1,497", hi: "2,497" },
     buildTime: "live in ~2 weeks",
     bullets: [
       "Phone + CRM + calendar + follow-up, wired",
@@ -62,7 +62,7 @@ const bands: Band[] = [
     icon: "compass",
     name: "Operation",
     forWho: "Multi-location or high-volume — a real operations budget.",
-    retainer: "2,995",
+    retainer: { lo: "2,995", hi: "4,995" },
     buildTime: "live in ~2-4 weeks",
     bullets: [
       "Custom-built system, fit to your industry",
@@ -106,9 +106,9 @@ export function Services() {
           style={{ fontSize: 16, lineHeight: 1.55, color: "var(--ink-2)" }}
         >
           One partner, priced to your scale — and we improve it together over
-          time. One flat monthly number covers the build and the run. A $500
-          kickoff deposit, credited to month one, just says let&apos;s go.
-          Starts with a free discovery call.
+          time. The monthly retainer covers both the build and the run; the
+          range lands on your scope during the discovery call. A $500 kickoff
+          deposit, credited to month one, just says let&apos;s go.
         </p>
         <Rule style={{ marginTop: 22 }} />
       </Reveal>
@@ -278,19 +278,19 @@ export function Services() {
                     (dark ? "rgba(245,242,236,0.15)" : "var(--rule)"),
                 }}
               >
-                {/* Retainer — unmistakably monthly + ongoing */}
-                <span className="flex items-baseline gap-1.5">
+                {/* Retainer — monthly range, unmistakably ongoing */}
+                <span className="flex items-baseline gap-1.5 flex-wrap">
                   <span
                     className="font-serif"
                     style={{
-                      fontSize: "clamp(34px, 3.2vw, 44px)",
+                      fontSize: "clamp(30px, 2.8vw, 40px)",
                       lineHeight: 1,
                       letterSpacing: "-0.035em",
                       color: dark ? "var(--bone)" : "var(--money)",
                       fontWeight: 400,
                     }}
                   >
-                    ${t.retainer}
+                    ${t.retainer.lo}–${t.retainer.hi}
                   </span>
                   <span
                     className="font-mono"
@@ -313,7 +313,8 @@ export function Services() {
                     color: dark ? "var(--bone-2)" : "var(--ink-2)",
                   }}
                 >
-                  Ongoing retainer — covers the build and the run.
+                  Ongoing retainer — priced to your scope, covers the build and
+                  the run.
                 </p>
 
                 {/* Terms — plain, readable, not fine print */}
@@ -341,7 +342,11 @@ export function Services() {
               </div>
 
               {(() => {
-                const ctas = tierCtas(t.slug, `The Partner / ${t.name}`, `$${t.retainer}/mo`);
+                const ctas = tierCtas(
+                  t.slug,
+                  `The Partner / ${t.name}`,
+                  `$${t.retainer.lo}–$${t.retainer.hi}/mo`
+                );
                 return (
                   <div className="mt-4 flex flex-col gap-2">
                     <a
@@ -392,9 +397,9 @@ export function Services() {
             lineHeight: 1.6,
           }}
         >
-          The retainer covers the build and the run — one flat number per band.
-          A $500 kickoff deposit is credited to month one. 3-month minimum,
-          then month-to-month.
+          The retainer covers the build and the run — a monthly range per band,
+          locked to your scope on the discovery call. A $500 kickoff deposit is
+          credited to month one. 3-month minimum, then month-to-month.
         </p>
       </Reveal>
     </section>

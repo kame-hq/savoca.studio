@@ -4,9 +4,10 @@ import Link from "next/link";
 import { IndustryStrip, SVInitial } from "@/components/brand/v2";
 
 const stats: [string, string][] = [
-  ["21×", "more likely to convert inside 5 min"],
-  ["40%", "of dental calls go unanswered"],
-  ["1st", "company to respond wins the job"],
+  ["1 in 4", "inbound calls never gets a callback"],
+  ["21×", "better close rate when you reply in 5 minutes"],
+  ["10+ hrs", "a week lost to manual admin and chasing"],
+  ["Most", "owners can't name their single biggest leak"],
 ];
 
 export function Hero() {
@@ -163,7 +164,7 @@ export function Hero() {
               fontWeight: 500,
             }}
           >
-            Why speed wins
+            The leak, in four places
           </div>
           <p
             className="font-sans"
@@ -175,8 +176,9 @@ export function Hero() {
               maxWidth: 320,
             }}
           >
-            Most service businesses lose deals at the handoff — not the pitch.
-            The numbers below are what the data says about that gap.
+            It&apos;s rarely the pitch. Revenue slips in the handoff between
+            every step — capture, response, delivery, and the reporting that
+            would have caught it.
           </p>
           <div className="mt-4 flex flex-col gap-3">
             {stats.map(([k, v]) => (
@@ -187,7 +189,7 @@ export function Hero() {
                 <div
                   className="font-serif"
                   style={{
-                    fontSize: 56,
+                    fontSize: 42,
                     lineHeight: 1,
                     color: "var(--money)",
                     letterSpacing: "-0.035em",
