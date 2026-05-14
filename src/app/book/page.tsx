@@ -1,26 +1,10 @@
-"use client";
-
 import Link from "next/link";
-import { useEffect } from "react";
 import { Eyebrow, SVInitial } from "@/components/brand/v2";
 import { CAL_DISCOVERY, CAL_DISCOVERY_LIVE } from "@/lib/cta-links";
 
-/**
- * /book — Cal.com embed for discovery calls. Falls back to mailto info if
- * Cal.com isn't configured yet (CAL_DISCOVERY_LIVE flag in cta-links.ts).
- */
 export default function BookPage() {
-  useEffect(() => {
-    if (!CAL_DISCOVERY_LIVE) return;
-    // Lazy-load Cal.com embed script
-    const script = document.createElement("script");
-    script.src = "https://app.cal.com/embed/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      script.remove();
-    };
-  }, []);
+  const calSlug = new URL(CAL_DISCOVERY).pathname.replace(/^\/|\/$/g, "");
+  const embedSrc = `https://cal.com/${calSlug}/embed?embedType=inline&theme=light&hideEventTypeDetails=false`;
 
   return (
     <main
@@ -99,24 +83,33 @@ export default function BookPage() {
             className="mt-10"
             style={{
               border: "1px solid var(--rule)",
-              minHeight: 600,
               background: "var(--bone)",
+              overflow: "hidden",
             }}
-            data-cal-link={new URL(CAL_DISCOVERY).pathname.slice(1)}
-            data-cal-namespace=""
-            data-cal-config='{"layout":"month_view"}'
           >
-            <div
-              className="font-mono p-8 text-center"
+            <iframe
+              src={embedSrc}
+              title="Book a 30-min discovery call with Savoca Studio"
+              loading="lazy"
               style={{
-                fontSize: 12,
-                color: "var(--steel)",
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
+                width: "100%",
+                height: "min(900px, 100vh)",
+                minHeight: 600,
+                border: 0,
+                display: "block",
               }}
-            >
-              Loading calendar...
-            </div>
+            />
+            <noscript>
+              <a
+                href={CAL_DISCOVERY}
+                target="_blank"
+                rel="noreferrer"
+                className="font-mono inline-block p-8"
+                style={{ fontSize: 12, color: "var(--ink)" }}
+              >
+                Open booking page →
+              </a>
+            </noscript>
           </div>
         ) : (
           <div
