@@ -20,7 +20,7 @@ export async function generateMetadata({
   const p = playbooks[vertical];
   if (!p) return {};
   return {
-    title: `${p.title} — Savoca.Studio`,
+    title: `${p.title} — Savoca Studio`,
     description: p.subtitle,
   };
 }
@@ -50,10 +50,7 @@ export default async function PlaybookPage({
             <span className="cover-eyebrow-dot" /> The Playbook · {p.verticalShort}
           </span>
 
-          <h1 className="font-serif cover-title">
-            {p.title}
-            <span className="cover-signature">§</span>
-          </h1>
+          <h1 className="font-serif cover-title">{p.title}</h1>
 
           <p className="cover-subtitle">{p.subtitle}</p>
         </div>

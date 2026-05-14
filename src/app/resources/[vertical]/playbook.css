@@ -130,15 +130,6 @@
   font-variation-settings: "opsz" 144;
   margin: 0;
 }
-.cover-signature {
-  display: inline-block;
-  margin-left: 0.15em;
-  color: var(--money);
-  font-style: italic;
-  font-size: 0.65em;
-  vertical-align: middle;
-}
-
 .cover-subtitle {
   font-size: 18px;
   line-height: 1.45;

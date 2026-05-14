@@ -6,7 +6,7 @@ import { Nav } from "@/components/sections/nav";
 import { VerticalLeaks } from "@/components/sections/vertical-leaks";
 
 export const metadata: Metadata = {
-  title: "Playbooks — Savoca.Studio",
+  title: "Playbooks — Savoca Studio",
   description:
     "Vertical-specific playbooks for service businesses — where revenue leaks, by industry. Free. Field-tested. No fluff.",
 };
@@ -98,7 +98,6 @@ export default function ResourcesIndex() {
                         style={{ fontVariationSettings: '"opsz" 96' }}
                       >
                         {p.title}
-                        <span className="text-money italic ml-2">§</span>
                       </h2>
                       <p className="text-[15px] leading-[1.5] text-ink-2 max-w-2xl">
                         {p.subtitle}

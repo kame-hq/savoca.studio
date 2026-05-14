@@ -162,7 +162,7 @@ export function Nav() {
                 Book a call <span className="cta-arrow">→</span>
               </Link>
               <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-bone/60 mt-2">
-                § · No revenue left behind
+                No revenue left behind
               </span>
             </div>
           </div>

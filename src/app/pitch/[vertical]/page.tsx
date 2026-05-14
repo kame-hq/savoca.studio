@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { playbooks, playbookSlugs } from "@/content/playbooks";
+import { SVLogo } from "@/components/brand/v2";
 import "./pitch.css";
 
 export async function generateStaticParams() {
@@ -16,8 +17,8 @@ export async function generateMetadata({
   const p = playbooks[vertical];
   if (!p) return {};
   return {
-    title: `${p.vertical} — Pitch · Savoca.Studio`,
-    description: `Savoca.Studio pitch deck for ${p.vertical}.`,
+    title: `${p.vertical} — Pitch · Savoca Studio`,
+    description: `Savoca Studio pitch deck for ${p.vertical}.`,
   };
 }
 
@@ -68,15 +69,13 @@ export default async function PitchDeck({
       {/* ── Slide 1 — Cover ──────────────────────────────── */}
       <section className="slide slide-cover">
         <header className="slide-chrome-top">
-          <span>Savoca.Studio · §</span>
+          <span>Savoca Studio</span>
           <span>{p.edition}</span>
         </header>
 
-        <div>
-          <div className="slide-cover-mark">§</div>
-          <h1 className="slide-cover-vertical">
-            {p.vertical}
-          </h1>
+        <div className="slide-cover-center">
+          <SVLogo size={72} layout="stacked" />
+          <h1 className="slide-cover-vertical">{p.vertical}</h1>
           <p className="slide-cover-sub">
             The operating layer between demand and delivery · savoca.studio
           </p>
@@ -327,7 +326,7 @@ export default async function PitchDeck({
         </div>
 
         <footer className="slide-chrome-bottom">
-          <span>Savoca.Studio · § · Austin TX</span>
+          <span>Savoca Studio · Austin TX</span>
           <span>jack@savoca.studio</span>
         </footer>
       </section>

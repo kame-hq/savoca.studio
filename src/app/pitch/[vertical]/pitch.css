@@ -121,15 +121,12 @@
 .slide-cover {
   justify-content: space-between;
 }
-.slide-cover-mark {
-  font-family: var(--font-fraunces);
-  font-size: 200px;
-  line-height: 0.9;
-  color: var(--money);
-  font-weight: 700;
-  font-variation-settings: "opsz" 144;
-  text-align: center;
+.slide-cover-center {
   margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
 .slide-cover-vertical {
   font-family: var(--font-fraunces);

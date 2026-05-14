@@ -22,7 +22,7 @@ export function CalculatorCTA() {
       <div className="grid grid-cols-12 gap-x-6 lg:gap-x-8 items-end">
         <Reveal className="col-span-12 lg:col-span-2 mb-4 lg:mb-0">
           <Eyebrow color="var(--bone)" dotColor="var(--signal)">
-            § Calculator
+            Calculator
           </Eyebrow>
         </Reveal>
 

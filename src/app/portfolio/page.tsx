@@ -5,7 +5,7 @@ import { portfolio, portfolioSlugs } from "@/content/portfolio";
 import { Nav } from "@/components/sections/nav";
 
 export const metadata: Metadata = {
-  title: "Portfolio — Savoca.Studio",
+  title: "Portfolio — Savoca Studio",
   description:
     "Real RevOps builds for service operators. The systems behind the businesses.",
 };
@@ -84,7 +84,6 @@ export default function PortfolioIndex() {
                         style={{ fontVariationSettings: '"opsz" 96' }}
                       >
                         {p.name}
-                        <span className="text-money italic ml-2">§</span>
                       </h2>
                       <p className="font-mono text-[11px] tracking-[0.16em] uppercase text-steel mb-4">
                         {p.operator}

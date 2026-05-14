@@ -75,7 +75,7 @@ function ThanksContent() {
       </div>
 
       <section className="px-5 md:px-10 lg:px-12 pt-16 lg:pt-24 pb-16 max-w-[900px]">
-        <Eyebrow>§ You&apos;re in</Eyebrow>
+        <Eyebrow>You&apos;re in</Eyebrow>
         <h1
           className="font-serif mt-3"
           style={{
