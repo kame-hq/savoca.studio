@@ -163,9 +163,9 @@ export default async function PitchDeck({
 
         <div className="tier-grid">
           {[
-            { tag: "01", name: "The Partner / Solo", price: "from $750 setup · $497/mo", body: "Starting creator, solo artist, new trainer. Site + booking + lead-capture built and kept live." },
-            { tag: "02", name: "The Partner / Studio", price: "from $2,000 setup · $1,497/mo", body: "Established small business. Phone + CRM + calendar + follow-up wired, weekly review, ongoing tuning." },
-            { tag: "03", name: "The Partner / Operation", price: "from $4,000 setup · $2,995/mo", body: "Golf course, multi-location, real ops budget. Custom-built system, monthly deep-dive, priority on-call." },
+            { tag: "01", name: "The Partner / Solo", price: "$397/mo · live in ~1 wk", body: "Just you — owner-operator, one-person shop. Site + booking + lead-capture built and kept live." },
+            { tag: "02", name: "The Partner / Studio", price: "$1,497/mo · live in ~2 wks", body: "An established business with a team. Phone + CRM + calendar + follow-up wired, weekly review, ongoing tuning." },
+            { tag: "03", name: "The Partner / Operation", price: "$2,995/mo · live in ~2-4 wks", body: "Multi-location or high-volume. Custom-built system, monthly deep-dive, priority on-call." },
           ].map((t) => (
             <div key={t.tag} className="tier-card">
               <div className="tier-card-eyebrow">Band {t.tag}</div>
@@ -177,7 +177,7 @@ export default async function PitchDeck({
         </div>
 
         <footer className="slide-chrome-bottom">
-          <span>The Partner · Savoca.Studio</span>
+          <span>$500 kickoff deposit, credited · 3-month minimum</span>
           <span>savoca.studio/#services</span>
         </footer>
       </section>

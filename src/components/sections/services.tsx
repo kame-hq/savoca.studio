@@ -10,8 +10,8 @@ type Band = {
   icon: "net" | "stack" | "compass" | "clipboard";
   name: string;
   forWho: string;
-  setup: string;
   retainer: string;
+  buildTime: string;
   bullets: string[];
   dark: boolean;
   mostPicked: boolean;
@@ -25,8 +25,8 @@ const bands: Band[] = [
     icon: "net",
     name: "Solo",
     forWho: "Just you — owner-operator, one-person shop, solo practice.",
-    setup: "from $750",
-    retainer: "497",
+    retainer: "397",
+    buildTime: "live in ~1 week",
     bullets: [
       "Site + booking + lead-capture, built",
       "Automations kept live",
@@ -46,8 +46,8 @@ const bands: Band[] = [
     icon: "stack",
     name: "Studio",
     forWho: "An established business with a team and real inbound volume.",
-    setup: "from $2,000",
     retainer: "1,497",
+    buildTime: "live in ~2 weeks",
     bullets: [
       "Phone + CRM + calendar + follow-up, wired",
       "Weekly pipeline review + monthly call",
@@ -64,8 +64,8 @@ const bands: Band[] = [
     icon: "compass",
     name: "Operation",
     forWho: "Multi-location or high-volume — a real operations budget.",
-    setup: "from $4,000",
     retainer: "2,995",
+    buildTime: "live in ~2-4 weeks",
     bullets: [
       "Custom-built system, fit to your industry",
       "Weekly review + monthly deep-dive",
@@ -104,9 +104,10 @@ export function Services() {
           className="font-sans mt-4 max-w-[58ch]"
           style={{ fontSize: 16, lineHeight: 1.55, color: "var(--ink-2)" }}
         >
-          One partner, priced to your scale. A one-time setup fee covers the
-          build — then a flat monthly retainer to run it. Starts with a free
-          discovery call, no audit, no obligation.
+          One partner, priced to your scale — and we improve it together over
+          time. One flat monthly number covers the build and the run. A $500
+          kickoff deposit, credited to month one, just says let&apos;s go.
+          Starts with a free discovery call.
         </p>
         <Rule style={{ marginTop: 22 }} />
       </Reveal>
@@ -250,9 +251,9 @@ export function Services() {
 
               <div className="flex-1" />
 
-              {/* Pricing — setup + retainer */}
+              {/* Pricing — retainer headline + terms line */}
               <div
-                className="mt-5 flex items-end justify-between gap-3"
+                className="mt-5"
                 style={{
                   paddingTop: 12,
                   borderTop:
@@ -260,71 +261,45 @@ export function Services() {
                     (dark ? "rgba(245,242,236,0.15)" : "var(--rule)"),
                 }}
               >
-                <div className="flex flex-col">
-                  <span
-                    className="font-mono"
-                    style={{
-                      fontSize: 9,
-                      letterSpacing: "0.16em",
-                      textTransform: "uppercase",
-                      color: dark ? "var(--steel-2)" : "var(--steel)",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Setup
-                  </span>
+                <span className="flex items-baseline gap-1.5">
                   <span
                     className="font-serif"
                     style={{
-                      fontSize: 18,
-                      lineHeight: 1.1,
-                      letterSpacing: "-0.02em",
-                      color: cardFg,
+                      fontSize: "clamp(34px, 3.2vw, 44px)",
+                      lineHeight: 1,
+                      letterSpacing: "-0.035em",
+                      color: dark ? "var(--bone)" : "var(--money)",
+                      fontWeight: 400,
                     }}
                   >
-                    {t.setup}
+                    ${t.retainer}
                   </span>
-                </div>
-                <div className="flex flex-col items-end">
                   <span
                     className="font-mono"
                     style={{
-                      fontSize: 9,
-                      letterSpacing: "0.16em",
+                      fontSize: 11,
+                      letterSpacing: "0.14em",
                       textTransform: "uppercase",
                       color: dark ? "var(--steel-2)" : "var(--steel)",
                       fontWeight: 500,
                     }}
                   >
-                    Retainer
+                    / mo
                   </span>
-                  <span className="flex items-baseline gap-1">
-                    <span
-                      className="font-serif"
-                      style={{
-                        fontSize: "clamp(28px, 2.6vw, 34px)",
-                        lineHeight: 1,
-                        letterSpacing: "-0.035em",
-                        color: dark ? "var(--bone)" : "var(--money)",
-                        fontWeight: 400,
-                      }}
-                    >
-                      ${t.retainer}
-                    </span>
-                    <span
-                      className="font-mono"
-                      style={{
-                        fontSize: 10,
-                        letterSpacing: "0.14em",
-                        textTransform: "uppercase",
-                        color: dark ? "var(--steel-2)" : "var(--steel)",
-                        fontWeight: 500,
-                      }}
-                    >
-                      / mo
-                    </span>
-                  </span>
-                </div>
+                </span>
+                <p
+                  className="font-mono mt-1.5"
+                  style={{
+                    fontSize: 10,
+                    letterSpacing: "0.06em",
+                    lineHeight: 1.55,
+                    color: dark ? "var(--steel-2)" : "var(--steel)",
+                  }}
+                >
+                  $500 kickoff deposit, credited to month 1 · 3-month minimum
+                  <br />
+                  {t.buildTime}
+                </p>
               </div>
 
               {(() => {
@@ -379,8 +354,9 @@ export function Services() {
             lineHeight: 1.6,
           }}
         >
-          Setup fee is scoped per client and covers the build. Retainer is flat
-          per band · 3-month minimum, then month-to-month.
+          The retainer covers the build and the run — one flat number per band.
+          A $500 kickoff deposit is credited to month one. 3-month minimum,
+          then month-to-month.
         </p>
       </Reveal>
     </section>

@@ -5,10 +5,11 @@
  *
  * OFFER MODEL (locked 2026-05-14 — see feedback_savoca_pricing memory):
  * One product, "The Partner", in 3 bands by client scale:
- *   - Solo      — from $750 setup  / $497/mo  retainer
- *   - Studio    — from $2,000 setup / $1,497/mo retainer
- *   - Operation — from $4,000 setup / $2,995/mo retainer
- * Build it, run it. Free discovery call scopes the build. 3-month minimum.
+ *   - Solo      — $397/mo   retainer · live in ~1 week
+ *   - Studio    — $1,497/mo retainer · live in ~2 weeks
+ *   - Operation — $2,995/mo retainer · live in ~2-4 weeks
+ * Flat $500 kickoff deposit (all bands), credited to month 1. The retainer
+ * covers the build AND the run. Free discovery call scopes it. 3-month minimum.
  *
  * SETUP STEPS:
  *
@@ -17,8 +18,8 @@
  *    - CAL_DISCOVERY below = the public URL
  *
  * 2. STRIPE (optional — retainers are discovery-first, so payment links
- *    are not strictly required; useful for setup-fee deposits later)
- *    - Create Payment Links per band if/when you want pay-direct
+ *    are not strictly required; useful for the $500 kickoff deposit later)
+ *    - Create one $500 deposit Payment Link + per-band retainer subscriptions
  *    - Success URL → https://savoca.studio/thanks?tier=<slug>
  *
  * Until URLs are filled in, CTAs fall back to mailto.
@@ -29,10 +30,9 @@ export const CAL_DISCOVERY = "https://cal.com/savoca/audit";
 // offer no longer has an audit tier. URL still works as-is meanwhile.
 export const CAL_DISCOVERY_LIVE = true;
 
-export const STRIPE_SOLO = "https://buy.stripe.com/REPLACE_WITH_SOLO_LINK";
-export const STRIPE_STUDIO = "https://buy.stripe.com/REPLACE_WITH_STUDIO_LINK";
-export const STRIPE_OPERATION = "https://buy.stripe.com/REPLACE_WITH_OPERATION_LINK";
-// Flip to true once real Stripe payment links are pasted above.
+// Flat $500 kickoff deposit — same link for every band, credited to month 1.
+export const STRIPE_DEPOSIT = "https://buy.stripe.com/REPLACE_WITH_DEPOSIT_LINK";
+// Flip to true once the real Stripe deposit link is pasted above.
 export const STRIPE_LIVE = false;
 
 export const EMAIL = "jack@savoca.studio";
@@ -75,18 +75,14 @@ export function tierCtas(slug: TierSlug, tierName: string, price: string): TierC
   const inquirySubject = `${tierName} · ${price}`;
   const mailto = mailtoLink(inquirySubject, INQUIRY_BODY_TEMPLATE(tierName));
 
-  const stripeUrl = {
-    solo: STRIPE_SOLO,
-    studio: STRIPE_STUDIO,
-    operation: STRIPE_OPERATION,
-  }[slug];
-
   // Every band is discovery-first — the retainer is a relationship, not a
-  // checkout. Primary CTA = book the free discovery call.
+  // checkout. Primary CTA = book the free discovery call. Secondary, once
+  // Stripe is live, is the flat $500 kickoff deposit (same link, all bands).
+  void slug;
   return {
     primary: { label: "Book a call", href: bookCallLink() },
     secondary: STRIPE_LIVE
-      ? { label: "Pay setup deposit · " + price, href: stripeUrl }
+      ? { label: "$500 kickoff deposit", href: STRIPE_DEPOSIT }
       : { label: "Email me", href: mailto },
   };
 }
