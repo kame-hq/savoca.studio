@@ -163,9 +163,9 @@ export default async function PitchDeck({
 
         <div className="tier-grid">
           {[
-            { tag: "01", name: "The Partner / Solo", price: "$397–$697/mo · live in ~1 wk", body: "Just you — owner-operator, one-person shop. Site, booking, follow-up built and kept running." },
-            { tag: "02", name: "The Partner / Studio", price: "$1,497–$2,497/mo · live in ~2 wks", body: "An established business with a team. Phone + CRM + calendar + follow-up wired, weekly review, ongoing tuning." },
-            { tag: "03", name: "The Partner / Operation", price: "$2,995–$4,995/mo · live in ~2-4 wks", body: "Multi-location or high-volume. Custom-built system, monthly deep-dive, priority on-call." },
+            { tag: "01", name: "The Partner / Solo", price: "$297–$697/mo · live in ~1 wk", body: "Just you — owner-operator, one-person shop. Site, booking, follow-up built and kept running." },
+            { tag: "02", name: "The Partner / Studio", price: "$1,297–$2,497/mo · live in ~2 wks", body: "An established business with a team. Phone + CRM + calendar + follow-up wired, weekly review, ongoing tuning." },
+            { tag: "03", name: "The Partner / Operation", price: "$2,297–$4,995/mo · live in ~2-4 wks", body: "Multi-location or high-volume. Custom-built system, monthly deep-dive, priority on-call." },
           ].map((t) => (
             <div key={t.tag} className="tier-card">
               <div className="tier-card-eyebrow">Band {t.tag}</div>

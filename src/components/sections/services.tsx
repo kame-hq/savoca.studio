@@ -25,7 +25,7 @@ const bands: Band[] = [
     icon: "net",
     name: "Solo",
     forWho: "Just you — owner-operator, one-person shop, solo practice.",
-    retainer: { lo: "397", hi: "697" },
+    retainer: { lo: "297", hi: "697" },
     buildTime: "live in ~1 week",
     bullets: [
       "Site + booking + lead-capture, built",
@@ -44,7 +44,7 @@ const bands: Band[] = [
     icon: "stack",
     name: "Studio",
     forWho: "An established business with a team and real inbound volume.",
-    retainer: { lo: "1,497", hi: "2,497" },
+    retainer: { lo: "1,297", hi: "2,497" },
     buildTime: "live in ~2 weeks",
     bullets: [
       "Phone + CRM + calendar + follow-up, wired",
@@ -62,7 +62,7 @@ const bands: Band[] = [
     icon: "compass",
     name: "Operation",
     forWho: "Multi-location or high-volume — a real operations budget.",
-    retainer: { lo: "2,995", hi: "4,995" },
+    retainer: { lo: "2,297", hi: "4,995" },
     buildTime: "live in ~2-4 weeks",
     bullets: [
       "Custom-built system, fit to your industry",
