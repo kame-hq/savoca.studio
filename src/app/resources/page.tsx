@@ -3,11 +3,12 @@ import Link from "next/link";
 import { playbooks, playbookSlugs } from "@/content/playbooks";
 import { Glyph } from "@/components/brand/v2";
 import { Nav } from "@/components/sections/nav";
+import { VerticalLeaks } from "@/components/sections/vertical-leaks";
 
 export const metadata: Metadata = {
   title: "Playbooks — Savoca.Studio",
   description:
-    "Vertical-specific RevOps playbooks for service businesses. Free. Field-tested. No fluff.",
+    "Vertical-specific playbooks for service businesses — where revenue leaks, by industry. Free. Field-tested. No fluff.",
 };
 
 export default function ResourcesIndex() {
@@ -120,6 +121,8 @@ export default function ResourcesIndex() {
             })}
           </ul>
 
+          <VerticalLeaks />
+
           <footer className="mt-20 lg:mt-28 pt-12 border-t border-rule flex justify-between items-center">
             <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-steel">
               No revenue left behind.
@@ -128,7 +131,7 @@ export default function ResourcesIndex() {
               href="/book"
               className="font-mono text-[11px] tracking-[0.18em] uppercase text-ink border-b border-money-2 pb-1 hover:text-money-2 transition-colors"
             >
-              Book a 30-min audit →
+              Find the leak →
             </Link>
           </footer>
         </div>

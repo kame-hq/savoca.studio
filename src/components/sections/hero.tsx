@@ -72,21 +72,34 @@ export function Hero() {
           </h1>
 
           <p
+            className="hero-rise hero-rise-2 font-mono"
+            style={{
+              marginTop: 18,
+              fontSize: 13,
+              letterSpacing: "0.04em",
+              lineHeight: 1.5,
+              color: "var(--ink)",
+              fontWeight: 600,
+              maxWidth: 560,
+            }}
+          >
+            Revenue systems for service businesses — from first call to final
+            report.
+          </p>
+
+          <p
             className="hero-rise hero-rise-2 font-sans"
             style={{
-              marginTop: 22,
+              marginTop: 14,
               fontSize: 17,
               lineHeight: 1.5,
               color: "var(--ink-2)",
               maxWidth: 560,
             }}
           >
-            I build websites, CRMs, automations, dashboards, and internal tools
-            for businesses that need their work to move cleaner. Some lose
-            revenue before the conversation starts. Some lose it in the
-            follow-up. Some lose it when the work gets scattered across texts,
-            spreadsheets, and memory. I find the leak, build the system, and
-            help keep it running.
+            Savoca Studio builds the websites, CRMs, automations, dashboards,
+            and internal tools that keep revenue, work, and follow-up from
+            falling through the cracks.
           </p>
 
           <p
@@ -94,23 +107,13 @@ export function Hero() {
             style={{
               marginTop: 16,
               fontSize: 12,
-              letterSpacing: "0.1em",
+              letterSpacing: "0.14em",
               textTransform: "uppercase",
-              color: "var(--ink)",
+              color: "var(--money)",
               fontWeight: 600,
             }}
           >
             Capture. Convert. Run. Report.
-            <span
-              style={{
-                color: "var(--steel)",
-                fontWeight: 500,
-                letterSpacing: "0.04em",
-                textTransform: "none",
-              }}
-            >
-              {"  "}— from first signal to final result.
-            </span>
           </p>
 
           <div className="hero-rise hero-rise-3 flex flex-wrap gap-3 mt-7">

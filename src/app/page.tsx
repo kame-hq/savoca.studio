@@ -1,6 +1,6 @@
 import { Nav } from "@/components/sections/nav";
 import { Hero } from "@/components/sections/hero";
-import { Who } from "@/components/sections/who";
+import { Handoff } from "@/components/sections/handoff";
 import { CalculatorCTA } from "@/components/sections/calculator-cta";
 import { Services } from "@/components/sections/services";
 import { Notes } from "@/components/sections/notes";
@@ -13,7 +13,7 @@ export default function Home() {
       <Nav />
       <main className="flex-1">
         <Hero />
-        <Who />
+        <Handoff />
         <CalculatorCTA />
         <Services />
         <Notes />
