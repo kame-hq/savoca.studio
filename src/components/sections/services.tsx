@@ -15,7 +15,7 @@ type Band = {
   bullets: string[];
   dark: boolean;
   mostPicked: boolean;
-  proof: { label: string; href: string; caption: string } | null;
+  proof: { href: string; caption: string }[];
 };
 
 const bands: Band[] = [
@@ -34,11 +34,9 @@ const bands: Band[] = [
     ],
     dark: false,
     mostPicked: false,
-    proof: {
-      label: "Live example",
-      href: "https://krazystrong.app",
-      caption: "krazystrong.app — built + run",
-    },
+    proof: [
+      { href: "https://krazystrong.app", caption: "krazystrong.app" },
+    ],
   },
   {
     slug: "studio",
@@ -56,7 +54,7 @@ const bands: Band[] = [
     ],
     dark: true,
     mostPicked: true,
-    proof: null,
+    proof: [],
   },
   {
     slug: "operation",
@@ -74,7 +72,10 @@ const bands: Band[] = [
     ],
     dark: true,
     mostPicked: false,
-    proof: null,
+    proof: [
+      { href: "https://astroturf.dev", caption: "astroturf.dev" },
+      { href: "https://morningcut.golf", caption: "morningcut.golf" },
+    ],
   },
 ];
 
@@ -221,46 +222,63 @@ export function Services() {
                 ))}
               </ul>
 
-              {t.proof && (
-                <a
-                  href={t.proof.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-mono mt-3 inline-flex items-center gap-2 transition-colors hover:text-money-2"
+              {t.proof.length > 0 && (
+                <div
+                  className="mt-3 flex flex-col gap-1.5"
                   style={{
-                    fontSize: 10,
-                    letterSpacing: "0.14em",
-                    textTransform: "uppercase",
-                    color: dark ? "var(--steel-2)" : "var(--money-2)",
-                    fontWeight: 600,
-                    paddingTop: 6,
+                    paddingTop: 8,
                     borderTop:
                       "1px solid " +
                       (dark ? "rgba(245,242,236,0.15)" : "var(--rule)"),
                   }}
                 >
-                  <span>↗ {t.proof.label}</span>
                   <span
-                    className="opacity-70"
-                    style={{ fontWeight: 400, letterSpacing: "0.08em" }}
+                    className="font-mono"
+                    style={{
+                      fontSize: 9,
+                      letterSpacing: "0.16em",
+                      textTransform: "uppercase",
+                      color: dark ? "var(--steel-2)" : "var(--steel)",
+                      fontWeight: 500,
+                    }}
                   >
-                    {t.proof.caption}
+                    {t.proof.length > 1 ? "Live examples" : "Live example"}
                   </span>
-                </a>
+                  <div className="flex flex-wrap gap-x-3 gap-y-1">
+                    {t.proof.map((p) => (
+                      <a
+                        key={p.href}
+                        href={p.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-mono inline-flex items-center gap-1 transition-colors hover:text-money-2"
+                        style={{
+                          fontSize: 11,
+                          letterSpacing: "0.04em",
+                          color: dark ? "var(--bone-2)" : "var(--money-2)",
+                          fontWeight: 600,
+                        }}
+                      >
+                        ↗ {p.caption}
+                      </a>
+                    ))}
+                  </div>
+                </div>
               )}
 
               <div className="flex-1" />
 
-              {/* Pricing — retainer headline + terms line */}
+              {/* Pricing — retainer headline + explicit terms, stated plainly */}
               <div
                 className="mt-5"
                 style={{
-                  paddingTop: 12,
+                  paddingTop: 14,
                   borderTop:
                     "1px solid " +
                     (dark ? "rgba(245,242,236,0.15)" : "var(--rule)"),
                 }}
               >
+                {/* Retainer — unmistakably monthly + ongoing */}
                 <span className="flex items-baseline gap-1.5">
                   <span
                     className="font-serif"
@@ -277,29 +295,49 @@ export function Services() {
                   <span
                     className="font-mono"
                     style={{
-                      fontSize: 11,
-                      letterSpacing: "0.14em",
+                      fontSize: 12,
+                      letterSpacing: "0.12em",
                       textTransform: "uppercase",
-                      color: dark ? "var(--steel-2)" : "var(--steel)",
-                      fontWeight: 500,
+                      color: dark ? "var(--bone-2)" : "var(--ink-2)",
+                      fontWeight: 600,
                     }}
                   >
-                    / mo
+                    / month
                   </span>
                 </span>
                 <p
-                  className="font-mono mt-1.5"
+                  className="font-sans mt-0.5"
                   style={{
-                    fontSize: 10,
-                    letterSpacing: "0.06em",
-                    lineHeight: 1.55,
-                    color: dark ? "var(--steel-2)" : "var(--steel)",
+                    fontSize: 12,
+                    lineHeight: 1.4,
+                    color: dark ? "var(--bone-2)" : "var(--ink-2)",
                   }}
                 >
-                  $500 kickoff deposit, credited to month 1 · 3-month minimum
-                  <br />
-                  {t.buildTime}
+                  Ongoing retainer — covers the build and the run.
                 </p>
+
+                {/* Terms — plain, readable, not fine print */}
+                <ul
+                  className="font-sans mt-3 list-none p-0"
+                  style={{ fontSize: 12, lineHeight: 1.6 }}
+                >
+                  {[
+                    "$500 to start — credited to your first month",
+                    "3-month minimum, then month-to-month",
+                    t.buildTime.charAt(0).toUpperCase() + t.buildTime.slice(1),
+                  ].map((line) => (
+                    <li
+                      key={line}
+                      className="flex gap-2"
+                      style={{ color: dark ? "var(--bone-2)" : "var(--ink-2)" }}
+                    >
+                      <span style={{ color: dark ? "var(--steel-2)" : "var(--money)" }}>
+                        ·
+                      </span>
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               {(() => {
