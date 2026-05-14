@@ -78,12 +78,39 @@ export function Hero() {
               fontSize: 17,
               lineHeight: 1.5,
               color: "var(--ink-2)",
-              maxWidth: 540,
+              maxWidth: 560,
             }}
           >
-            RevOps for service businesses that run on calls, bookings, and
-            follow-up. Built by an enterprise PM who got tired of watching
-            shops, clinics, and firms lose money to tools they already pay for.
+            I build websites, CRMs, automations, dashboards, and internal tools
+            for businesses that need their work to move cleaner. Some lose
+            revenue before the conversation starts. Some lose it in the
+            follow-up. Some lose it when the work gets scattered across texts,
+            spreadsheets, and memory. I find the leak, build the system, and
+            help keep it running.
+          </p>
+
+          <p
+            className="hero-rise hero-rise-2 font-mono"
+            style={{
+              marginTop: 16,
+              fontSize: 12,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "var(--ink)",
+              fontWeight: 600,
+            }}
+          >
+            Capture. Convert. Run. Report.
+            <span
+              style={{
+                color: "var(--steel)",
+                fontWeight: 500,
+                letterSpacing: "0.04em",
+                textTransform: "none",
+              }}
+            >
+              {"  "}— from first signal to final result.
+            </span>
           </p>
 
           <div className="hero-rise hero-rise-3 flex flex-wrap gap-3 mt-7">
@@ -99,7 +126,7 @@ export function Hero() {
                 textTransform: "uppercase",
               }}
             >
-              Book a call <span className="cta-arrow">→</span>
+              Find the leak <span className="cta-arrow">→</span>
             </Link>
             <Link
               href="#services"

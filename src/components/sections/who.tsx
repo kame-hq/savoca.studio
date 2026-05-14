@@ -202,7 +202,7 @@ export function Who() {
       style={{ background: "var(--paper)" }}
     >
       <Reveal>
-        <Eyebrow>One · Who</Eyebrow>
+        <Eyebrow>One · Where it leaks</Eyebrow>
         <h2
           className="font-serif mt-2"
           style={{
@@ -212,19 +212,21 @@ export function Who() {
             fontWeight: 400,
           }}
         >
-          Your funnel isn&apos;t broken.
+          Revenue gets lost
           <br />
           <span style={{ fontStyle: "italic", color: "var(--money)" }}>
-            Your follow-through is.
+            wherever work breaks down.
           </span>
         </h2>
 
         <p
-          className="font-sans mt-4 max-w-[60ch]"
+          className="font-sans mt-4 max-w-[62ch]"
           style={{ fontSize: 15, lineHeight: 1.55, color: "var(--ink-2)" }}
         >
-          17 vertical-specific playbooks. Each one maps where revenue actually
-          leaks for your kind of business — with the dollar number attached.
+          A missed call, a dead follow-up, a scattered spreadsheet, a crew
+          running on text messages. The vertical playbooks below map the
+          capture &amp; convert side — where service businesses leak first.
+          The work goes further: the CRM, the operations, the reporting.
         </p>
 
         <Rule style={{ marginTop: 22 }} />
