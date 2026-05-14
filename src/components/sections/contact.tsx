@@ -169,7 +169,7 @@ export function Contact() {
           color: "var(--bone-2)",
         }}
       >
-        <span>Savoca Studio · 2026</span>
+        <span>savoca.studio · 2026</span>
         <SVInitial size={22} color="var(--money-2)" />
         <span>savoca.studio</span>
       </div>

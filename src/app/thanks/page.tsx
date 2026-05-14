@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
-import { Eyebrow, SVInitial } from "@/components/brand/v2";
+import { Eyebrow, SVInitial, SVLogo } from "@/components/brand/v2";
 
 const tierCopy: Record<string, { name: string; next: string }> = {
   solo: {
@@ -24,7 +24,7 @@ function ThanksContent() {
   const params = useSearchParams();
   const tier = params.get("tier") ?? "default";
   const copy = tierCopy[tier] ?? {
-    name: "Savoca Studio",
+    name: "savoca.studio",
     next: "I'll email you within 1 business day with next steps.",
   };
 
@@ -37,28 +37,8 @@ function ThanksContent() {
         className="px-5 md:px-10 lg:px-12 py-4 flex items-center justify-between"
         style={{ borderBottom: "1px solid var(--rule)" }}
       >
-        <Link
-          href="/"
-          aria-label="Savoca Studio"
-          className="font-serif italic"
-          style={{ fontWeight: 500, fontSize: 20, letterSpacing: "-0.045em" }}
-        >
-          Savoca
-          <span style={{ color: "var(--money-2)", fontStyle: "normal" }}>.</span>
-          <span
-            className="font-mono ml-2"
-            style={{
-              fontSize: 7,
-              letterSpacing: "0.22em",
-              textTransform: "uppercase",
-              fontWeight: 600,
-              fontStyle: "normal",
-              opacity: 0.85,
-              verticalAlign: "1px",
-            }}
-          >
-            Studio
-          </span>
+        <Link href="/" aria-label="savoca.studio" className="inline-flex">
+          <SVLogo size={20} layout="inline" />
         </Link>
         <Link
           href="/"
@@ -161,7 +141,7 @@ function ThanksContent() {
               color: "var(--steel)",
             }}
           >
-            Savoca Studio · No revenue left behind.
+            savoca.studio · No revenue left behind.
           </span>
         </div>
       </section>
