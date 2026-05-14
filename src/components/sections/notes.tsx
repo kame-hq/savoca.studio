@@ -17,7 +17,7 @@ export function Notes() {
       style={{ background: "var(--paper)" }}
     >
       <Reveal>
-        <Eyebrow>Three · Proof</Eyebrow>
+        <Eyebrow>Three · Operating principles</Eyebrow>
         <h2
           className="font-serif mt-2"
           style={{

@@ -318,8 +318,7 @@ export function Services() {
                     color: dark ? "var(--bone-2)" : "var(--ink-2)",
                   }}
                 >
-                  Ongoing retainer — priced to your scope, covers the build and
-                  the run.
+                  Ongoing retainer — covers the build and the run.
                 </p>
 
                 {/* Terms — plain, readable, not fine print */}
@@ -403,8 +402,8 @@ export function Services() {
           }}
         >
           The retainer covers the build and the run — a monthly range per band,
-          locked to your scope on the discovery call. Each band&apos;s kickoff
-          deposit ($297–$997) is credited to month one. 3-month minimum, then
+          set on the discovery call. Each band&apos;s kickoff deposit
+          ($297–$997) is credited to month one. 3-month minimum, then
           month-to-month.
         </p>
       </Reveal>

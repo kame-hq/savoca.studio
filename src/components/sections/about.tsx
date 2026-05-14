@@ -27,10 +27,10 @@ export function About() {
             fontWeight: 400,
           }}
         >
-          I fix the part where revenue
+          I build the operating layer
           <br />
           <span style={{ fontStyle: "italic", color: "var(--money)" }}>
-            falls through.
+            between demand and delivery.
           </span>
         </h2>
         <Rule style={{ marginTop: 22 }} />
@@ -41,17 +41,30 @@ export function About() {
           className="font-sans"
           style={{ fontSize: 16, lineHeight: 1.55, color: "var(--ink)" }}
         >
-          Global product commercialization PM at Indeed. Previously Whole Foods
-          Market and Facebook (now Meta).
+          Most service businesses don&apos;t have a demand problem. They have an
+          operating problem — leads go unanswered, quotes stall, follow-up
+          disappears, and the owner can&apos;t see where revenue leaked until
+          the month is already over.
         </p>
         <p
           className="font-sans mt-4"
           style={{ fontSize: 16, lineHeight: 1.55, color: "var(--ink-2)" }}
         >
-          Most service businesses already have what they need. Phone. CRM.
-          Booking. Payments. They just don&apos;t work together — so calls get
-          missed, jobs get run out of text threads, and nobody sees the leak
-          until the month is already over.
+          I build the systems that move revenue through the business: capture,
+          response, scheduling, follow-up, reporting, retention. The tools
+          usually already exist. The problem is the handoff between them.
+        </p>
+        <p
+          className="font-mono mt-5"
+          style={{
+            fontSize: 11,
+            letterSpacing: "0.04em",
+            lineHeight: 1.6,
+            color: "var(--steel)",
+          }}
+        >
+          Product commercialization PM at Indeed. Previously Meta and Whole
+          Foods Market.
         </p>
       </Reveal>
 

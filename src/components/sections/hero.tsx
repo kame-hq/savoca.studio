@@ -98,10 +98,10 @@ export function Hero() {
               maxWidth: 560,
             }}
           >
-            Savoca Studio builds revenue systems for service businesses tired of
-            losing money to missed calls, slow follow-up, messy handoffs, and
-            unclear reporting. I find the leak, build the system, and help keep
-            it running.
+            Savoca Studio builds the operating layer between demand and
+            delivery — the systems that move revenue from first contact to
+            finished job. I find the leak, build the system, and help keep it
+            running.
           </p>
 
           <div className="hero-rise hero-rise-3 flex flex-wrap gap-3 mt-8">

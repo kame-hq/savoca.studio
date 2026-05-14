@@ -1,6 +1,7 @@
 import { Nav } from "@/components/sections/nav";
 import { Hero } from "@/components/sections/hero";
 import { Handoff } from "@/components/sections/handoff";
+import { LeakMap } from "@/components/sections/leak-map";
 import { CalculatorCTA } from "@/components/sections/calculator-cta";
 import { Services } from "@/components/sections/services";
 import { Notes } from "@/components/sections/notes";
@@ -14,6 +15,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <Handoff />
+        <LeakMap />
         <CalculatorCTA />
         <Services />
         <Notes />
