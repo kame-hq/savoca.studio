@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { portfolio, portfolioSlugs } from "@/content/portfolio";
 import { Nav } from "@/components/sections/nav";
@@ -50,8 +51,22 @@ export default function PortfolioIndex() {
                     href={p.url}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 lg:gap-10 items-start py-8 lg:py-12 group cta-arrow-host"
+                    className="grid grid-cols-1 lg:grid-cols-[420px_1fr_auto] gap-6 lg:gap-10 items-start py-8 lg:py-12 group cta-arrow-host"
                   >
+                    <div
+                      className="relative w-full aspect-[3/2] overflow-hidden border border-rule bg-ink/5"
+                      style={{ minHeight: 180 }}
+                    >
+                      <Image
+                        src={p.image.src}
+                        alt={p.image.alt}
+                        fill
+                        sizes="(min-width: 1024px) 420px, 100vw"
+                        style={{ objectFit: "cover", objectPosition: "center" }}
+                        className="transition-transform duration-500 group-hover:scale-[1.03]"
+                      />
+                    </div>
+
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-baseline gap-3 mb-3">
                         <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-money font-semibold">

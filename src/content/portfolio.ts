@@ -9,6 +9,7 @@ export type PortfolioItem = {
   summary: string;
   delivered: string[];
   status: "live" | "in-production";
+  image: { src: string; alt: string };
 };
 
 export const portfolio: Record<string, PortfolioItem> = {
@@ -31,6 +32,10 @@ export const portfolio: Record<string, PortfolioItem> = {
       "Brand system + asset pipeline",
     ],
     status: "live",
+    image: {
+      src: "/portfolio/krazy-strong.jpg",
+      alt: "Karen Lopez running with slamball mid-race, pink chalk explosion behind her",
+    },
   },
 };
 
