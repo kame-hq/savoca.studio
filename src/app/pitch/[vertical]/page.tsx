@@ -33,6 +33,36 @@ export default async function PitchDeck({
   const featuredQuote = p.quotes[0];
   const headlineStat = p.patternStats[0];
 
+  // The Demand-to-Delivery System — universal flow, not vertical-specific.
+  const leakFlow: { label: string; desc: string; leak: string | null }[] = [
+    { label: "Demand", desc: "Ad, referral, search, the DM.", leak: null },
+    {
+      label: "Capture",
+      desc: "The call, the form, the inbound.",
+      leak: "Goes unanswered — no after-hours, no text-back.",
+    },
+    {
+      label: "Respond",
+      desc: "First reply. Qualification.",
+      leak: "Reply lands hours late. Speed-to-lead collapses.",
+    },
+    {
+      label: "Convert",
+      desc: "Quote, booking, deposit.",
+      leak: "Quote goes cold. No reminder, no sequence.",
+    },
+    {
+      label: "Deliver",
+      desc: "The job runs.",
+      leak: "Tracked in texts. No status, no handoff.",
+    },
+    {
+      label: "Retain",
+      desc: "Review, rebook, reactivate.",
+      leak: "Never asked. No review, no reactivation.",
+    },
+  ];
+
   return (
     <main className="deck">
       {/* ── Slide 1 — Cover ──────────────────────────────── */}
@@ -48,7 +78,7 @@ export default async function PitchDeck({
             {p.vertical}
           </h1>
           <p className="slide-cover-sub">
-            No revenue left behind. · savoca.studio
+            The operating layer between demand and delivery · savoca.studio
           </p>
         </div>
 
@@ -143,10 +173,68 @@ export default async function PitchDeck({
         </section>
       )}
 
-      {/* ── Slide 5 — What I Build ──────────────────────── */}
+      {/* ── Slide 5 — The Revenue Leak Map ──────────────── */}
+      <section className="slide slide-leakmap">
+        <header className="slide-chrome-top">
+          <span>05 · The Revenue Leak Map</span>
+          <span>{p.verticalShort}</span>
+        </header>
+
+        <span className="slide-eyebrow">
+          <span className="slide-eyebrow-dot" />
+          The Demand-to-Delivery System
+        </span>
+
+        <h2 className="slide-title">
+          Demand to delivery —{" "}
+          <span className="slide-title-italic">and where it leaks.</span>
+        </h2>
+
+        <div className="leakmap-flow">
+          {leakFlow.map((step, i) => (
+            <div key={step.label} className="leakmap-node">
+              <span
+                className="leakmap-dot"
+                style={{
+                  background: step.leak ? "var(--signal)" : "var(--money)",
+                }}
+              />
+              <div className="leakmap-num">{`0${i + 1}`}</div>
+              <div className="leakmap-name">{step.label}</div>
+              <div className="leakmap-desc">{step.desc}</div>
+              {step.leak ? (
+                <div className="leakmap-leak">
+                  <div className="leakmap-leak-tag">Leak</div>
+                  <div className="leakmap-leak-text">{step.leak}</div>
+                </div>
+              ) : (
+                <div className="leakmap-enter">Money in</div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="leakmap-visibility">
+          <span className="leakmap-visibility-label">
+            Visibility —{" "}
+            <em>the reporting that catches every leak above.</em>
+          </span>
+          <span className="leakmap-visibility-note">
+            Every red mark is money already spent on demand, lost before
+            delivery. Each one is a system I build — and then keep running.
+          </span>
+        </div>
+
+        <footer className="slide-chrome-bottom">
+          <span>The operating layer between demand and delivery</span>
+          <span>savoca.studio</span>
+        </footer>
+      </section>
+
+      {/* ── Slide 6 — What I Build ──────────────────────── */}
       <section className="slide">
         <header className="slide-chrome-top">
-          <span>05 · What I Build</span>
+          <span>06 · What I Build</span>
           <span>Tier ladder</span>
         </header>
 
@@ -182,10 +270,10 @@ export default async function PitchDeck({
         </footer>
       </section>
 
-      {/* ── Slide 6 — How (Timeline) ────────────────────── */}
+      {/* ── Slide 7 — How (Timeline) ────────────────────── */}
       <section className="slide">
         <header className="slide-chrome-top">
-          <span>06 · How</span>
+          <span>07 · How</span>
           <span>30-day playbook</span>
         </header>
 
@@ -215,10 +303,10 @@ export default async function PitchDeck({
         </footer>
       </section>
 
-      {/* ── Slide 7 — CTA (Dark) ────────────────────────── */}
+      {/* ── Slide 8 — CTA (Dark) ────────────────────────── */}
       <section className="slide slide-cta">
         <header className="slide-chrome-top">
-          <span>07 · Start</span>
+          <span>08 · Start</span>
           <span>30 minutes. No deck. No pitch.</span>
         </header>
 
