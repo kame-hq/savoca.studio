@@ -161,8 +161,8 @@ export function Nav() {
               >
                 Book a call <span className="cta-arrow">→</span>
               </Link>
-              <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-bone/60 mt-2">
-                No revenue left behind
+              <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-bone/60 mt-2 inline-flex items-center gap-1.5">
+                <SVInitial size={11} color="var(--money-2)" /> · No revenue left behind
               </span>
             </div>
           </div>

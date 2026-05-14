@@ -128,6 +128,12 @@
   align-items: center;
   gap: 1.5rem;
 }
+.slide-cover-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
 .slide-cover-vertical {
   font-family: var(--font-fraunces);
   font-size: 56px;

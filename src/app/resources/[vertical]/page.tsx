@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { playbooks, playbookSlugs } from "@/content/playbooks";
-import { SVLogo } from "@/components/brand/v2";
+import { SVLogo, SVInitial } from "@/components/brand/v2";
 import { Nav } from "@/components/sections/nav";
 import { PlaybookChart } from "@/components/playbook/playbook-chart";
 import "./playbook.css";
@@ -20,7 +20,7 @@ export async function generateMetadata({
   const p = playbooks[vertical];
   if (!p) return {};
   return {
-    title: `${p.title} — Savoca Studio`,
+    title: `${p.title} — savoca.studio`,
     description: p.subtitle,
   };
 }
@@ -50,7 +50,14 @@ export default async function PlaybookPage({
             <span className="cover-eyebrow-dot" /> The Playbook · {p.verticalShort}
           </span>
 
-          <h1 className="font-serif cover-title">{p.title}</h1>
+          <h1 className="font-serif cover-title">
+            {p.title}
+            <SVInitial
+              size={40}
+              color="var(--money)"
+              style={{ marginLeft: "0.12em", verticalAlign: "middle" }}
+            />
+          </h1>
 
           <p className="cover-subtitle">{p.subtitle}</p>
         </div>

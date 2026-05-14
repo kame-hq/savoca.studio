@@ -53,7 +53,9 @@ export default function BookPage() {
       </div>
 
       <section className="px-5 md:px-10 lg:px-12 pt-12 lg:pt-16 pb-16 max-w-[900px]">
-        <Eyebrow>Book</Eyebrow>
+        <Eyebrow>
+          <SVInitial size={12} color="var(--money)" /> Book
+        </Eyebrow>
         <h1
           className="font-serif mt-3"
           style={{

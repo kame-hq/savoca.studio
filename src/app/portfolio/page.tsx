@@ -3,9 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { portfolio, portfolioSlugs } from "@/content/portfolio";
 import { Nav } from "@/components/sections/nav";
+import { SVInitial } from "@/components/brand/v2";
 
 export const metadata: Metadata = {
-  title: "Portfolio — Savoca Studio",
+  title: "Portfolio — savoca.studio",
   description:
     "Real RevOps builds for service operators. The systems behind the businesses.",
 };
@@ -84,6 +85,11 @@ export default function PortfolioIndex() {
                         style={{ fontVariationSettings: '"opsz" 96' }}
                       >
                         {p.name}
+                        <SVInitial
+                          size={22}
+                          color="var(--money)"
+                          style={{ marginLeft: 8, verticalAlign: "middle" }}
+                        />
                       </h2>
                       <p className="font-mono text-[11px] tracking-[0.16em] uppercase text-steel mb-4">
                         {p.operator}

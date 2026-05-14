@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { playbooks, playbookSlugs } from "@/content/playbooks";
-import { Glyph } from "@/components/brand/v2";
+import { Glyph, SVInitial } from "@/components/brand/v2";
 import { Nav } from "@/components/sections/nav";
 import { VerticalLeaks } from "@/components/sections/vertical-leaks";
 
 export const metadata: Metadata = {
-  title: "Playbooks — Savoca Studio",
+  title: "Playbooks — savoca.studio",
   description:
     "Vertical-specific playbooks for service businesses — where revenue leaks, by industry. Free. Field-tested. No fluff.",
 };
@@ -98,6 +98,11 @@ export default function ResourcesIndex() {
                         style={{ fontVariationSettings: '"opsz" 96' }}
                       >
                         {p.title}
+                        <SVInitial
+                          size={22}
+                          color="var(--money)"
+                          style={{ marginLeft: 8, verticalAlign: "middle" }}
+                        />
                       </h2>
                       <p className="text-[15px] leading-[1.5] text-ink-2 max-w-2xl">
                         {p.subtitle}

@@ -115,7 +115,9 @@ export default function CalculatorPage() {
 
       {/* Header */}
       <section className="px-5 md:px-10 lg:px-12 pt-12 lg:pt-16 pb-8 max-w-[1100px]">
-        <Eyebrow>Calculator</Eyebrow>
+        <Eyebrow>
+          <SVInitial size={12} color="var(--money)" /> Calculator
+        </Eyebrow>
         <h1
           className="font-serif mt-3"
           style={{
