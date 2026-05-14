@@ -75,8 +75,12 @@ export default async function PitchDeck({
 
         <div className="slide-cover-center">
           <div className="slide-cover-lockup">
-            <SVLogo size={44} layout="inline" />
-            <SVInitial size={72} color="var(--money)" />
+            <SVLogo size={46} layout="inline" />
+            <SVInitial
+              size={50}
+              color="var(--money)"
+              style={{ transform: "translateY(-0.08em)" }}
+            />
           </div>
           <h1 className="slide-cover-vertical">{p.vertical}</h1>
           <p className="slide-cover-sub">
