@@ -91,33 +91,20 @@ export function Hero() {
           <p
             className="hero-rise hero-rise-2 font-sans"
             style={{
-              marginTop: 14,
+              marginTop: 16,
               fontSize: 17,
-              lineHeight: 1.5,
+              lineHeight: 1.55,
               color: "var(--ink-2)",
               maxWidth: 560,
             }}
           >
             Savoca Studio builds revenue systems for service businesses tired of
             losing money to missed calls, slow follow-up, messy handoffs, and
-            unclear reporting.
+            unclear reporting. I find the leak, build the system, and help keep
+            it running.
           </p>
 
-          <p
-            className="hero-rise hero-rise-2 font-sans"
-            style={{
-              marginTop: 14,
-              fontSize: 15,
-              lineHeight: 1.5,
-              color: "var(--ink)",
-              maxWidth: 560,
-              fontWeight: 500,
-            }}
-          >
-            I find the leak, build the system, and help keep it running.
-          </p>
-
-          <div className="hero-rise hero-rise-3 flex flex-wrap gap-3 mt-7">
+          <div className="hero-rise hero-rise-3 flex flex-wrap gap-3 mt-8">
             <Link
               href="/book"
               className="cta-arrow-host font-mono transition-colors inline-flex items-center gap-2"

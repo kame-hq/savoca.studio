@@ -137,7 +137,7 @@ export function Handoff() {
             className="glyph-host relative flex flex-col p-5 lg:p-[20px]"
             style={{
               border: "1px solid var(--rule)",
-              background: "var(--paper)",
+              background: "var(--bone)",
             }}
           >
             <div className="flex justify-between items-start">

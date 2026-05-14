@@ -14,7 +14,7 @@ export function About() {
     <section
       id="about"
       className="grain px-6 md:px-10 lg:px-12 py-20 lg:py-28"
-      style={{ background: "var(--paper)" }}
+      style={{ background: "var(--bone-2)" }}
     >
       <Reveal>
         <Eyebrow>Four · About</Eyebrow>
@@ -67,7 +67,7 @@ export function About() {
             className="p-4"
             style={{
               borderRight: i < 2 ? "1px solid var(--rule)" : "0",
-              background: i === 1 ? "var(--bone-2)" : "transparent",
+              background: i === 1 ? "var(--paper)" : "transparent",
             }}
           >
             <div

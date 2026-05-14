@@ -14,7 +14,7 @@ export function Notes() {
     <section
       id="proof"
       className="px-6 md:px-10 lg:px-12 py-20 lg:py-28"
-      style={{ background: "var(--bone)" }}
+      style={{ background: "var(--paper)" }}
     >
       <Reveal>
         <Eyebrow>Three · Proof</Eyebrow>

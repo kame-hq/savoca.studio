@@ -70,7 +70,7 @@ const bands: Band[] = [
       "New builds + integrations as you grow — included",
       "Priority on-call",
     ],
-    dark: true,
+    dark: false,
     mostPicked: false,
     proof: [
       { href: "https://astroturf.dev", caption: "astroturf.dev" },
@@ -84,7 +84,7 @@ export function Services() {
     <section
       id="services"
       className="px-6 md:px-10 lg:px-12 py-20 lg:py-28"
-      style={{ background: "var(--paper)" }}
+      style={{ background: "var(--bone)" }}
     >
       <Reveal>
         <Eyebrow>Two · The Partner</Eyebrow>
