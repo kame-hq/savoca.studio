@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Eyebrow, SVInitial } from "@/components/brand/v2";
 import { CAL_DISCOVERY, CAL_DISCOVERY_LIVE } from "@/lib/cta-links";
+import { CalEmbed } from "@/components/cal-embed";
 
 export default function BookPage() {
   const calSlug = new URL(CAL_DISCOVERY).pathname.replace(/^\/|\/$/g, "");
-  const embedSrc = `https://cal.com/${calSlug}/embed?embedType=inline&theme=light&hideEventTypeDetails=false`;
 
   return (
     <main
@@ -79,32 +79,14 @@ export default function BookPage() {
         </p>
 
         {CAL_DISCOVERY_LIVE ? (
-          <div
-            className="mt-10"
-            style={{
-              border: "1px solid var(--rule)",
-              background: "var(--bone)",
-              overflow: "hidden",
-            }}
-          >
-            <iframe
-              src={embedSrc}
-              title="Book a 30-min discovery call with Savoca Studio"
-              loading="lazy"
-              style={{
-                width: "100%",
-                height: "min(900px, 100vh)",
-                minHeight: 600,
-                border: 0,
-                display: "block",
-              }}
-            />
+          <div className="mt-10">
+            <CalEmbed link={calSlug} />
             <noscript>
               <a
                 href={CAL_DISCOVERY}
                 target="_blank"
                 rel="noreferrer"
-                className="font-mono inline-block p-8"
+                className="font-mono inline-block mt-4"
                 style={{ fontSize: 12, color: "var(--ink)" }}
               >
                 Open booking page →
