@@ -11,6 +11,7 @@ type Band = {
   name: string;
   forWho: string;
   retainer: { lo: string; hi: string };
+  deposit: string;
   buildTime: string;
   bullets: string[];
   dark: boolean;
@@ -26,6 +27,7 @@ const bands: Band[] = [
     name: "Solo",
     forWho: "Just you — owner-operator, one-person shop, solo practice.",
     retainer: { lo: "297", hi: "697" },
+    deposit: "297",
     buildTime: "live in ~1 week",
     bullets: [
       "Site + booking + lead-capture, built",
@@ -44,7 +46,8 @@ const bands: Band[] = [
     icon: "stack",
     name: "Studio",
     forWho: "An established business with a team and real inbound volume.",
-    retainer: { lo: "1,297", hi: "2,497" },
+    retainer: { lo: "997", hi: "2,297" },
+    deposit: "597",
     buildTime: "live in ~2 weeks",
     bullets: [
       "Phone + CRM + calendar + follow-up, wired",
@@ -63,6 +66,7 @@ const bands: Band[] = [
     name: "Operation",
     forWho: "Multi-location or high-volume — a real operations budget.",
     retainer: { lo: "2,297", hi: "4,995" },
+    deposit: "997",
     buildTime: "live in ~2-4 weeks",
     bullets: [
       "Custom-built system, fit to your industry",
@@ -107,8 +111,9 @@ export function Services() {
         >
           One partner, priced to your scale — and we improve it together over
           time. The monthly retainer covers both the build and the run; the
-          range lands on your scope during the discovery call. A $500 kickoff
-          deposit, credited to month one, just says let&apos;s go.
+          range lands on your scope during the discovery call. A kickoff
+          deposit, sized to your band and credited to month one, just says
+          let&apos;s go.
         </p>
         <Rule style={{ marginTop: 22 }} />
       </Reveal>
@@ -323,7 +328,7 @@ export function Services() {
                   style={{ fontSize: 12, lineHeight: 1.6 }}
                 >
                   {[
-                    "$500 to start — credited to your first month",
+                    `$${t.deposit} to start — credited to your first month`,
                     "3-month minimum, then month-to-month",
                     t.buildTime.charAt(0).toUpperCase() + t.buildTime.slice(1),
                   ].map((line) => (
@@ -398,8 +403,9 @@ export function Services() {
           }}
         >
           The retainer covers the build and the run — a monthly range per band,
-          locked to your scope on the discovery call. A $500 kickoff deposit is
-          credited to month one. 3-month minimum, then month-to-month.
+          locked to your scope on the discovery call. Each band&apos;s kickoff
+          deposit ($297–$997) is credited to month one. 3-month minimum, then
+          month-to-month.
         </p>
       </Reveal>
     </section>

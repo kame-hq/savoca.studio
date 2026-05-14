@@ -6,11 +6,12 @@
  * OFFER MODEL (locked 2026-05-14 — see feedback_savoca_pricing memory):
  * One product, "The Partner", in 3 bands by client scale. Each band is a
  * monthly range — current number is the floor, scope sets where in the range:
- *   - Solo      — $297–$697/mo     retainer · live in ~1 week
- *   - Studio    — $1,297–$2,497/mo retainer · live in ~2 weeks
- *   - Operation — $2,297–$4,995/mo retainer · live in ~2-4 weeks
- * Flat $500 kickoff deposit (all bands), credited to month 1. The retainer
- * covers the build AND the run. Free discovery call scopes it. 3-month minimum.
+ *   - Solo      — $297–$697/mo     retainer · $297 deposit · live in ~1 week
+ *   - Studio    — $997–$2,297/mo   retainer · $597 deposit · live in ~2 weeks
+ *   - Operation — $2,297–$4,995/mo retainer · $997 deposit · live in ~2-4 weeks
+ * Per-band kickoff deposit (Solo $297 / Studio $597 / Operation $997), credited
+ * to month 1. The retainer covers the build AND the run. Free discovery call
+ * scopes it. 3-month minimum.
  *
  * SETUP STEPS:
  *
@@ -19,8 +20,9 @@
  *    - CAL_DISCOVERY below = the public URL
  *
  * 2. STRIPE (optional — retainers are discovery-first, so payment links
- *    are not strictly required; useful for the $500 kickoff deposit later)
- *    - Create one $500 deposit Payment Link + per-band retainer subscriptions
+ *    are not strictly required; useful for the kickoff deposits later)
+ *    - Create one deposit Payment Link per band ($297 / $597 / $997)
+ *      + per-band retainer subscriptions
  *    - Success URL → https://savoca.studio/thanks?tier=<slug>
  *
  * Until URLs are filled in, CTAs fall back to mailto.
@@ -31,9 +33,10 @@ export const CAL_DISCOVERY = "https://cal.com/savoca/audit";
 // offer no longer has an audit tier. URL still works as-is meanwhile.
 export const CAL_DISCOVERY_LIVE = true;
 
-// Flat $500 kickoff deposit — same link for every band, credited to month 1.
+// Per-band kickoff deposit, credited to month 1 (Solo $297 / Studio $597 /
+// Operation $997). TODO: one Stripe Payment Link per band; map by TierSlug.
 export const STRIPE_DEPOSIT = "https://buy.stripe.com/REPLACE_WITH_DEPOSIT_LINK";
-// Flip to true once the real Stripe deposit link is pasted above.
+// Flip to true once the real Stripe deposit links are pasted above.
 export const STRIPE_LIVE = false;
 
 export const EMAIL = "jack@savoca.studio";
@@ -78,12 +81,12 @@ export function tierCtas(slug: TierSlug, tierName: string, price: string): TierC
 
   // Every band is discovery-first — the retainer is a relationship, not a
   // checkout. Primary CTA = book the free discovery call. Secondary, once
-  // Stripe is live, is the flat $500 kickoff deposit (same link, all bands).
+  // Stripe is live, is the band's kickoff deposit link.
   void slug;
   return {
     primary: { label: "Book a call", href: bookCallLink() },
     secondary: STRIPE_LIVE
-      ? { label: "$500 kickoff deposit", href: STRIPE_DEPOSIT }
+      ? { label: "Kickoff deposit", href: STRIPE_DEPOSIT }
       : { label: "Email me", href: mailto },
   };
 }
