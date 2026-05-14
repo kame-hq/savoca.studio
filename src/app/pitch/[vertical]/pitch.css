@@ -6,7 +6,7 @@
 .deck {
   --slide-w: 11in;
   --slide-h: 6.1875in;   /* 16:9 aspect, fits letter landscape */
-  --slide-pad: 0.65in;
+  --slide-pad: 0.5in;
 
   background: var(--bone-2);
   padding: 4rem 1rem;
@@ -327,13 +327,13 @@
 }
 .cta-headline {
   font-family: var(--font-fraunces);
-  font-size: 72px;
-  line-height: 0.95;
+  font-size: 56px;
+  line-height: 0.98;
   letter-spacing: -0.04em;
   color: var(--bone);
   font-weight: 400;
   font-variation-settings: "opsz" 144;
-  margin: 0 0 1.5rem;
+  margin: 0 0 1rem;
   max-width: 9in;
 }
 .cta-headline .accent {
@@ -341,11 +341,11 @@
   font-style: italic;
 }
 .cta-body-dark {
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1.55;
   color: var(--bone-2);
   max-width: 7.5in;
-  margin: 0 0 2rem;
+  margin: 0 0 1.25rem;
 }
 .cta-button-row {
   display: inline-flex;
@@ -468,7 +468,7 @@
 
 /* ── Print rules ─────────────────────────────────── */
 @page {
-  size: 11in 6.1875in landscape;
+  size: 11in 6.1875in;
   margin: 0;
 }
 @media print {
@@ -477,6 +477,10 @@
   .deck .slide {
     box-shadow: none !important;
     margin: 0 !important;
+    /* Hard-lock to exactly one page — no footer spillover. */
+    height: var(--slide-h) !important;
+    min-height: var(--slide-h) !important;
+    overflow: hidden;
     page-break-after: always;
     break-after: page;
   }
@@ -490,8 +494,8 @@
   }
 }
 
-/* ── Responsive (mobile preview) ────────────────── */
-@media (max-width: 1100px) {
+/* ── Responsive (mobile preview — screen only, never print) ───── */
+@media screen and (max-width: 1100px) {
   .deck .slide {
     width: 100%;
     min-height: auto;
