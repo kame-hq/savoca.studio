@@ -104,9 +104,9 @@ export function Handoff() {
           className="font-sans mt-4 max-w-[58ch]"
           style={{ fontSize: 15, lineHeight: 1.55, color: "var(--ink-2)" }}
         >
-          I build the websites, CRMs, automations, dashboards, and internal
-          tools that keep those pieces working as one system — from first call
-          to final report.
+          I build the systems that close those gaps — so demand gets captured,
+          follow-up moves faster, the work carries less drag, and the owner can
+          actually see the return.
         </p>
       </Reveal>
 

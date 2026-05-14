@@ -77,14 +77,14 @@ export function Hero() {
               marginTop: 18,
               fontSize: 13,
               letterSpacing: "0.04em",
-              lineHeight: 1.5,
+              lineHeight: 1.55,
               color: "var(--ink)",
               fontWeight: 600,
-              maxWidth: 560,
+              maxWidth: 580,
             }}
           >
-            Revenue systems for service businesses — from first call to final
-            report.
+            Capture more demand. Respond faster. Deliver with less drag. Prove
+            the return.
           </p>
 
           <p
@@ -97,23 +97,23 @@ export function Hero() {
               maxWidth: 560,
             }}
           >
-            Savoca Studio builds the websites, CRMs, automations, dashboards,
-            and internal tools that keep revenue, work, and follow-up from
-            falling through the cracks.
+            Savoca Studio builds revenue systems for service businesses tired of
+            losing money to missed calls, slow follow-up, messy handoffs, and
+            unclear reporting.
           </p>
 
           <p
-            className="hero-rise hero-rise-2 font-mono"
+            className="hero-rise hero-rise-2 font-sans"
             style={{
-              marginTop: 16,
-              fontSize: 12,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              color: "var(--money)",
-              fontWeight: 600,
+              marginTop: 14,
+              fontSize: 15,
+              lineHeight: 1.5,
+              color: "var(--ink)",
+              maxWidth: 560,
+              fontWeight: 500,
             }}
           >
-            Capture. Convert. Run. Report.
+            I find the leak, build the system, and help keep it running.
           </p>
 
           <div className="hero-rise hero-rise-3 flex flex-wrap gap-3 mt-7">
