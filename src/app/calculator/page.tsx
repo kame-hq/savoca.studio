@@ -465,8 +465,8 @@ export default function CalculatorPage() {
                 color: "var(--steel)",
               }}
             >
-              Estimates use industry-default loss rates. The 1-week Catcher
-              audit replaces every default with your real numbers — pulled
+              Estimates use industry-default loss rates. A free discovery
+              call replaces every default with your real numbers — pulled
               from your actual call logs, web form data, and booking system.
             </p>
           </div>
@@ -474,7 +474,7 @@ export default function CalculatorPage() {
           {/* CTAs */}
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="mailto:jack@savoca.studio?subject=Catcher%20%C2%B7%20%24349%20audit&body=Hi%20Jack%20%E2%80%94%20just%20ran%20the%20calculator.%20Interested%20in%20the%20Catcher%20audit.%0A%0AA%20bit%20about%20us%3A%0A-%20Business%20name%3A%0A-%20Vertical%3A%0A-%20City%3A%0A-%20Approx%20monthly%20inbound%20calls%3A%0A%0ABest%20time%20to%20talk%20this%20week%3A%0A%0AThanks%2C%0A"
+              href="https://cal.com/savoca/audit"
               className="cta-arrow-host font-mono inline-flex items-center gap-2 transition-colors"
               style={{
                 background: "var(--ink)",
@@ -486,7 +486,7 @@ export default function CalculatorPage() {
                 fontWeight: 500,
               }}
             >
-              Book the audit · $349 <span className="cta-arrow">→</span>
+              Book a free discovery call <span className="cta-arrow">→</span>
             </a>
             <a
               href="mailto:jack@savoca.studio?subject=Calculator%20follow-up"

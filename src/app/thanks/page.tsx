@@ -6,21 +6,17 @@ import { Suspense } from "react";
 import { Eyebrow, SVInitial } from "@/components/brand/v2";
 
 const tierCopy: Record<string, { name: string; next: string }> = {
-  catcher: {
-    name: "The Catcher",
-    next: "I'll email you within 1 business day to schedule the kickoff call. Audit ships within 7 days.",
+  solo: {
+    name: "The Partner / Solo",
+    next: "I'll email you within 1 business day to schedule the discovery call. Build starts within 1 week of kickoff.",
   },
-  stacker: {
-    name: "The Stacker",
-    next: "I'll email you within 1 business day to schedule the kickoff call. Build starts within 1 week.",
+  studio: {
+    name: "The Partner / Studio",
+    next: "I'll email you within 1 business day to scope the build. Setup starts within 1 week, weekly cadence the Monday after.",
   },
-  operator: {
-    name: "The Operator",
-    next: "I'll email you within 1 business day to walk through scope. Custom builds start within 2 weeks of kickoff.",
-  },
-  partner: {
-    name: "The Partner",
-    next: "I'll email you within 1 business day to schedule onboarding. Weekly cadence starts the following Monday.",
+  operation: {
+    name: "The Partner / Operation",
+    next: "I'll email you within 1 business day to walk through scope. Custom build starts within 2 weeks of kickoff.",
   },
 };
 

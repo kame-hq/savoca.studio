@@ -152,24 +152,23 @@ export default async function PitchDeck({
 
         <span className="slide-eyebrow">
           <span className="slide-eyebrow-dot" />
-          Four ways in
+          One partner · three bands
         </span>
 
         <h2 className="slide-title">
-          Audit. Install. Build.
+          I build it.
           <br />
-          <span className="slide-title-italic">Run.</span>
+          <span className="slide-title-italic">I run it.</span>
         </h2>
 
         <div className="tier-grid">
           {[
-            { tag: "01", name: "The Catcher", price: "$349 / once", body: "1-week audit. We pull your call + form + booking data and tell you in dollars where revenue is leaking." },
-            { tag: "02", name: "The Stacker", price: "$997 / once", body: "2-week build. Phone + CRM + calendar + follow-up wired with off-the-shelf tools." },
-            { tag: "03", name: "The Operator", price: "$2,997 / once", body: "Custom-built system. When off-the-shelf doesn't fit your operating motion." },
-            { tag: "04", name: "The Partner", price: "$1,497 / mo", body: "Monthly retainer. Weekly review. On call for the hard calls." },
+            { tag: "01", name: "The Partner / Solo", price: "from $750 setup · $497/mo", body: "Starting creator, solo artist, new trainer. Site + booking + lead-capture built and kept live." },
+            { tag: "02", name: "The Partner / Studio", price: "from $2,000 setup · $1,497/mo", body: "Established small business. Phone + CRM + calendar + follow-up wired, weekly review, ongoing tuning." },
+            { tag: "03", name: "The Partner / Operation", price: "from $4,000 setup · $2,995/mo", body: "Golf course, multi-location, real ops budget. Custom-built system, monthly deep-dive, priority on-call." },
           ].map((t) => (
             <div key={t.tag} className="tier-card">
-              <div className="tier-card-eyebrow">No. {t.tag}</div>
+              <div className="tier-card-eyebrow">Band {t.tag}</div>
               <div className="tier-card-name">{t.name}</div>
               <div className="tier-card-price">{t.price}</div>
               <div className="tier-card-body">{t.body}</div>
@@ -178,7 +177,7 @@ export default async function PitchDeck({
         </div>
 
         <footer className="slide-chrome-bottom">
-          <span>Tier ladder · Savoca.Studio</span>
+          <span>The Partner · Savoca.Studio</span>
           <span>savoca.studio/#services</span>
         </footer>
       </section>

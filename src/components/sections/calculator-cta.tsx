@@ -7,7 +7,7 @@ import { Reveal } from "@/components/motion/reveal";
 /**
  * Inline banner — soft pre-rate-card CTA pointing prospects at the calculator.
  * Money-green accent block. Breaks the page rhythm between Who and Services
- * without adding another dark slab (Stacker + Operator + Close are already ink).
+ * without adding another dark slab (the Studio + Operation cards are already ink).
  */
 export function CalculatorCTA() {
   return (

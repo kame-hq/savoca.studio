@@ -2,57 +2,51 @@
  * Savoca Studio — central CTA link config.
  *
  * Single source of truth for every booking + payment link on the site.
- * Replace placeholders with real URLs once Cal.com + Stripe are set up.
  *
- * SETUP STEPS (do these in order):
+ * OFFER MODEL (locked 2026-05-14 — see feedback_savoca_pricing memory):
+ * One product, "The Partner", in 3 bands by client scale:
+ *   - Solo      — from $750 setup  / $497/mo  retainer
+ *   - Studio    — from $2,000 setup / $1,497/mo retainer
+ *   - Operation — from $4,000 setup / $2,995/mo retainer
+ * Build it, run it. Free discovery call scopes the build. 3-month minimum.
+ *
+ * SETUP STEPS:
  *
  * 1. CAL.COM
- *    - Sign up at cal.com (free tier) using jack@savoca.studio
- *    - Pick username: jacksavoca (or savocastudio)
- *    - Create 1 event type: "30-min discovery call" — 30 min, generic intake form
- *    - Replace CAL_DISCOVERY below with the public URL
+ *    - Discovery call event at cal.com/savoca/<slug>
+ *    - CAL_DISCOVERY below = the public URL
  *
- * 2. STRIPE
- *    - Sign up at stripe.com using your LLC info (or personal until LLC ready)
- *    - Create 4 Products:
- *      a. The Catcher — $349 one-time
- *      b. The Stacker — $997 one-time
- *      c. The Operator — $2,997 one-time
- *      d. The Partner — $1,497/mo recurring (monthly)
- *    - For each Product, create a Payment Link
- *    - Set Payment Link success URL to https://savoca.studio/thanks?tier=<slug>
- *    - Replace each STRIPE_* below with the real payment link URL
+ * 2. STRIPE (optional — retainers are discovery-first, so payment links
+ *    are not strictly required; useful for setup-fee deposits later)
+ *    - Create Payment Links per band if/when you want pay-direct
+ *    - Success URL → https://savoca.studio/thanks?tier=<slug>
  *
- * 3. Push the updated config — links go live immediately
- *
- * Until those URLs are filled in, CTAs fall back to mailto so prospects can
- * still reach you. Mailto-fallback logic lives in `tierCta()` below.
+ * Until URLs are filled in, CTAs fall back to mailto.
  */
 
 export const CAL_DISCOVERY = "https://cal.com/savoca/audit";
-// Set this once Cal.com is configured. Until then, CTAs that point to
-// "book a call" will fall back to mailto.
+// TODO: rename the Cal.com event slug from "audit" to "discovery" — the
+// offer no longer has an audit tier. URL still works as-is meanwhile.
 export const CAL_DISCOVERY_LIVE = true;
 
-export const STRIPE_CATCHER = "https://buy.stripe.com/REPLACE_WITH_CATCHER_LINK";
-export const STRIPE_STACKER = "https://buy.stripe.com/REPLACE_WITH_STACKER_LINK";
-export const STRIPE_OPERATOR = "https://buy.stripe.com/REPLACE_WITH_OPERATOR_LINK";
-export const STRIPE_PARTNER = "https://buy.stripe.com/REPLACE_WITH_PARTNER_LINK";
+export const STRIPE_SOLO = "https://buy.stripe.com/REPLACE_WITH_SOLO_LINK";
+export const STRIPE_STUDIO = "https://buy.stripe.com/REPLACE_WITH_STUDIO_LINK";
+export const STRIPE_OPERATION = "https://buy.stripe.com/REPLACE_WITH_OPERATION_LINK";
 // Flip to true once real Stripe payment links are pasted above.
 export const STRIPE_LIVE = false;
 
 export const EMAIL = "jack@savoca.studio";
 
 const INQUIRY_BODY_TEMPLATE = (tierName: string) =>
-  `Hi Jack — interested in the ${tierName}.
+  `Hi Jack — interested in ${tierName}.
 
 A bit about us:
 - Business name:
-- Vertical (medspa / dental / home services / pro services):
+- What we do:
 - City:
-- Approx monthly inbound calls:
+- What's leaking (missed calls / no-shows / dead follow-up / not sure):
 
-Best time to talk this week:
+Best time for a quick discovery call this week:
 
 Thanks,
 `;
@@ -66,11 +60,11 @@ export function bookCallLink(): string {
     ? CAL_DISCOVERY
     : mailtoLink(
         "Discovery call",
-        "Hi Jack — would like to book a 30-min discovery call.\n\nA bit about us:\n- Business:\n- Vertical:\n- City:\n\nBest times this week:\n\nThanks,\n"
+        "Hi Jack — would like to book a 30-min discovery call.\n\nA bit about us:\n- Business:\n- What we do:\n- City:\n\nBest times this week:\n\nThanks,\n"
       );
 }
 
-export type TierSlug = "catcher" | "stacker" | "operator" | "partner";
+export type TierSlug = "solo" | "studio" | "operation";
 
 export type TierCtas = {
   primary: { label: string; href: string };
@@ -82,30 +76,17 @@ export function tierCtas(slug: TierSlug, tierName: string, price: string): TierC
   const mailto = mailtoLink(inquirySubject, INQUIRY_BODY_TEMPLATE(tierName));
 
   const stripeUrl = {
-    catcher: STRIPE_CATCHER,
-    stacker: STRIPE_STACKER,
-    operator: STRIPE_OPERATOR,
-    partner: STRIPE_PARTNER,
+    solo: STRIPE_SOLO,
+    studio: STRIPE_STUDIO,
+    operation: STRIPE_OPERATION,
   }[slug];
 
-  // Discovery-first vs pay-first per tier:
-  // - Catcher (low ticket, binary audit): pay-first allowed
-  // - Stacker (mid-ticket, scope-fit matters): discovery-first
-  // - Operator (custom build): discovery-first
-  // - Partner (recurring): discovery-first
-  if (slug === "catcher") {
-    return {
-      primary: STRIPE_LIVE
-        ? { label: "Pay & start audit · " + price, href: stripeUrl }
-        : { label: "Start audit", href: mailto },
-      secondary: { label: "Talk first", href: bookCallLink() },
-    };
-  }
-
+  // Every band is discovery-first — the retainer is a relationship, not a
+  // checkout. Primary CTA = book the free discovery call.
   return {
     primary: { label: "Book a call", href: bookCallLink() },
     secondary: STRIPE_LIVE
-      ? { label: "Pay direct · " + price, href: stripeUrl }
+      ? { label: "Pay setup deposit · " + price, href: stripeUrl }
       : { label: "Email me", href: mailto },
   };
 }
