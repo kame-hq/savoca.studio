@@ -130,9 +130,9 @@
 }
 .slide-cover-lockup {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 0.6rem;
+  gap: 1.25rem;
 }
 .slide-cover-vertical {
   font-family: var(--font-fraunces);
