@@ -24,9 +24,9 @@ const bands: Band[] = [
     n: "01",
     icon: "net",
     name: "Solo",
-    forWho: "Starting creator, solo artist, new trainer.",
+    forWho: "Just you — owner-operator, one-person shop, solo practice.",
     setup: "from $750",
-    retainer: "$497",
+    retainer: "497",
     bullets: [
       "Site + booking + lead-capture, built",
       "Automations kept live",
@@ -37,7 +37,7 @@ const bands: Band[] = [
     proof: {
       label: "Live example",
       href: "https://krazystrong.app",
-      caption: "krazystrong.app — coach, built + run",
+      caption: "krazystrong.app — built + run",
     },
   },
   {
@@ -45,9 +45,9 @@ const bands: Band[] = [
     n: "02",
     icon: "stack",
     name: "Studio",
-    forWho: "Established small business — shop, gym, practice.",
+    forWho: "An established business with a team and real inbound volume.",
     setup: "from $2,000",
-    retainer: "$1,497",
+    retainer: "1,497",
     bullets: [
       "Phone + CRM + calendar + follow-up, wired",
       "Weekly pipeline review + monthly call",
@@ -63,11 +63,11 @@ const bands: Band[] = [
     n: "03",
     icon: "compass",
     name: "Operation",
-    forWho: "Golf course, multi-location, real ops budget.",
+    forWho: "Multi-location or high-volume — a real operations budget.",
     setup: "from $4,000",
-    retainer: "$2,995",
+    retainer: "2,995",
     bullets: [
-      "Custom-built system, vertical-specific",
+      "Custom-built system, fit to your industry",
       "Weekly review + monthly deep-dive",
       "New builds + integrations as you grow — included",
       "Priority on-call",
