@@ -285,15 +285,21 @@
   color: var(--ink-2);
 }
 
-/* ── Quote slide ────────────────────────────────── */
+/* ── Quote slide — dark punctuation beat ────────── */
 .slide-quote {
-  background: var(--bone) !important;
+  background: var(--ink) !important;
+  color: var(--bone);
+}
+.slide-quote .slide-chrome-top,
+.slide-quote .slide-chrome-bottom {
+  color: var(--bone-2);
+  border-color: rgba(245, 242, 236, 0.18);
 }
 .quote-mark {
   font-family: var(--font-fraunces);
   font-size: 140px;
   line-height: 0.6;
-  color: var(--money);
+  color: var(--money-2);
   font-style: italic;
   margin-bottom: 0.5rem;
 }
@@ -302,7 +308,7 @@
   font-size: 38px;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  color: var(--ink);
+  color: var(--bone);
   font-weight: 400;
   font-variation-settings: "opsz" 72;
   margin-bottom: 1rem;
@@ -314,7 +320,7 @@
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--steel);
+  color: var(--steel-2);
 }
 
 /* ── CTA slide (dark) ────────────────────────────── */
