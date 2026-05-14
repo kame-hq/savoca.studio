@@ -34,7 +34,7 @@ export const portfolio: Record<string, PortfolioItem> = {
     status: "live",
     image: {
       src: "/portfolio/krazy-strong.jpg",
-      alt: "Karen Lopez running with slamball mid-race, pink chalk explosion behind her",
+      alt: "Karen Lopez with sandbag overhead, pink chalk explosion behind her",
     },
   },
 };

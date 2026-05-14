@@ -51,18 +51,18 @@ export default function PortfolioIndex() {
                     href={p.url}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="grid grid-cols-1 lg:grid-cols-[420px_1fr_auto] gap-6 lg:gap-10 items-start py-8 lg:py-12 group cta-arrow-host"
+                    className="grid grid-cols-1 lg:grid-cols-[380px_1fr_auto] gap-6 lg:gap-10 items-start py-8 lg:py-12 group cta-arrow-host"
                   >
                     <div
-                      className="relative w-full aspect-[3/2] overflow-hidden border border-rule bg-ink/5"
-                      style={{ minHeight: 180 }}
+                      className="relative w-full aspect-[4/5] lg:aspect-[3/4] overflow-hidden border border-rule bg-ink"
+                      style={{ minHeight: 220 }}
                     >
                       <Image
                         src={p.image.src}
                         alt={p.image.alt}
                         fill
-                        sizes="(min-width: 1024px) 420px, 100vw"
-                        style={{ objectFit: "cover", objectPosition: "center" }}
+                        sizes="(min-width: 1024px) 380px, 100vw"
+                        style={{ objectFit: "cover", objectPosition: "center 25%" }}
                         className="transition-transform duration-500 group-hover:scale-[1.03]"
                       />
                     </div>
