@@ -17,9 +17,9 @@ export const golfCourse: PlaybookContent = {
     "Three structural leaks define an independent course P&L in 2026. F&B capture per round runs $8–15 against a $22–28 industry potential — at 60% gross margin on the bev cart, that gap is $270K of profit a year on a 45,000-round book. Member dues churn runs 18–22% with zero structured engagement between intake and renewal notice — every five points of churn cut preserves $333K of LTV on a 600-member book. Tee-time no-shows run 9–12% on weekend mornings (15%+ in summer) because most courses still confirm by phone with no card on file. And while the independent leaks, Arcis, Concert (now Bain), Invited (now KSL), and Troon own 500+ clubs between them and install the exact operating fix in the first 90 days post-acquisition. The rollup isn't the threat. The rollup is the proof — the four moves that doubled Concert's EBITDA in 3 years are off-the-shelf, and you don't need a $1.3 billion check to install them.",
   patternStats: [
     {
-      value: "30 pts",
+      value: "30¢",
       label:
-        "RevPOTT gap — independents 115%, well-run 145%. The exact metric PE rollups use to size acquisitions.",
+        "Total revenue gap per green-fee dollar. Independent earns $1.15 — well-run earns $1.45. That's the math PE rollups use to size acquisitions.",
       source: "NGF — Course Economics in the Experience Era",
     },
     {
@@ -45,39 +45,31 @@ export const golfCourse: PlaybookContent = {
   mathHeadline:
     "$270K cash this year. $333K of preserved member LTV.",
   mathBody:
-    "Representative independent Austin semi-private: ~45,000 rounds/year, 600 active members at $185/mo dues — a $1.33M recurring book sitting on top of $2.7M in green-fee / cart revenue. Four leaks at this scale, restated against the actual margin profile (not back-of-envelope multiplications):",
+    "Representative independent Austin semi-private: ~45,000 rounds/year, 600 active members at $185/mo dues — a $1.33M recurring book on top of $2.7M in green-fee revenue. Four leaks at this scale:",
   mathRows: [
     {
-      label: "F&B capture gap — $10/round below industry potential × 45K rounds",
-      value: "= $450K gross revenue unbooked",
+      label: "F&B capture — $8–15/round vs industry $22–28. $10/round × 45K rounds × 60% bev-cart margin.",
+      value: "= $270K profit",
     },
     {
-      label: "× 60% gross margin (bev cart + halfway house)",
-      value: "= $270K of profit unbooked",
+      label: "Member churn — cut 15% to 10%. 30 members saved × $11,100 of 5-yr LTV each.",
+      value: "= $333K preserved",
     },
     {
-      label: "Member churn — cut 15% → 10% on 600-member book = 30 members saved",
-      value: "× $11,100 5-yr LTV per member",
+      label: "Tee-time no-shows — 11% on 18K weekend rounds × $72. Auto-rebook fills half.",
+      value: "≈ $65K",
     },
     {
-      label: "Preserved member LTV (compounding, annual steady-state)",
-      value: "= $333K",
+      label: "Outing miss — 1 daily-fee/wk + 4 corporate quarterlies at $25K × 30% margin.",
+      value: "≈ $30K",
     },
     {
-      label: "Tee-time no-shows — 11% on 18K weekend rounds × $72, auto-rebook fills half",
-      value: "≈ $65K recovered",
-    },
-    {
-      label: "Outing miss — 1/wk daily-fee + 4/yr corporate $25K × 30% margin",
-      value: "≈ $30K recovered",
-    },
-    {
-      label: "Conservative recoverable cash, year one",
+      label: "Conservative cash recovered, year one",
       value: "= $270,000",
     },
   ],
   mathConclusion:
-    "$270K of cash recovered in year one. $333K of compounding member LTV preserved on top. None of it needs a renovation, a tournament sponsor, or a new logo. At RevPOTT of 115%, you're an independent. At 145%, you're a Concert acquisition target. The 30-point gap is four operator moves — and nine months of installation.",
+    "$270K of cash recovered in year one. $333K of compounding member LTV preserved on top. None of it needs a renovation, a tournament sponsor, or a new logo. Your independent course earns $1.15 of total revenue for every $1.00 of green fees. A well-run course earns $1.45. The 30-cent gap is four operator moves — and nine months of installation.",
 
   quotes: [
     {
@@ -138,12 +130,12 @@ export const golfCourse: PlaybookContent = {
     "A semi-private 18-hole Round Rock course (~200 active members, ~45,000 rounds/year) is the planned 2026 pilot for the four-move stack: card-on-file holds via Foreup, GHIN-weaponized member engagement through Golf Genius + Clubessential, in-cart F&B + Tagmarshal cart-screen attach with Toast halfway POS, and sub-1-hour outing SLA on Tripleseat. The full operational diff — exact Foreup card-hold configuration, GHIN flight-build template, Tagmarshal halfway-house menu sync, Tripleseat outing-quote template — will be published when the 90-day data closes. Want to be the next case study? Book a 30-minute walk-the-course conversation.",
 
   ctaHeadline:
-    "Close the 30-point RevPOTT gap before the next consolidation wave.",
+    "Close the 30-cent gap before the next consolidation wave.",
   ctaBody:
-    "Bain Capital paid $1.3 billion for Concert Golf in November. Concert had doubled revenue and EBITDA across 14 acquisitions in 3 years. In May, Arcis took The Woodlands Country Club from Invited — their 15th acquisition in 3 years, 22 TX properties. KSL bought Invited in May. The independent courses getting acquired all hit 145% RevPOTT first. The ones holding at 115% are getting offers they can't refuse and don't have the leverage to negotiate. 30 minutes — I walk the proshop, pull your foreUP or Lightspeed tee-sheet data from the last 90 days, your member retention report, your outings inbox response times, and I show you in dollars exactly where the next $270K of cash and $333K of preserved member LTV lives. No deck. No pitch. If I can't find $200K of recoverable revenue inside the four operator moves, you don't owe me anything. If I can — I show you which one pays back first, in the order that lands before the next aerification window.",
+    "Bain Capital paid $1.3 billion for Concert Golf in November. Concert had doubled revenue and EBITDA across 14 acquisitions in 3 years. In May, Arcis took The Woodlands Country Club from Invited — their 15th acquisition in 3 years, 22 TX properties. KSL bought Invited in May. The independent courses getting acquired all earn $1.45 of total revenue per $1.00 of green fees. The ones holding at $1.15 are getting offers they can't refuse and don't have the leverage to negotiate. 30 minutes — I walk the proshop, pull your foreUP or Lightspeed tee-sheet data from the last 90 days, your member retention report, your outings inbox response times, and I show you in dollars exactly where the next $270K of cash and $333K of preserved member LTV lives. No deck. No pitch. If I can't find $200K of recoverable revenue inside the four operator moves, you don't owe me anything. If I can — I show you which one pays back first, in the order that lands before the next aerification window.",
 
   citations: [
-    { label: "NGF — Course Economics in the Experience Era (RevPOTT, no-show, $1B opportunity)", url: "https://www.ngf.org/short-game/course-economics-in-the-experience-era/" },
+    { label: "NGF — Course Economics in the Experience Era (revenue-per-round benchmarks, $1B no-show opportunity)", url: "https://www.ngf.org/short-game/course-economics-in-the-experience-era/" },
     { label: "NGF — Rounds Played Report 2025 (545M rounds)", url: "https://www.ngf.org/member-publication/rounds-played-report-2025/" },
     { label: "GGA Partners — Key Benchmarking Standards in Golf (5–8% healthy attrition, 25% Y1 quit)", url: "https://ggapartners.com/2018/11/golf-benchmarking-standards/" },
     { label: "Club Benchmarking — F&B Profitability + Operating Report", url: "https://www.clubbenchmarking.com/blog/bid/295534/food-and-beverage-profitability" },
