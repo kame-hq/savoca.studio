@@ -158,20 +158,41 @@ export function Contact() {
         </p>
       )}
 
-      {/* Footer row pinned to bottom */}
+      {/* Footer links + brand row pinned to bottom */}
       <div
-        className="absolute bottom-9 left-6 md:left-10 lg:left-12 right-6 md:right-10 lg:right-12 flex items-center justify-between font-mono pt-3.5"
-        style={{
-          borderTop: "1px solid rgba(245,242,236,0.25)",
-          fontSize: 10,
-          letterSpacing: "0.16em",
-          textTransform: "uppercase",
-          color: "var(--bone-2)",
-        }}
+        className="absolute bottom-9 left-6 md:left-10 lg:left-12 right-6 md:right-10 lg:right-12"
+        style={{ borderTop: "1px solid rgba(245,242,236,0.25)" }}
       >
-        <span>Savoca Studio · 2026</span>
-        <SVInitial size={22} color="var(--money-2)" />
-        <span>savoca.studio</span>
+        <nav
+          className="font-mono pt-3.5 flex flex-wrap gap-x-6 gap-y-2"
+          style={{
+            fontSize: 10,
+            letterSpacing: "0.16em",
+            textTransform: "uppercase",
+            color: "var(--bone-2)",
+          }}
+          aria-label="Footer"
+        >
+          <a href="/#services" className="hover:text-bone transition-colors">Services</a>
+          <a href="/portfolio" className="hover:text-bone transition-colors">Portfolio</a>
+          <a href="/resources" className="hover:text-bone transition-colors">Playbooks</a>
+          <a href="/calculator" className="hover:text-bone transition-colors">Calculator</a>
+          <a href="/book" className="hover:text-bone transition-colors">Book a call</a>
+          <a href="mailto:jack@savoca.studio" className="hover:text-bone transition-colors">jack@savoca.studio</a>
+        </nav>
+        <div
+          className="font-mono mt-4 flex items-center justify-between"
+          style={{
+            fontSize: 10,
+            letterSpacing: "0.16em",
+            textTransform: "uppercase",
+            color: "var(--bone-2)",
+          }}
+        >
+          <span>Savoca Studio · 2026</span>
+          <SVInitial size={22} color="var(--money-2)" />
+          <span>savoca.studio</span>
+        </div>
       </div>
     </section>
   );

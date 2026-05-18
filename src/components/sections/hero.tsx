@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { IndustryStrip, SVInitial } from "@/components/brand/v2";
 
-const stats: [string, string][] = [
-  ["1 in 4", "inbound calls never gets a callback"],
-  ["21×", "better close rate when you reply in 5 minutes"],
-  ["10+ hrs", "a week lost to manual admin and chasing"],
-  ["Most", "owners can't name their single biggest leak"],
+const stats: [string, string, string][] = [
+  ["1 in 4", "inbound calls never gets a callback", "ServiceDirect Home Service Report"],
+  ["21×", "better close rate when you reply in 5 minutes", "MIT / Lead Connect"],
+  ["10+ hrs", "a week lost to manual admin and chasing", "NPMA / IBISWorld field data"],
+  ["85%", "of voicemailed callers never call back", "ServiceDirect / industry benchmark"],
 ];
 
 export function Hero() {
@@ -98,10 +98,10 @@ export function Hero() {
               maxWidth: 560,
             }}
           >
-            Savoca Studio builds the operating layer between demand and
-            delivery — the systems that move revenue from first contact to
-            finished job. I find the leak, build the system, and help keep it
-            running.
+            Savoca Studio builds the systems between demand and delivery —
+            what moves revenue from first call to finished job, so nothing
+            slips between. I find the leak, build the system, and help keep
+            it running.
           </p>
 
           <div className="hero-rise hero-rise-3 flex flex-wrap gap-3 mt-8">
@@ -168,7 +168,7 @@ export function Hero() {
             would have caught it.
           </p>
           <div className="mt-4 flex flex-col gap-3">
-            {stats.map(([k, v]) => (
+            {stats.map(([k, v, src]) => (
               <div
                 key={k}
                 style={{ borderTop: "1px solid var(--rule)", paddingTop: 10 }}
@@ -195,6 +195,19 @@ export function Hero() {
                   }}
                 >
                   {v}
+                </div>
+                <div
+                  className="font-mono"
+                  style={{
+                    fontSize: 9,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    color: "var(--steel)",
+                    marginTop: 4,
+                    lineHeight: 1.3,
+                  }}
+                >
+                  {src}
                 </div>
               </div>
             ))}

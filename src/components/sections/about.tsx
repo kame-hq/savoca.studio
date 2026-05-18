@@ -27,7 +27,7 @@ export function About() {
             fontWeight: 400,
           }}
         >
-          I build the operating layer
+          I build the layer
           <br />
           <span style={{ fontStyle: "italic", color: "var(--money)" }}>
             between demand and delivery.
@@ -39,6 +39,18 @@ export function About() {
       <Reveal delay={120} className="mt-8 max-w-[680px]">
         <p
           className="font-sans"
+          style={{
+            fontSize: 18,
+            lineHeight: 1.5,
+            color: "var(--ink)",
+            fontWeight: 500,
+          }}
+        >
+          Product commercialization PM at Indeed. Previously Meta and Whole
+          Foods Market.
+        </p>
+        <p
+          className="font-sans mt-5"
           style={{ fontSize: 16, lineHeight: 1.55, color: "var(--ink)" }}
         >
           Most service businesses don&apos;t have a demand problem. They have an
@@ -53,18 +65,6 @@ export function About() {
           I build the systems that move revenue through the business: capture,
           response, scheduling, follow-up, reporting, retention. The tools
           usually already exist. The problem is the handoff between them.
-        </p>
-        <p
-          className="font-mono mt-5"
-          style={{
-            fontSize: 11,
-            letterSpacing: "0.04em",
-            lineHeight: 1.6,
-            color: "var(--steel)",
-          }}
-        >
-          Product commercialization PM at Indeed. Previously Meta and Whole
-          Foods Market.
         </p>
       </Reveal>
 
