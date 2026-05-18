@@ -108,10 +108,10 @@ export function Handoff() {
           className="font-sans mt-4 max-w-[58ch]"
           style={{ fontSize: 15, lineHeight: 1.55, color: "var(--ink-2)" }}
         >
-          I build that operating layer — the Demand-to-Delivery System: capture,
-          response, follow-up, and reporting wired into one flow, so demand gets
-          captured, follow-up moves faster, the work carries less drag, and the
-          owner can actually see the return.
+          I build that layer between demand and delivery — the Demand-to-Delivery
+          System: capture, response, follow-up, and reporting wired into one
+          flow, so demand gets captured, follow-up moves faster, the work
+          delivers without dropping the ball, and the owner can actually see the return.
         </p>
       </Reveal>
 

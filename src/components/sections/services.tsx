@@ -33,6 +33,7 @@ const bands: Band[] = [
       "Site + booking + lead-capture, built",
       "Automations kept live",
       "Monthly check-in, minor tweaks",
+      "Email + Loom support, 48-hour response",
     ],
     dark: false,
     mostPicked: false,
@@ -57,7 +58,9 @@ const bands: Band[] = [
     ],
     dark: true,
     mostPicked: true,
-    proof: [],
+    proof: [
+      { href: "mailto:jack@savoca.studio?subject=Studio%20pilot%20interest", caption: "Pilot Q3 2026 — be the case study" },
+    ],
   },
   {
     slug: "operation",

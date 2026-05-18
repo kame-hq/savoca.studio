@@ -84,7 +84,7 @@ export function Hero() {
               maxWidth: 580,
             }}
           >
-            Capture more demand. Respond faster. Deliver with less drag. Prove
+            Capture more demand. Respond faster. Deliver without dropping the ball. Prove
             the return.
           </p>
 
