@@ -162,7 +162,7 @@ export default async function PitchDeck({
       {featuredQuote && (
         <section className="slide slide-quote">
           <header className="slide-chrome-top">
-            <span>04 · Operator Voice</span>
+            <span>04 · From the field</span>
             <span>{p.verticalShort}</span>
           </header>
 
