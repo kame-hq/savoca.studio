@@ -28,9 +28,7 @@
  * Until URLs are filled in, CTAs fall back to mailto.
  */
 
-export const CAL_DISCOVERY = "https://cal.com/savoca/audit";
-// TODO: rename the Cal.com event slug from "audit" to "discovery" — the
-// offer no longer has an audit tier. URL still works as-is meanwhile.
+export const CAL_DISCOVERY = "https://cal.com/savoca/discovery";
 export const CAL_DISCOVERY_LIVE = true;
 
 // Per-band kickoff deposit, credited to month 1 (Solo $297 / Studio $597 /

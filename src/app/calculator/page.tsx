@@ -452,7 +452,7 @@ export default function CalculatorPage() {
           {/* CTAs */}
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="https://cal.com/savoca/audit"
+              href="https://cal.com/savoca/discovery"
               className="cta-arrow-host font-mono inline-flex items-center gap-2 transition-colors"
               style={{
                 background: "var(--ink)",

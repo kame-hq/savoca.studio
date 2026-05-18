@@ -328,7 +328,7 @@ export default async function PitchDeck({
           </p>
 
           <div className="cta-button-row">
-            cal.com/savoca/audit · 30 min · free →
+            cal.com/savoca/discovery · 30 min · free →
           </div>
         </div>
 
