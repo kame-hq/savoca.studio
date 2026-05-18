@@ -18,6 +18,7 @@ const markets: {
   who: string;
   leaks: string;
   journey: string;
+  deckHref: string;
 }[] = [
   {
     icon: "house",
@@ -25,6 +26,7 @@ const markets: {
     who: "HVAC, plumbing, roofing, electrical, landscaping, pool, pest control, moving, cleaning.",
     leaks: "Missed calls, after-hours demand, slow quotes, no follow-up, no job-status visibility, weak review capture.",
     journey: "Capture → quote → schedule → run → collect → review → repeat.",
+    deckHref: "/decks/home-services.html",
   },
   {
     icon: "compass",
@@ -32,6 +34,7 @@ const markets: {
     who: "Law firms, accounting, insurance, consultants, real estate teams, agencies, recruiters.",
     leaks: "Intake sits, leads not qualified, no clear pipeline, proposals stall, no referral loop, manual reporting.",
     journey: "Intake → qualify → consult → proposal → close → onboard → report → retain.",
+    deckHref: "/decks/professional-services.html",
   },
   {
     icon: "drop",
@@ -39,6 +42,7 @@ const markets: {
     who: "Dental, medspas, chiropractic, PT, veterinary, therapy, gyms, trainers, salons.",
     leaks: "Missed calls, no-shows, weak reactivation, poor booking flow, no deposits, no retention system.",
     journey: "Inquiry → book → confirm → show → pay → rebook → reactivate.",
+    deckHref: "/decks/health-local.html",
   },
 ];
 
@@ -206,6 +210,21 @@ export function Handoff() {
             >
               {m.journey}
             </p>
+            <a
+              href={m.deckHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-arrow-host font-mono mt-3 inline-flex items-center gap-1.5 transition-colors hover:text-money"
+              style={{
+                fontSize: 10.5,
+                letterSpacing: "0.16em",
+                textTransform: "uppercase",
+                color: "var(--ink)",
+                fontWeight: 600,
+              }}
+            >
+              See the pitch <span className="cta-arrow">→</span>
+            </a>
           </Reveal>
         ))}
       </ul>

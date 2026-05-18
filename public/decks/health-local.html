@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <title>Savoca Studio · Health & Local · Pitch Deck</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="./brand/pitch-deck.css" />
+</head>
+<body>
+  <div class="deck-toolbar">
+    <div class="title">Savoca Studio · <em>Health & Local</em></div>
+    <div class="actions">
+      <a href="/">← Back to savoca.studio</a>
+      <button class="primary" onclick="window.print()">Save as PDF · ⌘ P</button>
+    </div>
+  </div>
+  <div id="deck-root"></div>
+  <script>window.DECK_ID = "health-local";</script>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="./brand/pitch-deck.jsx"></script>
+  <script type="text/babel" src="./brand/pitch-deck-content.jsx"></script>
+  <script type="text/babel" src="./brand/pitch-deck-renderer.jsx"></script>
+</body>
+</html>

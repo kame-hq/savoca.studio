@@ -1,0 +1,105 @@
+/* Savoca Studio · Pitch Deck shared styles
+ * 1920×1080 slides · print one slide per page (16:9 landscape)
+ * Screen view: scaled-down preview shell. Print view: full bleed.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bone: #F5F2EC;
+  --bone-2: #E8E2D3;
+  --paper: #FBF9F4;
+  --ink: #0E0E0C;
+  --ink-2: #2A2A26;
+  --steel: #6B6B66;
+  --rule: #1818143A;
+  --money: #1B4D3E;
+  --money-2: #2C7A5F;
+  --signal: #D9442C;
+  --gold: #C9A24A;
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Inter", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+* , *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #1c1a17; font-family: var(--sans); color: var(--ink); }
+
+/* ─── slide base ──────────────────────────────────────────────────────────── */
+.slide {
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+}
+.slide.paper { background: var(--paper); }
+.slide.ink   { background: var(--ink); color: var(--bone); }
+.slide.money { background: var(--money); color: var(--bone); }
+.slide.grain::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.035 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  mix-blend-mode: multiply;
+}
+
+/* ─── screen preview ──────────────────────────────────────────────────────── */
+#deck-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  padding: 56px 0 96px;
+}
+#deck-root .slide {
+  transform: scale(0.45);
+  transform-origin: top center;
+  margin-bottom: -594px; /* offset for scale collapse: 1080 * (1 - 0.45) = 594 */
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18), 0 2px 0 rgba(0,0,0,0.04);
+}
+
+/* ─── toolbar ─────────────────────────────────────────────────────────────── */
+.deck-toolbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(28,26,23,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(245,242,236,0.12);
+  padding: 12px 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(245,242,236,0.75);
+}
+.deck-toolbar .title { color: var(--bone); }
+.deck-toolbar .title em { color: var(--money-2); font-style: italic; font-family: var(--serif); text-transform: none; letter-spacing: -0.01em; font-size: 18px; }
+.deck-toolbar .actions { display: flex; gap: 12px; }
+.deck-toolbar button, .deck-toolbar a {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 8px 14px; border: 1px solid rgba(245,242,236,0.3); background: transparent;
+  color: var(--bone); cursor: pointer; text-decoration: none;
+}
+.deck-toolbar button.primary, .deck-toolbar a.primary {
+  background: var(--bone); color: var(--ink); border-color: var(--bone);
+}
+.deck-toolbar button:hover, .deck-toolbar a:hover { border-color: var(--bone); }
+#deck-root { padding-top: 96px; }
+
+/* ─── print mode (PDF export) ─────────────────────────────────────────────── */
+@page {
+  size: 1920px 1080px;
+  margin: 0;
+}
+@media print {
+  html, body { background: white; }
+  .deck-toolbar { display: none !important; }
+  #deck-root { padding: 0; gap: 0; display: block; }
+  #deck-root .slide {
+    transform: none;
+    margin: 0;
+    page-break-after: always;
+    page-break-inside: avoid;
+    box-shadow: none;
+  }
+  #deck-root .slide:last-child { page-break-after: auto; }
+}
