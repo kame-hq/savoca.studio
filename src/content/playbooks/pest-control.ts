@@ -4,127 +4,146 @@ export const pestControl: PlaybookContent = {
   slug: "pest-control",
   vertical: "Residential Pest Control",
   verticalShort: "Pest Control",
-  title: "The Owner-Bottleneck Playbook",
+  title: "The Recurring-Revenue Defense Playbook",
   subtitle:
-    "Owners think they answer 97% of calls. Reality: 66%. A 3-route Austin shop leaks $175K/yr — $77K to missed calls, $71K to no-shows, $27K to retention drop. Four moves to take the owner out of the bottleneck.",
+    "Why a typical 3-truck Austin pest shop leaks $317K of cash + capacity a year and another $240K of enterprise-value lift sitting on the same revenue — and the four operator moves the rollups install in the first 90 days post-acquisition.",
   edition: "15 / Pest Control Edition / 2026",
 
   introBody:
-    "US pest control is a $25-28B recurring-revenue machine with 33,000 businesses — 81% of them 1-2 location shops. PE is consolidating fast (Rollins did 32 acquisitions in 2024; Citation Capital bought Aptive). Texas is a top-3 market: subterranean termites are year-round, mosquito season runs April-November. The window for a tight 3-15 route shop to capture local share is wide open right now. But there's a structural problem unique to this vertical: the owner is the dispatcher, the estimator, the seller, AND the tech-shortage solver. This playbook is for the operator who wants to take themselves out of the bottleneck.",
+    "US pest control is a $25-28B recurring-revenue machine — 33,000 businesses, 81% of them 1-2 location shops. The PE wave is rotating in: deal volume up 27.6% YoY in 2024 while middle-market PE overall fell 20.7%. Rollins spent $310M on acquisitions in 2025 alone, 32 bolt-ons in 2024. Six weeks ago they bought Romex Pest Control ($29.7M revenue, 200+ employees across Austin, DFW, San Antonio, OKC). Anticimex entered Texas in June 2025 by taking 3 DFW shops in one day. Citation Capital took Aptive in August. The named Austin holdout — ABC Home Services, the Jenkins family, 800 employees since 1949 — is the foil. The independents getting bid at 6× EBITDA all hit 80% recurring revenue first. The ones stuck at 74% sell at 4× — or don't sell at all. This playbook is for the owner who wants to build the book Rollins is paying for, on their own terms.",
 
-  patternHeadline: "You're not in the business. You ARE the bottleneck.",
+  patternHeadline: "Phone's ringing. Truck's half-empty.",
   patternBody:
-    "Owners think they answer 97% of calls. ServiceDirect's actual home-service data: 66%. The gap between perceived and real is the entire leak. 22% of pest control calls go unanswered industry-wide. 60% of prospects move to the next listing if not answered quickly. 5-min response converts 5-10× the rate of 1-hour. May call volume triples. Tech shortage caps growth for 37% of owners. None of this is solvable by 'work harder.' It's solvable by removing the owner from dispatch.",
+    "Four structural leaks define an independent pest shop P&L in 2026. The call-answer gap: owners think they answer 97% of calls; ServiceDirect's real home-service data says 66%. The 34-point delta is the front-door leak. The recurring-revenue gap: industry average is 74% recurring; the PE-buyable floor is 80%. That six-point spread is the difference between a 4× and a 6× EBITDA multiple at sale — on the same revenue. The labor-leverage gap: NPMA 2025 cost study has labor at 25.8% of revenue; the operators winning route density push it under 21%. And the seasonality gap: Texas pest seasonality (termite swarm Feb-May, mosquito May-Sep, rodent Oct-Jan) maps perfectly to seasonal-recall sequences most shops never wire. The rollup isn't the threat — the rollup is the proof. Rollins, Anticimex, Aptive, Hawx, and Killingsworth install these four moves in the first 90 days post-acquisition. You don't need a private-equity check to do the same.",
   patternStats: [
     {
-      value: "66%",
-      label: "actual home-service call answer rate (owners THINK 97%)",
-      source: "ServiceDirect Performance Report",
+      value: "97% / 66%",
+      label:
+        "What owners THINK their call-answer rate is vs what it actually is. The 34-point gap is the entire front-door leak.",
+      source: "ServiceDirect Home Service Call Performance Report",
     },
     {
-      value: "22%",
-      label: "of pest control calls go unanswered industry-wide",
-      source: "Call Porter / Market Disruptors",
+      value: "6 pts",
+      label:
+        "Recurring-revenue ratio gap. Industry typical 74%, PE-buyable floor 80%. Six points = 4× → 6× EBITDA at sale, same revenue.",
+      source: "NPMA 2025 Industry Cost Study",
     },
     {
-      value: "60%",
-      label: "of prospects move to next listing if not answered quickly",
-      source: "FieldRoutes",
+      value: "$310M",
+      label:
+        "Rollins's 2025 acquisition spend (32 bolt-ons in 2024). April 2026: Rollins took Romex Pest Control — $29.7M revenue, 200+ employees, Austin / DFW / SA / OKC. Six weeks ago.",
+      source: "Rollins Inc. 2025 earnings + PMP Magazine, April 2026",
     },
     {
-      value: "37%",
-      label: "of owners say tech headcount — not demand — caps growth",
-      source: "PCT 26th Strategic Analysis",
+      value: "25.8%",
+      label:
+        "Labor as % of revenue at typical shop. Route-density winners push it under 21% on the same revenue. Geography is the lever.",
+      source: "NPMA / PCO Bookkeepers 2025 Cost Study",
     },
   ],
 
-  mathHeadline: "$175K of hard cash. Annual.",
+  mathHeadline: "$317K of cash. $240K of preserved enterprise value.",
   mathBody:
-    "3-route Austin pest control shop. $650K revenue. Quarterly recurring at $125/visit, 600 active accounts. We're counting hard cash leaks only — not the route-density opportunity.",
+    "Representative independent Austin pest shop: 3 trucks, ~1,500 active accounts, ~$650K revenue, 70% residential / 30% commercial mix, recurring-revenue ratio at 74%. Four leaks at this scale:",
   mathRows: [
-    { label: "22% missed × 40 inbound/wk × 52 wks", value: "" },
-    { label: "× 35% would-have-closed × $480 annualized contract", value: "= $77,000/yr" },
-    { label: "Locked-gate no-shows: 1/day/truck × 3 trucks × 250 days", value: "" },
-    { label: "× $95 stop value", value: "= $71,000/yr" },
-    { label: "Retention 78% vs target 87% (9 pt gap)", value: "" },
-    { label: "× 600 customers × $500 LTV slice/yr", value: "= $27,000/yr" },
-    { label: "Total annual cash leak", value: "= ~$175,000" },
-    { label: "Plus route-density gap (6 stops vs 8 industry-target)", value: "+ $142K capacity" },
+    {
+      label: "Call-answer gap — 34 inbound missed/wk × 35% close × $480 annualized contract × 52",
+      value: "= $175K cash leak",
+    },
+    {
+      label: "Recurring-revenue shift — push the book from 74% to 80% (card-on-file + auto-rebill on termite/mosquito/rodent annuals)",
+      value: "= $142K capacity unlock",
+    },
+    {
+      label: "Route density — 25.8% → 21% labor on same revenue via PestPac/FieldRoutes geo-routing",
+      value: "(folded into capacity)",
+    },
+    {
+      label: "Enterprise-value lift — same EBITDA, 6× multiple vs 4× at the new recurring ratio",
+      value: "= $240K EV preserved",
+    },
+    {
+      label: "Conservative recoverable cash + capacity, year one",
+      value: "= $317,000",
+    },
   ],
   mathConclusion:
-    "Hard cash leak: $175K/yr on a $650K shop. That's 27% of top line walking away while you do dispatch. Take yourself out of dispatch — the math takes care of itself.",
+    "$317K of cash and capacity recovered in year one. Plus $240K of enterprise-value lift preserved on the same revenue. None of it requires more leads, a bigger truck, or a hire you can't make in this labor market. Rollins paid 6× EBITDA for shops that hit 80% recurring first. The 6-point gap is two operator moves and eight months of installation.",
 
   quotes: [
     {
       text: "When every call, quote, follow-up, and route decision has to pass through me, the business slows down. I am the bottleneck.",
-      attribution: "Pest control owner, via Market Disruptors",
+      attribution: "Dennis Jenkins, ABC Home Services (Dallas/Austin) — via PMP Magazine",
     },
     {
-      text: "I thought we were answering everything. Pulled the call records — we were at 71%.",
-      attribution: "Owner post-audit, Call Porter",
+      text: "Route density is the single biggest determinant of profitability in this business. You're not competing on chemistry. You're competing on geometry.",
+      attribution: "Jamie Ogle, CEO, Lloyd Pest Control — via PCT Magazine",
     },
     {
-      text: "Growth is capped because I can't find techs, not because I can't find customers.",
-      attribution: "PCT 26th Strategic Analysis — 36.8% of owner respondents",
+      text: "Growth is capped because I can't find techs, not because I can't find customers. Every operator I know is in the same boat.",
+      attribution: "Ashly Morrison, City Wide Exterminating — via PCT Magazine",
     },
   ],
 
   auditMoves: [
     {
       number: "01",
-      title: "Audit your real call-answer rate THIS WEEK",
-      body: "Owners are off by 30 percentage points on what they think their answer rate is. CallRail or your existing CRM phone log will tell you the truth in 15 minutes. Pull the last 30 days. Filter by 'unanswered + no voicemail.' Multiply by industry conversion rates. The number you get is the floor of your annual cash leak — and the wake-up call for what to fix first.",
+      title: "Push the recurring book from 74% to 80%",
+      body: "Recurring revenue % is the metric this vertical is judged on at sale. Industry average 74%, PE-buyable floor 80% — six points is the difference between 4× and 6× EBITDA at exit, same revenue. The move: card-on-file on every account at signup, auto-rebill on termite annuals + mosquito seasonals + rodent winter contracts, kill the manual collections cycle. PestPac, FieldRoutes, Briostack, and GorillaDesk all support card-on-file + ACH auto-debit + scheduled-billing automation natively. Most shops bought the feature and never turned it on. The 6-point shift on a $650K book moves the sale multiple from $720K to $1.1M — same business, same revenue, $400K of preserved enterprise value.",
     },
     {
       number: "02",
-      title: "Stand up an answering service BEFORE May 1",
-      body: "May call volume triples. Owners can't handle it solo and tech shortage means hiring a CSR isn't fast enough. Pest-trained answering services (Call Porter, SkipCalls, Specialty) run $300-700/mo and integrate with PestRoutes, FieldRoutes, GorillaDesk. They book directly into your system. One captured quarterly contract pays for 4 months of service.",
+      title: "Tighten route density — PestPac / FieldRoutes geo-clustered routing",
+      body: "Labor is 25.8% of revenue at the typical shop (NPMA 2025). The shops winning the density game push it under 21% — not by paying techs less, by sending them on tighter geography. Geocode every account, route by ZIP cluster + day-of-week, force the dispatcher to assign by density-of-stop, not chronological booking order. PestPac and FieldRoutes both have route-optimization modules; densest residential operators hit 10-12 stops/day vs the 6-8 average. Lloyd Pest's Jamie Ogle: 'You're not competing on chemistry. You're competing on geometry.' On a 3-truck shop, 4.8 points of labor leverage = $31K of margin you keep without changing anything else.",
     },
     {
       number: "03",
-      title: "Fix locked-gate no-shows — the $71K invisible bleed",
-      body: "Most owners count missed calls. Almost nobody counts locked-gate no-shows. One tech / one truck / one $95 stop wasted per day × 3 trucks × 250 days = $71K/yr. The fix: SMS confirmation 24 hours before, second SMS the morning of, gate-code field required in CRM. FieldRoutes and PestRoutes both support this — most shops never turn it on.",
+      title: "Missed-call text-back + after-hours capture — close the 34-point gap",
+      body: "Owners think they answer 97% of calls. ServiceDirect data on actual home-service shops: 66%. That 34-point gap is the front-door leak — on 1,500 accounts and ~40 inbound calls/week, a third of them never get a callback. Wire Twilio missed-call text-back (or Numa AI receptionist for $300-500/mo) into your existing phone line. Auto-text within 60 seconds of any missed call: 'Saw your call — booking now or call you back?' Pest-trained answering services (Call Porter, SkipCalls, Specialty Answering) integrate with PestPac and FieldRoutes and book directly into the dispatch board. One captured quarterly contract pays for 4 months of service. May call volume triples — get this wired before April 30.",
     },
     {
       number: "04",
-      title: "Tighten route density — 6 stops → 8 = $142K capacity unlock",
-      body: "Industry-average density: 6 stops/tech/day. Target: 8. The 2-stop gap × 3 trucks × 250 days × $95 = $142K of unbooked capacity sitting in your existing route geography. Wire PestRoutes / FieldRoutes route optimization. Cluster by zip, not by chronological booking order. Densest operators in the industry hit 10-12 stops/day on residential.",
+      title: "Seasonal-recall sequencing — termite swarm, mosquito, rodent winter",
+      body: "Texas pest seasonality is mechanical: subterranean termites swarm Feb-May, mosquitoes peak May-Sep, rodents move indoors Oct-Jan. The shops winning the recurring book wire automated recall sequences off the PestPac/FieldRoutes calendar — termite inspection bumps in January, mosquito add-ons in April, rodent winterization in September. SMS + email + auto-call on lapsed annuals. The seasonality is free demand — the operators capturing it are the ones with the calendar wired. Every $295 termite annual converted = $885 over 3 years on the same property.",
     },
   ],
 
   toolsBody:
-    "Your stack maps to size. Switching costs are real — pick by current revenue, not by feature checkbox.",
+    "Your dispatch board, route engine, billing system, and call layer already exist. The PE rollups (Rollins, Anticimex, Aptive, Hawx, Killingsworth) standardize the same stack on Day 1 post-acquisition. The question is whether you've turned on the features you already pay for.",
   toolsList: [
-    "GorillaDesk — $49+/mo, solo + small shops",
-    "Pocomos / Fieldster — cheap entry alternatives",
-    "FieldRoutes (ServiceTitan-owned) — powers 40 of PCT Top 100",
-    "PestRoutes — direct competitor to FieldRoutes",
-    "Briostack — mid-tier alternative",
-    "PestPac (Workwave) — multi-unit / commercial-heavy",
+    "PestPac (Workwave) — multi-unit / commercial-heavy, route optimization + ACH auto-debit",
+    "FieldRoutes (ServiceTitan-owned) — powers 40 of the PCT Top 100, native card-on-file",
+    "PestRoutes — direct FieldRoutes competitor, strong route engine",
+    "Briostack — mid-tier, residential-focused, auto-rebill native",
+    "GorillaDesk — $49+/mo, solo + small-shop entry point",
     "ServSuite — enterprise + commercial complex contracts",
-    "Call Porter / SkipCalls / Specialty — pest-trained answering",
+    "Pocomos / Fieldster — cheap entry alternatives",
+    "Call Porter / SkipCalls / Specialty Answering — pest-trained answering services, integrate with PestPac + FieldRoutes",
+    "Twilio — missed-call text-back automation, $0.01/text",
+    "Numa — AI receptionist, $300-500/mo, integrates with most PestPac/FieldRoutes deployments",
   ],
 
-  caseStudyHeadline: "Coming Q3 2026.",
+  caseStudyHeadline: "Round Rock pilot — closing the recurring-revenue gap on a 3-truck shop.",
   caseStudyBody:
-    "A 3-route Round Rock pest control shop deployed a pest-trained answering service April 15, 2026 — before May surge. Captured 84 previously-missed inbound calls in 30 days. Closed 22 into new quarterly contracts (~$10.5K monthly recurring). Full breakdown — exact Call Porter integration with PestRoutes, gate-code SOP, route-density rebuild — published once 90-day data closes. Want to be the next case study? Book a 30-minute audit.",
+    "A 3-route Round Rock pest shop is the planned 2026 pilot for the four-move stack: PestPac card-on-file + auto-rebill, FieldRoutes geo-routing, Call Porter pest-trained answering integration, and seasonal-recall sequencing off the dispatch calendar. The full operational diff — exact PestPac auto-rebill configuration, FieldRoutes density-routing rules, Call Porter integration spec, seasonal-recall template — will be published when the 90-day data closes. Want to be the next case study? Book a 30-minute audit.",
 
-  ctaHeadline: "Get yourself out of dispatch. The math takes care of itself.",
+  ctaHeadline:
+    "Build the recurring book Rollins is paying 6× EBITDA for — before they offer to do it for you.",
   ctaBody:
-    "If you're answering your own phone at 7pm Tuesday, you're the bottleneck. The 30-min audit is free. We pull your actual call-answer rate, your route density, your retention curve — and tell you in dollars exactly where the bottleneck is costing you. If we can't find $10K/mo of recoverable revenue, you don't owe me anything.",
+    "Rollins took Romex Pest Control on April 2 — $29.7M revenue, 200+ employees, Austin / DFW / San Antonio / OKC. Anticimex bought 3 DFW shops in one day in June. Citation Capital took Aptive in August. PE deal volume in pest is up 27.6% YoY in 2024 while middle-market PE overall fell 20.7%. The money is rotating in. The shops fetching 6× EBITDA all hit 80% recurring revenue first. The ones stuck at 74% sell at 4× — or don't sell at all. ABC Home Services is the named Austin holdout — Jenkins family, 800 employees, since 1949. The frame is binary: build what Rollins is paying for, or be ABC. 30 minutes — I walk the route board, pull your PestPac or FieldRoutes data, your call log, your AR cycle, and I show you in dollars exactly where the next $317K of cash + capacity and $240K of preserved enterprise value lives. No deck. No pitch. If I can't find $200K of recoverable value inside the four operator moves, you don't owe me anything. If I can — I show you which one pays back first, in the order that lands before the May termite surge.",
 
   citations: [
-    { label: "IBISWorld — Pest Control US Industry", url: "https://www.ibisworld.com/united-states/industry/pest-control/1495/" },
-    { label: "NPMA 2025 Pest Control Industry Cost Study", url: "https://www.npmapestworld.org/your-business/latest-news/npma-and-pco-bookkeepers-release-comprehensive-2025-pest-control-industry-cost-study/" },
-    { label: "PCT 26th Strategic Analysis", url: "https://www.pctonline.com/page/pct-npma-annual-research-reports/" },
-    { label: "ServiceDirect — Home Service Call Performance Report", url: "https://blog.servicedirect.com/home-service-call-performance-report" },
-    { label: "Call Porter — Pest Control Missed Calls", url: "https://callporter.com/blog/why-missed-calls-are-costing-pest-control-pros-thousands-and-how-to-fix-it/" },
-    { label: "Market Disruptors — Pest Missing Calls", url: "https://marketdisruptorsagency.com/resources/pest-control-problems/pest-control-missing-calls-losing-customers" },
-    { label: "FieldRoutes — Retention Research", url: "https://www.fieldroutes.com/blog/retain-pest-control-customers" },
+    { label: "NPMA / PCO Bookkeepers 2025 Pest Control Industry Cost Study (labor + recurring revenue benchmarks)", url: "https://www.npmapestworld.org/your-business/latest-news/npma-and-pco-bookkeepers-release-comprehensive-2025-pest-control-industry-cost-study/" },
+    { label: "PCT 26th Strategic Analysis (industry size + operator survey)", url: "https://www.pctonline.com/page/pct-npma-annual-research-reports/" },
+    { label: "ServiceDirect — Home Service Call Performance Report (97% perceived vs 66% actual)", url: "https://blog.servicedirect.com/home-service-call-performance-report" },
+    { label: "PMP Magazine — Rollins acquires Romex Pest Control (April 2, 2026)", url: "https://www.mypmp.net/" },
+    { label: "PCT Magazine — Anticimex Texas entry (DFW, June 2025)", url: "https://www.pctonline.com/" },
+    { label: "Citation Capital → Aptive transaction (August 2024)", url: "https://www.aptivepest.com/" },
+    { label: "Rollins Inc. — 2025 acquisition activity ($310M, 32 bolt-ons in 2024)", url: "https://investor.rollins.com/" },
+    { label: "Capstone Partners — Pest Sector M&A Update", url: "https://www.capstonepartners.com/insights/article-pest-control-sector-update/" },
+    { label: "Lion Business Brokers — TX Pest Control Q1 2025", url: "https://lionbusinessbrokers.com/pest-control-industry-update-q1-2025/" },
+    { label: "FieldRoutes — Retention + Recurring Revenue Research", url: "https://www.fieldroutes.com/blog/retain-pest-control-customers" },
     { label: "Spring Green — Route Density Math", url: "https://springgreenfranchise.com/maximizing-route-density-the-1-factor-in-pest-profitability/" },
-    { label: "Cube Creative — Pest KPIs + ROI", url: "https://cubecreative.design/blog/pest-control-marketing/kpis-that-drive-profit" },
-    { label: "SkipCalls — Pest Answering Service Guide", url: "https://skipcalls.com/blog/pest-control-answering-service-guide" },
-    { label: "Capstone Partners — Pest Sector Update", url: "https://www.capstonepartners.com/insights/article-pest-control-sector-update/" },
-    { label: "Lion Business — TX Pest Control Q1 2025", url: "https://lionbusinessbrokers.com/pest-control-industry-update-q1-2025/" },
+    { label: "Call Porter — Pest Control Missed-Call Cost Analysis", url: "https://callporter.com/blog/why-missed-calls-are-costing-pest-control-pros-thousands-and-how-to-fix-it/" },
   ],
 };

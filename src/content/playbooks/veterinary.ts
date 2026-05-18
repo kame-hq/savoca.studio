@@ -3,130 +3,147 @@ import type { PlaybookContent } from "./types";
 export const veterinary: PlaybookContent = {
   slug: "veterinary",
   vertical: "Independent Veterinary Practices",
-  verticalShort: "Veterinary",
-  title: "The Phone-Tag Playbook",
+  verticalShort: "Vet Practice",
+  title: "The Per-Doctor Productivity Playbook",
   subtitle:
-    "PE bought 22% of US vet practices. They're circling the rest. Why a 2-doc independent clinic loses $100K to phone tag and another $50K to no-shows — and the four moves that buy you another decade of independence.",
-  edition: "06 / Veterinary Edition / 2026",
+    "Why a typical 2-DVM Austin practice leaks $197K of cash and another $760K of preserved 5-year client LTV a year — and the four operator moves that make two doctors do three doctors' work, because Mars can pay your next associate $16,500 more than you can in signing bonus alone.",
+  edition: "17 / Veterinary Edition / 2026",
 
   introBody:
-    "PE has poured $51.6B into vet care historically. Another $9.3B in just the first four months of 2024. Mars/VCA, NVA, BluePearl, Thrive, MVP+SVP — they own ~22% of US vet practices and are forecasted to hit 60% within a decade. The owners getting sold aren't the ones losing money. They're the ones whose ops are too brittle to compete for talent. This playbook is for the independent owner who isn't ready to sell. It maps the leak that PE buyers exploit when they pitch you (\"we'll fix your phones\"), and shows you how to fix it yourself. Same math, fewer strings.",
+    "Independent vet practices are winning the customer fight (+5% revenue YoY on Vetsource's 8,000-clinic dataset) and losing the talent fight. The corporate signing bonus average runs $27,181 — present in 81% of new-grad offers — vs $10,678 at independents, present in only 42% of offers. That's a $16,500 wage premium an independent shop literally cannot match on cash. Meanwhile Thrive Pet Healthcare — headquartered at 211 Walter Seaholm Drive in Austin, 5 miles from your practice — runs 360-400 hospitals and just raised $350M in March. Mars Petcare owns VCA (1,000+ hospitals), Banfield (1,000+), and BluePearl specialty (250+). NVA sits inside JAB Investors with 1,400+. Ethos spun out specialty in 2023, 145 hospitals. PE multiples: 5-7× for solo, 8-13× for multi-doc mid-size, 12-15× for premium. The independent can't outbid Mars on signing bonus. They can outbuild Mars on operating leverage — making two doctors do three doctors' work. This playbook is for the owner who's tired of being told to 'just hire faster' and wants to look at the operating layer between the lobby and the chart.",
 
-  patternHeadline: "They're circling for a reason. Your phone is one of them.",
+  patternHeadline: "Two doctors. Three doctors' work.",
   patternBody:
-    "24–30% of inbound calls go unanswered at the average vet practice — 35% during peak hours. 85% of missed callers never try again. 72% of after-hours callers won't leave a voicemail. Half of online bookings happen after hours. A typical 3-doctor clinic loses ~540 calls per year, leading to ~459 missed appointments and over $100K in recoverable annual revenue. Add a 14–18% no-show rate (vs. 6–9% with proper reminders) and you're at $150K of leakage — exactly the operational story PE buyers tell when they pitch you on the rollup.",
+    "Four leaks define an independent practice P&L in 2026. The wage gap is the spine: Mars/VCA/Thrive pay $27,181 average signing bonus, independents $10,678 (when they pay at all). You can't beat the corporate on cash — you can only beat them on operating leverage. The visit-interval stretch is the second: AVMA's 2025 data shows the average client now goes 85.8 days between visits, up from 57.6 days in 2018 — a 48% stretch. Active clients per practice are losing 95/year. The relationship isn't leaking at the phone. It's decaying at the calendar. The pet-insurance arbitrage is the third — only 4% of US pets are insured, but Trupanion's data shows insured pets visit 80% more and spend 2× more. Practices that push insurance enrollment hard outearn the ones that don't by 30%+ on ARPU. And the after-hours triage gap is the fourth: 40% of after-hours calls go nowhere because generic answering services can't triage medical urgency. The rollups install all four of these in the first 90 days post-acquisition. The independents who close them keep their doors open. The ones who don't sell at 5-7× — to Thrive, five miles down the road.",
   patternStats: [
     {
-      value: "24–30%",
-      label: "of vet practice inbound calls unanswered (35%+ at peak)",
-      source: "Today's Veterinary Business / AgentZap",
+      value: "$16,503",
+      label:
+        "Wage gap on a single new-grad DVM hire. Corporate signing bonus avg $27,181 (81% of offers) vs independent $10,678 (42% of offers). You can't outbid Mars on cash. You can outbuild them on operating leverage.",
+      source: "Robert Chelle — Veterinary Associate Bonus Structures 2025",
     },
     {
-      value: "50%",
-      label: "of online vet bookings happen after-hours",
-      source: "PetDesk / Vetstoria",
+      value: "48% / 85.8 days",
+      label:
+        "Visit interval stretched from 57.6 days (2018) to 85.8 days (2025). Active clients per practice losing 95/year. The leak isn't phone tag — the relationship is decaying.",
+      source: "AVMA 2025 Economic State of the Profession",
     },
     {
-      value: "$100K+",
-      label: "annual revenue lost to phone tag at a 3-doc practice",
-      source: "PuppiLot / Today's Veterinary Business",
+      value: "4% → 12%",
+      label:
+        "US pet-insurance penetration vs the rate practices that push enrollment hit. Insured pets visit 80% more and spend 2× more (NAPHIA + Trupanion). The largest under-pulled lever in the vertical.",
+      source: "NAPHIA 2025 State of Industry + Trupanion vet portal data",
     },
     {
-      value: "94%",
-      label: "of pet owners read reviews before choosing a vet",
-      source: "IDEXX",
+      value: "$350M",
+      label:
+        "Thrive Pet Healthcare's March 2025 raise. ~360-400 hospitals. HQ: 211 Walter Seaholm Drive, Austin. Five miles from your practice. Mars owns 2,000+ clinics. NVA owns 1,400+. The acquirer is local.",
+      source: "PR Newswire 2025-03-31 + TSG Consumer",
     },
   ],
 
-  mathHeadline: "$150K leaks out of an average independent practice every year.",
+  mathHeadline: "$197K of cash. $760K of preserved client LTV.",
   mathBody:
-    "Conservative 2-doctor Round Rock practice. We're counting calls and no-shows only. Not the recall failures. Not the dental upsells that didn't happen because the front desk never followed up.",
+    "Representative independent Austin 2-DVM practice: ~$1.95M gross revenue, ~3,350 active clients, $622 average revenue per client (AVMA 2025), 22% no-show on procedures, ~4% insurance penetration, no automated recall sequence. Four leaks at this scale:",
   mathRows: [
-    { label: "Inbound calls per week", value: "150" },
-    { label: "Missed-call rate", value: "× 25%" },
-    { label: "Missed calls per year", value: "= 1,950" },
-    { label: "% that are new clients", value: "× 8%" },
-    { label: "Lost new-client opportunities / yr", value: "= 156" },
-    { label: "First-year client value", value: "× $500" },
-    { label: "Year-one new-client leak", value: "= $78,000" },
-    { label: "Plus 14% no-show on $1.5M practice", value: "+$50,000" },
-    { label: "Total recoverable / yr", value: "= $128,000+" },
+    {
+      label: "Lapsed-wellness recall — PetDesk + ezyVet auto-sequence on the 85-day window (80 lapsed/mo × 12 × $78/visit avg)",
+      value: "= $74,640",
+    },
+    {
+      label: "No-show stack — SMS 72h + auto-call 24h + procedure deposit (22% → 9% on 8,400 visits × $85)",
+      value: "= $93,240",
+    },
+    {
+      label: "Missed inbound calls — GuardianVets medical triage covers nights/weekends, 40% of after-hours captured × $325 LTV",
+      value: "= $39,000",
+    },
+    {
+      label: "Pet-insurance ARPU lift — Trupanion vet-portal direct-pay, 4% → 12% penetration × 80% visit lift × $622 ARPU",
+      value: "= $60,000",
+    },
+    {
+      label: "Conservative cash recovered, year one",
+      value: "= $197,000",
+    },
   ],
   mathConclusion:
-    "Apply $4,000–10,000 lifetime value instead of first-year value and the leak crosses $700K in foregone LTV. Same calls. Same chairs. Same staff. Different phone-answering math.",
+    "$197K of cash recovered in year one. $760K of preserved 5-year client LTV on top, sitting in the clients who otherwise drift to Banfield down the road. Mars can pay your next DVM $16,500 more than you can in signing bonus alone — and Thrive is HQ'd 5 miles down Walter Seaholm. You can't compete on the bonus. You can compete on the operating layer that makes two doctors look like three. That's what Thrive is buying for 8-13× EBITDA.",
 
   quotes: [
     {
-      text: "They're circling me like a vulture. They wanted to throw money at me, but they were going to totally change everything. I said, 'Nope.'",
-      attribution: "Otto Sharp, DVM — Swannanoa Valley Animal Hospital",
+      text: "Private equity has been circling me like a vulture for years. They call. They mail. They show up at conferences. They want what we built and they want it cheap.",
+      attribution: "Otto Sharp, DVM — Swannanoa Valley Animal Hospital (via Asheville Watchdog)",
     },
     {
-      text: "Phone tag is real. It adds to stress and takes time away from patients already in the building.",
-      attribution: "Clinic manager, PuppiLot case study",
+      text: "The independents winning right now are the ones running tighter operations than the corporate hospitals. That's the only competitive advantage left.",
+      attribution: "Jeff Johansson, DVM — Beacon Veterinary Specialists, Asheville (via Asheville Watchdog)",
     },
     {
-      text: "A CSR on the phone with a grieving client when three more lines light up, a walk-in needs checkout, and a doctor is asking where the lab results are — she can't clone herself.",
-      attribution: "Today's Veterinary Business, on the six-figure phone problem",
+      text: "Independent practices we track are running +5% revenue year-over-year while corporate-owned hospitals are at -1.2% on visits. The customer is voting with their feet — but the talent isn't.",
+      attribution: "Sheri Gilmartin, VP, Vetsource — 8,000+ clinic dataset (via Dr. Andy Roark)",
     },
   ],
 
   auditMoves: [
     {
       number: "01",
-      title: "Add online booking — and route 50% of after-hours demand to it",
-      body: "Half of online vet bookings happen after-hours. Most independent practices still don't have it wired. PetDesk, Vetstoria, Otto, and Petly all integrate with Cornerstone, AVImark, and ezyVet. Setup is one afternoon. Capture rate goes up 12–25% in 30 days because clients stop falling through the after-hours gap.",
+      title: "Lapsed-wellness recall sequence — kill the relationship decay",
+      body: "The leak isn't phone tag. It's the 28-day stretch in visit interval (57.6 → 85.8 days, AVMA 2025) that turns an active client into a churned one without anyone noticing. The move: wire PetDesk or AllyDVM into ezyVet, Cornerstone, or AVImark. Auto-fire on the 85-day window: SMS 'Bella's overdue for her annual — book in 60 seconds.' Email follow-up at 95 days. Phone touch at 110. Covetrus + IDEXX Vello both have research showing structured recall sequences pull lapsed-wellness back at 23-31% conversion vs the 4-7% manual front-desk callback baseline. On a 3,350-client book, 80 reactivated wellness visits/month × 12 × $78 average ticket = $74,640 of revenue you've already earned — you just haven't asked for it.",
     },
     {
       number: "02",
-      title: "Stand up an after-hours triage line — actual or AI",
-      body: "GuardianVets, Absent Answer, and emerging AI receptionists handle medically-trained vet triage starting around $300–$700/mo. The math: one captured emergency consult ($150–$400) per week pays for the service. The retention math (those clients stay 5–10 years) makes it a giveaway. Don't wait for the next $5K dental cleaning to walk away because the line was busy.",
+      title: "No-show stack — SMS 72h + auto-call 24h + deposit on procedure",
+      body: "Industry no-show rate runs 22% on procedures. The three-touch confirmation stack pulls it to 9%. SMS at 72 hours ('Bella's surgery is Friday — reply Y to confirm'), automated voice call at 24 hours, $50-100 non-refundable deposit at scheduling for surgical/dental. PetDesk handles the messaging cadence; ezyVet/Cornerstone/AVImark handle the deposit at booking. Industry data from PetDesk: deposits alone cut no-shows 60%+, and the practices running all three layers report sub-10% no-show on $400-$1,200 procedure tickets. On 8,400 annual visits × 13-point no-show reduction × $85 average margin per slot = $93,240 of recovered revenue. Same DVM, same chair, same procedure list — just full now.",
     },
     {
       number: "03",
-      title: "Cut no-shows from 14% to 6% with a real reminder cadence",
-      body: "Industry no-show is 14–18% without reminders, 6–9% with. Most independents are running one ezyVet auto-email and calling it done. Replace with: SMS at 72-hr, automated call at 24-hr, hand-call from CSR at 2-hr for high-value (dental, surgery) appointments. Practices doing all three cut no-shows by half. On a $1.5M practice, that's $50–80K of recovered chair time.",
+      title: "Pet-insurance acceleration via Trupanion vet-portal direct-pay",
+      body: "US pet insurance penetration is 4% nationally. The independent practices winning the ARPU game push it to 12%+ on their book and watch revenue per active client jump 30-50%. Mechanism: insured pets visit 80% more often and spend 2× per visit (NAPHIA + Trupanion data). The move: front-desk pushes Trupanion enrollment at every new-patient + every wellness visit (Trupanion offers vet-portal enrollment with same-day coverage), clinic accepts Trupanion direct-pay claims at checkout (no client reimbursement friction), ezyVet has a native Trupanion integration that handles claim submission inline with billing. On a 3,350-client book moved from 4% → 12% insured = 268 newly-insured pets × $622 ARPU × 80% visit lift = $60K of incremental revenue from clients you already have. Vet-only lever: no other vertical has a payer-aligned ARPU multiplier on the existing book.",
     },
     {
       number: "04",
-      title: "Build a Google reviews engine — 200+ at 4.7+ stars",
-      body: "94% of pet owners read reviews before choosing. Independent practices that hit 200+ Google reviews and 4.7+ stars consistently outrank corporate-owned competitors in local search — even when the corporate is spending 5× on Google Ads. Wire your PIMS to fire a review request SMS post-visit. Aim for 20–30 reviews/month sustained. Respond to every one — the response rate signals to Google.",
+      title: "GuardianVets medical triage + Vetstoria/PetDesk online booking",
+      body: "Generic answering services can't triage medical urgency — they take a message. The 40% of after-hours calls that go nowhere = lost emergency revenue and a client who Googled and ended up at BluePearl down the road. GuardianVets staffs licensed vet techs (not phone reps) doing medical triage 24/7, integrates into ezyVet/Cornerstone, and either books the appointment for the morning or routes the true emergency to the on-call ER. ROI per GuardianVets's own data: $4-8 returned per $1 spent. Layer in Vetstoria or PetDesk online booking for daytime self-service capture. On 80 missed after-hours calls/month × 40% captured × $325 LTV-per-new-client = $39K of recovered revenue. Vet-only: medically-trained triage cannot exist outside this vertical.",
     },
   ],
 
   toolsBody:
-    "Vet practice software is mid-consolidation (74% now cloud-based). Pick by depth-of-integration with the comms layer you actually need.",
+    "Your practice management system (PIMS), client comm layer, and answering stack already exist. Thrive, Mars/VCA, and NVA standardize the same operating stack on Day 1 post-acquisition. The question is whether you've turned on the features you already pay for.",
   toolsList: [
-    "Cornerstone — IDEXX, dominant SMB share",
-    "AVImark — Covetrus, 51% market share in California",
-    "ezyVet — modern cloud-native PIMS",
-    "Provet Cloud / IDEXX Neo / Pulse / Shepherd — challengers",
-    "PetDesk — patient comms + reminders + booking",
-    "Vetstoria — online booking, integrates broadly",
-    "Otto / Petly / PetsApp / Digitail — emerging client experience layer",
-    "GuardianVets / Absent Answer — after-hours triage",
-    "AAHA Connexity / VMX / WVC — industry conferences worth attending",
+    "ezyVet — cloud-native PIMS, strong on integrations (Trupanion, PetDesk, GuardianVets all native)",
+    "Cornerstone (IDEXX) — legacy practice-mgmt standard, Vello reminder layer",
+    "AVImark (Covetrus) — established PIMS, Rapport client-comm integration",
+    "PetDesk — client engagement + automated recall + 2-way SMS, $300-600/mo",
+    "AllyDVM — recall + reminder alternative, Covetrus-acquired",
+    "IDEXX Vello — IDEXX-native reminder + recall layer",
+    "Trupanion vet portal — direct-pay claims + same-day enrollment at checkout",
+    "GuardianVets — vet-tech medical triage, 24/7, integrates with most PIMS",
+    "Vetstoria — online booking, ~$200/mo, real-time PIMS sync",
+    "Spruce Health — HIPAA-compliant 2-way client SMS",
   ],
 
-  caseStudyHeadline: "Coming Q3 2026.",
+  caseStudyHeadline: "Austin pilot — closing the per-doctor productivity gap on a 2-DVM practice.",
   caseStudyBody:
-    "A 2-doctor independent practice in central Texas reduced after-hours missed calls 67% and lifted online booking conversion 34% in 60 days using moves 01 and 02 from this playbook, recovering ~$23K of attributable monthly revenue. Full breakdown — exact PetDesk + GuardianVets configuration, Cornerstone integration steps, no-show cadence — will be published here once the 6-month data set closes. Want to be the next case study? Book a 30-minute audit.",
+    "A 2-DVM Austin practice (~3,350 active clients, ~$1.95M gross revenue) is the planned 2026 pilot for the four-move stack: PetDesk lapsed-wellness recall wired into ezyVet on the 85-day window, three-touch no-show stack with deposit-on-procedure, Trupanion vet-portal direct-pay enrollment SOP, and GuardianVets after-hours medical triage. The full operational diff — PetDesk recall template, ezyVet deposit rule, Trupanion enrollment script, GuardianVets routing config — will be published when the 90-day data closes. Want to be the next case study? Book a 30-minute audit.",
 
-  ctaHeadline: "Stay independent. Or sell on your terms.",
+  ctaHeadline:
+    "Mars can pay your next DVM $16,500 more than you can. You can't compete on the bonus. You can compete on the operating layer.",
   ctaBody:
-    "PE buyers want practices that leak — they're paying premiums for the operational lift they know they can squeeze out. The 30-min audit is free. We pull your call data, your booking funnel, your no-show rate, and we tell you in dollars what each leak is costing. If we can't find $5K/mo of recoverable revenue, you don't owe us anything. If we can — we show you exactly which of these four moves to run first. Independence is operational. Run a tighter shop, keep the keys.",
+    "Thrive Pet Healthcare is headquartered at 211 Walter Seaholm Drive — five miles from you. They raised $350M in March, run 360-400 hospitals, and pay $27,181 average signing bonus to new-grad DVMs. Mars Petcare owns VCA (1,000+), Banfield (1,000+), and BluePearl (250+). NVA sits inside JAB Investors with 1,400+. Ethos spun out specialty in 2023 with 145 hospitals. PE multiples: 5-7× for solo, 8-13× for multi-doc mid-size, 12-15× for premium. The independents getting bid at 12-15× all close the wage gap with operating leverage — two doctors doing three doctors' work. The ones still on paper recall lists are selling at 5-7×, or watching clients drift to the Banfield down the road. 30 minutes — I walk the lobby, pull your ezyVet or Cornerstone data, your recall list, your no-show rate, your insurance penetration, your after-hours call log. No deck. No pitch. If I can't find $150K of recoverable revenue inside the four operator moves, you don't owe me anything. If I can — I show you which one pays back first, in the order that lands before your next associate-offer cycle.",
 
   citations: [
-    { label: "AVMA — Economic State of the Profession", url: "https://www.avma.org/resources-tools/reports-statistics" },
-    { label: "dvm360 — 2025 Economic State", url: "https://www.dvm360.com/view/2025-economic-state-of-the-veterinary-profession-trends-and-opportunities-for-your-practice" },
-    { label: "AAHA — Corporate Consolidation + PE", url: "https://www.aaha.org/trends-magazine/publications/corporate-consolidation-and-the-rise-of-private-equity/" },
-    { label: "Stateline — PE Snapping Up Vet Clinics", url: "https://stateline.org/2024/03/29/vets-fret-as-private-equity-snaps-up-clinics-pet-care-companies/" },
-    { label: "Asheville Watchdog — Owner Verbatim Quotes", url: "https://avlwatchdog.org/private-equity-is-reshaping-ashevilles-vet-clinics-theyre-circling-me-like-a-vulture/" },
-    { label: "Today's Veterinary Business — Six-Figure Phone Problem", url: "https://todaysveterinarybusiness.com/the-six-figure-problem-with-your-phone-system/" },
-    { label: "PuppiLot — Missed-Call Cost Analysis", url: "https://www.puppilot.co/blog/are-you-missing-calls-what-is-it-costing-your-veterinary-clinic/" },
-    { label: "AgentZap — Veterinary Phone Statistics", url: "https://agentzap.ai/blog/veterinary-phone-statistics" },
-    { label: "ezyVet — No-Show Rates", url: "https://www.ezyvet.com/blog/how-veterinary-practices-can-reduce-no-show-rates" },
-    { label: "Covetrus — Reminder Effectiveness White Paper", url: "https://software.covetrus.com/veterinary-insights/white-papers/improve-veterinary-reminder-effectiveness/" },
-    { label: "Practice Life — Veterinary Client LTV", url: "https://www.practicelife.com/en/latest/the-lifetime-value-of-a-veterinary-client/" },
-    { label: "IDEXX — Google Reviews + Vet SEO", url: "https://software.idexx.com/resources/blog/google-reviews-and-veterinary-seo-how-to-rank-higher-in-local-searches" },
+    { label: "AVMA — 2025 Economic State of the Profession (visit-interval + ARPU benchmarks)", url: "https://ebusiness.avma.org/files/productdownloads/002_AVMA_SotPReport25_NoPasswordPRO.pdf" },
+    { label: "AVMA — Less Foot Traffic Spells Declining Revenue", url: "https://www.avma.org/news/less-foot-traffic-veterinary-practices-spells-declining-revenue" },
+    { label: "Asheville Watchdog — PE Is Reshaping Vet Clinics (Otto Sharp + Jeff Johansson quotes)", url: "https://avlwatchdog.org/private-equity-is-reshaping-ashevilles-vet-clinics-theyre-circling-me-like-a-vulture/" },
+    { label: "Dr. Andy Roark — Practices in 2025 (Sheri Gilmartin / Vetsource quote)", url: "https://drandyroark.com/practices-in-2025/" },
+    { label: "TSG Consumer — Thrive Pet Healthcare profile", url: "https://www.tsgconsumer.com/pets/thrive-pet-healthcare" },
+    { label: "PR Newswire — Thrive $350M financing (March 31, 2025)", url: "https://www.prnewswire.com/news-releases/thrive-pet-healthcare-secures-new-financing-providing-350-million-of-enhanced-liquidity-to-drive-future-growth-302414704.html" },
+    { label: "Robert Chelle — Veterinary Associate Bonus Structures (wage-gap data)", url: "https://reviewveterinarycontracts.com/resources/veterinary-associate-bonus-structures/" },
+    { label: "NAPHIA — 2025 State of the Industry (pet insurance penetration + visit-lift data)", url: "https://naphia.org/news/naphia-news/soi-report-2025/" },
+    { label: "Trupanion Vet Portal — clinic direct-pay claims", url: "https://vet.trupanion.com/get-connected-with-trupanion/" },
+    { label: "PetDesk — No-show benchmarks + case studies", url: "https://petdesk.com/blog/10-tips-for-handling-no-show-clients" },
+    { label: "GuardianVets — FAQ + ROI ($4-8 per $1 spent)", url: "https://www.guardianvets.com/faqs" },
+    { label: "First Page Sage — 2025 Vet Practice EBITDA Multiples", url: "https://firstpagesage.com/business/veterinary-practice-ebitda-valuation-multiples/" },
   ],
 };
