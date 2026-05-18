@@ -27,7 +27,7 @@ export function About() {
             fontWeight: 400,
           }}
         >
-          I build the layer
+          I build the layers
           <br />
           <span style={{ fontStyle: "italic", color: "var(--money)" }}>
             between demand and delivery.
@@ -46,8 +46,8 @@ export function About() {
             fontWeight: 500,
           }}
         >
-          Product commercialization PM at Indeed. Previously Meta and Whole
-          Foods Market.
+          Global Product Commercialization Program Manager at Indeed.
+          Previously Meta and Whole Foods Market.
         </p>
         <p
           className="font-sans mt-5"
