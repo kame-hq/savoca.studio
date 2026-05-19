@@ -104,7 +104,7 @@ export const moving: PlaybookContent = {
     "Numa / AgentZap — AI receptionist (mover-trained scripts)",
     "Specialty Answering — human 24/7 with mover terminology",
     "Google LSA — $6-30/lead, best CPL in home services",
-    "Yelp / GMB / Angi — review-velocity moat (compounds)",
+    "Yelp / GMB / Angi — review velocity that compounds",
   ],
 
   caseStudyHeadline: "Coming Q3 2026 (post-summer peak).",
@@ -113,7 +113,7 @@ export const moving: PlaybookContent = {
 
   ctaHeadline: "Don't fix this in May. By then you've lost the year.",
   ctaBody:
-    "Austin is the #3 migration metro. The leads are coming. The shops that crush 2026 peak have AI + 5-touch wired by April 15. The 30-min audit is free. We pull your SmartMoving / Movegistics response-time report, your aggregator spend, your bid-to-close ratio, and tell you in dollars exactly what last June cost you. If we can't find $20K/mo of recoverable peak-season revenue, you don't owe me anything.",
+    "Austin is the #3 migration metro. The leads are coming. The shops that crush 2026 peak have AI + 5-touch wired by April 15. 30 minutes — I pull your SmartMoving / Movegistics response-time report, your aggregator spend, your bid-to-close ratio, and I show you in dollars exactly what last June cost you and which of the four moves to wire before May 1. Free 30 min. No pitch on the call.",
 
   citations: [
     { label: "IBISWorld — Moving Services US 2025", url: "https://www.ibisworld.com/united-states/industry/moving-services/1154/" },

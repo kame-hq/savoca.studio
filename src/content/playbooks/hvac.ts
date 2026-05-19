@@ -111,7 +111,7 @@ export const hvac: PlaybookContent = {
 
   ctaHeadline: "Run a tighter shop. Or sell a more valuable one.",
   ctaBody:
-    "The PE buyers aren't paying premiums for trucks. They're paying premiums for shops with clean dispatch, full call answer rates, and predictable AR. The 30-min audit is free. We pull your call data, your dispatch logs, your booking-to-cash cycle, and we tell you in dollars what each leak is costing. If we can't find $10K/mo of recoverable revenue, you don't owe us anything. If we can — we show you exactly which of these four moves to run before next cooling season.",
+    "The PE buyers aren't paying premiums for trucks. They're paying premiums for shops with clean dispatch, full call answer rates, and predictable AR. The 30-min discovery call is free. We pull your call data, your dispatch logs, your booking-to-cash cycle, and we tell you in dollars what each leak is costing. We show you exactly which of these four moves to run before next cooling season.",
 
   citations: [
     { label: "Workyard — 75+ HVAC Facts and Statistics 2025", url: "https://www.workyard.com/construction-management/hvac-facts-statistics" },

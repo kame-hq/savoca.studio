@@ -113,7 +113,7 @@ export const landscaping: PlaybookContent = {
 
   ctaHeadline: "Don't budget the fix in April. By then it's over.",
   ctaBody:
-    "Spring is a 12-week window. The shops that crush it have the answering service wired by February. The 30-min audit is free. We pull your call log from last spring (Jobber, Service Autopilot, whoever you run), your form-submit-to-callback time, and your bid-to-close ratio — and tell you in dollars exactly what last spring cost you. If we can't find $20K of recoverable spring revenue, you don't owe me anything.",
+    "Spring is a 12-week window. The shops that crush it have the answering service wired by February. 30 minutes — I pull your call log from last spring (Jobber, Service Autopilot, whoever you run), your form-submit-to-callback time, and your bid-to-close ratio, and I show you in dollars exactly what last spring cost you and which of the four moves to run before March 1. Free 30 min. No pitch on the call.",
 
   citations: [
     { label: "IBISWorld — US Landscaping Services", url: "https://www.ibisworld.com/united-states/market-size/landscaping-services/1497/" },

@@ -112,7 +112,7 @@ export const medspa: PlaybookContent = {
 
   ctaHeadline: "Stop paying for ads to ring an empty desk.",
   ctaBody:
-    "If any of this is hitting close, the 30-min audit is free. We pull your call data, your booking data, and your ad spend, and we tell you in dollars what each leak is costing per month. No deck. No upsell. If we can't find $5K/mo of recoverable revenue, you don't owe us anything. If we can — we'll show you exactly which of these four moves to run first.",
+    "If any of this is hitting close, the 30-min discovery call is free. We pull your call data, your booking data, and your ad spend, and we tell you in dollars what each leak is costing per month. No deck. No upsell. We'll show you exactly which of these four moves to run first.",
 
   citations: [
     { label: "AmSpa — Med Spa Statistics", url: "https://www.americanmedspa.org/resources/med-spa-statistics" },

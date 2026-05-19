@@ -112,7 +112,7 @@ export const personalInjuryLaw: PlaybookContent = {
 
   ctaHeadline: "Out-respond Morgan & Morgan. Don't out-spend them.",
   ctaBody:
-    "Morgan & Morgan miss calls just like you do. They just miss them at scale. The 30-min audit is free. We pull your intake call log, your form-fill conversion data, your case management funnel, and we tell you in dollars what each leak is costing. If we can't find $25K/mo of recoverable fees, you don't owe us anything. If we can — we show you exactly which of these four moves to run first.",
+    "Morgan & Morgan miss calls just like you do. They just miss them at scale. 30 minutes — I pull your intake call log, your form-fill conversion data, your case management funnel, and I show you in dollars where the next $300K+ of recoverable fees lives and which of the four moves to wire first. Free 30 min. No pitch on the call.",
 
   citations: [
     { label: "CASEpeer — 2026 PI Statistics", url: "https://www.casepeer.com/blog/personal-injury-statistics/" },

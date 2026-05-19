@@ -87,7 +87,7 @@ export const chiropracticPt: PlaybookContent = {
     {
       number: "04",
       title: "Audit your front-desk handoff — and document it",
-      body: "Front desk turns over every 8-10 months in chiro practices. Every turnover = phone scripts forgotten, intake forms abandoned, recall lists dropped. Write a 4-page front desk SOP: answer-script, intake protocol, recall workflow, no-show handling. Print it. Train it. Re-audit quarterly. The systems run the practice, not the person — that's the difference between PE-target and PE-bait.",
+      body: "Front desk turns over every 8-10 months in chiro practices. Every turnover = phone scripts forgotten, intake forms abandoned, recall lists dropped. Write a 4-page front desk SOP: answer-script, intake protocol, recall workflow, no-show handling. Print it. Train it. Re-audit quarterly. The systems run the practice, not the person — that's the difference between a practice that survives the next hire and one that resets every nine months.",
     },
   ],
 
@@ -108,9 +108,9 @@ export const chiropracticPt: PlaybookContent = {
   caseStudyBody:
     "A solo Austin chiropractic office reactivated 14 lapsed patients in 60 days using move 03 from this playbook, recovering ~$5,400/mo in additional visit revenue. Full breakdown — exact ChiroSpring recall cadence, SMS copy, and front-desk SOP — will be published once the 90-day data set closes. Want to be the next case study? Book a 30-minute audit.",
 
-  ctaHeadline: "Don't sell to a PE rollup. Run like one.",
+  ctaHeadline: "Don't sell to a rollup. Run like one.",
   ctaBody:
-    "PE buyers aren't paying premium for great adjustments. They're paying for clean recall, low no-show rates, and predictable AR. The 30-min audit is free. We pull your missed-call log, no-show rate, and recall report, and tell you in dollars what each leak is costing. If we can't find $3K/mo of recoverable revenue, you don't owe me anything.",
+    "Confluent, Athletico, ATI — they're not paying premium for great adjustments. They're paying for clean recall, low no-show rates, and predictable AR. 30 minutes — I pull your missed-call log, no-show rate, and recall report, and I show you in dollars where the next $89K of recoverable collections lives and which of the four moves to run first. Free 30 min. No pitch on the call.",
 
   citations: [
     { label: "IBISWorld — Chiropractors US 2025", url: "https://www.ibisworld.com/united-states/industry/chiropractors/1559/" },

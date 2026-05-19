@@ -111,7 +111,7 @@ export const realEstate: PlaybookContent = {
 
   ctaHeadline: "Don't buy more leads. Answer the ones you have.",
   ctaBody:
-    "If you're spending $20K+/mo on Zillow + Realtor.com leads, the fastest 10× ROI move is fixing speed-to-lead before you increase budget. The 30-min audit is free. We pull your CRM's response-time report, your lead-to-appointment funnel, and your floor-time enforcement, and tell you in dollars exactly which deals walked. If we can't find $20K/mo of recoverable GCI, you don't owe me anything.",
+    "If you're spending $20K+/mo on Zillow + Realtor.com leads, the fastest move is fixing speed-to-lead before increasing budget. 30 minutes — I pull your CRM's response-time report, your lead-to-appointment funnel, and your floor-time enforcement, and I show you in dollars where the next $448K of recoverable GCI lives and which of the four moves to run first. Free 30 min. No pitch on the call.",
 
   citations: [
     { label: "NAR — Membership Data 2025", url: "https://www.nar.realtor/membership" },

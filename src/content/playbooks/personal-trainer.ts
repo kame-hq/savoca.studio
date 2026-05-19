@@ -24,7 +24,7 @@ export const personalTrainer: PlaybookContent = {
     },
     {
       value: "21×",
-      label: "conversion lift on DMs answered in <5 min vs 30 min",
+      label: "more likely to convert when DMs are answered in <5 min vs 30 min",
       source: "Inrō / Creatorflow / MIT lead-response data",
     },
     {
@@ -75,7 +75,7 @@ export const personalTrainer: PlaybookContent = {
     {
       number: "01",
       title: "Hit the 5-minute DM standard — automatically",
-      body: "IG is your top of funnel. Speed-to-lead determines everything. Wire a 60-second auto-reply on IG DMs (ManyChat is the indie-trainer default — free tier covers a solo coach). Auto-message says 'Hey! Thanks for the DM — I'll personally write back inside the hour. While you wait, here's my session menu / consult booking link.' Then manual reply within 5 min during business hours. The 21× conversion lift is not a typo.",
+      body: "IG is your top of funnel. Speed-to-lead determines everything. Wire a 60-second auto-reply on IG DMs (ManyChat is the indie-trainer default — free tier covers a solo coach). Auto-message says 'Hey! Thanks for the DM — I'll personally write back inside the hour. While you wait, here's my session menu / consult booking link.' Then manual reply within 5 min during business hours. The 21× number is not a typo.",
     },
     {
       number: "02",
@@ -113,7 +113,7 @@ export const personalTrainer: PlaybookContent = {
 
   ctaHeadline: "Stop pouring leads into a leaky bucket.",
   ctaBody:
-    "If any of this is hitting close, the 30-min audit is free. We pull your DM response log, your booking calendar, your cancellation rate, and your consult-to-close conversion — and tell you in dollars exactly which leak is costing what. No pitch. No deck. If we can't find $1,500/mo of recoverable revenue, you don't owe me anything. If we can — I show you exactly which of these four moves to run first.",
+    "If any of this is hitting close, the 30-min walkthrough is free. I pull your DM response log, your booking calendar, your cancellation rate, and your consult-to-close conversion, and I show you in dollars where the next $45K of recoverable revenue lives and which of the four moves to run first. Free 30 min. No pitch on the call.",
 
   citations: [
     { label: "BLS — Fitness Trainers Occupational Outlook", url: "https://www.bls.gov/ooh/personal-care-and-service/fitness-trainers-and-instructors.htm" },

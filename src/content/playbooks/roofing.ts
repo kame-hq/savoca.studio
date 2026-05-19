@@ -90,7 +90,7 @@ export const roofing: PlaybookContent = {
     {
       number: "04",
       title: "Tighten AR collection — PE buyers price on it",
-      body: "Net margin is 2.8% NRCA average — half of shops earn less than that. Top operators hit 12%. The single biggest gap: AR days outstanding. PE rollups offer 5-6× EBITDA when AR is clean (<45 days). Get JobNimbus or AccuLynx to fire automated payment reminders at deposit / pre-delivery / post-delivery / 30-day past-due. Reduce DSO by 15 days = 4× cash flow lift.",
+      body: "Net margin is 2.8% NRCA average — half of shops earn less than that. Top operators hit 12%. The single biggest gap: AR days outstanding. The shops getting paid premium when they sell are the ones whose AR sits under 45 days. Get JobNimbus or AccuLynx to fire automated payment reminders at deposit / pre-delivery / post-delivery / 30-day past-due. Reduce DSO by 15 days = 4× cash flow lift.",
     },
   ],
 
@@ -111,9 +111,9 @@ export const roofing: PlaybookContent = {
   caseStudyBody:
     "A 4-crew Austin shop deployed an AI receptionist during the May 2025 hail event, captured 27 previously-missed after-hours calls in 72 hours, and converted 7 into signed insurance-claim jobs (~$112K total). Full breakdown — exact AgentZap config, post-storm follow-up cadence, AR tightening protocol — published once the 12-month data set closes. Want to be the next case study? Book a 30-minute audit.",
 
-  ctaHeadline: "Storms don't wait. Neither do PE buyers.",
+  ctaHeadline: "Storms don't wait. Neither do the buyers.",
   ctaBody:
-    "PE platforms grew from 17 to 56 in 2 years. Apex, Champions, QXO, SRS — they're shopping. They pay 5-6× EBITDA for shops with clean ops. The 30-min audit is free. We pull your call data, your web form trace, your AR cycle, and tell you in dollars what each leak is costing. If we can't find $20K/mo of recoverable revenue, you don't owe me anything.",
+    "PE platforms grew from 17 to 56 in 2 years. Apex, Champions, QXO, SRS — they're shopping. The shops they're paying premium for have clean call answer rates, fast web-form routing, and AR under 45 days. 30 minutes — I pull your call data, your web form trace, your AR cycle, and I show you in dollars where the next $190K of recoverable revenue lives and which of the four moves to run before the next hailstorm. Free 30 min. No pitch on the call.",
 
   citations: [
     { label: "IBISWorld — US Roofing Contractors Market", url: "https://www.ibisworld.com/united-states/market-size/roofing-contractors/198/" },

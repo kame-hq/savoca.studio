@@ -112,7 +112,7 @@ export const insuranceAgents: PlaybookContent = {
 
   ctaHeadline: "Stop paying $30/lead to lose them by Tuesday.",
   ctaBody:
-    "If you're spending $5K+/mo on EverQuote / QuoteWizard / MediaAlpha, the fastest 5× ROI move is fixing response time before increasing lead budget. The 30-min audit is free. We pull your AMS response report, your renewal retention rate, your aggregator spend allocation, and tell you in dollars exactly what last month cost you. If we can't find $10K/mo of recoverable commission, you don't owe me anything.",
+    "If you're spending $5K+/mo on EverQuote / QuoteWizard / MediaAlpha, the fastest move is fixing response time before increasing lead budget. 30 minutes — I pull your AMS response report, your renewal retention rate, your aggregator spend allocation, and I show you in dollars where the next $116K of recoverable commission lives and which of the four moves to wire first. Free 30 min. No pitch on the call.",
 
   citations: [
     { label: "Insurance Journal — Big 'I' 2025 Market Share", url: "https://www.insurancejournal.com/news/national/2025/07/23/832819.htm" },

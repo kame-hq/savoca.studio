@@ -110,9 +110,9 @@ export const plumbingElectrical: PlaybookContent = {
   caseStudyBody:
     "A 3-truck plumbing shop in Cedar Park reduced after-hours missed calls 71% and converted three previously-lost emergency calls into water heater installs averaging $3,200 each in their first 30 days using moves 01 and 02. Full breakdown — voicemail audit findings, exact SMS auto-reply copy, dispatch SLA — will be published here once the 90-day data set closes. Want to be the next case study? Book a 30-minute audit.",
 
-  ctaHeadline: "PE is buying your neighbor. They'll buy you next — or they won't.",
+  ctaHeadline: "The buyers are shopping your neighbor. They'll shop you next — or they won't.",
   ctaBody:
-    "Apex, Champions, Climate Solutions, Evolution — they're all shopping in Texas. The shops getting bought are the ones with clean ops. The 30-min audit is free. We pull your call data, your dispatch logs, your AR cycle, and we tell you in dollars what each leak is costing. If we can't find $5K/mo of recoverable revenue, you don't owe us anything. If we can — we show you exactly which of these four moves to run first.",
+    "Apex, Champions, Climate Solutions, Evolution — they're all shopping in Texas. The shops they're paying premium for have clean call answer rates, tight dispatch, and predictable AR. 30 minutes — I pull your call data, your dispatch logs, your AR cycle, and I show you in dollars where the next $110K of recoverable revenue lives and which of the four moves to run first. Free 30 min. No pitch on the call.",
 
   citations: [
     { label: "IBISWorld — Plumbers Industry", url: "https://www.ibisworld.com/united-states/industry/plumbers/1946/" },

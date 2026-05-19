@@ -112,7 +112,7 @@ export const dental: PlaybookContent = {
 
   ctaHeadline: "Don't sell to a DSO. Run like one.",
   ctaBody:
-    "The DSOs aren't beating you on clinical care. They're beating you on operations. The 30-min audit is free. We pull your call log, recall report, and no-show data, and we tell you in dollars what each leak is costing. If we can't find $5K/mo of recoverable revenue, you don't owe us anything. If we can — we show you exactly which of these four moves to run first.",
+    "The DSOs aren't beating you on clinical care. They're beating you on operations. The 30-min discovery call is free. We pull your call log, recall report, and no-show data, and we tell you in dollars what each leak is costing. We show you exactly which of these four moves to run first.",
 
   citations: [
     { label: "ADA HPI — Trends in Dentist Income", url: "https://www.ada.org/resources/research/health-policy-institute/dental-practice-research/trends-in-dentist-income" },

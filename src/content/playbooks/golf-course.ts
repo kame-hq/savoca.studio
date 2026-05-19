@@ -132,7 +132,7 @@ export const golfCourse: PlaybookContent = {
   ctaHeadline:
     "Four operator moves. Nine months. Same course.",
   ctaBody:
-    "The gap between an independent course and a well-run one is four operator moves. Card-on-file holds with an auto-rebook waitlist. GHIN wired into member engagement. In-cart F&B ordering on Tagmarshal screens. Sub-1-hour outing SLA on Tripleseat. The well-run courses run all four. 30 minutes — I walk the proshop, pull your foreUP or Lightspeed tee-sheet data from the last 90 days, your member retention report, your outings inbox response times, and I show you where the next $270K of cash and $333K of member revenue lives. No deck. No pitch. If I can't find $200K of recoverable revenue inside the four moves, you don't owe me anything. If I can — I show you which one pays back first, in the order that lands before the next aerification window.",
+    "The gap between an independent course and a well-run one is four operator moves. Card-on-file holds with an auto-rebook waitlist. GHIN wired into member engagement. In-cart F&B ordering on Tagmarshal screens. Sub-1-hour outing SLA on Tripleseat. The well-run courses run all four. 30 minutes — I walk the proshop, pull your foreUP or Lightspeed tee-sheet data from the last 90 days, your member retention report, your outings inbox response times, and I show you where the next $270K of cash and $333K of member revenue lives. No deck. No pitch. I show you which of the four moves pays back first, in the order that lands before the next aerification window.",
 
   citations: [
     { label: "NGF — Course Economics in the Experience Era (revenue-per-round benchmarks, $1B no-show opportunity)", url: "https://www.ngf.org/short-game/course-economics-in-the-experience-era/" },

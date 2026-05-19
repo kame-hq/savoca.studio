@@ -38,7 +38,7 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Savoca Studio — No revenue left behind.",
   description:
-    "Savoca Studio builds the operating layer between demand and delivery for service businesses — the systems that move revenue from first contact to finished job. Capture more demand. Respond faster. Deliver without dropping the ball. Prove the return.",
+    "Savoca Studio builds the systems that move revenue from first contact to finished job for service businesses. Capture more demand. Respond faster. Deliver without dropping the ball. Prove the return.",
 };
 
 export default function RootLayout({

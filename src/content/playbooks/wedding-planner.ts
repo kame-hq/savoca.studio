@@ -28,7 +28,7 @@ export const weddingPlanner: PlaybookContent = {
     },
     {
       value: "391×",
-      label: "conversion lift from 1-min vs 30-min response (Velocify)",
+      label: "more likely to convert at 1-min vs 30-min response (Velocify)",
       source: "Wedy Pro",
     },
     {
@@ -73,7 +73,7 @@ export const weddingPlanner: PlaybookContent = {
     {
       number: "01",
       title: "Auto-fire response within 60 seconds of inquiry",
-      body: "The single highest-leverage move. Wire your HoneyBook / Dubsado / Aisle Planner inquiry form to fire an SMS + email auto-reply inside 60 seconds: 'Got it — you're not in a black hole. I'm reviewing your date + vision now and you'll have a real response inside the hour.' That alone moves you out of the 'never heard back' bucket where 40% of couples are losing you to a competitor.",
+      body: "The single highest-payoff move. Wire your HoneyBook / Dubsado / Aisle Planner inquiry form to fire an SMS + email auto-reply inside 60 seconds: 'Got it — you're not in a black hole. I'm reviewing your date + vision now and you'll have a real response inside the hour.' That alone moves you out of the 'never heard back' bucket where 40% of couples are losing you to a competitor.",
     },
     {
       number: "02",
@@ -110,7 +110,7 @@ export const weddingPlanner: PlaybookContent = {
 
   ctaHeadline: "Stop losing weddings to faster competitors.",
   ctaBody:
-    "If any of this is hitting close, the 30-min audit is free. We pull your inquiry log, your response times, your conversion-by-source data, and tell you in dollars exactly which lead you lost last month to whoever replied faster. No pitch, no deck. If we can't find $5K/mo of recoverable booking revenue, you don't owe me anything.",
+    "If any of this is hitting close, the 30-min walkthrough is free. I pull your inquiry log, your response times, your conversion-by-source data, and I show you in dollars where the next $100K of recoverable booking revenue lives and which of the four moves to wire before engagement season closes. Free 30 min. No pitch on the call.",
 
   citations: [
     { label: "IBISWorld — US Wedding Planners Industry", url: "https://www.ibisworld.com/united-states/industry/wedding-planners/4412/" },

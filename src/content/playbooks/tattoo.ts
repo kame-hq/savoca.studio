@@ -24,7 +24,7 @@ export const tattoo: PlaybookContent = {
     },
     {
       value: "21×",
-      label: "conversion lift on DMs answered in <5 min vs >30 min",
+      label: "more likely to convert when DMs are answered in <5 min vs >30 min",
       source: "Inrō / MIT speed-to-lead data",
     },
     {
@@ -54,7 +54,7 @@ export const tattoo: PlaybookContent = {
     { label: "Total annual leak", value: "= ~$56,000" },
   ],
   mathConclusion:
-    "That's the equivalent of a second studio's worth of work evaporating between your IG inbox and your tattoo chair. 90% recoverable. None of it requires more followers, more flash, or another guest spot.",
+    "That's the equivalent of a second artist's chair sitting empty in your room every year. 90% recoverable. None of it requires more followers, more flash, or another guest spot.",
 
   quotes: [
     {
@@ -80,7 +80,7 @@ export const tattoo: PlaybookContent = {
     {
       number: "02",
       title: "Hit the 5-min DM standard — automatically",
-      body: "Instagram is your funnel. Speed-to-lead determines whether the inquiry converts or ghosts. Wire ManyChat (free tier covers a solo artist) on IG DMs. Auto-reply within 60 seconds: 'Hey! Thanks for the message. I'll personally write back inside the hour. While you wait, my booking link + custom design intake form is here: [link].' The auto-acknowledge alone moves you out of the 4-hour-reply pile — and the 21× conversion lift kicks in.",
+      body: "Instagram is your funnel. Speed-to-lead determines whether the inquiry converts or ghosts. Wire ManyChat (free tier covers a solo artist) on IG DMs. Auto-reply within 60 seconds: 'Hey! Thanks for the message. I'll personally write back inside the hour. While you wait, my booking link + custom design intake form is here: [link].' The auto-acknowledge alone moves you out of the 4-hour-reply pile — and the 21× number kicks in.",
     },
     {
       number: "03",
@@ -113,7 +113,7 @@ export const tattoo: PlaybookContent = {
 
   ctaHeadline: "Stop tattooing into a leaky bucket.",
   ctaBody:
-    "If any of this is hitting close, the 30-min audit is free. We pull your DM response log, your no-show rate, your custom-design inquiry → deposit conversion, and your repeat-client rate — and tell you in dollars exactly which leak is costing what. No pitch. No deck. If we can't find $1,500/mo of recoverable revenue, you don't owe me anything. If we can — I show you which of these four moves to run first.",
+    "If any of this is hitting close, the 30-min walkthrough is free. I pull your DM response log, your no-show rate, your custom-design inquiry → deposit conversion, and your repeat-client rate, and I show you in dollars where the next $56K of recoverable revenue lives and which of the four moves to run first. Free 30 min. No pitch on the call.",
 
   citations: [
     { label: "IBISWorld — Tattoo Artists in the US Industry Report", url: "https://www.ibisworld.com/united-states/industry/tattoo-artists/4549/" },

@@ -53,7 +53,7 @@ export const enhancements: Record<string, Enhancement> = {
     differentiator: {
       eyebrow: "Why dental bleeds different",
       headline: "DSO consolidation pays premium for clean recall, not great clinical.",
-      body: "Owner share dropped from 84.7% (2005) to 72.5% (2023). DSO buyers value retention infrastructure 5–10× more than chair speed. The recall reactivation system you build TODAY is the multiple you sell on tomorrow — whether you sell or not.",
+      body: "Owner share dropped from 84.7% (2005) to 72.5% (2023). DSO buyers pay premium for retention infrastructure, not chair speed. The recall reactivation system you build today is what shows up on the offer letter tomorrow — whether you sell or not.",
       callout: "Don't sell to a DSO. Run like one.",
     },
   },
@@ -75,8 +75,8 @@ export const enhancements: Record<string, Enhancement> = {
     differentiator: {
       eyebrow: "Why HVAC bleeds different",
       headline: "The year is 16 weeks. PE buyers know it.",
-      body: "Cooling season compresses ~70% of revenue into 16 weeks. Capacity collapses. The shops being bought by Apex / Champions / Climate Solutions aren't the ones with newer trucks — they're the ones whose dispatch density survives peak. PE pays 5–6× EBITDA for clean ops, not for tools.",
-      callout: "PE doesn't pay for trucks. They pay for whether you answered the phone in July.",
+      body: "Cooling season compresses ~70% of revenue into 16 weeks. Capacity collapses. The shops being bought by Apex / Champions / Climate Solutions aren't the ones with newer trucks — they're the ones whose dispatch density survives peak. The buyers pay premium for clean ops, not for tools.",
+      callout: "Buyers don't pay for trucks. They pay for whether you answered the phone in July.",
     },
   },
 
