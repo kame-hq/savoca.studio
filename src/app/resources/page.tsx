@@ -8,7 +8,7 @@ import { VerticalLeaks } from "@/components/sections/vertical-leaks";
 export const metadata: Metadata = {
   title: "Playbooks — Savoca Studio",
   description:
-    "Vertical-specific playbooks for service businesses — where revenue leaks, by industry. Free. Field-tested. No fluff.",
+    "Vertical-specific playbooks for service businesses — where revenue leaks, by industry. Free. Field-tested.",
 };
 
 export default function ResourcesIndex() {
@@ -20,7 +20,7 @@ export default function ResourcesIndex() {
           <header className="mb-12 lg:mb-16">
             <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-steel inline-flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-money-2 inline-block" />
-              The Playbooks · Free · Operator-grade
+              The Playbooks · Free · Field-tested
             </span>
 
             <h1
@@ -32,9 +32,9 @@ export default function ResourcesIndex() {
             </h1>
 
             <p className="text-[18px] leading-[1.55] text-ink-2 max-w-2xl">
-              {playbookSlugs.length} vertical-specific RevOps playbooks. Industry
-              data, real operator language, four moves per playbook to plug the
-              leaks already sitting in your funnel. Free.
+              {playbookSlugs.length} vertical-specific RevOps playbooks.
+              Industry data, four moves per playbook, plug the leaks already
+              sitting in your funnel. Free.
             </p>
           </header>
 

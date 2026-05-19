@@ -26,18 +26,18 @@ const rows: Row[] = [
   { n: "03", slug: "hvac", icon: "house", name: "HVAC.", lines: ["Most demand hits after hours.", "You're closed when the phone rings.", "First to respond wins the job."] },
   { n: "04", slug: "plumbing-electrical", icon: "stack", name: "Plumbing & Electrical.", lines: ["Voicemail box says full.", "85% of callers don't leave one.", "The next plumber gets the job."] },
   { n: "05", slug: "personal-injury-law", icon: "compass", name: "Personal Injury Law.", lines: ["The wreck happened at 7pm.", "You picked up at 9am.", "They signed with Morgan & Morgan."] },
-  { n: "06", slug: "veterinary", icon: "net", name: "Veterinary.", lines: ["Half of bookings happen after hours.", "Your phone is closed. Corporate isn't.", "Independence is operational."] },
-  { n: "07", slug: "personal-trainer", icon: "arrow", name: "Personal Trainers.", lines: ["Empty slot. Same as no slot.", "DM sat 4 hours. They hired someone else.", "Pour more leads. Same leaky bucket."] },
+  { n: "06", slug: "veterinary", icon: "net", name: "Veterinary.", lines: ["Half of bookings happen after hours.", "Your phone is closed. Corporate's isn't.", "That's why corporate is winning."] },
+  { n: "07", slug: "personal-trainer", icon: "arrow", name: "Personal Trainers.", lines: ["Empty slot. Same as no slot.", "DM sat 4 hours.", "They hired someone else."] },
   { n: "08", slug: "wedding-planner", icon: "drop", name: "Wedding & Event Planners.", lines: ["40% of couples never hear back in 5 days.", "50% book the first reply.", "You lose on response time, not on craft."] },
-  { n: "09", slug: "chiropractic-pt", icon: "stack", name: "Chiropractic & PT.", lines: ["Retention plateaus at 40%.", "Top quartile hits 85%.", "Reactivation > acquisition."] },
+  { n: "09", slug: "chiropractic-pt", icon: "stack", name: "Chiropractic & PT.", lines: ["Retention plateaus at 40%.", "Top quartile hits 85%.", "Reactivating an old patient costs less than acquiring a new one."] },
   { n: "10", slug: "roofing", icon: "house", name: "Roofing.", lines: ["Storm hits. 320 calls in 72 hours.", "60% miss rate at peak.", "78% book whoever picks up first."] },
   { n: "11", slug: "real-estate", icon: "clipboard", name: "Real Estate Teams.", lines: ["Industry-average response: 15 hours.", "Best in class: 5 minutes.", "78% sign with the first agent."] },
   { n: "12", slug: "landscaping", icon: "net", name: "Landscaping & Lawn Care.", lines: ["70% of demand in a 12-week window.", "Crew runs OR phone answers.", "Spring decides the year."] },
   { n: "13", slug: "moving", icon: "arrow", name: "Moving Companies.", lines: ["Customers shop 3–5 movers.", "Book within 30 minutes.", "Whoever answers first wins 78%."] },
   { n: "14", slug: "insurance-agents", icon: "compass", name: "Insurance Agencies.", lines: ["Quote 3–4 agencies simultaneously.", "78% bind with first responder.", "Industry-avg response: 47 minutes."] },
-  { n: "15", slug: "pest-control", icon: "stack", name: "Pest Control.", lines: ["Owners think they answer 97%.", "Reality: 66%.", "The owner IS the bottleneck."] },
+  { n: "15", slug: "pest-control", icon: "stack", name: "Pest Control.", lines: ["Owners think they answer 97%.", "Reality: 66%.", "The owner is the bottleneck."] },
   { n: "16", slug: "pool-service", icon: "drop", name: "Pool Service.", lines: ["The missed call isn't $230 cleaning.", "It's a $1,500 pump replacement.", "Repair is where margin lives."] },
-  { n: "17", slug: "mental-health", icon: "net", name: "Mental Health & Therapy.", lines: ["11pm inquiry. 48-hour callback.", "Not a lost lead — someone who didn't get help.", "Continuity is the operating metric."] },
+  { n: "17", slug: "mental-health", icon: "net", name: "Mental Health & Therapy.", lines: ["11pm inquiry. 48-hour callback.", "Not a lost lead — someone who didn't get help.", "They don't come back at 9am."] },
 ];
 
 export function VerticalLeaks() {

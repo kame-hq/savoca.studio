@@ -8,7 +8,7 @@ import { SVInitial } from "@/components/brand/v2";
 export const metadata: Metadata = {
   title: "Portfolio — Savoca Studio",
   description:
-    "Real RevOps builds for service operators. The systems behind the businesses.",
+    "RevOps builds for service businesses. The systems behind the businesses.",
 };
 
 export default function PortfolioIndex() {
@@ -20,21 +20,21 @@ export default function PortfolioIndex() {
           <header className="mb-12 lg:mb-16">
             <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-steel inline-flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-money-2 inline-block" />
-              The Portfolio · Operators in motion
+              The Portfolio · Built, shipped, running
             </span>
 
             <h1
               className="font-serif text-[clamp(48px,8vw,96px)] leading-[0.95] tracking-[-0.035em] text-ink mt-6 mb-6 max-w-4xl"
               style={{ fontVariationSettings: '"opsz" 144' }}
             >
-              Systems built for
-              <span className="text-money italic"> real operators.</span>
+              The systems behind
+              <span className="text-money italic"> the businesses.</span>
             </h1>
 
             <p className="text-[18px] leading-[1.55] text-ink-2 max-w-2xl">
-              Every build solves the same problem in a different vertical — stop
-              losing revenue between the cracks. No template work, no agency
-              theater, no recurring lock-in unless it earns its keep.
+              Same problem in every vertical — revenue leaking between the
+              capture and the close. Each build below plugs the leak for a
+              specific shop. No template work.
             </p>
           </header>
 

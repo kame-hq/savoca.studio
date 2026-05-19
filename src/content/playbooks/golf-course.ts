@@ -6,20 +6,20 @@ export const golfCourse: PlaybookContent = {
   verticalShort: "Golf Course",
   title: "The Revenue Per Round Playbook",
   subtitle:
-    "Why a typical Austin / Round Rock semi-private course leaks $200–270K of cash a year and another $333K of compounding member LTV — and the four operator moves PE rollups install in the first 90 days post-acquisition.",
+    "Why a typical Austin / Round Rock semi-private course leaks $200–270K of cash a year and another $333K of member revenue it keeps losing to churn — and the four operator moves that close the gap.",
   edition: "18 / Golf Course Edition / 2026",
 
   introBody:
-    "Demand has never been higher. NGF logged 545 million rounds in 2024 — a fifth straight year over 500M. Texas tips the supply-demand balance further: waitlists at Forest Creek, Avery Ranch, Falconhead, Hills of Lakeway, Barton Creek. And while the demand line goes up, the operating line at the independent course goes sideways: 18–22% annual dues churn, 9–12% weekend no-shows, F&B capture stuck at $8–15 per round against an industry potential of $22–28, outing inquiries that die in voicemail. Meanwhile Arcis just took The Woodlands Country Club — its 15th Texas acquisition in 3 years, 22 TX properties total. Bain paid $1.3 billion for Concert Golf in November. KSL bought Invited in May. This playbook is for the GM, head pro, or owner who's tired of being told to 'do more marketing' and wants to look at the operating layer between demand and delivery — the part PE rollups arbitrage at 6–9× EBITDA, and the part independents are leaving on the table.",
+    "Demand has never been higher. NGF logged 545 million rounds in 2024 — a fifth straight year over 500M. Texas tips it further: waitlists at Forest Creek, Avery Ranch, Falconhead, Hills of Lakeway, Barton Creek. And while the demand line goes up, the operating line at the independent course goes sideways: 18–22% annual dues churn, 9–12% weekend no-shows, F&B capture stuck at $8–15 per round against an industry potential of $22–28, outing inquiries that die in voicemail. Arcis took its 15th Texas property in May. Bain bought Concert Golf in November. The rollups aren't a threat — they're proof the moves work. This playbook is for the GM, head pro, or owner who's tired of being told to 'do more marketing' and wants to look at the gap between an independent course and a well-run one.",
 
   patternHeadline: "Full sheet. Light till.",
   patternBody:
-    "Three structural leaks define an independent course P&L in 2026. F&B capture per round runs $8–15 against a $22–28 industry potential — at 60% gross margin on the bev cart, that gap is $270K of profit a year on a 45,000-round book. Member dues churn runs 18–22% with zero structured engagement between intake and renewal notice — every five points of churn cut preserves $333K of LTV on a 600-member book. Tee-time no-shows run 9–12% on weekend mornings (15%+ in summer) because most courses still confirm by phone with no card on file. And while the independent leaks, Arcis, Concert (now Bain), Invited (now KSL), and Troon own 500+ clubs between them and install the exact operating fix in the first 90 days post-acquisition. The rollup isn't the threat. The rollup is the proof — the four moves that doubled Concert's EBITDA in 3 years are off-the-shelf, and you don't need a $1.3 billion check to install them.",
+    "Three leaks. Same course. F&B capture per round runs $8–15 against a $22–28 industry potential — at 60% gross margin on the bev cart, that gap is $270K of profit a year on a 45,000-round book. Member dues churn runs 18–22% with no structured engagement between intake and renewal notice — every five points of churn cut keeps $333K of LTV on a 600-member book. Tee-time no-shows run 9–12% on weekend mornings (15%+ in summer) because most courses still confirm by phone with no card on file. The well-run courses — Arcis, Concert (now Bain), Invited (now KSL), Troon — fix all three in their first 90 days. The moves aren't proprietary. You don't need a $1.3 billion check to run them.",
   patternStats: [
     {
       value: "30¢",
       label:
-        "Total revenue gap per green-fee dollar. Independent earns $1.15 — well-run earns $1.45. That's the math PE rollups use to size acquisitions.",
+        "Revenue gap per green-fee dollar. Independent course earns $1.15. Well-run course earns $1.45. Four operator moves close the gap.",
       source: "NGF — Course Economics in the Experience Era",
     },
     {
@@ -31,19 +31,19 @@ export const golfCourse: PlaybookContent = {
     {
       value: "18–22%",
       label:
-        "Annual member dues churn at private and semi-private clubs. Every 5-point cut preserves $333K of 5-yr LTV.",
+        "Annual member dues churn at private and semi-private clubs. Every 5-point cut keeps $333K of 5-year member revenue.",
       source: "GGA Partners / Club Benchmarking 2024",
     },
     {
       value: "$1.3B",
       label:
-        "Bain paid for Concert Golf, Nov 2025. 14 clubs acquired in 3 years, revenue doubled, EBITDA doubled. Arcis just took Woodlands CC — 15th TX acquisition.",
+        "Bain paid for Concert Golf in November. 14 clubs in 3 years, revenue doubled. Arcis took Woodlands CC in May — its 15th Texas property.",
       source: "Bain Capital + D CEO Magazine, May 2025",
     },
   ],
 
   mathHeadline:
-    "$270K cash this year. $333K of preserved member LTV.",
+    "$270K cash this year. $333K of member revenue you keep instead of losing to churn.",
   mathBody:
     "Representative independent Austin semi-private: ~45,000 rounds/year, 600 active members at $185/mo dues — a $1.33M recurring book on top of $2.7M in green-fee revenue. Four leaks at this scale:",
   mathRows: [
@@ -52,8 +52,8 @@ export const golfCourse: PlaybookContent = {
       value: "= $270K profit",
     },
     {
-      label: "Member churn — cut 15% to 10%. 30 members saved × $11,100 of 5-yr LTV each.",
-      value: "= $333K preserved",
+      label: "Member churn — cut 15% to 10%. 30 members kept × $11,100 of 5-year dues each.",
+      value: "= $333K",
     },
     {
       label: "Tee-time no-shows — 11% on 18K weekend rounds × $72. Auto-rebook fills half.",
@@ -69,7 +69,7 @@ export const golfCourse: PlaybookContent = {
     },
   ],
   mathConclusion:
-    "$270K of cash recovered in year one. $333K of compounding member LTV preserved on top. None of it needs a renovation, a tournament sponsor, or a new logo. Your independent course earns $1.15 of total revenue for every $1.00 of green fees. A well-run course earns $1.45. The 30-cent gap is four operator moves — and nine months of installation.",
+    "$270K of cash recovered in year one. $333K of member revenue kept on top. No renovation, no tournament sponsor, no new logo. The gap between an independent course and a well-run one is four operator moves and nine months of installation.",
 
   quotes: [
     {
@@ -94,8 +94,8 @@ export const golfCourse: PlaybookContent = {
     },
     {
       number: "02",
-      title: "Weaponize GHIN as the member retention engine",
-      body: "Most clubs treat GHIN as a record-keeping cost. The clubs that keep members use it as the spine of their engagement layer. GHIN is the largest handicapping service in the world (USGA, mandatory for member competition) and sits unused on the desktop. Wire GHIN sync into your tee sheet — Foreup, Clubessential, and Club Prophet all support it natively; Golf Genius runs the tournament layer on top — and use it to build flighted member-vs-member ladders, season-long handicap-improvement leaderboards, weekly group-low-net contests, all auto-rolled from the tee sheet. Pair with a 60 / 90 / 270 onboarding touch sequence — Day 60 head-pro check-in, Day 90 first guest pass, Day 270 pre-renewal coffee with the GM, not a renewal notice. Structured onboarding lifts 90-day retention from 68% to 85% (Club Solutions 2024). Cutting Y1 churn from 15% to 10% on a 600-member book preserves $333K of LTV every year. The free retention engine is sitting on the desk you're already paying for.",
+      title: "Use GHIN as the retention engine",
+      body: "Most clubs treat GHIN as a record-keeping cost. The clubs that keep members use it as the core of their member-engagement program. GHIN is the largest handicapping service in the world (USGA, mandatory for member competition) and sits unused on the desktop. Wire GHIN sync into your tee sheet — Foreup, Clubessential, and Club Prophet all support it natively; Golf Genius runs the tournament layer on top — and use it to build flighted member-vs-member ladders, season-long handicap-improvement leaderboards, weekly group-low-net contests, all auto-rolled from the tee sheet. Pair with a 60 / 90 / 270 onboarding touch sequence — Day 60 head-pro check-in, Day 90 first guest pass, Day 270 pre-renewal coffee with the GM, not a renewal notice. Structured onboarding lifts 90-day retention from 68% to 85% (Club Solutions 2024). Cutting Y1 churn from 15% to 10% on a 600-member book keeps $333K of dues every year. The retention engine is already on the desk you're paying for.",
     },
     {
       number: "03",
@@ -110,7 +110,7 @@ export const golfCourse: PlaybookContent = {
   ],
 
   toolsBody:
-    "Your tee sheet, POS, member-mgmt stack, and GHIN sync already exist. The question is whether the right features are turned on. Auto-rebook waitlists, card-on-file holds, GHIN-driven competitions, in-cart F&B ordering, and outing-CRM SLAs all live inside the off-the-shelf software a typical independent already pays for — most operators never flip the switches. The PE rollups (Arcis, Concert, Invited, Troon) install the same stack on Day 1 post-acquisition.",
+    "Your tee sheet, POS, member-mgmt stack, and GHIN sync already exist. The question is whether the right features are turned on. Auto-rebook waitlists, card-on-file holds, GHIN-driven competitions, in-cart F&B ordering, and outing-CRM SLAs all live inside the software a typical independent already pays for — most operators never flip the switches. Arcis, Concert, Invited, and Troon all run the same stack on Day 1.",
   toolsList: [
     "Foreup — tee sheet + member mgmt + GHIN sync + marketing automation (~1,700 NA clients)",
     "Lightspeed Golf (Chronogolf legacy) — tee sheet + POS + F&B",
@@ -125,14 +125,14 @@ export const golfCourse: PlaybookContent = {
     "Tripleseat / Event-Temple / Cloudbeds — outing + banquet CRM with SLA tracking ($89–149/mo)",
   ],
 
-  caseStudyHeadline: "Forest Creek pilot — closing the RevPOTT gap on a 45K-round semi-private.",
+  caseStudyHeadline: "Forest Creek pilot — closing the revenue-per-round gap on a 45K-round semi-private.",
   caseStudyBody:
-    "A semi-private 18-hole Round Rock course (~200 active members, ~45,000 rounds/year) is the planned 2026 pilot for the four-move stack: card-on-file holds via Foreup, GHIN-weaponized member engagement through Golf Genius + Clubessential, in-cart F&B + Tagmarshal cart-screen attach with Toast halfway POS, and sub-1-hour outing SLA on Tripleseat. The full operational diff — exact Foreup card-hold configuration, GHIN flight-build template, Tagmarshal halfway-house menu sync, Tripleseat outing-quote template — will be published when the 90-day data closes. Want to be the next case study? Book a 30-minute walk-the-course conversation.",
+    "A semi-private 18-hole Round Rock course (~200 active members, ~45,000 rounds/year) is the planned 2026 pilot for the four-move stack: card-on-file holds via Foreup, GHIN-driven member engagement through Golf Genius + Clubessential, in-cart F&B + Tagmarshal cart-screen attach with Toast halfway POS, and sub-1-hour outing SLA on Tripleseat. The full operational diff — exact Foreup card-hold configuration, GHIN flight-build template, Tagmarshal halfway-house menu sync, Tripleseat outing-quote template — will be published when the 90-day data closes. Want to be the next case study? Book a 30-minute walk-the-course conversation.",
 
   ctaHeadline:
-    "Close the 30-cent gap before the next consolidation wave.",
+    "Four operator moves. Nine months. Same course.",
   ctaBody:
-    "Bain Capital paid $1.3 billion for Concert Golf in November. Concert had doubled revenue and EBITDA across 14 acquisitions in 3 years. In May, Arcis took The Woodlands Country Club from Invited — their 15th acquisition in 3 years, 22 TX properties. KSL bought Invited in May. The independent courses getting acquired all earn $1.45 of total revenue per $1.00 of green fees. The ones holding at $1.15 are getting offers they can't refuse and don't have the leverage to negotiate. 30 minutes — I walk the proshop, pull your foreUP or Lightspeed tee-sheet data from the last 90 days, your member retention report, your outings inbox response times, and I show you in dollars exactly where the next $270K of cash and $333K of preserved member LTV lives. No deck. No pitch. If I can't find $200K of recoverable revenue inside the four operator moves, you don't owe me anything. If I can — I show you which one pays back first, in the order that lands before the next aerification window.",
+    "The gap between an independent course and a well-run one is four operator moves. Card-on-file holds with an auto-rebook waitlist. GHIN wired into member engagement. In-cart F&B ordering on Tagmarshal screens. Sub-1-hour outing SLA on Tripleseat. The well-run courses run all four. 30 minutes — I walk the proshop, pull your foreUP or Lightspeed tee-sheet data from the last 90 days, your member retention report, your outings inbox response times, and I show you where the next $270K of cash and $333K of member revenue lives. No deck. No pitch. If I can't find $200K of recoverable revenue inside the four moves, you don't owe me anything. If I can — I show you which one pays back first, in the order that lands before the next aerification window.",
 
   citations: [
     { label: "NGF — Course Economics in the Experience Era (revenue-per-round benchmarks, $1B no-show opportunity)", url: "https://www.ngf.org/short-game/course-economics-in-the-experience-era/" },

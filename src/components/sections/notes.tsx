@@ -79,7 +79,7 @@ export function Notes() {
             fontWeight: 400,
           }}
         >
-          Hustle patches it for a week. A system fixes it for good.
+          A scramble patches it for a week. A system fixes it for good.
         </Reveal>
       </ol>
     </section>

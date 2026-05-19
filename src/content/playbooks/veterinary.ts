@@ -6,20 +6,20 @@ export const veterinary: PlaybookContent = {
   verticalShort: "Vet Practice",
   title: "The Per-Doctor Productivity Playbook",
   subtitle:
-    "Why a typical 2-DVM Austin practice leaks $197K of cash and another $760K of preserved 5-year client LTV a year — and the four operator moves that make two doctors do three doctors' work, because Mars can pay your next associate $16,500 more than you can in signing bonus alone.",
+    "Why a typical 2-DVM Austin practice leaks $197K of cash and another $760K of 5-year client revenue a year — and the four operator moves that get two doctors doing three doctors' work, because Mars can pay your next associate $16,500 more than you can in signing bonus alone.",
   edition: "17 / Veterinary Edition / 2026",
 
   introBody:
-    "Independent vet practices are winning the customer fight (+5% revenue YoY on Vetsource's 8,000-clinic dataset) and losing the talent fight. The corporate signing bonus average runs $27,181 — present in 81% of new-grad offers — vs $10,678 at independents, present in only 42% of offers. That's a $16,500 wage premium an independent shop literally cannot match on cash. Meanwhile Thrive Pet Healthcare — headquartered at 211 Walter Seaholm Drive in Austin, 5 miles from your practice — runs 360-400 hospitals and just raised $350M in March. Mars Petcare owns VCA (1,000+ hospitals), Banfield (1,000+), and BluePearl specialty (250+). NVA sits inside JAB Investors with 1,400+. Ethos spun out specialty in 2023, 145 hospitals. PE multiples: 5-7× for solo, 8-13× for multi-doc mid-size, 12-15× for premium. The independent can't outbid Mars on signing bonus. They can outbuild Mars on operating leverage — making two doctors do three doctors' work. This playbook is for the owner who's tired of being told to 'just hire faster' and wants to look at the operating layer between the lobby and the chart.",
+    "Independent vet practices are winning the customer fight (+5% revenue YoY on Vetsource's 8,000-clinic dataset) and losing the talent fight. The corporate signing bonus average runs $27,181 — present in 81% of new-grad offers — vs $10,678 at independents, present in only 42% of offers. That's a $16,500 wage premium an independent shop literally cannot match on cash. Meanwhile Thrive Pet Healthcare — headquartered at 211 Walter Seaholm Drive in Austin, 5 miles from your practice — runs 360-400 hospitals and just raised $350M in March. Mars Petcare owns VCA (1,000+ hospitals), Banfield (1,000+), and BluePearl specialty (250+). NVA sits inside JAB Investors with 1,400+. Ethos spun out specialty in 2023, 145 hospitals. The independent can't outbid Mars on signing bonus. They can outwork Mars on tighter operations — two doctors doing three doctors' work. This playbook is for the owner who's tired of being told to 'just hire faster' and wants to look at the gap between the lobby and the chart.",
 
   patternHeadline: "Two doctors. Three doctors' work.",
   patternBody:
-    "Four leaks define an independent practice P&L in 2026. The wage gap is the spine: Mars/VCA/Thrive pay $27,181 average signing bonus, independents $10,678 (when they pay at all). You can't beat the corporate on cash — you can only beat them on operating leverage. The visit-interval stretch is the second: AVMA's 2025 data shows the average client now goes 85.8 days between visits, up from 57.6 days in 2018 — a 48% stretch. Active clients per practice are losing 95/year. The relationship isn't leaking at the phone. It's decaying at the calendar. The pet-insurance arbitrage is the third — only 4% of US pets are insured, but Trupanion's data shows insured pets visit 80% more and spend 2× more. Practices that push insurance enrollment hard outearn the ones that don't by 30%+ on ARPU. And the after-hours triage gap is the fourth: 40% of after-hours calls go nowhere because generic answering services can't triage medical urgency. The rollups install all four of these in the first 90 days post-acquisition. The independents who close them keep their doors open. The ones who don't sell at 5-7× — to Thrive, five miles down the road.",
+    "Four leaks define an independent practice P&L in 2026. The wage gap is the heart of it: Mars/VCA/Thrive pay $27,181 average signing bonus, independents $10,678 (when they pay at all). You can't beat the corporate on cash — you can only beat them on tighter operations. The visit-interval stretch is the second: AVMA's 2025 data shows the average client now goes 85.8 days between visits, up from 57.6 days in 2018 — a 48% stretch. Active clients per practice are losing 95/year. The relationship isn't leaking at the phone. It's decaying at the calendar. The pet-insurance gap is the third — only 4% of US pets are insured, but Trupanion's data shows insured pets visit 80% more and spend 2× more. Practices that push insurance enrollment outearn the ones that don't by 30%+ on revenue per client. And the after-hours triage gap is the fourth: 40% of after-hours calls go nowhere because generic answering services can't triage medical urgency. The rollups install all four of these on Day 1. The independents who close them keep their doors open. The ones who don't sell at 5-7× — to Thrive, five miles down the road.",
   patternStats: [
     {
       value: "$16,503",
       label:
-        "Wage gap on a single new-grad DVM hire. Corporate signing bonus avg $27,181 (81% of offers) vs independent $10,678 (42% of offers). You can't outbid Mars on cash. You can outbuild them on operating leverage.",
+        "Wage gap on a single new-grad DVM hire. Corporate signing bonus avg $27,181 (81% of offers) vs independent $10,678 (42% of offers). You can't outbid Mars on cash. You can outwork them on tighter operations.",
       source: "Robert Chelle — Veterinary Associate Bonus Structures 2025",
     },
     {
@@ -42,7 +42,7 @@ export const veterinary: PlaybookContent = {
     },
   ],
 
-  mathHeadline: "$197K of cash. $760K of preserved client LTV.",
+  mathHeadline: "$197K of cash. $760K of client revenue you keep.",
   mathBody:
     "Representative independent Austin 2-DVM practice: ~$1.95M gross revenue, ~3,350 active clients, $622 average revenue per client (AVMA 2025), 22% no-show on procedures, ~4% insurance penetration, no automated recall sequence. Four leaks at this scale:",
   mathRows: [
@@ -59,7 +59,7 @@ export const veterinary: PlaybookContent = {
       value: "= $39,000",
     },
     {
-      label: "Pet-insurance ARPU lift — Trupanion vet-portal direct-pay, 4% → 12% penetration × 80% visit lift × $622 ARPU",
+      label: "Pet-insurance lift — Trupanion vet-portal direct-pay, 4% → 12% penetration × 80% visit lift × $622 revenue per client",
       value: "= $60,000",
     },
     {
@@ -68,7 +68,7 @@ export const veterinary: PlaybookContent = {
     },
   ],
   mathConclusion:
-    "$197K of cash recovered in year one. $760K of preserved 5-year client LTV on top, sitting in the clients who otherwise drift to Banfield down the road. Mars can pay your next DVM $16,500 more than you can in signing bonus alone — and Thrive is HQ'd 5 miles down Walter Seaholm. You can't compete on the bonus. You can compete on the operating layer that makes two doctors look like three. That's what Thrive is buying for 8-13× EBITDA.",
+    "$197K of cash recovered in year one. $760K of 5-year client revenue kept on top — sitting in the clients who otherwise drift to Banfield down the road. Mars can pay your next DVM $16,500 more than you can in signing bonus alone, and Thrive is five miles down Walter Seaholm. You can't compete on the bonus. You can compete by getting two doctors doing three doctors' work.",
 
   quotes: [
     {
@@ -98,8 +98,8 @@ export const veterinary: PlaybookContent = {
     },
     {
       number: "03",
-      title: "Pet-insurance acceleration via Trupanion vet-portal direct-pay",
-      body: "US pet insurance penetration is 4% nationally. The independent practices winning the ARPU game push it to 12%+ on their book and watch revenue per active client jump 30-50%. Mechanism: insured pets visit 80% more often and spend 2× per visit (NAPHIA + Trupanion data). The move: front-desk pushes Trupanion enrollment at every new-patient + every wellness visit (Trupanion offers vet-portal enrollment with same-day coverage), clinic accepts Trupanion direct-pay claims at checkout (no client reimbursement friction), ezyVet has a native Trupanion integration that handles claim submission inline with billing. On a 3,350-client book moved from 4% → 12% insured = 268 newly-insured pets × $622 ARPU × 80% visit lift = $60K of incremental revenue from clients you already have. Vet-only lever: no other vertical has a payer-aligned ARPU multiplier on the existing book.",
+      title: "Pet-insurance enrollment via Trupanion vet-portal direct-pay",
+      body: "US pet insurance penetration is 4% nationally. The independent practices winning the revenue-per-client game push it to 12%+ on their book and watch revenue per active client jump 30-50%. Mechanism: insured pets visit 80% more often and spend 2× per visit (NAPHIA + Trupanion data). The move: front-desk pushes Trupanion enrollment at every new-patient + every wellness visit (Trupanion offers vet-portal enrollment with same-day coverage), clinic accepts Trupanion direct-pay claims at checkout (no client reimbursement friction), ezyVet has a native Trupanion integration that handles claim submission inline with billing. On a 3,350-client book moved from 4% → 12% insured = 268 newly-insured pets × $622 revenue per client × 80% visit lift = $60K of incremental revenue from clients you already have. Vet-only lever: no other vertical has a payer-aligned visit multiplier on the existing book.",
     },
     {
       number: "04",
@@ -109,7 +109,7 @@ export const veterinary: PlaybookContent = {
   ],
 
   toolsBody:
-    "Your practice management system (PIMS), client comm layer, and answering stack already exist. Thrive, Mars/VCA, and NVA standardize the same operating stack on Day 1 post-acquisition. The question is whether you've turned on the features you already pay for.",
+    "Your practice management system (PIMS), client comm layer, and answering stack already exist. Thrive, Mars/VCA, and NVA standardize the same setup on Day 1. The question is whether you've turned on the features you already pay for.",
   toolsList: [
     "ezyVet — cloud-native PIMS, strong on integrations (Trupanion, PetDesk, GuardianVets all native)",
     "Cornerstone (IDEXX) — legacy practice-mgmt standard, Vello reminder layer",
@@ -128,9 +128,9 @@ export const veterinary: PlaybookContent = {
     "A 2-DVM Austin practice (~3,350 active clients, ~$1.95M gross revenue) is the planned 2026 pilot for the four-move stack: PetDesk lapsed-wellness recall wired into ezyVet on the 85-day window, three-touch no-show stack with deposit-on-procedure, Trupanion vet-portal direct-pay enrollment SOP, and GuardianVets after-hours medical triage. The full operational diff — PetDesk recall template, ezyVet deposit rule, Trupanion enrollment script, GuardianVets routing config — will be published when the 90-day data closes. Want to be the next case study? Book a 30-minute audit.",
 
   ctaHeadline:
-    "Mars can pay your next DVM $16,500 more than you can. You can't compete on the bonus. You can compete on the operating layer.",
+    "Mars can pay your next DVM $16,500 more than you can. You can't compete on the bonus. You can compete by getting two doctors doing three doctors' work.",
   ctaBody:
-    "Thrive Pet Healthcare is headquartered at 211 Walter Seaholm Drive — five miles from you. They raised $350M in March, run 360-400 hospitals, and pay $27,181 average signing bonus to new-grad DVMs. Mars Petcare owns VCA (1,000+), Banfield (1,000+), and BluePearl (250+). NVA sits inside JAB Investors with 1,400+. Ethos spun out specialty in 2023 with 145 hospitals. PE multiples: 5-7× for solo, 8-13× for multi-doc mid-size, 12-15× for premium. The independents getting bid at 12-15× all close the wage gap with operating leverage — two doctors doing three doctors' work. The ones still on paper recall lists are selling at 5-7×, or watching clients drift to the Banfield down the road. 30 minutes — I walk the lobby, pull your ezyVet or Cornerstone data, your recall list, your no-show rate, your insurance penetration, your after-hours call log. No deck. No pitch. If I can't find $150K of recoverable revenue inside the four operator moves, you don't owe me anything. If I can — I show you which one pays back first, in the order that lands before your next associate-offer cycle.",
+    "Thrive Pet Healthcare is headquartered at 211 Walter Seaholm Drive — five miles from you. They raised $350M in March, run 360-400 hospitals, and pay $27,181 average signing bonus to new-grad DVMs. Mars Petcare owns VCA (1,000+), Banfield (1,000+), and BluePearl (250+). NVA sits inside JAB Investors with 1,400+. Ethos spun out specialty in 2023 with 145 hospitals. The independents who close the wage gap do it with tighter operations — same two doctors, more work done. The ones still on paper recall lists watch their clients drift to the Banfield down the road. 30 minutes — I walk the lobby, pull your ezyVet or Cornerstone data, your recall list, your no-show rate, your insurance penetration, your after-hours call log. No deck. No pitch. If I can't find $150K of recoverable revenue inside the four operator moves, you don't owe me anything. If I can — I show you which one pays back first, in the order that lands before your next associate-offer cycle.",
 
   citations: [
     { label: "AVMA — 2025 Economic State of the Profession (visit-interval + ARPU benchmarks)", url: "https://ebusiness.avma.org/files/productdownloads/002_AVMA_SotPReport25_NoPasswordPRO.pdf" },

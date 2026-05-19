@@ -6,15 +6,15 @@ export const poolService: PlaybookContent = {
   verticalShort: "Pool Service",
   title: "The Repair Margin Playbook",
   subtitle:
-    "Why a typical 4-truck Austin pool shop leaves $216K of profit on the same revenue — and the four operator moves SPS PoolCare (6 miles up the road) installed across 191 acquired shops in the first 90 days post-deal.",
+    "Why a typical 4-truck Austin pool shop leaves $216K of profit on the same revenue — and the four operator moves SPS PoolCare (6 miles up the road) runs across all 191 shops it has bought.",
   edition: "16 / Pool Service Edition / 2026",
 
   introBody:
-    "US pool service is $8.8B and fragmented — 78,000+ businesses, no player above 5% share. Texas alone: 1.1M residential pools, 2,100+ service companies. PE noticed early and never left. SPS PoolCare — headquartered six miles from your prospect in North Austin — closed its 191st acquisition on January 23 (Pool Troopers, $57M revenue, 16,182 accounts). Combined entity: $157M revenue, 42,000 weekly recurring services, 1,000+ employees, 19 markets, +65% earnings-power lift on integration. Splash (Asymmetric Capital) buys at 3-5× LTM EBITDA and exits at 12×+ — pulled straight from their published investor memo. The arbitrage isn't agronomy or chemistry. It's the operating standard the rollup installs in the first 90 days post-acquisition: repair attach, saltwater conversion, route density, missed-call capture. This playbook is for the owner who wants to build the book SPS is paying 12× exit multiples for — without waiting for the unsolicited offer.",
+    "US pool service is $8.8B and fragmented — 78,000+ businesses, no player above 5% share. Texas alone: 1.1M residential pools, 2,100+ service companies. SPS PoolCare — headquartered six miles from your prospect in North Austin — closed its 191st acquisition on January 23 (Pool Troopers, $57M revenue, 16,182 accounts). Combined entity: $157M revenue, 42,000 weekly recurring services, 1,000+ employees, 19 markets. The gap between an independent shop and a well-run one isn't agronomy or chemistry. It's the playbook the rollups run on Day 1: repair attach, saltwater conversion, route density, missed-call capture. This playbook is for the owner who wants to build the book SPS pays for — without waiting for the unsolicited offer.",
 
   patternHeadline: "The route runs. The repairs pay.",
   patternBody:
-    "Four leaks define an independent pool-service P&L in 2026. Service margins run 15-40%. Repair margins run 30-60% — and 42% of pros are actively expanding into repair this year (Skimmer 2026 State of Pool Service Report). The shops not pulling the repair lever are leaving the highest-margin revenue in the vertical on the table. Saltwater conversion is the second under-pulled lever: $2K-4.5K install, 60% margin, $1K-3K equipment add-on, and a salt-cell replacement annuity every 3-7 years at $600-1,500. Route density is the third — the densest operators hit 75 pools/truck vs the 60-pool average. And missed-call after-hours capture is the fourth — 85% of voicemailed pool callers never call back. Meanwhile SPS PoolCare is consolidating Texas market-by-market — Austin, DFW, Houston, Arlington — and the operating standard they install on Day 1 is exactly the four moves above. The rollup is the proof, not the threat.",
+    "Four leaks define an independent pool-service P&L in 2026. Service margins run 15-40%. Repair margins run 30-60% — and 42% of pros are actively expanding into repair this year (Skimmer 2026 State of Pool Service Report). The shops not pulling the repair lever are leaving the highest-margin revenue in the vertical on the table. Saltwater conversion is the second under-pulled lever: $2K-4.5K install, 60% margin, $1K-3K equipment add-on, and a salt-cell replacement annuity every 3-7 years at $600-1,500. Route density is the third — the densest operators hit 75 pools/truck vs the 60-pool average. And missed-call after-hours capture is the fourth — 85% of voicemailed pool callers never call back. SPS PoolCare is consolidating Texas market-by-market — Austin, DFW, Houston, Arlington — and the checklist they run on Day 1 is exactly the four moves above. The rollup is the proof, not the threat.",
   patternStats: [
     {
       value: "15-40% vs 30-60%",
@@ -31,7 +31,7 @@ export const poolService: PlaybookContent = {
     {
       value: "3-5× → 12×+",
       label:
-        "What Splash (Asymmetric Capital Partners) pays at acquisition vs the multiple they exit at — pulled from their published investor memo. The spread is the operating standard they install Day 1.",
+        "What Splash (Asymmetric Capital Partners) pays at acquisition vs the multiple they exit at — pulled from their published investor memo. The spread is the playbook they run on Day 1.",
       source: "Asymmetric Capital Partners — Splash investment memo",
     },
     {
@@ -68,7 +68,7 @@ export const poolService: PlaybookContent = {
     },
   ],
   mathConclusion:
-    "$216K of profit recovered on the same revenue. None of it requires new accounts, a fifth truck, or a price hike. SPS PoolCare is your neighbor. Splash buys independent shops at 3-5× LTM EBITDA and exits at 12×+. The 4-move gap is what they install in the first 90 days post-acquisition — the difference between selling at 4× and 12×, same shop.",
+    "$216K of profit recovered on the same revenue. None of it requires new accounts, a fifth truck, or a price hike. SPS PoolCare is your neighbor. Splash buys independent shops at 3-5× and exits at 12×+. The 4-move gap is what they run on Day 1 — the difference between selling at 4× and 12×, same shop.",
 
   quotes: [
     {
@@ -109,13 +109,13 @@ export const poolService: PlaybookContent = {
   ],
 
   toolsBody:
-    "Your route engine, billing system, repair workflow, and call layer already exist. SPS Texas, Splash, and every other consolidator install the same stack on Day 1 post-acquisition. The question is whether you've turned on the features you already pay for.",
+    "Your route engine, billing system, repair workflow, and call layer already exist. SPS Texas, Splash, and every other consolidator run the same stack on Day 1. The question is whether you've turned on the features you already pay for.",
   toolsList: [
     "Skimmer — route + chemistry + service-stop data, the industry standard for independents",
     "Pool Brain — route + customer mgmt, strong on chemistry tracking + repair workflow",
     "Pool Office Manager — accounting + scheduling, $200-500/mo, reporting-heavy",
     "HydroScribe — $200-500/mo, reporting-focused alternative",
-    "ServiceTitan — enterprise-tier, post-acquisition standard for SPS markets",
+    "ServiceTitan — enterprise-tier, standard at SPS-acquired shops",
     "Twilio — missed-call text-back, $0.01/text, integrates with everything",
     "Numa — AI receptionist, $300-500/mo, pool-vertical-aware",
     "PoolPhone / Specialty Answering — pool-trained answering services, book into Skimmer + Pool Brain",
@@ -127,9 +127,9 @@ export const poolService: PlaybookContent = {
     "A 4-truck Austin pool shop (~240 active accounts, ~$820K revenue) is the planned 2026 pilot for the four-move stack: Skimmer-tracked repair-attach SOP, saltwater conversion playbook with Pinch a Penny–competitive pricing, geo-routed density tightening, and Twilio text-back. The full operational diff — Skimmer equipment-age flagging template, saltwater conversion proposal template, Pool Brain density-routing rules, Twilio integration spec — will be published when the 90-day data closes. Want to be the next case study? Book a 30-minute audit.",
 
   ctaHeadline:
-    "Build the repair book SPS pays 12× exit multiples for — before they take your accounts on the bid.",
+    "Build the repair book SPS pays for — before they take your accounts on the bid.",
   ctaBody:
-    "SPS PoolCare is headquartered six miles from you. In January they closed their 191st acquisition (Pool Troopers, $57M revenue, 16,182 accounts) — combined $157M revenue, 42,000 weekly recurring services, 1,000+ employees across 19 markets, +65% earnings-power lift on integration. SPS Texas markets in press release: Austin, DFW, Houston, Arlington. Splash (Asymmetric Capital Partners) buys independent shops at 3-5× LTM EBITDA and exits at 12×+ — pulled from their published investor memo. The arbitrage isn't agronomy or chemistry. It's the operating standard. Repair attach. Saltwater conversion. Route density. Missed-call capture. The independent shops getting bid at 6×+ all hit those four first. 30 minutes — I ride your route board, pull your Skimmer or Pool Brain data, your equipment-age log, your repair-attach rate, your call log. No deck. No pitch. If I can't find $150K of recoverable profit inside the four operator moves, you don't owe me anything. If I can — I show you which one pays back first, in the order that lands before the May spring rush.",
+    "SPS PoolCare is headquartered six miles from you. In January they closed their 191st acquisition (Pool Troopers, $57M revenue, 16,182 accounts) — combined $157M revenue, 42,000 weekly recurring services, 1,000+ employees across 19 markets. SPS Texas markets in press release: Austin, DFW, Houston, Arlington. Splash (Asymmetric Capital Partners) buys independent shops at 3-5× and exits at 12×+ — pulled from their published investor memo. The gap isn't agronomy or chemistry. It's the playbook. Repair attach. Saltwater conversion. Route density. Missed-call capture. The independent shops getting bid at 6×+ all hit those four first. 30 minutes — I ride your route board, pull your Skimmer or Pool Brain data, your equipment-age log, your repair-attach rate, your call log. No deck. No pitch. If I can't find $150K of recoverable profit inside the four operator moves, you don't owe me anything. If I can — I show you which one pays back first, in the order that lands before the May spring rush.",
 
   citations: [
     { label: "Skimmer 2026 State of Pool Service Report (margin + repair-expansion data)", url: "https://www.getskimmer.com/blog/skimmer-releases-2026-state-of-pool-service-report-highlighting-a-more-disciplined-digital-industry" },

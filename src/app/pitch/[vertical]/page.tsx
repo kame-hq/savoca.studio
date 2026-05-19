@@ -89,7 +89,7 @@ export default async function PitchDeck({
         </div>
 
         <footer className="slide-chrome-bottom">
-          <span>{p.verticalShort} · Operator Brief</span>
+          <span>{p.verticalShort} · Field Brief</span>
           <span>2026</span>
         </footer>
       </section>
@@ -154,7 +154,7 @@ export default async function PitchDeck({
 
         <footer className="slide-chrome-bottom">
           <span>Conservative worked example</span>
-          <span>{p.verticalShort} operator math</span>
+          <span>{p.verticalShort} math</span>
         </footer>
       </section>
 
@@ -173,7 +173,7 @@ export default async function PitchDeck({
           </div>
 
           <footer className="slide-chrome-bottom">
-            <span>Verbatim from operator forums</span>
+            <span>Verbatim from the field</span>
             <span>savoca.studio</span>
           </footer>
         </section>
