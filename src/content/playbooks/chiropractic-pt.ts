@@ -12,7 +12,7 @@ export const chiropracticPt: PlaybookContent = {
   introBody:
     "Chiropractic is a $2.2B/yr cottage industry: 65,000 practices, 70% sole proprietors, flat growth, real margin squeeze. PT is the bigger story — $53B, 50,000+ clinics, and 2,591 PE-affiliated locations as of 2024. Confluent Health, Athletico, ATI are absorbing 1-5 doc clinics monthly. The independents who survive aren't the ones with better adjustments — they're the ones who answer the phone, reduce no-shows, and rebook lapsed patients. This playbook maps the three leaks and gives you four moves to close them.",
 
-  patternHeadline: "Three leaks. Same drain.",
+  patternHeadline: "Three leaks. 18% of collections.",
   patternBody:
     "Small healthcare practices miss up to 30% of inbound calls. No-show rate: 12-18% for chiro, 10-21% for PT (outliers >50%). And the killer — patient retention stops at 40-60%. The #1 reason patients quit isn't dissatisfaction. It's 'they forgot — pain went away.' Reactivation alone moves a clinic from 30% to 60% capacity. None of this is a marketing problem. It's all a follow-through problem.",
   patternStats: [

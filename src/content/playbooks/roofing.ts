@@ -6,7 +6,7 @@ export const roofing: PlaybookContent = {
   verticalShort: "Roofing",
   title: "The Storm Window Playbook",
   subtitle:
-    "One Austin hail event = 4× call surge for 72 hours. 60% miss rate at peak. 78% of homeowners book the first contractor who answers. A 5-crew shop leaks $190K+ per storm and ~$900K/yr at baseline. Four moves to plug the bucket before PE buys your neighbor.",
+    "One Austin hail event = 4× call surge for 72 hours. 60% miss rate at peak. 78% of homeowners book the first contractor who answers. A 5-crew shop leaks $190K+ per storm and ~$900K/yr at baseline. Four moves to run before PE buys your neighbor.",
   edition: "10 / Roofing Edition / 2026",
 
   introBody:

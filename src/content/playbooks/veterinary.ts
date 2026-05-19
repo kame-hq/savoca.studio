@@ -127,8 +127,7 @@ export const veterinary: PlaybookContent = {
   caseStudyBody:
     "A 2-DVM Austin practice (~3,350 active clients, ~$1.95M gross revenue) is the planned 2026 pilot for the four-move stack: PetDesk lapsed-wellness recall wired into ezyVet on the 85-day window, three-touch no-show stack with deposit-on-procedure, Trupanion vet-portal direct-pay enrollment SOP, and GuardianVets after-hours medical triage. The full operational diff — PetDesk recall template, ezyVet deposit rule, Trupanion enrollment script, GuardianVets routing config — will be published when the 90-day data closes. Want to be the next case study? Book a 30-minute audit.",
 
-  ctaHeadline:
-    "Mars can pay your next DVM $16,500 more than you can. You can't compete on the bonus. You can compete by getting two doctors doing three doctors' work.",
+  ctaHeadline: "Get two doctors doing three doctors' work.",
   ctaBody:
     "Thrive Pet Healthcare is headquartered at 211 Walter Seaholm Drive — five miles from you. They raised $350M in March, run 360-400 hospitals, and pay $27,181 average signing bonus to new-grad DVMs. Mars Petcare owns VCA (1,000+), Banfield (1,000+), and BluePearl (250+). NVA sits inside JAB Investors with 1,400+. Ethos spun out specialty in 2023 with 145 hospitals. The independents who close the wage gap do it with tighter operations — same two doctors, more work done. The ones still on paper recall lists watch their clients drift to the Banfield down the road. 30 minutes — I walk the lobby, pull your ezyVet or Cornerstone data, your recall list, your no-show rate, your insurance penetration, your after-hours call log. No deck. No pitch. I show you which of the four operator moves pays back first, in the order that lands before your next associate-offer cycle.",
 

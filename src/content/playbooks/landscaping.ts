@@ -6,7 +6,7 @@ export const landscaping: PlaybookContent = {
   verticalShort: "Landscaping",
   title: "The Spring Surge Playbook",
   subtitle:
-    "70% of annual landscaping demand compresses into a 12-week window. 74% of inbound calls go unanswered. A 3-crew Austin shop leaks $96K+ during spring alone — most while crews are on mowers. Four moves to plug the bucket before the next surge.",
+    "70% of annual landscaping demand compresses into a 12-week window. 74% of inbound calls go unanswered. A 3-crew Austin shop leaks $96K+ during spring alone — most while crews are on mowers. Four moves to wire before the next spring surge.",
   edition: "12 / Landscaping Edition / 2026",
 
   introBody:

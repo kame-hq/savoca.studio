@@ -110,7 +110,7 @@ export const plumbingElectrical: PlaybookContent = {
   caseStudyBody:
     "A 3-truck plumbing shop in Cedar Park reduced after-hours missed calls 71% and converted three previously-lost emergency calls into water heater installs averaging $3,200 each in their first 30 days using moves 01 and 02. Full breakdown — voicemail audit findings, exact SMS auto-reply copy, dispatch SLA — will be published here once the 90-day data set closes. Want to be the next case study? Book a 30-minute audit.",
 
-  ctaHeadline: "The buyers are shopping your neighbor. They'll shop you next — or they won't.",
+  ctaHeadline: "They're shopping your neighbor. You're next — or you're not.",
   ctaBody:
     "Apex, Champions, Climate Solutions, Evolution — they're all shopping in Texas. The shops they're paying premium for have clean call answer rates, tight dispatch, and predictable AR. 30 minutes — I pull your call data, your dispatch logs, your AR cycle, and I show you in dollars where the next $110K of recoverable revenue lives and which of the four moves to run first. Free 30 min. No pitch on the call.",
 

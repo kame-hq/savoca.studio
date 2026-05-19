@@ -109,9 +109,9 @@ export const tattoo: PlaybookContent = {
 
   caseStudyHeadline: "Coming Q4 2026.",
   caseStudyBody:
-    "An Austin solo artist running a 4-month booking lead time cut no-shows 73% in 60 days using moves 01 and 02 from this playbook, recovering ~$2,400/mo of previously-evaporated chair time and reclaiming roughly 4 hours/week of admin. Full breakdown — exact Square Appointments configuration, ManyChat flow, Typeform intake template — will be published once the 90-day data set closes. Want to be the next case study? Book a 30-minute audit.",
+    "An Austin solo artist running a 4-month booking lead time cut no-shows 73% in 60 days using moves 01 and 02 from this playbook, recovering ~$2,400/mo of previously-evaporated chair time and reclaiming roughly 4 hours/week of admin. Full breakdown — exact Square Appointments configuration, ManyChat flow, Typeform intake template — will be published once the 90-day data set closes. Want to be the next case study? Book a 30-minute discovery call.",
 
-  ctaHeadline: "Stop tattooing into a leaky bucket.",
+  ctaHeadline: "Run the parlor as tight as the linework.",
   ctaBody:
     "If any of this is hitting close, the 30-min walkthrough is free. I pull your DM response log, your no-show rate, your custom-design inquiry → deposit conversion, and your repeat-client rate, and I show you in dollars where the next $56K of recoverable revenue lives and which of the four moves to run first. Free 30 min. No pitch on the call.",
 

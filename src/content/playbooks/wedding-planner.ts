@@ -108,7 +108,7 @@ export const weddingPlanner: PlaybookContent = {
   caseStudyBody:
     "A solo Austin proposal-planning studio cut inquiry response time from 8 hours to 4 minutes in 30 days using move 01 from this playbook, recovering 11 previously-ghosted leads and converting 4 of them into booked proposals. Full breakdown — exact HoneyBook auto-reply copy, price-anchor language, follow-up cadence — will be published here once the 90-day data set closes. Want to be the next case study? Book a 30-minute audit.",
 
-  ctaHeadline: "Stop losing weddings to faster competitors.",
+  ctaHeadline: "40% of couples never hear back. Be the one who replies.",
   ctaBody:
     "If any of this is hitting close, the 30-min walkthrough is free. I pull your inquiry log, your response times, your conversion-by-source data, and I show you in dollars where the next $100K of recoverable booking revenue lives and which of the four moves to wire before engagement season closes. Free 30 min. No pitch on the call.",
 

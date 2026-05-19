@@ -13,9 +13,9 @@ export const personalTrainer: PlaybookContent = {
     "The US personal training industry just posted its first contraction in five years. Corporate gyms own the foot traffic. ClassPass commoditizes the session. A flood of online coaches saturates Instagram. There are 329,000 personal training businesses in America and the average one has 1.1 employees — one human, a phone, a Trainerize login, and a half-full schedule. This playbook is for the solo trainer who's tired of being told to 'post more content' or 'run more ads' and wants to look at the leak inside the funnel instead. The math is brutal. The fixes are 90% process, 10% tools.",
 
   patternHeadline:
-    "Your funnel isn't dry. It's leaking.",
+    "Empty slots, dead DMs, no follow-up.",
   patternBody:
-    "Two leaks define the indie trainer's P&L. First, the empty slot: 17% cancellation rate, 11% no-show rate, and 36% of cancels arrive in the last 2 hours — when there's no time to refill the spot. Second, the dead DM: trainers average a 4–6 hour reply time, and leads contacted within 5 minutes convert 21× the rate of leads contacted after 30. The bucket has holes. More marketing just pours faster.",
+    "Two leaks define the indie trainer's P&L. First, the empty slot: 17% cancellation rate, 11% no-show rate, and 36% of cancels arrive in the last 2 hours — when there's no time to refill the spot. Second, the dead DM: trainers average a 4–6 hour reply time, and leads contacted within 5 minutes convert 21× the rate of leads contacted after 30.",
   patternStats: [
     {
       value: "17% + 11%",
@@ -111,7 +111,7 @@ export const personalTrainer: PlaybookContent = {
   caseStudyBody:
     "An Austin Hyrox-coached solo trainer cut no-shows 68% in 30 days using moves 01 and 02 from this playbook, recovering ~$3,200/mo of previously-evaporated session revenue. Full breakdown — exact ManyChat flow, Acuity SLA configuration, recurring-slot enforcement script — will be published here once the 90-day data set closes. Want to be the next case study? Book a 30-minute audit.",
 
-  ctaHeadline: "Stop pouring leads into a leaky bucket.",
+  ctaHeadline: "Fill the schedule before adding another client.",
   ctaBody:
     "If any of this is hitting close, the 30-min walkthrough is free. I pull your DM response log, your booking calendar, your cancellation rate, and your consult-to-close conversion, and I show you in dollars where the next $45K of recoverable revenue lives and which of the four moves to run first. Free 30 min. No pitch on the call.",
 
