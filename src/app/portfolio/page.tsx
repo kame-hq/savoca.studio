@@ -71,7 +71,7 @@ export default function PortfolioIndex() {
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-baseline gap-3 mb-3">
                         <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-money font-semibold">
-                          {p.tierDelivered}
+                          {p.bandDelivered}
                         </span>
                         <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-steel">
                           / {p.vertical}

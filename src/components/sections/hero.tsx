@@ -84,8 +84,7 @@ export function Hero() {
               maxWidth: 580,
             }}
           >
-            Capture more demand. Respond faster. Deliver without dropping the ball. Prove
-            the return.
+            Generate demand. Capture leads. Book more work. Close the gaps that cost you money.
           </p>
 
           <p
@@ -98,10 +97,8 @@ export function Hero() {
               maxWidth: 560,
             }}
           >
-            Savoca Studio builds the systems between demand and delivery —
-            what moves revenue from first call to finished job, so nothing
-            slips between. I find the leak, build the system, and help keep
-            it running.
+            Savoca Studio builds the backend of service business growth.
+            I find the leak, build the system, and help keep it running.
           </p>
 
           <div className="hero-rise hero-rise-3 flex flex-wrap gap-3 mt-8">

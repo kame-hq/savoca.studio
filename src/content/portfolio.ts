@@ -3,7 +3,7 @@ export type PortfolioItem = {
   name: string;
   operator: string;
   vertical: string;
-  tierDelivered: string;
+  bandDelivered: string;
   year: string;
   url: string;
   summary: string;
@@ -18,7 +18,7 @@ export const portfolio: Record<string, PortfolioItem> = {
     name: "Krazy Strong",
     operator: "Karen Lopez · Austin, TX",
     vertical: "Coaching · Hyrox + Deka athletics",
-    tierDelivered: "Stacker",
+    bandDelivered: "Studio",
     year: "2026",
     url: "https://krazystrong.app",
     summary:

@@ -53,10 +53,10 @@ export function About() {
           className="font-sans mt-5"
           style={{ fontSize: 16, lineHeight: 1.55, color: "var(--ink)" }}
         >
-          Most service businesses don&apos;t have a demand problem. They have an
-          operating problem — leads go unanswered, quotes stall, follow-up
-          disappears, and the owner can&apos;t see where revenue leaked until
-          the month is already over.
+          Service businesses leak money in two places — demand they never
+          capture, and work they never deliver. Leads go unanswered, quotes
+          stall, follow-up disappears, and the owner can&apos;t see where
+          revenue leaked until the month is already over.
         </p>
         <p
           className="font-sans mt-4"

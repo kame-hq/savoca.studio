@@ -84,7 +84,7 @@ export default async function PitchDeck({
           </div>
           <h1 className="slide-cover-vertical">{p.vertical}</h1>
           <p className="slide-cover-sub">
-            The operating layer between demand and delivery · savoca.studio
+            The backend of service business growth · savoca.studio
           </p>
         </div>
 
@@ -232,7 +232,7 @@ export default async function PitchDeck({
         </div>
 
         <footer className="slide-chrome-bottom">
-          <span>The operating layer between demand and delivery</span>
+          <span>The backend of service business growth</span>
           <span>savoca.studio</span>
         </footer>
       </section>
