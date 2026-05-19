@@ -121,7 +121,7 @@ const System = ({ vertical, num }) => (
       The <span style={{ fontStyle: "italic", color: "var(--money)" }}>Demand-to-Delivery</span> System.
     </div>
     <div style={{ marginTop: 28, fontFamily: "var(--sans)", fontSize: 26, lineHeight: 1.55, color: "var(--ink-2)", maxWidth: 1280 }}>
-      The operating layer between demand and delivery — capture, response, follow-up, and reporting wired into one flow. So revenue gets through.
+      The backend of service business growth — capture, response, follow-up, and reporting wired into one flow. So revenue gets through.
     </div>
     <div style={{ marginTop: 64, display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 0, border: "1px solid var(--rule)" }}>
       {[
