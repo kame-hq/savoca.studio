@@ -18,7 +18,7 @@ export const portfolio: Record<string, PortfolioItem> = {
     name: "Krazy Strong",
     operator: "Karen Lopez · Austin, TX",
     vertical: "Coaching · Hyrox + Deka athletics",
-    bandDelivered: "Studio",
+    bandDelivered: "Solo",
     year: "2026",
     url: "https://krazystrong.app",
     summary:
@@ -26,7 +26,7 @@ export const portfolio: Record<string, PortfolioItem> = {
     delivered: [
       "Mobile-first marketing site (krazystrong.app)",
       "Cal.com booking flow + auto-confirm",
-      "Lead capture → instant program-PDF email via Resend",
+      "Lead-capture form + program-PDF auto-send (Resend)",
       "Three-tier coaching offer ($60 / $150 / $250)",
       "ManyChat IG auto-reply install guide",
       "Brand system + asset pipeline",
