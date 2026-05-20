@@ -6,7 +6,7 @@ export const veterinary: PlaybookContent = {
   verticalShort: "Vet Practice",
   title: "The Per-Doctor Productivity Playbook",
   subtitle:
-    "Why a typical 2-DVM Austin practice leaks $197K of cash and another $760K of 5-year client revenue a year — and the four operator moves that get two doctors doing three doctors' work, because Mars can pay your next associate $16,500 more than you can in signing bonus alone.",
+    "Why a typical 2-DVM Austin practice leaks $267K of cash and another $760K of 5-year client revenue a year — and the four operator moves that get two doctors doing three doctors' work, because Mars can pay your next associate $16,500 more than you can in signing bonus alone.",
   edition: "17 / Veterinary Edition / 2026",
 
   introBody:
@@ -42,7 +42,7 @@ export const veterinary: PlaybookContent = {
     },
   ],
 
-  mathHeadline: "$197K of cash. $760K of client revenue you keep.",
+  mathHeadline: "$267K of cash. $760K of client revenue you keep.",
   mathBody:
     "Representative independent Austin 2-DVM practice: ~$1.95M gross revenue, ~3,350 active clients, $622 average revenue per client (AVMA 2025), 22% no-show on procedures, ~4% insurance penetration, no automated recall sequence. Four leaks at this scale:",
   mathRows: [
@@ -64,11 +64,11 @@ export const veterinary: PlaybookContent = {
     },
     {
       label: "Conservative cash recovered, year one",
-      value: "= $197,000",
+      value: "= $267,000",
     },
   ],
   mathConclusion:
-    "$197K of cash recovered in year one. $760K of 5-year client revenue kept on top — sitting in the clients who otherwise drift to Banfield down the road. Mars can pay your next DVM $16,500 more than you can in signing bonus alone, and Thrive is five miles down Walter Seaholm. You can't compete on the bonus. You can compete by getting two doctors doing three doctors' work.",
+    "$267K of cash recovered in year one. $760K of 5-year client revenue kept on top — sitting in the clients who otherwise drift to Banfield down the road. Mars can pay your next DVM $16,500 more than you can in signing bonus alone, and Thrive is five miles down Walter Seaholm. You can't compete on the bonus. You can compete by getting two doctors doing three doctors' work.",
 
   quotes: [
     {

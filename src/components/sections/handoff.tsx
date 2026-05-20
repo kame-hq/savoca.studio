@@ -108,7 +108,7 @@ export function Handoff() {
           className="font-sans mt-4 max-w-[58ch]"
           style={{ fontSize: 15, lineHeight: 1.55, color: "var(--ink-2)" }}
         >
-          I build that backend — the Demand-to-Delivery System: capture,
+          I build that backend — the Growth System: capture,
           response, follow-up, and reporting wired into one flow, so leads get
           captured, follow-up moves faster, jobs get delivered, and the owner
           can finally see where the money goes.

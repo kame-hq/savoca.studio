@@ -90,7 +90,7 @@ export const tattoo: PlaybookContent = {
     {
       number: "04",
       title: "Auto-fire the 6-week touch-up + 90-day reference-photo follow-up",
-      body: "Repeat-client revenue is 40% of the average artist's margin. Most don't ask for it. Wire two automated emails: 6 weeks post-session ('How's the heal? Ready for the touch-up?'), 90 days post-session ('Send me a healed shot — I want it in my portfolio.'). Pair the photo ask with a referral pitch ('If a friend asks who did it — here's my booking link.'). Trainerize, Acuity, and Booksy all support post-booking automation. Most artists just never turn it on.",
+      body: "Repeat-client revenue is 40% of the average artist's margin. Most don't ask for it. Wire two automated emails: 6 weeks post-session ('How's the heal? Ready for the touch-up?'), 90 days post-session ('Send me a healed shot — I want it in my portfolio.'). Pair the photo ask with a referral pitch ('If a friend asks who did it — here's my booking link.'). Square Appointments, Acuity, and Booksy all support post-booking automation. Most artists just never turn it on.",
     },
   ],
 

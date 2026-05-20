@@ -14,7 +14,7 @@ export const poolService: PlaybookContent = {
 
   patternHeadline: "The route runs. The repairs pay.",
   patternBody:
-    "Four leaks define an independent pool-service P&L in 2026. Service margins run 15-40%. Repair margins run 30-60% — and 42% of pros are actively expanding into repair this year (Skimmer 2026 State of Pool Service Report). The shops not pulling the repair lever are leaving the highest-margin revenue in the vertical on the table. Saltwater conversion is the second under-pulled lever: $2K-4.5K install, 60% margin, $1K-3K equipment add-on, and a salt-cell replacement annuity every 3-7 years at $600-1,500. Route density is the third — the densest operators hit 75 pools/truck vs the 60-pool average. And missed-call after-hours capture is the fourth — 85% of voicemailed pool callers never call back. SPS PoolCare is consolidating Texas market-by-market — Austin, DFW, Houston, Arlington — and the checklist they run on Day 1 is exactly the four moves above. SPS already proved the playbook works. You don't need their check to run it.",
+    "Four leaks define an independent pool-service P&L in 2026. Service margins run 15-40%. Repair margins run 30-60% — and 42% of pros are actively expanding into repair this year (Skimmer 2026 State of Pool Service Report). The shops not attaching repairs to their routes are leaving the highest-margin revenue in the vertical on the table. Saltwater conversion is the second move most independents skip: $2K-4.5K install, 60% margin, $1K-3K equipment add-on, and a salt-cell replacement annuity every 3-7 years at $600-1,500. Route density is the third — the densest operators hit 75 pools/truck vs the 60-pool average. And missed-call after-hours capture is the fourth — 85% of voicemailed pool callers never call back. SPS PoolCare is consolidating Texas market-by-market — Austin, DFW, Houston, Arlington — and the checklist they run on Day 1 is exactly the four moves above. SPS already proved the playbook works. You don't need their check to run it.",
   patternStats: [
     {
       value: "15-40% vs 30-60%",
@@ -31,7 +31,7 @@ export const poolService: PlaybookContent = {
     {
       value: "3-5× → 12×+",
       label:
-        "What Splash (Asymmetric Capital Partners) pays at acquisition vs the multiple they exit at — pulled from their published investor memo. The spread is the playbook they run on Day 1.",
+        "What Splash (Asymmetric Capital Partners) pays to buy a shop vs what they sell it for — pulled from their published investor memo. The spread is the playbook they run on Day 1.",
       source: "Asymmetric Capital Partners — Splash investment memo",
     },
     {
@@ -94,12 +94,12 @@ export const poolService: PlaybookContent = {
     {
       number: "02",
       title: "Saltwater conversion playbook — the highest-margin upsell you're not pitching",
-      body: "Saltwater conversion is $2,000-$4,500 install (60% margin), $1,000-$3,000 equipment add-on, and — the part most operators miss — a salt-cell replacement annuity every 3-7 years at $600-$1,500. The cell wears out. The customer is locked in. Your only competitor for the replacement is the customer's willingness to call Pinch a Penny. Most independents never pitch the conversion because it feels like a one-time installer's job. It isn't. It's the highest-margin recurring revenue stream pool service has, and Skimmer's 2026 industry report confirmed it as the #1 upsell expansion lever this year. On a 240-account book at 10% conversion = $18K cash year one + compounding cell-replacement revenue for the life of the pool.",
+      body: "Saltwater conversion is $2,000-$4,500 install (60% margin), $1,000-$3,000 equipment add-on, and — the part most operators miss — a salt-cell replacement annuity every 3-7 years at $600-$1,500. The cell wears out. The customer is locked in. Your only competitor for the replacement is the customer's willingness to call Pinch a Penny. Most independents never pitch the conversion because it feels like a one-time installer's job. It isn't. It's the highest-margin recurring revenue stream pool service has, and Skimmer's 2026 industry report confirmed it as the #1 upsell to add this year. On a 240-account book at 10% conversion = $18K cash year one + compounding cell-replacement revenue for the life of the pool.",
     },
     {
       number: "03",
       title: "Route density — 60 → 75 pools/truck via Skimmer/Pool Brain geo-routing",
-      body: "The labor line is the lever in pool service. The densest operators in the country (Pinnacle Pool, Premier Pools service arm, the SPS Texas markets) hit 75 pools/truck/day vs the 60-pool industry average. The 15-stop gap × 4 trucks × 250 service days × $30/stop net margin = $116K of unbooked capacity sitting in your existing route geography. The move: geocode every account in Skimmer or Pool Brain, cluster by ZIP + day-of-week, force the dispatcher to assign by density-of-stop, not chronological signup order. Sealey Business Brokers' valuation guidance is explicit: route density trumps account count when PE values a shop. The density is the lever and the multiple at sale.",
+      body: "Stops per truck is where the profit hides in pool service. The densest operators in the country (Pinnacle Pool, Premier Pools service arm, the SPS Texas markets) hit 75 pools/truck/day vs the 60-pool industry average. The 15-stop gap × 4 trucks × 250 service days × $30/stop net margin = $116K of unbooked capacity sitting in your existing route geography. The move: geocode every account in Skimmer or Pool Brain, cluster by ZIP + day-of-week, force the dispatcher to assign by density-of-stop, not chronological signup order. Sealey Business Brokers' valuation guidance is explicit: route density trumps account count when PE values a shop. Tight routes pay you twice — more profit per truck now, and a higher sale price later.",
     },
     {
       number: "04",

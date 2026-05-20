@@ -27,7 +27,7 @@ export const weddingPlanner: PlaybookContent = {
       source: "WeddingPro 2025",
     },
     {
-      value: "391×",
+      value: "391%",
       label: "more likely to convert at 1-min vs 30-min response (Velocify)",
       source: "Wedy Pro",
     },

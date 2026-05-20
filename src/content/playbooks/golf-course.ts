@@ -6,7 +6,7 @@ export const golfCourse: PlaybookContent = {
   verticalShort: "Golf Course",
   title: "The Revenue Per Round Playbook",
   subtitle:
-    "Why a typical Austin / Round Rock semi-private course leaks $200–270K of cash a year and another $333K of member revenue it keeps losing to churn — and the four operator moves that close the gap.",
+    "Why a typical Austin / Round Rock semi-private course leaks $270–365K of cash a year and another $333K of member revenue it keeps losing to churn — and the four operator moves that close the gap.",
   edition: "18 / Golf Course Edition / 2026",
 
   introBody:
@@ -43,17 +43,13 @@ export const golfCourse: PlaybookContent = {
   ],
 
   mathHeadline:
-    "$270K cash this year. $333K of member revenue you keep instead of losing to churn.",
+    "$365K cash this year. $333K of member revenue you keep instead of losing to churn.",
   mathBody:
     "Representative independent Austin semi-private: ~45,000 rounds/year, 600 active members at $185/mo dues — a $1.33M recurring book on top of $2.7M in green-fee revenue. Four leaks at this scale:",
   mathRows: [
     {
       label: "F&B capture — $8–15/round vs industry $22–28. $10/round × 45K rounds × 60% bev-cart margin.",
       value: "= $270K profit",
-    },
-    {
-      label: "Member churn — cut 15% to 10%. 30 members kept × $11,100 of 5-year dues each.",
-      value: "= $333K",
     },
     {
       label: "Tee-time no-shows — 11% on 18K weekend rounds × $72. Auto-rebook fills half.",
@@ -64,12 +60,16 @@ export const golfCourse: PlaybookContent = {
       value: "≈ $30K",
     },
     {
-      label: "Conservative cash recovered, year one",
-      value: "= $270,000",
+      label: "Conservative cash recovered, year one (F&B + no-shows + outings)",
+      value: "= $365,000",
+    },
+    {
+      label: "Member churn — cut 15% to 10%. 30 members kept × $11,100 of 5-year dues each. (Multi-year revenue, not year-one cash.)",
+      value: "+ $333K",
     },
   ],
   mathConclusion:
-    "$270K of cash recovered in year one. $333K of member revenue kept on top. No renovation, no tournament sponsor, no new logo. The gap between an independent course and a well-run one is four operator moves and nine months of installation.",
+    "$365K of cash recovered in year one — and $333K of member revenue kept over five years on top. No renovation, no tournament sponsor, no new logo. The gap between an independent course and a well-run one is four operator moves and nine months of installation.",
 
   quotes: [
     {
@@ -132,7 +132,7 @@ export const golfCourse: PlaybookContent = {
   ctaHeadline:
     "Four operator moves. Nine months. Same course.",
   ctaBody:
-    "The gap between an independent course and a well-run one is four operator moves. Card-on-file holds with an auto-rebook waitlist. GHIN wired into member engagement. In-cart F&B ordering on Tagmarshal screens. Sub-1-hour outing SLA on Tripleseat. The well-run courses run all four. 30 minutes — I walk the proshop, pull your foreUP or Lightspeed tee-sheet data from the last 90 days, your member retention report, your outings inbox response times, and I show you where the next $270K of cash and $333K of member revenue lives. No deck. No pitch. I show you which of the four moves pays back first, in the order that lands before the next aerification window.",
+    "The gap between an independent course and a well-run one is four operator moves. Card-on-file holds with an auto-rebook waitlist. GHIN wired into member engagement. In-cart F&B ordering on Tagmarshal screens. Sub-1-hour outing SLA on Tripleseat. The well-run courses run all four. 30 minutes — I walk the proshop, pull your foreUP or Lightspeed tee-sheet data from the last 90 days, your member retention report, your outings inbox response times, and I show you where the next $365K of cash and $333K of member revenue lives. No deck. No pitch. I show you which of the four moves pays back first, in the order that lands before the next aerification window.",
 
   citations: [
     { label: "NGF — Course Economics in the Experience Era (revenue-per-round benchmarks, $1B no-show opportunity)", url: "https://www.ngf.org/short-game/course-economics-in-the-experience-era/" },

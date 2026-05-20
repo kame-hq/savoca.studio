@@ -34,7 +34,7 @@ export default async function PitchDeck({
   const featuredQuote = p.quotes[0];
   const headlineStat = p.patternStats[0];
 
-  // The Demand-to-Delivery System — universal flow, not vertical-specific.
+  // The Growth System — universal flow, not vertical-specific.
   const leakFlow: { label: string; desc: string; leak: string | null }[] = [
     { label: "Demand", desc: "Ad, referral, search, the DM.", leak: null },
     {
@@ -188,7 +188,7 @@ export default async function PitchDeck({
 
         <span className="slide-eyebrow">
           <span className="slide-eyebrow-dot" />
-          The Demand-to-Delivery System
+          The Growth System
         </span>
 
         <h2 className="slide-title">

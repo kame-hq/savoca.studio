@@ -113,12 +113,12 @@ const Problem = ({ vertical, num, title, sub, points }) => (
   </Slide>
 );
 
-// 04 — The system (Demand-to-Delivery)
+// 04 — The system (Growth System)
 const System = ({ vertical, num }) => (
   <Slide>
     <Eyebrow label="What I build · 03" />
     <div style={{ marginTop: 56, fontFamily: "var(--serif)", fontSize: 96, lineHeight: 1.0, letterSpacing: "-0.035em", color: "var(--ink)" }}>
-      The <span style={{ fontStyle: "italic", color: "var(--money)" }}>Demand-to-Delivery</span> System.
+      The <span style={{ fontStyle: "italic", color: "var(--money)" }}>Growth</span> System.
     </div>
     <div style={{ marginTop: 28, fontFamily: "var(--sans)", fontSize: 26, lineHeight: 1.55, color: "var(--ink-2)", maxWidth: 1280 }}>
       The backend of service business growth — capture, response, follow-up, and reporting wired into one flow. So revenue gets through.
