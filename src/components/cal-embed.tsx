@@ -3,10 +3,10 @@
 import Cal, { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
 
-export function CalEmbed({ link = "savoca/audit" }: { link?: string }) {
+export function CalEmbed({ link = "savoca/discovery" }: { link?: string }) {
   useEffect(() => {
     (async function () {
-      const cal = await getCalApi({ namespace: "audit" });
+      const cal = await getCalApi({ namespace: "discovery" });
       cal("ui", {
         theme: "light",
         hideEventTypeDetails: false,
@@ -36,7 +36,7 @@ export function CalEmbed({ link = "savoca/audit" }: { link?: string }) {
       }}
     >
       <Cal
-        namespace="audit"
+        namespace="discovery"
         calLink={link}
         style={{
           width: "100%",

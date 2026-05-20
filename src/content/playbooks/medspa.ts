@@ -108,7 +108,7 @@ export const medspa: PlaybookContent = {
 
   caseStudyHeadline: "Coming Q3 2026.",
   caseStudyBody:
-    "A 2-injector clinic in central Texas reduced missed calls 71% and recovered $18K/mo in attributable revenue inside 30 days using moves 01 and 02 from this playbook. Full breakdown — ad spend before/after, software changes, exact SLA configuration — will be published here once the 90-day data set closes. Want to be the next case study? Book a 30-minute audit.",
+    "A 2-injector clinic in central Texas reduced missed calls 71% and recovered $18K/mo in attributable revenue inside 30 days using moves 01 and 02 from this playbook. Full breakdown — ad spend before/after, software changes, exact SLA configuration — will be published here once the 90-day data set closes. Want to be the next case study? Book a 30-minute discovery call.",
 
   ctaHeadline: "Stop paying for ads to ring an empty desk.",
   ctaBody:

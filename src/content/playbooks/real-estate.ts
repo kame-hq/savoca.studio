@@ -107,7 +107,7 @@ export const realEstate: PlaybookContent = {
 
   caseStudyHeadline: "Coming Q3 2026.",
   caseStudyBody:
-    "A 7-agent Austin team reduced median first-response time from 4 hours to 90 seconds in 30 days using moves 02 and 03 from this playbook. Lead-to-appointment conversion went from 1.4% to 4.8%. Full breakdown — exact FUB SLA configuration, floor-time rotation script, and 7-touch sequence — published once 90-day data closes. Want to be the next case study? Book a 30-minute audit.",
+    "A 7-agent Austin team reduced median first-response time from 4 hours to 90 seconds in 30 days using moves 02 and 03 from this playbook. Lead-to-appointment conversion went from 1.4% to 4.8%. Full breakdown — exact FUB SLA configuration, floor-time rotation script, and 7-touch sequence — published once 90-day data closes. Want to be the next case study? Book a 30-minute discovery call.",
 
   ctaHeadline: "Don't buy more leads. Answer the ones you have.",
   ctaBody:

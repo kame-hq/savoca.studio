@@ -108,7 +108,7 @@ export const personalInjuryLaw: PlaybookContent = {
 
   caseStudyHeadline: "Coming Q3 2026.",
   caseStudyBody:
-    "A solo PI attorney in north Austin reduced first-contact response time from 47 minutes to under 4, signed 6 additional cases in their first 60 days, and recovered approximately $73K in projected fees using moves 01 and 02 from this playbook. Full breakdown — exact intake service comparison, CASEpeer SMS configuration, qualifying script — will be published here once the case-resolution data set closes. Want to be the next case study? Book a 30-minute audit.",
+    "A solo PI attorney in north Austin reduced first-contact response time from 47 minutes to under 4, signed 6 additional cases in their first 60 days, and recovered approximately $73K in projected fees using moves 01 and 02 from this playbook. Full breakdown — exact intake service comparison, CASEpeer SMS configuration, qualifying script — will be published here once the case-resolution data set closes. Want to be the next case study? Book a 30-minute discovery call.",
 
   ctaHeadline: "Out-respond Morgan & Morgan. Don't out-spend them.",
   ctaBody:

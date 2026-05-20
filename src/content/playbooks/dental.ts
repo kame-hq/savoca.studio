@@ -108,7 +108,7 @@ export const dental: PlaybookContent = {
 
   caseStudyHeadline: "Coming Q4 2026.",
   caseStudyBody:
-    "A 2-doctor general practice in Williamson County (TX) lifted recall from 58% to 79% in 90 days using move 02 from this playbook, recovering ~$67K of annual hygiene revenue and 410 chair-hours. Full breakdown — exact sequence cadence, SMS copy, phone scripts — will be published here once the 6-month data set closes. Want to be the next case study? Book a 30-minute audit.",
+    "A 2-doctor general practice in Williamson County (TX) lifted recall from 58% to 79% in 90 days using move 02 from this playbook, recovering ~$67K of annual hygiene revenue and 410 chair-hours. Full breakdown — exact sequence cadence, SMS copy, phone scripts — will be published here once the 6-month data set closes. Want to be the next case study? Book a 30-minute discovery call.",
 
   ctaHeadline: "Don't sell to a DSO. Run like one.",
   ctaBody:

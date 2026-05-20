@@ -27,10 +27,10 @@ export function About() {
             fontWeight: 400,
           }}
         >
-          I build the layers
+          I build the backend
           <br />
           <span style={{ fontStyle: "italic", color: "var(--money)" }}>
-            between demand and delivery.
+            of service business growth.
           </span>
         </h2>
         <Rule style={{ marginTop: 22 }} />

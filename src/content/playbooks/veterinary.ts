@@ -125,7 +125,7 @@ export const veterinary: PlaybookContent = {
 
   caseStudyHeadline: "Austin pilot — closing the per-doctor productivity gap on a 2-DVM practice.",
   caseStudyBody:
-    "A 2-DVM Austin practice (~3,350 active clients, ~$1.95M gross revenue) is the planned 2026 pilot for the four-move stack: PetDesk lapsed-wellness recall wired into ezyVet on the 85-day window, three-touch no-show stack with deposit-on-procedure, Trupanion vet-portal direct-pay enrollment SOP, and GuardianVets after-hours medical triage. The full operational diff — PetDesk recall template, ezyVet deposit rule, Trupanion enrollment script, GuardianVets routing config — will be published when the 90-day data closes. Want to be the next case study? Book a 30-minute audit.",
+    "A 2-DVM Austin practice (~3,350 active clients, ~$1.95M gross revenue) is the planned 2026 pilot for the four-move stack: PetDesk lapsed-wellness recall wired into ezyVet on the 85-day window, three-touch no-show stack with deposit-on-procedure, Trupanion vet-portal direct-pay enrollment SOP, and GuardianVets after-hours medical triage. The full operational diff — PetDesk recall template, ezyVet deposit rule, Trupanion enrollment script, GuardianVets routing config — will be published when the 90-day data closes. Want to be the next case study? Book a 30-minute discovery call.",
 
   ctaHeadline: "Get two doctors doing three doctors' work.",
   ctaBody:

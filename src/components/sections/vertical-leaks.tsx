@@ -142,7 +142,7 @@ export function VerticalLeaks() {
             color: "var(--steel)",
           }}
         >
-          Don&apos;t see your vertical? Email hello@savoca.studio.
+          Don&apos;t see your vertical? Email jack@savoca.studio.
         </span>
       </Reveal>
     </section>

@@ -124,7 +124,7 @@ export const poolService: PlaybookContent = {
 
   caseStudyHeadline: "Austin pilot — closing the repair-margin gap on a 4-truck shop.",
   caseStudyBody:
-    "A 4-truck Austin pool shop (~240 active accounts, ~$820K revenue) is the planned 2026 pilot for the four-move stack: Skimmer-tracked repair-attach SOP, saltwater conversion playbook with Pinch a Penny–competitive pricing, geo-routed density tightening, and Twilio text-back. The full operational diff — Skimmer equipment-age flagging template, saltwater conversion proposal template, Pool Brain density-routing rules, Twilio integration spec — will be published when the 90-day data closes. Want to be the next case study? Book a 30-minute audit.",
+    "A 4-truck Austin pool shop (~240 active accounts, ~$820K revenue) is the planned 2026 pilot for the four-move stack: Skimmer-tracked repair-attach SOP, saltwater conversion playbook with Pinch a Penny–competitive pricing, geo-routed density tightening, and Twilio text-back. The full operational diff — Skimmer equipment-age flagging template, saltwater conversion proposal template, Pool Brain density-routing rules, Twilio integration spec — will be published when the 90-day data closes. Want to be the next case study? Book a 30-minute discovery call.",
 
   ctaHeadline:
     "Build the repair book SPS pays for — before they take your accounts on the bid.",

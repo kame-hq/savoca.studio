@@ -109,7 +109,7 @@ export const moving: PlaybookContent = {
 
   caseStudyHeadline: "Coming Q3 2026 (post-summer peak).",
   caseStudyBody:
-    "A 4-truck Austin mover deployed Numa AI + SmartMoving 5-touch sequence by April 15, 2026. Through July: captured 142 previously-missed peak-season inquiries, converted 41 into booked moves (~$57K attributable revenue). Full breakdown — AI script tuning, 5-touch cadence, LSA reallocation — published once season-end Q3 data closes. Want to be the next case study? Book a 30-minute audit.",
+    "A 4-truck Austin mover deployed Numa AI + SmartMoving 5-touch sequence by April 15, 2026. Through July: captured 142 previously-missed peak-season inquiries, converted 41 into booked moves (~$57K attributable revenue). Full breakdown — AI script tuning, 5-touch cadence, LSA reallocation — published once season-end Q3 data closes. Want to be the next case study? Book a 30-minute discovery call.",
 
   ctaHeadline: "Don't fix this in May. By then you've lost the year.",
   ctaBody:

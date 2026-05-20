@@ -109,7 +109,7 @@ export const landscaping: PlaybookContent = {
 
   caseStudyHeadline: "Coming Q2 2026 (post-spring).",
   caseStudyBody:
-    "A 3-crew North Austin shop deployed an AI receptionist + auto-text-back in February 2026, going into spring with full coverage. By end of May they had captured 84 previously-missed calls, converted 19 into signed mowing contracts and 6 into install projects. ~$58K of attributable revenue from previously-walked leads. Full breakdown post-spring data closes Q2. Want to be next? Book a 30-min audit.",
+    "A 3-crew North Austin shop deployed an AI receptionist + auto-text-back in February 2026, going into spring with full coverage. By end of May they had captured 84 previously-missed calls, converted 19 into signed mowing contracts and 6 into install projects. ~$58K of attributable revenue from previously-walked leads. Full breakdown post-spring data closes Q2. Want to be next? Book a 30-min discovery call.",
 
   ctaHeadline: "Don't budget the fix in April. By then it's over.",
   ctaBody:

@@ -109,7 +109,7 @@ export const personalTrainer: PlaybookContent = {
 
   caseStudyHeadline: "Coming Q4 2026.",
   caseStudyBody:
-    "An Austin Hyrox-coached solo trainer cut no-shows 68% in 30 days using moves 01 and 02 from this playbook, recovering ~$3,200/mo of previously-evaporated session revenue. Full breakdown — exact ManyChat flow, Acuity SLA configuration, recurring-slot enforcement script — will be published here once the 90-day data set closes. Want to be the next case study? Book a 30-minute audit.",
+    "An Austin Hyrox-coached solo trainer cut no-shows 68% in 30 days using moves 01 and 02 from this playbook, recovering ~$3,200/mo of previously-evaporated session revenue. Full breakdown — exact ManyChat flow, Acuity SLA configuration, recurring-slot enforcement script — will be published here once the 90-day data set closes. Want to be the next case study? Book a 30-minute discovery call.",
 
   ctaHeadline: "Fill the schedule before adding another client.",
   ctaBody:

@@ -125,7 +125,7 @@ export const pestControl: PlaybookContent = {
 
   caseStudyHeadline: "Round Rock pilot — closing the recurring-revenue gap on a 3-truck shop.",
   caseStudyBody:
-    "A 3-route Round Rock pest shop is the planned 2026 pilot for the four-move stack: PestPac card-on-file + auto-rebill, FieldRoutes geo-routing, Call Porter pest-trained answering integration, and seasonal-recall sequencing off the dispatch calendar. The full operational diff — exact PestPac auto-rebill configuration, FieldRoutes density-routing rules, Call Porter integration spec, seasonal-recall template — will be published when the 90-day data closes. Want to be the next case study? Book a 30-minute audit.",
+    "A 3-route Round Rock pest shop is the planned 2026 pilot for the four-move stack: PestPac card-on-file + auto-rebill, FieldRoutes geo-routing, Call Porter pest-trained answering integration, and seasonal-recall sequencing off the dispatch calendar. The full operational diff — exact PestPac auto-rebill configuration, FieldRoutes density-routing rules, Call Porter integration spec, seasonal-recall template — will be published when the 90-day data closes. Want to be the next case study? Book a 30-minute discovery call.",
 
   ctaHeadline:
     "Build the recurring book Rollins is paying 6× for — before they offer to do it for you.",

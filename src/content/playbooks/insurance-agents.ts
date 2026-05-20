@@ -108,7 +108,7 @@ export const insuranceAgents: PlaybookContent = {
 
   caseStudyHeadline: "Coming Q4 2026.",
   caseStudyBody:
-    "A 4-producer Austin agency wired AgencyZoom auto-response + 5-min SLA dashboard in 30 days. Median first-response dropped from 38 minutes to 4. Quote-to-bound conversion went from 11% to 24% on the same shared-lead spend. ~$8,400 of incremental commission in month 2. Full breakdown — AgencyZoom configuration, producer leaderboard template, after-hours AI script — published once 90-day data closes. Want to be the next case study? Book a 30-minute audit.",
+    "A 4-producer Austin agency wired AgencyZoom auto-response + 5-min SLA dashboard in 30 days. Median first-response dropped from 38 minutes to 4. Quote-to-bound conversion went from 11% to 24% on the same shared-lead spend. ~$8,400 of incremental commission in month 2. Full breakdown — AgencyZoom configuration, producer leaderboard template, after-hours AI script — published once 90-day data closes. Want to be the next case study? Book a 30-minute discovery call.",
 
   ctaHeadline: "Stop paying $30/lead to lose them by Tuesday.",
   ctaBody:

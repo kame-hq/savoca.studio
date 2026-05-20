@@ -107,7 +107,7 @@ export const hvac: PlaybookContent = {
 
   caseStudyHeadline: "Coming Q3 2026.",
   caseStudyBody:
-    "A 6-truck HVAC shop in Pflugerville reduced after-hours missed calls 84% and recovered $42K of cooling-season revenue in their first 60 days using moves 01 and 02 from this playbook. Full breakdown — exact answering-service vs AI cost-per-conversion, ServiceTitan SLA configuration, dispatch density delta — will be published here once the season-end data set closes. Want to be the next case study? Book a 30-minute audit.",
+    "A 6-truck HVAC shop in Pflugerville reduced after-hours missed calls 84% and recovered $42K of cooling-season revenue in their first 60 days using moves 01 and 02 from this playbook. Full breakdown — exact answering-service vs AI cost-per-conversion, ServiceTitan SLA configuration, dispatch density delta — will be published here once the season-end data set closes. Want to be the next case study? Book a 30-minute discovery call.",
 
   ctaHeadline: "Run a tighter shop. Or sell a more valuable one.",
   ctaBody:

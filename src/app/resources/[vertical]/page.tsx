@@ -211,10 +211,10 @@ export default async function PlaybookPage({
 
         <div className="close-cta-row">
           <Link href="/book" className="close-cta-primary cta-arrow-host">
-            Book a 30-min audit <span className="cta-arrow">→</span>
+            Book a 30-min discovery call <span className="cta-arrow">→</span>
           </Link>
-          <a href="mailto:hello@savoca.studio" className="close-cta-secondary">
-            hello@savoca.studio
+          <a href="mailto:jack@savoca.studio" className="close-cta-secondary">
+            jack@savoca.studio
           </a>
         </div>
 

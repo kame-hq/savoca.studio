@@ -106,7 +106,7 @@ export const chiropracticPt: PlaybookContent = {
 
   caseStudyHeadline: "Coming Q4 2026.",
   caseStudyBody:
-    "A solo Austin chiropractic office reactivated 14 lapsed patients in 60 days using move 03 from this playbook, recovering ~$5,400/mo in additional visit revenue. Full breakdown — exact ChiroSpring recall cadence, SMS copy, and front-desk SOP — will be published once the 90-day data set closes. Want to be the next case study? Book a 30-minute audit.",
+    "A solo Austin chiropractic office reactivated 14 lapsed patients in 60 days using move 03 from this playbook, recovering ~$5,400/mo in additional visit revenue. Full breakdown — exact ChiroSpring recall cadence, SMS copy, and front-desk SOP — will be published once the 90-day data set closes. Want to be the next case study? Book a 30-minute discovery call.",
 
   ctaHeadline: "Don't sell to a rollup. Run like one.",
   ctaBody:

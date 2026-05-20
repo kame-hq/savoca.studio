@@ -109,7 +109,7 @@ export const roofing: PlaybookContent = {
 
   caseStudyHeadline: "Coming Q3 2026.",
   caseStudyBody:
-    "A 4-crew Austin shop deployed an AI receptionist during the May 2025 hail event, captured 27 previously-missed after-hours calls in 72 hours, and converted 7 into signed insurance-claim jobs (~$112K total). Full breakdown — exact AgentZap config, post-storm follow-up cadence, AR tightening protocol — published once the 12-month data set closes. Want to be the next case study? Book a 30-minute audit.",
+    "A 4-crew Austin shop deployed an AI receptionist during the May 2025 hail event, captured 27 previously-missed after-hours calls in 72 hours, and converted 7 into signed insurance-claim jobs (~$112K total). Full breakdown — exact AgentZap config, post-storm follow-up cadence, AR tightening protocol — published once the 12-month data set closes. Want to be the next case study? Book a 30-minute discovery call.",
 
   ctaHeadline: "Storms don't wait. Neither do the buyers.",
   ctaBody:

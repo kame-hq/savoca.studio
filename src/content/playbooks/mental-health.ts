@@ -125,7 +125,7 @@ export const mentalHealth: PlaybookContent = {
 
   caseStudyHeadline: "Austin pilot — closing the admin-drift gap on a 3-clinician practice.",
   caseStudyBody:
-    "A 3-clinician Austin private practice is the planned 2026 pilot for the four-move stack: Spruce sub-1hr HIPAA auto-acknowledge on inquiries, Blueprint Health MBC wired into SimplePractice, Healthie eligibility automation, and a Psychology Today decoupling SOP (Google Business Profile build, EAP panel applications, PSYPACT activation for the PhD owner). The full operational diff — Spruce auto-acknowledge template, Blueprint PHQ-9/GAD-7 sequence, Healthie eligibility rules per payer, GBP optimization SOP — will be published when the 90-day data closes. Want to be the next case study? Book a 30-minute audit.",
+    "A 3-clinician Austin private practice is the planned 2026 pilot for the four-move stack: Spruce sub-1hr HIPAA auto-acknowledge on inquiries, Blueprint Health MBC wired into SimplePractice, Healthie eligibility automation, and a Psychology Today decoupling SOP (Google Business Profile build, EAP panel applications, PSYPACT activation for the PhD owner). The full operational diff — Spruce auto-acknowledge template, Blueprint PHQ-9/GAD-7 sequence, Healthie eligibility rules per payer, GBP optimization SOP — will be published when the 90-day data closes. Want to be the next case study? Book a 30-minute discovery call.",
 
   ctaHeadline: "Own your hours. Own your contract.",
   ctaBody:
