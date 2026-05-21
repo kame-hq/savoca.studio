@@ -1,0 +1,369 @@
+/* ────────────────────────────────────────────────────────────
+   Savoca Studio — Long-form client report (portrait letter)
+   8.5in × 11in editorial document. Distinct from pitch.css (deck).
+   ──────────────────────────────────────────────────────────── */
+
+.report {
+  --page-w: 8.5in;
+  --page-h: 11in;
+  --page-pad: 0.85in;
+
+  background: var(--bone-2);
+  padding: 3rem 1rem;
+  min-height: 100vh;
+}
+
+.report .page {
+  position: relative;
+  width: var(--page-w);
+  min-height: var(--page-h);
+  max-width: 100%;
+  margin: 0 auto 2rem;
+  padding: var(--page-pad);
+  background: var(--paper);
+  box-shadow: 0 4px 20px rgba(14, 14, 12, 0.08);
+  page-break-after: always;
+  break-after: page;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-inter);
+  color: var(--ink-2);
+}
+.report .page:last-child {
+  page-break-after: auto;
+  break-after: auto;
+}
+
+/* Running chrome */
+.rpt-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.75rem;
+  font-family: var(--font-jetbrains-mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+.rpt-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-jetbrains-mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+/* Eyebrows */
+.rpt-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-jetbrains-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--money);
+  margin-bottom: 1rem;
+}
+.rpt-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--money-2);
+  display: inline-block;
+}
+
+/* Part divider label */
+.rpt-part {
+  font-family: var(--font-jetbrains-mono);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: 0.75rem;
+}
+
+/* Headlines */
+.rpt-h1 {
+  font-family: var(--font-fraunces);
+  font-size: 46px;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  font-weight: 400;
+  font-variation-settings: "opsz" 110;
+  margin: 0 0 1.25rem;
+}
+.rpt-h2 {
+  font-family: var(--font-fraunces);
+  font-size: 27px;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  font-weight: 400;
+  font-variation-settings: "opsz" 60;
+  margin: 1.4rem 0 0.6rem;
+}
+.rpt-h2:first-of-type { margin-top: 0; }
+.rpt-italic { font-style: italic; color: var(--money); }
+
+/* Body */
+.rpt-body p {
+  font-size: 12.5px;
+  line-height: 1.58;
+  color: var(--ink-2);
+  margin: 0 0 0.7rem;
+  max-width: 6.4in;
+}
+.rpt-body strong { color: var(--ink); font-weight: 600; }
+.rpt-lead {
+  font-size: 15px !important;
+  line-height: 1.55 !important;
+  color: var(--ink) !important;
+}
+
+/* Pull quote / margin emphasis */
+.rpt-pull {
+  font-family: var(--font-fraunces);
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  font-weight: 400;
+  border-left: 2px solid var(--money);
+  padding: 0.25rem 0 0.25rem 1rem;
+  margin: 1rem 0;
+  max-width: 5.8in;
+}
+.rpt-pull em { color: var(--money); font-style: italic; }
+
+/* Keep / Fix / Add / Prove ledger */
+.rpt-ledger { margin: 1rem 0 0.5rem; }
+.rpt-ledger-row {
+  display: grid;
+  grid-template-columns: 1.1in 1fr;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--rule);
+  break-inside: avoid;
+}
+.rpt-ledger-row:last-child { border-bottom: 1px solid var(--rule); }
+.rpt-ledger-tag {
+  font-family: var(--font-fraunces);
+  font-size: 19px;
+  color: var(--money);
+  line-height: 1;
+}
+.rpt-ledger-tag.neg { color: var(--signal); }
+.rpt-ledger-body {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.rpt-ledger-body strong { color: var(--ink); }
+
+/* Data figures (industry) */
+.rpt-figs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+  margin: 1.25rem 0;
+}
+.rpt-fig {
+  border-left: 2px solid var(--money);
+  padding: 0.4rem 0 0.4rem 0.85rem;
+  break-inside: avoid;
+}
+.rpt-fig-val {
+  font-family: var(--font-fraunces);
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  font-variation-settings: "opsz" 72;
+}
+.rpt-fig-val .unit { font-size: 17px; color: var(--money); }
+.rpt-fig-label {
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--ink-2);
+  margin-top: 0.3rem;
+}
+
+/* Page-by-page table */
+.rpt-rows { margin: 0.5rem 0; }
+.rpt-row {
+  display: grid;
+  grid-template-columns: 1.2in 1fr;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-top: 1px solid var(--rule);
+  break-inside: avoid;
+}
+.rpt-row:last-child { border-bottom: 1px solid var(--rule); }
+.rpt-row-key {
+  font-family: var(--font-jetbrains-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding-top: 1px;
+}
+.rpt-row-val { font-size: 12px; line-height: 1.5; color: var(--ink-2); }
+.rpt-row-val .leak {
+  color: var(--signal);
+  font-weight: 600;
+}
+
+/* Cover */
+.page-cover { justify-content: space-between; }
+.cover-center { margin: auto 0; }
+.cover-lockup {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+.cover-kicker {
+  font-family: var(--font-jetbrains-mono);
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: 1rem;
+}
+.cover-title {
+  font-family: var(--font-fraunces);
+  font-size: 60px;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  font-weight: 400;
+  font-variation-settings: "opsz" 144;
+  margin: 0 0 1.5rem;
+}
+.cover-sub {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  max-width: 5in;
+}
+.cover-meta {
+  font-family: var(--font-jetbrains-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+/* Contents */
+.toc { margin-top: 1rem; }
+.toc-row {
+  display: grid;
+  grid-template-columns: 0.5in 1fr auto;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--rule);
+}
+.toc-row:last-child { border-bottom: 1px solid var(--rule); }
+.toc-num {
+  font-family: var(--font-jetbrains-mono);
+  font-size: 11px;
+  color: var(--money);
+  letter-spacing: 0.1em;
+}
+.toc-name {
+  font-family: var(--font-fraunces);
+  font-size: 22px;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.toc-desc {
+  font-size: 11px;
+  color: var(--steel);
+  font-family: var(--font-jetbrains-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Dark CTA page */
+.page-cta {
+  background: var(--ink) !important;
+  color: var(--bone);
+  justify-content: center;
+}
+.page-cta .rpt-top,
+.page-cta .rpt-bottom {
+  color: var(--bone-2);
+  border-color: rgba(245, 242, 236, 0.18);
+}
+.cta-h {
+  font-family: var(--font-fraunces);
+  font-size: 44px;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--bone);
+  font-weight: 400;
+  font-variation-settings: "opsz" 120;
+  margin: 0 0 1.25rem;
+}
+.cta-h .accent { color: var(--gold); font-style: italic; }
+.cta-p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--bone-2);
+  max-width: 5.6in;
+  margin: 0 0 1.5rem;
+}
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 26px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--font-jetbrains-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  align-self: flex-start;
+}
+
+/* Print */
+@page { size: 8.5in 11in; margin: 0; }
+@media print {
+  body { background: white !important; }
+  .report { background: white !important; padding: 0 !important; }
+  .report .page {
+    box-shadow: none !important;
+    margin: 0 !important;
+    height: var(--page-h) !important;
+    min-height: var(--page-h) !important;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+  }
+  .report .page:last-child { page-break-after: auto; }
+  body > *:not(main), nav, header.nav-enter { display: none !important; }
+}
+
+@media screen and (max-width: 920px) {
+  .report .page { width: 100%; min-height: auto; padding: 1.5rem; }
+  .cover-title { font-size: 40px; }
+  .rpt-h1 { font-size: 34px; }
+  .rpt-figs, .rpt-ledger-row, .rpt-row, .toc-row { grid-template-columns: 1fr; }
+}
