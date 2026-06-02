@@ -10,7 +10,7 @@ export const moving: PlaybookContent = {
   edition: "13 / Moving Edition / 2026",
 
   introBody:
-    "Austin is the #3 US relocation destination (U-Haul 2025). Texas is the #1 inbound state. Local movers report 25-30% YoY booking-request growth. The leads are abundant. The conversion is the bottleneck. 63% of inbound moving leads get NO response — up from 23% in 2011. Industry average response time: 47 hours. By then the customer has already booked with the company who picked up first. This playbook is the field guide for the 5-15 truck shop sitting on top of a migration boom and losing 4 out of 5 customers to the operator with the better phone game.",
+    "I spent three years as a mover, not running the office — on the truck, in the houses. You hear the same line every busy season: \"you're the only one who called me back.\" That always stuck with me. The job was never the hard part. Keeping up with the people trying to book you was. This is the fix for that. Austin is the #3 US relocation destination (U-Haul 2025). Texas is the #1 inbound state. Local movers report 25-30% YoY booking-request growth. The leads are abundant. The conversion is the bottleneck. 63% of inbound moving leads get NO response — up from 23% in 2011. Industry average response time: 47 hours. By then the customer has already booked with the company who picked up first. This playbook is the field guide for the 5-15 truck shop sitting on top of a migration boom and losing 4 out of 5 customers to the operator with the better phone game.",
 
   patternHeadline: "47-hour response. 5-minute booking decision.",
   patternBody:
