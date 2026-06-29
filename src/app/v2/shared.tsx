@@ -276,7 +276,7 @@ export function ProcessStepper() {
 }
 
 /* ---- chrome shell: fonts, cursor, rail, mobile menu, lenis, footer ---- */
-function Cursor() {
+export function Cursor() {
   const x = useMotionValue(-100), y = useMotionValue(-100);
   const sx = useSpring(x, { stiffness: 500, damping: 40, mass: 0.4 });
   const sy = useSpring(y, { stiffness: 500, damping: 40, mass: 0.4 });
