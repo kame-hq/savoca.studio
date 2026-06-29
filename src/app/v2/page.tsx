@@ -6,7 +6,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import {
-  Cursor, Split, Reveal, Bullets, PathStrip, BuildExplorer, ProcessStepper, BandCard, Badges,
+  Cursor, HeroReel, Split, Reveal, Bullets, PathStrip, BuildExplorer, ProcessStepper, BandCard, Badges,
   INK, BONE, TEAL, DIM, EASE, BORDER, PATH_SHORT, PATH_LONG, BANDS, EXAMPLES,
 } from "./shared";
 
@@ -98,17 +98,7 @@ export default function Home() {
             {/* HOME */}
             {tab === "" && (
               <section className="relative min-h-full flex flex-col justify-end overflow-hidden">
-                <div className="absolute inset-0">
-                  {reduce ? (
-                    <img src="/video/hero-coin-poster.webp" alt="" className="absolute inset-0 h-full w-full object-cover" />
-                  ) : (
-                    <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload="auto" poster="/video/hero-coin-poster.webp">
-                      <source src="/video/hero-coin.mp4" type="video/mp4" />
-                    </video>
-                  )}
-                  <div className="absolute inset-0" style={{ background: "rgba(70,76,70,0.28)", mixBlendMode: "multiply" }} />
-                  <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(11,11,9,0.94) 0%, rgba(11,11,9,0.15) 50%, rgba(11,11,9,0.4) 100%)" }} />
-                </div>
+                <HeroReel />
                 <div className="relative z-10 px-6 md:px-12 pb-12 lg:pb-16 pt-16">
                   <p className="font-[JetBrains_Mono] text-[12px] tracking-[0.3em] uppercase mb-6" style={{ color: TEAL }}>Revenue systems for service businesses</p>
                   <Split text="I build the layer between demand and getting paid." go className="font-[Fraunces] font-black leading-[0.92] tracking-[-0.01em] max-w-[18ch]" style={{ fontSize: "clamp(34px,5.4vw,86px)" }} />

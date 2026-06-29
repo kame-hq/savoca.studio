@@ -207,6 +207,43 @@ export function Badges() {
   );
 }
 
+/* ---- hero reel: service-business clips cycling continuously ---- */
+export const REEL = [
+  { src: "/video/svc-barber.mp4", poster: "/video/svc-barber-poster.jpg", label: "Barbershop" },
+  { src: "/video/svc-spa.mp4", poster: "/video/svc-spa-poster.jpg", label: "Spa" },
+  { src: "/video/svc-mechanic.mp4", poster: "/video/svc-mechanic-poster.jpg", label: "Auto shop" },
+  { src: "/video/svc-plumber.mp4", poster: "/video/svc-plumber-poster.jpg", label: "Plumbing" },
+];
+export function HeroReel() {
+  const reduce = useReducedMotion();
+  const [idx, setIdx] = useState(0);
+  const refs = useRef<(HTMLVideoElement | null)[]>([]);
+  useEffect(() => {
+    if (reduce) return;
+    const v = refs.current[idx];
+    if (v) { v.currentTime = 0; v.play().catch(() => {}); }
+    const t = setTimeout(() => setIdx((i) => (i + 1) % REEL.length), 5500);
+    return () => clearTimeout(t);
+  }, [idx, reduce]);
+  return (
+    <div className="absolute inset-0">
+      {REEL.map((c, i) => reduce ? (
+        <img key={c.src} src={c.poster} alt="" className="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000" style={{ opacity: i === 0 ? 1 : 0 }} />
+      ) : (
+        <video key={c.src} ref={(el) => { refs.current[i] = el; }} muted playsInline preload={i === 0 ? "auto" : "none"} poster={c.poster}
+          className="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000" style={{ opacity: i === idx ? 1 : 0 }}>
+          <source src={c.src} type="video/mp4" />
+        </video>
+      ))}
+      <div className="absolute inset-0" style={{ background: "rgba(70,76,70,0.22)", mixBlendMode: "multiply" }} />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(11,11,9,0.94) 0%, rgba(11,11,9,0.2) 50%, rgba(11,11,9,0.45) 100%)" }} />
+      <div className="absolute bottom-4 right-5 md:bottom-6 md:right-8 flex items-center gap-2 font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase" style={{ color: BONE }}>
+        <span style={{ color: TEAL }}>●</span>{REEL[idx].label}
+      </div>
+    </div>
+  );
+}
+
 /* ---- interactive: What Gets Built (tabs absorb Metrics) ---- */
 export function BuildExplorer() {
   const [i, setI] = useState(0);
