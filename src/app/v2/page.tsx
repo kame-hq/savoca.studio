@@ -124,7 +124,7 @@ function Split({ text, go, className, style }: { text: string; go: boolean; clas
   return (
     <h1 className={className} style={style}>
       {words.map((w, i) => (
-        <span key={i} className="inline-block overflow-hidden mr-[0.22em] align-bottom">
+        <span key={i} className="inline-block overflow-hidden mr-[0.22em] align-bottom pb-[0.18em] -mb-[0.18em]">
           <motion.span className="inline-block" initial={{ y: "115%" }} animate={go ? { y: 0 } : {}}
             transition={{ delay: 0.1 + i * 0.07, duration: 0.85, ease: EASE }}>{w}</motion.span>
         </span>
@@ -265,6 +265,7 @@ function Badges() {
 export default function V2() {
   const reduce = useReducedMotion();
   const [loaded, setLoaded] = useState(false);
+  const [menu, setMenu] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
@@ -304,6 +305,28 @@ export default function V2() {
         ))}
       </motion.nav>
 
+      {/* mobile menu overlay */}
+      <AnimatePresence>
+        {menu && (
+          <motion.div className="fixed inset-0 z-[85] md:hidden flex flex-col" style={{ background: INK, color: BONE }}
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3, ease: EASE }}>
+            <div className="flex items-center justify-between px-6 pt-7">
+              <span className="flex items-baseline gap-2.5">
+                <span className="font-[Redaction] font-bold leading-none" style={{ fontSize: 40 }}>§</span>
+                <span className="font-[Redaction] font-bold leading-none" style={{ fontSize: 24 }}>Savoca Studio</span>
+              </span>
+              <button data-cursor aria-label="Close menu" onClick={() => setMenu(false)} className="font-[JetBrains_Mono] text-[12px] tracking-[0.18em] uppercase p-2" style={{ color: BONE }}>Close ✕</button>
+            </div>
+            <nav className="flex-1 flex flex-col justify-center gap-5 px-6">
+              {([["Work", "#work"], ["Systems", "#systems"], ["Pricing", "#pricing"], ["Contact", "#contact"]] as [string, string][]).map(([t, href]) => (
+                <a key={t} href={href} onClick={() => setMenu(false)} className="font-[Redaction] font-bold leading-none" style={{ fontSize: "clamp(44px,13vw,72px)" }}>{t}</a>
+              ))}
+            </nav>
+            <a href="#contact" onClick={() => setMenu(false)} className="mx-6 mb-8 text-center font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4 rounded-full" style={{ background: TEAL, color: INK }}>Let&apos;s talk →</a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* 1 · HERO */}
       <section ref={heroRef} className="relative h-[100svh] w-full overflow-hidden">
         <motion.div className="absolute inset-0" style={{ y: heroY }}>
@@ -324,7 +347,13 @@ export default function V2() {
               <span className="font-[Redaction] font-bold leading-none" style={{ fontSize: "clamp(38px,4vw,56px)" }}>§</span>
               <span className="font-[Redaction] font-bold tracking-[-0.01em] leading-none" style={{ fontSize: "clamp(22px,2.2vw,32px)" }}>Savoca Studio</span>
             </a>
-            <a data-cursor href="#contact" className="hidden md:inline-block font-[JetBrains_Mono] text-[12px] tracking-[0.14em] uppercase px-5 py-3 rounded-full" style={{ border: "1px solid rgba(252,255,247,0.4)", color: BONE }}>Let&apos;s talk →</a>
+            <div className="flex items-center gap-3">
+              <a data-cursor href="#contact" className="hidden md:inline-block font-[JetBrains_Mono] text-[12px] tracking-[0.14em] uppercase px-5 py-3 rounded-full" style={{ border: "1px solid rgba(252,255,247,0.4)", color: BONE }}>Let&apos;s talk →</a>
+              <button data-cursor aria-label="Open menu" onClick={() => setMenu(true)} className="md:hidden flex flex-col gap-1.5 p-2">
+                <span className="block w-7 h-px" style={{ background: BONE }} />
+                <span className="block w-7 h-px" style={{ background: BONE }} />
+              </button>
+            </div>
           </div>
           <div className="mt-auto px-6 md:px-12 pb-12 lg:pb-16">
             <motion.p className="font-[JetBrains_Mono] text-[12px] tracking-[0.3em] uppercase mb-6" style={{ color: TEAL }}
