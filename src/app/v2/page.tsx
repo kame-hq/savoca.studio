@@ -143,7 +143,7 @@ function Preloader({ onDone }: { onDone: () => void }) {
   return (
     <motion.div className="fixed inset-0 z-[80] flex items-end justify-between px-8 pb-8" style={{ background: INK, color: BONE }}
       initial={{ y: 0 }} exit={{ y: "-100%" }} transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}>
-      <span className="font-[Fraunces] font-bold text-3xl">§</span>
+      <span className="font-[Fraunces] font-black text-3xl">§</span>
       <span className="font-[Fraunces] font-bold tabular-nums" style={{ fontSize: "clamp(56px,15vw,180px)", lineHeight: 0.8 }}>{n}</span>
     </motion.div>
   );
@@ -224,7 +224,7 @@ function BandCard({ b }: { b: Band }) {
       </>)}
 
       <div className="mt-auto pt-7">
-        <p className="font-[Fraunces] font-bold leading-none" style={{ fontSize: "clamp(30px,3.4vw,44px)", color: BONE }}>
+        <p className="font-[Fraunces] font-black leading-none" style={{ fontSize: "clamp(30px,3.4vw,44px)", color: BONE }}>
           {b.price}<span className="font-[JetBrains_Mono] font-normal text-[13px] align-middle ml-2 opacity-70">/ mo</span>
         </p>
         <ul className="mt-3 space-y-1.5">
@@ -307,14 +307,14 @@ export default function V2() {
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3, ease: EASE }}>
             <div className="flex items-center justify-between px-6 pt-7">
               <span className="flex items-baseline gap-2.5">
-                <span className="font-[Fraunces] font-bold leading-none" style={{ fontSize: 40 }}>§</span>
-                <span className="font-[Fraunces] font-bold leading-none" style={{ fontSize: 24 }}>Savoca Studio</span>
+                <span className="font-[Fraunces] font-black leading-none" style={{ fontSize: 40 }}>§</span>
+                <span className="font-[Fraunces] font-black leading-none" style={{ fontSize: 24 }}>Savoca Studio</span>
               </span>
               <button data-cursor aria-label="Close menu" onClick={() => setMenu(false)} className="font-[JetBrains_Mono] text-[12px] tracking-[0.18em] uppercase p-2" style={{ color: BONE }}>Close ✕</button>
             </div>
             <nav className="flex-1 flex flex-col justify-center gap-5 px-6">
               {([["Work", "#work"], ["Systems", "#systems"], ["Pricing", "#pricing"], ["Contact", "#contact"]] as [string, string][]).map(([t, href]) => (
-                <a key={t} href={href} onClick={() => setMenu(false)} className="font-[Fraunces] font-bold leading-none" style={{ fontSize: "clamp(44px,13vw,72px)" }}>{t}</a>
+                <a key={t} href={href} onClick={() => setMenu(false)} className="font-[Fraunces] font-black leading-none" style={{ fontSize: "clamp(44px,13vw,72px)" }}>{t}</a>
               ))}
             </nav>
             <a href="#contact" onClick={() => setMenu(false)} className="mx-6 mb-8 text-center font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4 rounded-full" style={{ background: TEAL, color: INK }}>Let&apos;s talk →</a>
@@ -339,8 +339,8 @@ export default function V2() {
         <div className="relative z-10 h-full flex flex-col">
           <div className="flex items-center justify-between px-6 md:px-12 pt-7">
             <a data-cursor href="#" className="flex items-baseline gap-2.5 hover:opacity-80 transition-opacity">
-              <span className="font-[Fraunces] font-bold leading-none" style={{ fontSize: "clamp(38px,4vw,56px)" }}>§</span>
-              <span className="font-[Fraunces] font-bold tracking-[-0.01em] leading-none" style={{ fontSize: "clamp(22px,2.2vw,32px)" }}>Savoca Studio</span>
+              <span className="font-[Fraunces] font-black leading-none" style={{ fontSize: "clamp(38px,4vw,56px)" }}>§</span>
+              <span className="font-[Fraunces] font-black tracking-[-0.01em] leading-none" style={{ fontSize: "clamp(22px,2.2vw,32px)" }}>Savoca Studio</span>
             </a>
             <div className="flex items-center gap-3">
               <a data-cursor href="#contact" className="hidden md:inline-block font-[JetBrains_Mono] text-[12px] tracking-[0.14em] uppercase px-5 py-3 rounded-full" style={{ border: "1px solid rgba(252,255,247,0.4)", color: BONE }}>Let&apos;s talk →</a>
@@ -538,8 +538,8 @@ export default function V2() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
             <div className="flex items-baseline gap-2.5">
-              <span className="font-[Fraunces] font-bold leading-none" style={{ fontSize: "clamp(30px,3vw,42px)" }}>§</span>
-              <span className="font-[Fraunces] font-bold leading-none" style={{ fontSize: "clamp(20px,2vw,28px)" }}>Savoca Studio</span>
+              <span className="font-[Fraunces] font-black leading-none" style={{ fontSize: "clamp(30px,3vw,42px)" }}>§</span>
+              <span className="font-[Fraunces] font-black leading-none" style={{ fontSize: "clamp(20px,2vw,28px)" }}>Savoca Studio</span>
             </div>
             <p className="font-[JetBrains_Mono] text-[12px] tracking-[0.14em] uppercase mt-4" style={{ color: DIM }}>Revenue systems for service businesses</p>
           </div>
