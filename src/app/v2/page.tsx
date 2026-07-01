@@ -106,7 +106,7 @@ export default function Home() {
               <section className="relative min-h-full flex flex-col justify-end overflow-hidden">
                 <HeroReel />
                 <div className="relative z-10 px-6 md:px-12 pb-12 lg:pb-16 pt-16">
-                  <p className="font-[JetBrains_Mono] text-[12px] tracking-[0.3em] uppercase mb-6" style={{ color: TEAL }}>Revenue systems for service businesses</p>
+                  <p className="font-[JetBrains_Mono] text-[12px] tracking-[0.28em] uppercase mb-6" style={{ color: BONE, textShadow: "0 1px 14px rgba(0,0,0,0.75)" }}>Revenue systems for service businesses</p>
                   <Split text="I build the layer between demand and getting paid." go className="font-[Redaction] font-black leading-[0.92] tracking-[-0.01em] max-w-[18ch]" style={{ fontSize: "clamp(34px,5.4vw,86px)" }} />
                   <div className="mt-7 flex flex-col lg:flex-row lg:items-end gap-6 lg:gap-12">
                     <p className="font-[Redaction] max-w-[52ch]" style={{ fontSize: "clamp(17px,1.9vw,22px)", color: "#D6D1C5" }}>
