@@ -210,8 +210,10 @@ export function Badges() {
 /* ---- hero reel: service-business clips cycling continuously ---- */
 export const REEL = [
   { src: "/video/svc-barber.mp4", poster: "/video/svc-barber-poster.jpg", label: "Barbershop" },
-  { src: "/video/svc-spa.mp4", poster: "/video/svc-spa-poster.jpg", label: "Spa" },
+  { src: "/video/svc-tattoo.mp4", poster: "/video/svc-tattoo-poster.jpg", label: "Tattoo studio" },
+  { src: "/video/svc-nails.mp4", poster: "/video/svc-nails-poster.jpg", label: "Nail salon" },
   { src: "/video/svc-mechanic.mp4", poster: "/video/svc-mechanic-poster.jpg", label: "Auto shop" },
+  { src: "/video/svc-detail.mp4", poster: "/video/svc-detail-poster.jpg", label: "Auto detailing" },
   { src: "/video/svc-plumber.mp4", poster: "/video/svc-plumber-poster.jpg", label: "Plumbing" },
 ];
 export function HeroReel() {
