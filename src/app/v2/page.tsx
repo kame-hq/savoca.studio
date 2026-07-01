@@ -44,14 +44,20 @@ export default function Home() {
     <main className="fixed inset-0 flex flex-col overflow-hidden md:cursor-none" style={{ background: INK, color: BONE }}>
       {/* eslint-disable-next-line @next/next/no-page-custom-font */}
       <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-      <style>{`@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-33.3333%)}}`}</style>
+      <style>{`
+        @font-face{font-family:'Redaction';src:url('/fonts/redaction/Redaction-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+        @font-face{font-family:'Redaction';src:url('/fonts/redaction/Redaction-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+        @font-face{font-family:'Redaction';src:url('/fonts/redaction/Redaction-Bold.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}
+        @font-face{font-family:'Redaction';src:url('/fonts/redaction/Redaction-Italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
+        @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-33.3333%)}}
+      `}</style>
       {!reduce && <Cursor />}
 
       {/* header + tab bar */}
       <header className="relative z-[60] shrink-0 flex items-center justify-between gap-6 px-6 md:px-12 py-5" style={{ borderBottom: BORDER }}>
         <button data-cursor onClick={() => go("")} className="flex items-baseline gap-2.5 hover:opacity-80 transition-opacity">
           <span className="font-[Fraunces] font-black leading-none" style={{ fontSize: "clamp(30px,3.2vw,42px)" }}>§</span>
-          <span className="font-[Fraunces] font-black tracking-[-0.01em] leading-none" style={{ fontSize: "clamp(18px,2vw,26px)" }}>Savoca Studio</span>
+          <span className="font-[Redaction] font-black tracking-[-0.01em] leading-none" style={{ fontSize: "clamp(18px,2vw,26px)" }}>Savoca Studio</span>
         </button>
 
         <nav className="hidden md:flex items-center gap-7 font-[JetBrains_Mono] text-[12px] tracking-[0.16em] uppercase">
@@ -82,7 +88,7 @@ export default function Home() {
             </div>
             <nav className="flex-1 flex flex-col justify-center gap-5 px-6">
               {TABS.map(([t, k]) => (
-                <button key={k} onClick={() => go(k)} className="text-left font-[Fraunces] font-black leading-none" style={{ fontSize: "clamp(40px,12vw,68px)", opacity: tab === k ? 1 : 0.6 }}>{t}</button>
+                <button key={k} onClick={() => go(k)} className="text-left font-[Redaction] font-black leading-none" style={{ fontSize: "clamp(40px,12vw,68px)", opacity: tab === k ? 1 : 0.6 }}>{t}</button>
               ))}
             </nav>
             <a href="mailto:jack@savoca.studio" onClick={() => setMenu(false)} className="mx-6 mb-8 text-center font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4 rounded-full" style={{ background: TEAL, color: INK }}>Let&apos;s talk →</a>
@@ -101,9 +107,9 @@ export default function Home() {
                 <HeroReel />
                 <div className="relative z-10 px-6 md:px-12 pb-12 lg:pb-16 pt-16">
                   <p className="font-[JetBrains_Mono] text-[12px] tracking-[0.3em] uppercase mb-6" style={{ color: TEAL }}>Revenue systems for service businesses</p>
-                  <Split text="I build the layer between demand and getting paid." go className="font-[Fraunces] font-black leading-[0.92] tracking-[-0.01em] max-w-[18ch]" style={{ fontSize: "clamp(34px,5.4vw,86px)" }} />
+                  <Split text="I build the layer between demand and getting paid." go className="font-[Redaction] font-black leading-[0.92] tracking-[-0.01em] max-w-[18ch]" style={{ fontSize: "clamp(34px,5.4vw,86px)" }} />
                   <div className="mt-7 flex flex-col lg:flex-row lg:items-end gap-6 lg:gap-12">
-                    <p className="font-[Fraunces] max-w-[52ch]" style={{ fontSize: "clamp(17px,1.9vw,22px)", color: "#D6D1C5" }}>
+                    <p className="font-[Redaction] max-w-[52ch]" style={{ fontSize: "clamp(17px,1.9vw,22px)", color: "#D6D1C5" }}>
                       Savoca Studio builds the workflows, tools, automations, and reporting that turn service demand into booked work, completed work, paid work, and repeat customers.
                     </p>
                     <div className="flex items-center gap-5 shrink-0">
@@ -120,9 +126,9 @@ export default function Home() {
             {tab === "systems" && (
               <section className="px-6 md:px-12 py-12 lg:py-16">
                 <p className={lab} style={{ color: TEAL }}>What gets built</p>
-                <Reveal className="font-[Fraunces] font-bold leading-[0.98] max-w-[18ch] mb-8" style={{ fontSize: "clamp(28px,4.4vw,52px)" }}>A working revenue system, not another tool.</Reveal>
+                <Reveal className="font-[Redaction] font-bold leading-[0.98] max-w-[18ch] mb-8" style={{ fontSize: "clamp(28px,4.4vw,52px)" }}>A working revenue system, not another tool.</Reveal>
                 <BuildExplorer />
-                <p className="font-[Fraunces] mt-10 max-w-[46ch]" style={{ fontSize: "clamp(18px,2.2vw,26px)", color: BONE }}>
+                <p className="font-[Redaction] mt-10 max-w-[46ch]" style={{ fontSize: "clamp(18px,2.2vw,26px)", color: BONE }}>
                   The system is working when more demand becomes booked work, completed work, paid work, and repeat business.
                 </p>
               </section>
@@ -132,9 +138,9 @@ export default function Home() {
             {tab === "process" && (
               <section className="px-6 md:px-12 py-12 lg:py-16">
                 <p className={lab} style={{ color: TEAL }}>The process</p>
-                <Reveal className="font-[Fraunces] font-bold leading-[0.95] max-w-[14ch] mb-8" style={{ fontSize: "clamp(30px,4.6vw,60px)" }}>Build. Run. Measure. Improve.</Reveal>
+                <Reveal className="font-[Redaction] font-bold leading-[0.95] max-w-[14ch] mb-8" style={{ fontSize: "clamp(30px,4.6vw,60px)" }}>Build. Run. Measure. Improve.</Reveal>
                 <ProcessStepper />
-                <p className="font-[Fraunces] mt-8" style={{ fontSize: "clamp(16px,1.8vw,20px)", color: DIM }}>
+                <p className="font-[Redaction] mt-8" style={{ fontSize: "clamp(16px,1.8vw,20px)", color: DIM }}>
                   Each build starts with a baseline, then one working system — kept improving every month.
                 </p>
               </section>
@@ -144,8 +150,8 @@ export default function Home() {
             {tab === "pricing" && (
               <section className="px-6 md:px-12 py-12 lg:py-16">
                 <p className={lab} style={{ color: TEAL }}>Three ways to build</p>
-                <Reveal className="font-[Fraunces] font-bold leading-[0.98] max-w-[20ch]" style={{ fontSize: "clamp(28px,4.4vw,52px)" }}>Built for the size and complexity of the business.</Reveal>
-                <p className="font-[Fraunces] mt-5 max-w-[62ch] mb-10" style={{ fontSize: "clamp(16px,1.8vw,20px)", color: DIM }}>
+                <Reveal className="font-[Redaction] font-bold leading-[0.98] max-w-[20ch]" style={{ fontSize: "clamp(28px,4.4vw,52px)" }}>Built for the size and complexity of the business.</Reveal>
+                <p className="font-[Redaction] mt-5 max-w-[62ch] mb-10" style={{ fontSize: "clamp(16px,1.8vw,20px)", color: DIM }}>
                   A solo practice does not need the same system as a multi-location service business. You work directly with me — no agency layers, no bloated consulting process, no one-time setup that gets forgotten.
                 </p>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-5 items-stretch">
@@ -158,12 +164,12 @@ export default function Home() {
             {tab === "work" && (
               <section className="px-6 md:px-12 py-12 lg:py-16">
                 <p className={lab} style={{ color: TEAL }}>Examples</p>
-                <Reveal className="font-[Fraunces] font-bold leading-[0.98] max-w-[16ch]" style={{ fontSize: "clamp(28px,4.4vw,52px)" }}>Different businesses. Same revenue path.</Reveal>
+                <Reveal className="font-[Redaction] font-bold leading-[0.98] max-w-[16ch]" style={{ fontSize: "clamp(28px,4.4vw,52px)" }}>Different businesses. Same revenue path.</Reveal>
                 <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: "rgba(236,231,221,0.1)" }}>
                   {EXAMPLES.map(([title, blurb, measured]) => (
                     <div key={title} className="p-7 md:p-9" style={{ background: INK }}>
-                      <h3 className="font-[Fraunces] font-bold" style={{ fontSize: "clamp(22px,2.6vw,32px)" }}>{title}</h3>
-                      <p className="font-[Fraunces] mt-3 mb-6 max-w-[52ch]" style={{ fontSize: "16px", color: "#B7B2A6" }}>{blurb}</p>
+                      <h3 className="font-[Redaction] font-bold" style={{ fontSize: "clamp(22px,2.6vw,32px)" }}>{title}</h3>
+                      <p className="font-[Redaction] mt-3 mb-6 max-w-[52ch]" style={{ fontSize: "16px", color: "#B7B2A6" }}>{blurb}</p>
                       <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase mb-3" style={{ color: TEAL }}>Measured by</p>
                       <div className="grid grid-cols-2 gap-x-6"><Bullets items={measured} color={DIM} /></div>
                     </div>
@@ -176,9 +182,9 @@ export default function Home() {
             {tab === "about" && (
               <section className="px-6 md:px-12 py-12 lg:py-16">
                 <p className={lab} style={{ color: TEAL }}>Why this works</p>
-                <Reveal className="font-[Fraunces] font-bold leading-[0.96] mb-7 max-w-[16ch]" style={{ fontSize: "clamp(28px,4.4vw,54px)" }}>Not an agency. Not just software. Not advice.</Reveal>
+                <Reveal className="font-[Redaction] font-bold leading-[0.96] mb-7 max-w-[16ch]" style={{ fontSize: "clamp(28px,4.4vw,54px)" }}>Not an agency. Not just software. Not advice.</Reveal>
                 <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16">
-                  <div className="font-[Fraunces] space-y-4 max-w-[58ch]" style={{ fontSize: "clamp(17px,2vw,22px)", color: "#B7B2A6" }}>
+                  <div className="font-[Redaction] space-y-4 max-w-[58ch]" style={{ fontSize: "clamp(17px,2vw,22px)", color: "#B7B2A6" }}>
                     <p>Agencies usually focus on getting more demand. Software companies sell tools. Consultants give recommendations.</p>
                     <p style={{ color: BONE }}>Savoca Studio builds the revenue workflow underneath the business and keeps improving it with you.</p>
                     <p>You work directly with me. I bring a background in program management, revenue operations, product launches, and cross-functional systems from larger companies, then apply it to service businesses that need cleaner growth, better visibility, and less manual chaos.</p>
@@ -192,7 +198,7 @@ export default function Home() {
                 </div>
                 <div className="mt-10"><Badges /></div>
                 <div className="mt-12 pt-10" style={{ borderTop: BORDER }}>
-                  <h2 className="font-[Fraunces] font-black leading-[0.95] max-w-[18ch]" style={{ fontSize: "clamp(30px,5vw,68px)" }}>Build the layer between demand and getting paid.</h2>
+                  <h2 className="font-[Redaction] font-black leading-[0.95] max-w-[18ch]" style={{ fontSize: "clamp(30px,5vw,68px)" }}>Build the layer between demand and getting paid.</h2>
                   <a data-cursor href="mailto:jack@savoca.studio" className="inline-block mt-7 font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4 rounded-full" style={{ background: TEAL, color: INK }}>Let&apos;s talk →</a>
                   <p className="font-[JetBrains_Mono] text-[12px] tracking-[0.12em] mt-8" style={{ color: DIM }}>jack@savoca.studio · Austin, TX</p>
                 </div>

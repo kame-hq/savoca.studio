@@ -159,7 +159,7 @@ export function Lockup({ size = "md" }: { size?: "md" | "sm" }) {
   return (
     <a data-cursor href="/" className="flex items-baseline gap-2.5 hover:opacity-80 transition-opacity">
       <span className="font-[Fraunces] font-black leading-none" style={{ fontSize: a }}>§</span>
-      <span className="font-[Fraunces] font-black tracking-[-0.01em] leading-none" style={{ fontSize: b }}>Savoca Studio</span>
+      <span className="font-[Redaction] font-black tracking-[-0.01em] leading-none" style={{ fontSize: b }}>Savoca Studio</span>
     </a>
   );
 }
@@ -169,10 +169,10 @@ export function BandCard({ b }: { b: Band }) {
     <motion.div className="flex flex-col p-7 md:p-8 rounded-xl h-full" style={{ background: "#0E0E0E", border: BORDER }}
       initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-8%" }} transition={{ duration: 0.6, ease: EASE }}>
       <span className="font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase" style={{ color: TEAL }}>{b.n}</span>
-      <h3 className="font-[Fraunces] font-bold mt-2 leading-none" style={{ fontSize: "clamp(26px,3vw,38px)" }}>{b.name}</h3>
-      <p className="font-[Fraunces] mt-4" style={{ fontSize: "16px", color: SOFT }}>{b.who}</p>
-      <p className="font-[Fraunces] mt-3" style={{ fontSize: "15px", color: DIM }}>{b.desc}</p>
-      {b.desc2 && <p className="font-[Fraunces] mt-3" style={{ fontSize: "15px", color: DIM }}>{b.desc2}</p>}
+      <h3 className="font-[Redaction] font-bold mt-2 leading-none" style={{ fontSize: "clamp(26px,3vw,38px)" }}>{b.name}</h3>
+      <p className="font-[Redaction] mt-4" style={{ fontSize: "16px", color: SOFT }}>{b.who}</p>
+      <p className="font-[Redaction] mt-3" style={{ fontSize: "15px", color: DIM }}>{b.desc}</p>
+      {b.desc2 && <p className="font-[Redaction] mt-3" style={{ fontSize: "15px", color: DIM }}>{b.desc2}</p>}
       <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase mt-7 mb-3" style={{ color: TEAL }}>Built around</p>
       <Bullets items={b.built} />
       {b.fits && (<>
@@ -180,7 +180,7 @@ export function BandCard({ b }: { b: Band }) {
         <Bullets items={b.fits} />
       </>)}
       <div className="mt-auto pt-7">
-        <p className="font-[Fraunces] font-bold leading-none" style={{ fontSize: "clamp(30px,3.4vw,44px)", color: BONE }}>
+        <p className="font-[Redaction] font-bold leading-none" style={{ fontSize: "clamp(30px,3.4vw,44px)", color: BONE }}>
           {b.price}<span className="font-[JetBrains_Mono] font-normal text-[13px] align-middle ml-2 opacity-70">/ mo</span>
         </p>
         <ul className="mt-3 space-y-1.5">
@@ -200,7 +200,7 @@ export function Badges() {
         {row.map((c, i) => c.logo ? (
           <img key={i} src={c.logo} alt={c.name} className="shrink-0 opacity-85 hover:opacity-100 transition-opacity" style={{ height: "clamp(20px,2.2vw,28px)" }} />
         ) : (
-          <span key={i} className="shrink-0 whitespace-nowrap font-[Fraunces] font-black opacity-85" style={{ fontSize: "clamp(19px,2.1vw,27px)", color: BONE }}>{c.name}</span>
+          <span key={i} className="shrink-0 whitespace-nowrap font-[Redaction] font-black opacity-85" style={{ fontSize: "clamp(19px,2.1vw,27px)", color: BONE }}>{c.name}</span>
         ))}
       </div>
     </div>
@@ -263,8 +263,8 @@ export function BuildExplorer() {
         <motion.div key={b.n} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.35, ease: EASE }}
           className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-14 rounded-xl p-7 md:p-10" style={{ background: "#0E0E0E", border: BORDER }}>
           <div>
-            <h3 className="font-[Fraunces] font-bold leading-none" style={{ fontSize: "clamp(34px,5vw,64px)" }}>{b.title}</h3>
-            <p className="font-[Fraunces] mt-4 max-w-[44ch]" style={{ fontSize: "clamp(17px,2vw,22px)", color: "#B7B2A6" }}>{b.blurb}</p>
+            <h3 className="font-[Redaction] font-bold leading-none" style={{ fontSize: "clamp(34px,5vw,64px)" }}>{b.title}</h3>
+            <p className="font-[Redaction] mt-4 max-w-[44ch]" style={{ fontSize: "clamp(17px,2vw,22px)", color: "#B7B2A6" }}>{b.blurb}</p>
             <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase mt-8 mb-3" style={{ color: TEAL }}>Built with</p>
             <div className="grid grid-cols-2 gap-x-6"><Bullets items={b.built} color={DIM} /></div>
           </div>
@@ -289,7 +289,7 @@ export function ProcessStepper() {
           <button key={x.n} data-cursor onClick={() => setI(k)} className="text-left p-5 transition-colors"
             style={{ background: k === i ? "#161616" : INK }}>
             <span className="font-[JetBrains_Mono] text-[12px]" style={{ color: TEAL }}>{x.n}</span>
-            <p className="font-[Fraunces] font-bold mt-1" style={{ fontSize: "clamp(18px,2vw,26px)", color: k === i ? BONE : DIM }}>{x.title}</p>
+            <p className="font-[Redaction] font-bold mt-1" style={{ fontSize: "clamp(18px,2vw,26px)", color: k === i ? BONE : DIM }}>{x.title}</p>
           </button>
         ))}
       </div>
@@ -297,8 +297,8 @@ export function ProcessStepper() {
         <motion.div key={s.n} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.35, ease: EASE }}
           className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-14">
           <div>
-            <p className="font-[Fraunces]" style={{ fontSize: "clamp(20px,2.6vw,30px)", color: BONE }}>{s.intro}</p>
-            <p className="font-[Fraunces] mt-6 pt-5 max-w-[46ch]" style={{ fontSize: "16px", color: BONE, borderTop: BORDER }}>
+            <p className="font-[Redaction]" style={{ fontSize: "clamp(20px,2.6vw,30px)", color: BONE }}>{s.intro}</p>
+            <p className="font-[Redaction] mt-6 pt-5 max-w-[46ch]" style={{ fontSize: "16px", color: BONE, borderTop: BORDER }}>
               <span className="font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase mr-2" style={{ color: TEAL }}>Output</span>{s.output}
             </p>
           </div>
@@ -344,7 +344,13 @@ export function Shell({ children, showHeader = true }: { children: React.ReactNo
     <main style={{ background: INK, color: BONE }} className="relative md:cursor-none overflow-clip">
       {/* eslint-disable-next-line @next/next/no-page-custom-font */}
       <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-      <style>{`@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-33.3333%)}}`}</style>
+      <style>{`
+        @font-face{font-family:'Redaction';src:url('/fonts/redaction/Redaction-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+        @font-face{font-family:'Redaction';src:url('/fonts/redaction/Redaction-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+        @font-face{font-family:'Redaction';src:url('/fonts/redaction/Redaction-Bold.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}
+        @font-face{font-family:'Redaction';src:url('/fonts/redaction/Redaction-Italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
+        @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-33.3333%)}}
+      `}</style>
       {!reduce && <Cursor />}
 
       {/* right rail (desktop) */}
@@ -380,7 +386,7 @@ export function Shell({ children, showHeader = true }: { children: React.ReactNo
             </div>
             <nav className="flex-1 flex flex-col justify-center gap-5 px-6">
               {NAV.map(([t, href]) => (
-                <a key={t} href={href} onClick={() => setMenu(false)} className="font-[Fraunces] font-black leading-none" style={{ fontSize: "clamp(44px,13vw,72px)" }}>{t}</a>
+                <a key={t} href={href} onClick={() => setMenu(false)} className="font-[Redaction] font-black leading-none" style={{ fontSize: "clamp(44px,13vw,72px)" }}>{t}</a>
               ))}
             </nav>
             <a href="/#contact" onClick={() => setMenu(false)} className="mx-6 mb-8 text-center font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4 rounded-full" style={{ background: TEAL, color: INK }}>Let&apos;s talk →</a>
@@ -418,7 +424,7 @@ function Preloader({ onDone }: { onDone: () => void }) {
     <motion.div className="fixed inset-0 z-[80] flex items-end justify-between px-8 pb-8" style={{ background: INK, color: BONE }}
       initial={{ y: 0 }} exit={{ y: "-100%" }} transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}>
       <span className="font-[Fraunces] font-black text-3xl">§</span>
-      <span className="font-[Fraunces] font-black tabular-nums" style={{ fontSize: "clamp(56px,15vw,180px)", lineHeight: 0.8 }}>{n}</span>
+      <span className="font-[Redaction] font-black tabular-nums" style={{ fontSize: "clamp(56px,15vw,180px)", lineHeight: 0.8 }}>{n}</span>
     </motion.div>
   );
 }
