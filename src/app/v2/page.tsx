@@ -6,12 +6,18 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import {
-  Cursor, HeroReel, Split, Reveal, Bullets, PathStrip, BuildExplorer, ProcessStepper, BandCard, Badges,
-  INK, BONE, TEAL, DIM, EASE, BORDER, PATH_SHORT, PATH_LONG, BANDS, EXAMPLES,
+  Cursor, HeroReel, Split, Reveal, PathStrip, BuildExplorer, ProcessStepper, BandCard, Badges,
+  INK, BONE, TEAL, DIM, EASE, BORDER, PATH_SHORT, PATH_LONG, BANDS,
 } from "./shared";
 
+const PORTFOLIO = [
+  { name: "Krazy Strong", vertical: "Strength coaching", img: "/img/portfolio/krazystrong.jpg", href: "https://krazystrong.app" },
+  { name: "Squatzilla Fitness", vertical: "Metabolism + strength", img: "/img/portfolio/squatzilla.jpg", href: "https://squatzilla.fitness" },
+  { name: "Texas Tattoo", vertical: "Tattoo parlor", img: "/img/portfolio/texastattoo.jpg", href: "https://texastattoo.app" },
+];
+
 const TABS: [string, string][] = [
-  ["Home", ""], ["Systems", "systems"], ["Process", "process"],
+  ["Home", ""], ["Systems", "systems"],
   ["Pricing", "pricing"], ["Work", "work"], ["About", "about"],
 ];
 
@@ -131,18 +137,11 @@ export default function Home() {
                 <p className="font-[Redaction] mt-10 max-w-[46ch]" style={{ fontSize: "clamp(18px,2.2vw,26px)", color: BONE }}>
                   The system is working when more demand becomes booked work, completed work, paid work, and repeat business.
                 </p>
-              </section>
-            )}
-
-            {/* PROCESS — interactive stepper */}
-            {tab === "process" && (
-              <section className="px-6 md:px-12 py-12 lg:py-16">
-                <p className={lab} style={{ color: TEAL }}>The process</p>
-                <Reveal className="font-[Redaction] font-bold leading-[0.95] max-w-[14ch] mb-8" style={{ fontSize: "clamp(30px,4.6vw,60px)" }}>Build. Run. Measure. Improve.</Reveal>
-                <ProcessStepper />
-                <p className="font-[Redaction] mt-8" style={{ fontSize: "clamp(16px,1.8vw,20px)", color: DIM }}>
-                  Each build starts with a baseline, then one working system — kept improving every month.
-                </p>
+                <div className="mt-16 pt-12" style={{ borderTop: BORDER }}>
+                  <p className={lab} style={{ color: TEAL }}>The process</p>
+                  <Reveal className="font-[Redaction] font-bold leading-[0.95] max-w-[14ch] mb-8" style={{ fontSize: "clamp(28px,4.4vw,52px)" }}>Build. Run. Measure. Improve.</Reveal>
+                  <ProcessStepper />
+                </div>
               </section>
             )}
 
@@ -160,19 +159,24 @@ export default function Home() {
               </section>
             )}
 
-            {/* WORK — example systems */}
+            {/* WORK — real portfolio */}
             {tab === "work" && (
               <section className="px-6 md:px-12 py-12 lg:py-16">
-                <p className={lab} style={{ color: TEAL }}>Examples</p>
-                <Reveal className="font-[Redaction] font-bold leading-[0.98] max-w-[16ch]" style={{ fontSize: "clamp(28px,4.4vw,52px)" }}>Different businesses. Same revenue path.</Reveal>
-                <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: "rgba(236,231,221,0.1)" }}>
-                  {EXAMPLES.map(([title, blurb, measured]) => (
-                    <div key={title} className="p-7 md:p-9" style={{ background: INK }}>
-                      <h3 className="font-[Redaction] font-bold" style={{ fontSize: "clamp(22px,2.6vw,32px)" }}>{title}</h3>
-                      <p className="font-[Redaction] mt-3 mb-6 max-w-[52ch]" style={{ fontSize: "16px", color: "#B7B2A6" }}>{blurb}</p>
-                      <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase mb-3" style={{ color: TEAL }}>Measured by</p>
-                      <div className="grid grid-cols-2 gap-x-6"><Bullets items={measured} color={DIM} /></div>
-                    </div>
+                <p className={lab} style={{ color: TEAL }}>Selected work</p>
+                <Reveal className="font-[Redaction] font-bold leading-[0.98] max-w-[16ch]" style={{ fontSize: "clamp(28px,4.4vw,52px)" }}>Sites and systems I&apos;ve built.</Reveal>
+                <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {PORTFOLIO.map((p) => (
+                    <a key={p.href} data-cursor href={p.href} target="_blank" rel="noopener noreferrer" className="group block">
+                      <div className="relative overflow-hidden rounded-xl aspect-[16/10]" style={{ border: BORDER }}>
+                        <img src={p.img} alt={p.name} className="absolute inset-0 h-full w-full object-cover object-top grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-[1.03]" />
+                        <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0" style={{ background: "rgba(7,7,7,0.35)" }} />
+                      </div>
+                      <div className="flex items-baseline justify-between mt-4">
+                        <h3 className="font-[Redaction] font-bold" style={{ fontSize: "clamp(20px,2.2vw,26px)" }}>{p.name}</h3>
+                        <span className="font-[JetBrains_Mono] text-[12px] opacity-60 group-hover:opacity-100 transition-opacity">Visit ↗</span>
+                      </div>
+                      <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.16em] uppercase mt-1" style={{ color: TEAL }}>{p.vertical}</p>
+                    </a>
                   ))}
                 </div>
               </section>
