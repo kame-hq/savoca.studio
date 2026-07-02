@@ -6,15 +6,36 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring, animate, useReducedMotion } from "motion/react";
 import Lenis from "lenis";
 
-// Dark-warm: espresso ink + beige bone (was cold #070707 / #FCFFF7)
-export const INK = "#161210";
-export const BONE = "#F1E9D8";
-export const TEAL = "#8A7C64";
+// Cream-beige site, dark cinematic hero. Canon-adjacent inks.
+export const CREAM = "#EFE6D2";   // page ground
+export const INK = "#1C1712";     // text on cream
+export const BONE = "#F1E9D8";    // text over dark video
+export const STEEL = "#6F6555";   // muted ink
+export const MONEY = "#1B4D3E";   // Canon money-green accent
+export const SIGNAL = "#D9442C";  // Canon signal-red, stamp marks only
+export const RULE = "1px solid rgba(28,23,18,0.16)";
+export const TEAL = "#8A7C64";    // warm taupe (hero pill on video)
 export const SAND = "#8A7C64";
 export const EASE = [0.16, 1, 0.3, 1] as const;
-export const DIM = "#A29885";
-export const SOFT = "#CFC5AF";
+export const DIM = "#A29885";     // muted beige (over video)
+export const SOFT = "#CFC5AF";    // soft beige (over video)
 export const BORDER = "1px solid rgba(241,233,216,0.12)";
+
+/* why-you-need-me strip */
+export const BEFORE_AFTER: [string[], string[]] = [
+  [
+    "Calls go to voicemail while you work",
+    "Quotes sit for days without a follow-up",
+    "Jobs finish, invoices go out late",
+    "Happy customers drift and never rebook",
+  ],
+  [
+    "Every missed call gets a text back in seconds",
+    "Quotes get chased automatically until yes or no",
+    "Invoice goes out at closeout, tracked to paid",
+    "Past customers come back on a schedule",
+  ],
+];
 
 export const NAV: [string, string][] = [
   ["Work", "/work"],
@@ -121,13 +142,13 @@ export function Split({ text, go, className, style, accentFrom }: { text: string
   );
 }
 
-/* ---- film grain overlay ---- */
+/* ---- paper grain overlay ---- */
 export function Grain() {
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 z-[55]"
       style={{
-        opacity: 0.07,
-        mixBlendMode: "overlay",
+        opacity: 0.05,
+        mixBlendMode: "multiply",
         backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
         backgroundSize: "240px 240px",
       }} />
@@ -199,29 +220,26 @@ export function Lockup({ size = "md" }: { size?: "md" | "sm" }) {
   );
 }
 
-export function BandCard({ b }: { b: Band }) {
+export function BandCard({ b, last }: { b: Band; last?: boolean }) {
   return (
-    <motion.div className="flex flex-col p-7 md:p-8 rounded-xl h-full" style={{ background: "#201A14", border: BORDER }}
-      initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-8%" }} transition={{ duration: 0.6, ease: EASE }}>
-      <span className="font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase" style={{ color: TEAL }}>{b.n}</span>
-      <h3 className="font-[Redaction] font-bold mt-2 leading-none" style={{ fontSize: "clamp(26px,3vw,38px)" }}>{b.name}</h3>
-      <p className="font-[Redaction] mt-4" style={{ fontSize: "16px", color: SOFT }}>{b.who}</p>
-      <p className="font-[Redaction] mt-3" style={{ fontSize: "15px", color: DIM }}>{b.desc}</p>
-      {b.desc2 && <p className="font-[Redaction] mt-3" style={{ fontSize: "15px", color: DIM }}>{b.desc2}</p>}
-      <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase mt-7 mb-3" style={{ color: TEAL }}>Built around</p>
-      <Bullets items={b.built} />
-      {b.fits && (<>
-        <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase mt-6 mb-3" style={{ color: TEAL }}>Example fits</p>
-        <Bullets items={b.fits} />
-      </>)}
-      <div className="mt-auto pt-7">
-        <p className="font-[Redaction] font-bold leading-none" style={{ fontSize: "clamp(30px,3.4vw,44px)", color: BONE }}>
-          {b.price}<span className="font-[JetBrains_Mono] font-normal text-[13px] align-middle ml-2 opacity-70">/ mo</span>
+    <motion.div className="flex flex-col p-6 md:p-7 h-full" style={{ borderRight: last ? undefined : RULE, borderBottom: RULE, color: INK }}
+      initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-8%" }} transition={{ duration: 0.5, ease: EASE }}>
+      <span className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase" style={{ color: SIGNAL }}>{b.n}</span>
+      <h3 className="font-[Redaction] font-bold mt-1.5 leading-none" style={{ fontSize: "clamp(24px,2.8vw,36px)" }}>{b.name}</h3>
+      <p className="font-[Redaction] mt-3" style={{ fontSize: "15px", color: "#3A342B" }}>{b.who}</p>
+      <p className="font-[Redaction] mt-2.5" style={{ fontSize: "14px", color: STEEL }}>{b.desc}</p>
+      <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase mt-6 mb-2.5" style={{ color: MONEY }}>Built around</p>
+      <div className="space-y-1.5">
+        {b.built.map((it) => <p key={it} className="font-[JetBrains_Mono] text-[11.5px]" style={{ color: "#3A342B" }}>· {it}</p>)}
+      </div>
+      <div className="mt-auto pt-6">
+        <p className="font-[Redaction] font-bold leading-none" style={{ fontSize: "clamp(28px,3vw,40px)", color: MONEY }}>
+          {b.price}<span className="font-[JetBrains_Mono] font-normal text-[11px] align-middle ml-2" style={{ color: STEEL }}>/ mo</span>
         </p>
-        <ul className="mt-3 space-y-1.5">
-          {b.terms.map((t) => (<li key={t} className="font-[JetBrains_Mono] text-[12px] flex gap-2.5" style={{ color: SOFT }}><span style={{ color: TEAL }}>·</span><span>{t}</span></li>))}
+        <ul className="mt-3 space-y-1">
+          {b.terms.map((t) => (<li key={t} className="font-[JetBrains_Mono] text-[11px]" style={{ color: STEEL }}>· {t}</li>))}
         </ul>
-        <a data-cursor href="/#contact" className="inline-block mt-6 font-[JetBrains_Mono] text-[12px] tracking-[0.14em] uppercase px-5 py-3 rounded-full" style={{ background: TEAL, color: INK }}>Book a call →</a>
+        <a data-cursor href="mailto:jack@savoca.studio" className="inline-block mt-5 font-[JetBrains_Mono] text-[11px] tracking-[0.14em] uppercase px-5 py-3" style={{ background: INK, color: CREAM }}>Book a call →</a>
       </div>
     </motion.div>
   );
@@ -231,11 +249,9 @@ export function Badges() {
   const row = [...CRED, ...CRED, ...CRED];
   return (
     <div className="relative overflow-hidden py-2" style={{ maskImage: "linear-gradient(to right, transparent, #000 7%, #000 93%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, #000 7%, #000 93%, transparent)" }}>
-      <div className="flex items-center gap-14 md:gap-20 w-max" style={{ animation: "marq 30s linear infinite" }}>
-        {row.map((c, i) => c.logo ? (
-          <img key={i} src={c.logo} alt={c.name} className="shrink-0 opacity-85 hover:opacity-100 transition-opacity" style={{ height: "clamp(20px,2.2vw,28px)" }} />
-        ) : (
-          <span key={i} className="shrink-0 whitespace-nowrap font-[Redaction] font-black opacity-85" style={{ fontSize: "clamp(19px,2.1vw,27px)", color: BONE }}>{c.name}</span>
+      <div className="flex items-center gap-12 md:gap-16 w-max" style={{ animation: "marq 30s linear infinite" }}>
+        {row.map((c, i) => (
+          <span key={i} className="shrink-0 whitespace-nowrap font-[Redaction] font-black" style={{ fontSize: "clamp(18px,2vw,26px)", color: INK, opacity: 0.8 }}>{c.name}</span>
         ))}
       </div>
     </div>
@@ -291,33 +307,41 @@ export function HeroReel() {
   );
 }
 
-/* ---- interactive: What Gets Built (tabs absorb Metrics) ---- */
+/* ---- the pipeline: visual node diagram, click a stage ---- */
 export function BuildExplorer() {
   const [i, setI] = useState(0);
   const b = BUILDS[i];
   return (
-    <div>
-      <div className="flex flex-wrap gap-2 md:gap-3 mb-8">
+    <div style={{ color: INK }}>
+      {/* node strip — the revenue path as a diagram */}
+      <div className="relative flex items-start justify-between gap-2 mb-8 overflow-x-auto pb-2">
+        <span aria-hidden className="absolute left-0 right-0 top-[13px] h-px" style={{ background: "rgba(28,23,18,0.22)" }} />
         {BUILDS.map((x, k) => (
-          <button key={x.n} data-cursor onClick={() => setI(k)}
-            className="font-[JetBrains_Mono] text-[12px] tracking-[0.12em] uppercase px-4 py-2.5 rounded-full transition-colors"
-            style={k === i ? { background: BONE, color: INK } : { border: BORDER, color: SOFT }}>
-            <span style={{ color: k === i ? TEAL : TEAL }}>{x.n}</span> &nbsp;{x.title}
+          <button key={x.n} data-cursor onClick={() => setI(k)} className="relative z-10 flex flex-col items-center gap-2.5 shrink-0 px-2 group" style={{ minWidth: 90 }}>
+            <span className="flex items-center justify-center rounded-full font-[JetBrains_Mono] text-[11px] transition-all"
+              style={{ width: 27, height: 27, background: k === i ? MONEY : CREAM, color: k === i ? CREAM : STEEL, border: k === i ? `1px solid ${MONEY}` : "1px solid rgba(28,23,18,0.35)" }}>
+              {k + 1}
+            </span>
+            <span className="font-[Redaction] font-bold leading-none transition-colors" style={{ fontSize: "clamp(15px,1.8vw,22px)", color: k === i ? INK : STEEL }}>{x.title}</span>
           </button>
         ))}
       </div>
+      {/* stage detail */}
       <AnimatePresence mode="wait">
-        <motion.div key={b.n} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.35, ease: EASE }}
-          className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-14 rounded-xl p-7 md:p-10" style={{ background: "#201A14", border: BORDER }}>
-          <div>
-            <h3 className="font-[Redaction] font-bold leading-none" style={{ fontSize: "clamp(34px,5vw,64px)" }}>{b.title}</h3>
-            <p className="font-[Redaction] mt-4 max-w-[44ch]" style={{ fontSize: "clamp(17px,2vw,22px)", color: "#B8AD97" }}>{b.blurb}</p>
-            <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase mt-8 mb-3" style={{ color: TEAL }}>Built with</p>
-            <div className="grid grid-cols-2 gap-x-6"><Bullets items={b.built} color={DIM} /></div>
+        <motion.div key={b.n} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.3, ease: EASE }}
+          className="grid lg:grid-cols-[1.15fr_0.85fr]" style={{ border: RULE }}>
+          <div className="p-6 md:p-8" style={{ borderRight: RULE }}>
+            <p className="font-[Redaction] max-w-[46ch]" style={{ fontSize: "clamp(19px,2.3vw,27px)" }}>{b.blurb}</p>
+            <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase mt-6 mb-2.5" style={{ color: MONEY }}>What I set up</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5">
+              {b.built.map((it) => <span key={it} className="font-[JetBrains_Mono] text-[12px]" style={{ color: "#3A342B" }}>· {it}</span>)}
+            </div>
           </div>
-          <div className="lg:pl-10 lg:border-l" style={{ borderColor: "rgba(241,233,216,0.12)" }}>
-            <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase mb-3" style={{ color: TEAL }}>Measured by</p>
-            <Bullets items={b.measured} color={SOFT} />
+          <div className="p-6 md:p-8" style={{ background: "rgba(28,23,18,0.04)" }}>
+            <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase mb-2.5" style={{ color: MONEY }}>You see it in</p>
+            <div className="space-y-1.5">
+              {b.measured.map((it) => <p key={it} className="font-[JetBrains_Mono] text-[12px]" style={{ color: INK }}>· {it}</p>)}
+            </div>
           </div>
         </motion.div>
       </AnimatePresence>
@@ -325,36 +349,47 @@ export function BuildExplorer() {
   );
 }
 
-/* ---- interactive: How It Works stepper ---- */
+/* ---- how it works: compact 4-up row ---- */
 export function ProcessStepper() {
-  const [i, setI] = useState(0);
-  const s = STEPS[i];
   return (
-    <div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-px mb-8" style={{ background: "rgba(241,233,216,0.12)" }}>
-        {STEPS.map((x, k) => (
-          <button key={x.n} data-cursor onClick={() => setI(k)} className="text-left p-5 transition-colors"
-            style={{ background: k === i ? "#2A231B" : INK }}>
-            <span className="font-[JetBrains_Mono] text-[12px]" style={{ color: TEAL }}>{x.n}</span>
-            <p className="font-[Redaction] font-bold mt-1" style={{ fontSize: "clamp(18px,2vw,26px)", color: k === i ? BONE : DIM }}>{x.title}</p>
-          </button>
-        ))}
-      </div>
-      <AnimatePresence mode="wait">
-        <motion.div key={s.n} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.35, ease: EASE }}
-          className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-14">
-          <div>
-            <p className="font-[Redaction]" style={{ fontSize: "clamp(20px,2.6vw,30px)", color: BONE }}>{s.intro}</p>
-            <p className="font-[Redaction] mt-6 pt-5 max-w-[46ch]" style={{ fontSize: "16px", color: BONE, borderTop: BORDER }}>
-              <span className="font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase mr-2" style={{ color: TEAL }}>Output</span>{s.output}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{ border: RULE, color: INK }}>
+      {STEPS.map((s, i) => (
+        <div key={s.n} className="p-5 md:p-6" style={{ borderRight: i < STEPS.length - 1 ? RULE : undefined, borderBottom: RULE }}>
+          <span className="font-[JetBrains_Mono] text-[10px]" style={{ color: SIGNAL }}>{s.n}</span>
+          <h3 className="font-[Redaction] font-bold mt-1" style={{ fontSize: "clamp(19px,2vw,24px)" }}>{s.title}</h3>
+          <p className="font-[Redaction] mt-2" style={{ fontSize: "14px", color: "#3A342B" }}>{s.intro}</p>
+          <p className="font-[JetBrains_Mono] text-[10px] leading-relaxed mt-3 pt-3" style={{ color: STEEL, borderTop: RULE }}>{s.output}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* ---- before/after: why you need this ---- */
+export function BeforeAfter() {
+  const [before, after] = BEFORE_AFTER;
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2" style={{ border: RULE, color: INK }}>
+      <div className="p-6 md:p-8" style={{ borderRight: RULE, borderBottom: RULE }}>
+        <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase mb-4" style={{ color: SIGNAL }}>Without a system</p>
+        <div className="space-y-3">
+          {before.map((it) => (
+            <p key={it} className="flex gap-3 font-[Redaction]" style={{ fontSize: "clamp(15px,1.7vw,19px)", color: "#3A342B" }}>
+              <span className="font-[JetBrains_Mono] text-[12px] pt-0.5 shrink-0" style={{ color: SIGNAL }}>✕</span>{it}
             </p>
-          </div>
-          <div>
-            <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase mb-3" style={{ color: TEAL }}>{s.listLabel}</p>
-            <div className="grid grid-cols-2 gap-x-6"><Bullets items={s.list} color={DIM} /></div>
-          </div>
-        </motion.div>
-      </AnimatePresence>
+          ))}
+        </div>
+      </div>
+      <div className="p-6 md:p-8" style={{ borderBottom: RULE, background: "rgba(27,77,62,0.05)" }}>
+        <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase mb-4" style={{ color: MONEY }}>With the system</p>
+        <div className="space-y-3">
+          {after.map((it) => (
+            <p key={it} className="flex gap-3 font-[Redaction]" style={{ fontSize: "clamp(15px,1.7vw,19px)", color: INK }}>
+              <span className="font-[JetBrains_Mono] text-[12px] pt-0.5 shrink-0" style={{ color: MONEY }}>✓</span>{it}
+            </p>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -468,9 +503,9 @@ function Preloader({ onDone }: { onDone: () => void }) {
     return () => c.stop();
   }, [onDone]);
   return (
-    <motion.div className="fixed inset-0 z-[80] flex items-end justify-between px-8 pb-8" style={{ background: INK, color: BONE }}
+    <motion.div className="fixed inset-0 z-[80] flex items-end justify-between px-8 pb-8" style={{ background: CREAM, color: INK }}
       initial={{ y: 0 }} exit={{ y: "-100%" }} transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}>
-      <span className="font-[Fraunces] font-black text-3xl">§</span>
+      <span className="font-[Fraunces] font-black text-3xl" style={{ color: MONEY }}>§</span>
       <span className="font-[Redaction] font-black tabular-nums" style={{ fontSize: "clamp(56px,15vw,180px)", lineHeight: 0.8 }}>{n}</span>
     </motion.div>
   );
