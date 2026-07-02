@@ -109,7 +109,7 @@ export function Split({ text, go, className, style, accentFrom }: { text: string
   return (
     <h1 className={className} style={style}>
       {words.map((w, i) => (
-        <span key={i} className="inline-block overflow-hidden mr-[0.22em] align-bottom pb-[0.18em] -mb-[0.18em]">
+        <span key={i} className="inline-block overflow-hidden mr-[0.22em] align-bottom pb-[0.28em] -mb-[0.28em] pr-[0.06em] -ml-[0.06em] pl-[0.06em]">
           <motion.span className="inline-block" initial={{ y: "115%" }} animate={go ? { y: 0 } : {}}
             style={accentFrom !== undefined && i >= accentFrom ? { fontWeight: 400, fontStyle: "italic" } : undefined}
             transition={{ delay: 0.1 + i * 0.07, duration: 0.85, ease: EASE }}>{w}</motion.span>
@@ -270,8 +270,8 @@ export function HeroReel() {
           <source src={c.src} type="video/mp4" />
         </video>
       ))}
-      <div className="absolute inset-0" style={{ background: "rgba(70,76,70,0.22)", mixBlendMode: "multiply" }} />
-      <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(11,11,9,0.94) 0%, rgba(11,11,9,0.2) 50%, rgba(11,11,9,0.45) 100%)" }} />
+      <div className="absolute inset-0" style={{ background: "rgba(70,76,70,0.3)", mixBlendMode: "multiply" }} />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(11,11,9,0.97) 0%, rgba(11,11,9,0.55) 45%, rgba(11,11,9,0.35) 75%, rgba(11,11,9,0.5) 100%)" }} />
       <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 52%, rgba(7,7,7,0.5) 100%)" }} />
       <div className="absolute bottom-4 right-5 md:bottom-6 md:right-8 flex items-center gap-3 font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase" style={{ color: BONE }}>
         <span style={{ color: TEAL }}>0{idx + 1} / 0{REEL.length}</span>
