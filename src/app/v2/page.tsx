@@ -6,7 +6,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import {
-  Cursor, HeroReel, Split, Reveal, PathStrip, BuildExplorer, ProcessStepper, BandCard, Badges,
+  Cursor, HeroReel, Split, Reveal, PathStrip, BuildExplorer, ProcessStepper, BandCard, Badges, Grain, Magnetic,
   INK, BONE, TEAL, DIM, EASE, BORDER, PATH_SHORT, PATH_LONG, BANDS,
 } from "./shared";
 
@@ -58,6 +58,7 @@ export default function Home() {
         @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-33.3333%)}}
       `}</style>
       {!reduce && <Cursor />}
+      <Grain />
 
       {/* header + tab bar */}
       <header className="relative z-[60] shrink-0 flex items-center justify-between gap-6 px-6 md:px-12 py-5" style={{ borderBottom: BORDER }}>
@@ -67,10 +68,10 @@ export default function Home() {
         </button>
 
         <nav className="hidden md:flex items-center gap-7 font-[JetBrains_Mono] text-[12px] tracking-[0.16em] uppercase">
-          {TABS.map(([t, k]) => (
-            <button key={k} data-cursor onClick={() => go(k)} className="relative py-1 transition-opacity"
+          {TABS.map(([t, k], i) => (
+            <button key={k} data-cursor onClick={() => go(k)} className="relative py-1 transition-opacity hover:opacity-100"
               style={{ color: BONE, opacity: tab === k ? 1 : 0.5 }}>
-              {t}
+              <span className="mr-1.5 text-[9px] align-super" style={{ color: TEAL }}>0{i + 1}</span>{t}
               {tab === k && <motion.span layoutId="tabink" className="absolute left-0 right-0 -bottom-0.5 h-px" style={{ background: BONE }} />}
             </button>
           ))}
@@ -112,14 +113,14 @@ export default function Home() {
               <section className="relative min-h-full flex flex-col justify-end overflow-hidden">
                 <HeroReel />
                 <div className="relative z-10 px-6 md:px-12 pb-12 lg:pb-16 pt-16">
-                  <p className="font-[JetBrains_Mono] text-[12px] tracking-[0.28em] uppercase mb-6" style={{ color: BONE, textShadow: "0 1px 14px rgba(0,0,0,0.75)" }}>Revenue systems for service businesses</p>
-                  <Split text="I build the layer between demand and getting paid." go className="font-[Redaction] font-black leading-[0.92] tracking-[-0.01em] max-w-[18ch]" style={{ fontSize: "clamp(34px,5.4vw,86px)" }} />
+                  <p className="font-[JetBrains_Mono] text-[11px] md:text-[12px] tracking-[0.18em] md:tracking-[0.28em] uppercase mb-6" style={{ color: BONE, textShadow: "0 1px 14px rgba(0,0,0,0.75)" }}>Revenue systems for service businesses</p>
+                  <Split text="I build the layer between demand and getting paid." go accentFrom={7} className="font-[Redaction] font-black leading-[0.9] tracking-[-0.015em] max-w-[17ch]" style={{ fontSize: "clamp(38px,6vw,102px)" }} />
                   <div className="mt-7 flex flex-col lg:flex-row lg:items-end gap-6 lg:gap-12">
                     <p className="font-[Redaction] max-w-[52ch]" style={{ fontSize: "clamp(17px,1.9vw,22px)", color: "#D6D1C5" }}>
                       Savoca Studio builds the workflows, tools, automations, and reporting that turn service demand into booked work, completed work, paid work, and repeat customers.
                     </p>
                     <div className="flex items-center gap-5 shrink-0">
-                      <a data-cursor href="mailto:jack@savoca.studio" className="font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4 rounded-full" style={{ background: TEAL, color: INK }}>Let&apos;s talk →</a>
+                      <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4 rounded-full" style={{ background: TEAL, color: INK }}>Let&apos;s talk →</a></Magnetic>
                       <button data-cursor onClick={() => go("systems")} className="font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase hover:opacity-70 transition-opacity" style={{ color: BONE }}>See the system →</button>
                     </div>
                   </div>
@@ -203,7 +204,7 @@ export default function Home() {
                 <div className="mt-10"><Badges /></div>
                 <div className="mt-12 pt-10" style={{ borderTop: BORDER }}>
                   <h2 className="font-[Redaction] font-black leading-[0.95] max-w-[18ch]" style={{ fontSize: "clamp(30px,5vw,68px)" }}>Build the layer between demand and getting paid.</h2>
-                  <a data-cursor href="mailto:jack@savoca.studio" className="inline-block mt-7 font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4 rounded-full" style={{ background: TEAL, color: INK }}>Let&apos;s talk →</a>
+                  <div className="mt-7"><Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4 rounded-full" style={{ background: TEAL, color: INK }}>Let&apos;s talk →</a></Magnetic></div>
                   <p className="font-[JetBrains_Mono] text-[12px] tracking-[0.12em] mt-8" style={{ color: DIM }}>jack@savoca.studio · Austin, TX</p>
                 </div>
               </section>

@@ -104,17 +104,50 @@ export const CRED = [
 ];
 
 /* ---- primitives ---- */
-export function Split({ text, go, className, style }: { text: string; go: boolean; className?: string; style?: React.CSSProperties }) {
+export function Split({ text, go, className, style, accentFrom }: { text: string; go: boolean; className?: string; style?: React.CSSProperties; accentFrom?: number }) {
   const words = text.split(" ");
   return (
     <h1 className={className} style={style}>
       {words.map((w, i) => (
         <span key={i} className="inline-block overflow-hidden mr-[0.22em] align-bottom pb-[0.18em] -mb-[0.18em]">
           <motion.span className="inline-block" initial={{ y: "115%" }} animate={go ? { y: 0 } : {}}
+            style={accentFrom !== undefined && i >= accentFrom ? { fontWeight: 400, fontStyle: "italic" } : undefined}
             transition={{ delay: 0.1 + i * 0.07, duration: 0.85, ease: EASE }}>{w}</motion.span>
         </span>
       ))}
     </h1>
+  );
+}
+
+/* ---- film grain overlay ---- */
+export function Grain() {
+  return (
+    <div aria-hidden className="pointer-events-none fixed inset-0 z-[55]"
+      style={{
+        opacity: 0.07,
+        mixBlendMode: "overlay",
+        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+        backgroundSize: "240px 240px",
+      }} />
+  );
+}
+
+/* ---- magnetic hover wrapper (desktop) ---- */
+export function Magnetic({ children, strength = 0.3 }: { children: React.ReactNode; strength?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0), y = useMotionValue(0);
+  const sx = useSpring(x, { stiffness: 220, damping: 16, mass: 0.25 });
+  const sy = useSpring(y, { stiffness: 220, damping: 16, mass: 0.25 });
+  return (
+    <motion.div ref={ref} className="inline-block" style={{ x: sx, y: sy }}
+      onMouseMove={(e) => {
+        const r = ref.current?.getBoundingClientRect(); if (!r) return;
+        x.set((e.clientX - (r.left + r.width / 2)) * strength);
+        y.set((e.clientY - (r.top + r.height / 2)) * strength);
+      }}
+      onMouseLeave={() => { x.set(0); y.set(0); }}>
+      {children}
+    </motion.div>
   );
 }
 
@@ -239,8 +272,18 @@ export function HeroReel() {
       ))}
       <div className="absolute inset-0" style={{ background: "rgba(70,76,70,0.22)", mixBlendMode: "multiply" }} />
       <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(11,11,9,0.94) 0%, rgba(11,11,9,0.2) 50%, rgba(11,11,9,0.45) 100%)" }} />
-      <div className="absolute bottom-4 right-5 md:bottom-6 md:right-8 flex items-center gap-2 font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase" style={{ color: BONE }}>
-        <span style={{ color: TEAL }}>●</span>{REEL[idx].label}
+      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 52%, rgba(7,7,7,0.5) 100%)" }} />
+      <div className="absolute bottom-4 right-5 md:bottom-6 md:right-8 flex items-center gap-3 font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase" style={{ color: BONE }}>
+        <span style={{ color: TEAL }}>0{idx + 1} / 0{REEL.length}</span>
+        <AnimatePresence mode="wait">
+          <motion.span key={idx} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.3 }}>
+            {REEL[idx].label}
+          </motion.span>
+        </AnimatePresence>
+        <span className="relative w-10 h-px overflow-hidden" style={{ background: "rgba(252,255,247,0.25)" }}>
+          {!reduce && <motion.span key={idx} className="absolute inset-0 origin-left" style={{ background: BONE }}
+            initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 5.5, ease: "linear" }} />}
+        </span>
       </div>
     </div>
   );
