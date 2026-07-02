@@ -6,7 +6,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import {
-  Cursor, HeroReel, Split, PathStrip, BuildExplorer, ProcessStepper, StoryPlayer, BandCard, Badges, Grain, Magnetic,
+  Cursor, HeroReel, Split, PathStrip, BuildExplorer, ProcessStepper, StoryPlayer, BandCard, Badges, Grain, Magnetic, Tilt,
   CREAM, INK, BONE, STEEL, MONEY, SIGNAL, RULE, TEAL, EASE, PATH_SHORT, PATH_LONG, BANDS, REPORTING_LINE,
 } from "./shared";
 
@@ -77,7 +77,14 @@ export default function Home() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
+          <span className="hidden lg:flex items-center gap-2 font-[JetBrains_Mono] text-[10px] tracking-[0.14em] uppercase" style={{ color: STEEL }}>
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60" style={{ background: MONEY }} />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full" style={{ background: MONEY }} />
+            </span>
+            Austin, TX · Taking new builds
+          </span>
           <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="hidden md:inline-block font-[JetBrains_Mono] text-[11px] tracking-[0.14em] uppercase px-5 py-2.5" style={{ background: MONEY, color: CREAM }}>Let&apos;s talk →</a></Magnetic>
           <button data-cursor aria-label="Open menu" onClick={() => setMenu(true)} className="md:hidden flex flex-col gap-1.5 p-2">
             <span className="block w-7 h-px" style={{ background: INK }} /><span className="block w-7 h-px" style={{ background: INK }} />
@@ -108,27 +115,45 @@ export default function Home() {
       {/* panel area */}
       <div ref={scroller} className="relative flex-1 overflow-y-auto">
         <AnimatePresence mode="wait">
-          <motion.div key={tab} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.3, ease: EASE }} className="min-h-full">
+          <motion.div key={tab}
+            initial={{ clipPath: "inset(0 0 100% 0)", opacity: 0.6 }}
+            animate={{ clipPath: "inset(0 0 0% 0)", opacity: 1 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.55, ease: EASE }} className="min-h-full">
 
-            {/* HOME — dark cinematic hero on the cream site */}
-            {tab === "" && (
-              <section className="relative flex flex-col justify-end overflow-hidden" style={{ color: BONE, minHeight: "calc(100dvh - 73px)" }}>
+            {/* HOME — dark cinematic hero, matted in cream */}
+            {tab === "" && (<>
+              <section className="relative flex flex-col justify-end overflow-hidden m-2.5 md:m-4" style={{ color: BONE, minHeight: "calc(100dvh - 100px)", border: RULE }}>
                 <HeroReel />
-                <div className="relative z-10 px-6 md:px-10 pb-12 lg:pb-16 pt-16">
+                <div className="relative z-10 px-6 md:px-10 pb-12 lg:pb-14 pt-16">
                   <p className="font-[JetBrains_Mono] text-[11px] md:text-[12px] tracking-[0.18em] md:tracking-[0.28em] uppercase mb-6" style={{ color: BONE, textShadow: "0 1px 14px rgba(0,0,0,0.75)" }}>Revenue systems for service businesses</p>
                   <Split text="I build the layer between demand and getting paid." go accentFrom={7} className="font-[Redaction] font-black leading-[0.9] tracking-[-0.015em] max-w-[17ch]" style={{ fontSize: "clamp(29px,8.4vw,102px)", textShadow: "0 2px 28px rgba(0,0,0,0.65)" }} />
-                  <div className="mt-8 flex items-center gap-6">
-                    <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: BONE, color: INK }}>Let&apos;s talk →</a></Magnetic>
-                    <button data-cursor onClick={() => go("systems")} className="font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase opacity-80 hover:opacity-100 transition-opacity" style={{ color: BONE }}>See the system →</button>
+                  <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+                    <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block whitespace-nowrap font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: BONE, color: INK }}>Let&apos;s talk →</a></Magnetic>
+                    <button data-cursor onClick={() => go("systems")} className="whitespace-nowrap font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase opacity-80 hover:opacity-100 transition-opacity" style={{ color: BONE }}>See the system →</button>
                   </div>
                   <div className="mt-8"><PathStrip nodes={PATH_SHORT} accentLast /></div>
                 </div>
               </section>
-            )}
+              {/* verticals marquee */}
+              <div className="overflow-hidden py-4 md:py-5 mx-2.5 md:mx-4 mb-4" style={{ borderTop: RULE, borderBottom: RULE, color: INK }}>
+                <div className="flex items-center gap-8 w-max" style={{ animation: "marq 36s linear infinite" }}>
+                  {[...Array(3)].flatMap((_, r) =>
+                    ["Barbershops", "Tattoo parlors", "Med spas", "Contractors", "Golf operations", "Salons", "Detail shops", "Field crews"].map((v) => (
+                      <span key={`${r}-${v}`} className="flex items-center gap-8 shrink-0">
+                        <span className="font-[Redaction] whitespace-nowrap" style={{ fontSize: "clamp(20px,2.6vw,32px)", fontStyle: "italic" }}>{v}</span>
+                        <span className="font-[Fraunces] font-black" style={{ color: MONEY, fontSize: "clamp(14px,1.6vw,20px)" }}>§</span>
+                      </span>
+                    ))
+                  )}
+                </div>
+              </div>
+            </>)}
 
             {/* SYSTEMS — why you need it → the pipeline → the process */}
             {tab === "systems" && (
-              <section className="px-6 md:px-10 py-10 lg:py-14">
+              <section className="relative overflow-hidden px-6 md:px-10 py-10 lg:py-14">
+                <span aria-hidden className="absolute -right-10 -top-24 font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "clamp(280px,32vw,520px)", color: "rgba(27,77,62,0.05)" }}>§</span>
                 <p className={lab} style={{ color: STEEL }}>Why a system</p>
                 <h2 className="font-[Redaction] font-bold leading-[0.98] max-w-[19ch] mb-3" style={{ fontSize: "clamp(27px,4.2vw,50px)" }}>
                   You&apos;re busy doing the work. That&apos;s when the money slips.
@@ -175,9 +200,11 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-3" style={{ border: RULE }}>
                   {PORTFOLIO.map((p, i) => (
                     <a key={p.href} data-cursor href={p.href} target="_blank" rel="noopener noreferrer" className={`group block p-5 border-b md:border-b-0 ${i < PORTFOLIO.length - 1 ? "md:border-r" : ""}`} style={{ borderColor: "rgba(28,23,18,0.16)" }}>
-                      <div className="relative overflow-hidden aspect-[16/10]" style={{ border: RULE }}>
-                        <img src={p.img} alt={p.name} className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" />
-                      </div>
+                      <Tilt>
+                        <div className="relative overflow-hidden aspect-[16/10]" style={{ border: RULE }}>
+                          <img src={p.img} alt={p.name} className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]" />
+                        </div>
+                      </Tilt>
                       <div className="flex items-baseline justify-between mt-3.5">
                         <h3 className="font-[Redaction] font-bold" style={{ fontSize: "clamp(18px,2vw,24px)" }}>{p.name}</h3>
                         <span className="font-[JetBrains_Mono] text-[11px] transition-colors group-hover:opacity-100 opacity-60" style={{ color: STEEL }}>Visit ↗</span>
@@ -191,7 +218,8 @@ export default function Home() {
 
             {/* ABOUT */}
             {tab === "about" && (
-              <section className="px-6 md:px-10 py-10 lg:py-14">
+              <section className="relative overflow-hidden px-6 md:px-10 py-10 lg:py-14">
+                <span aria-hidden className="absolute -left-14 bottom-[-0.25em] font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "clamp(280px,34vw,540px)", color: "rgba(27,77,62,0.05)" }}>§</span>
                 <p className={lab} style={{ color: STEEL }}>Why this works</p>
                 <h2 className="font-[Redaction] font-bold leading-[0.96] mb-6 max-w-[16ch]" style={{ fontSize: "clamp(26px,4.2vw,50px)" }}>Not an agency. Not just software. Not advice.</h2>
                 <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10">

@@ -155,6 +155,25 @@ export function Grain() {
   );
 }
 
+/* ---- 3D tilt wrapper (desktop hover) ---- */
+export function Tilt({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const rx = useMotionValue(0), ry = useMotionValue(0);
+  const srx = useSpring(rx, { stiffness: 260, damping: 20 });
+  const sry = useSpring(ry, { stiffness: 260, damping: 20 });
+  return (
+    <motion.div ref={ref} style={{ rotateX: srx, rotateY: sry, transformPerspective: 900 }}
+      onMouseMove={(e) => {
+        const r = ref.current?.getBoundingClientRect(); if (!r) return;
+        ry.set(((e.clientX - r.left) / r.width - 0.5) * 7);
+        rx.set(-((e.clientY - r.top) / r.height - 0.5) * 7);
+      }}
+      onMouseLeave={() => { rx.set(0); ry.set(0); }}>
+      {children}
+    </motion.div>
+  );
+}
+
 /* ---- magnetic hover wrapper (desktop) ---- */
 export function Magnetic({ children, strength = 0.3 }: { children: React.ReactNode; strength?: number }) {
   const ref = useRef<HTMLDivElement>(null);
