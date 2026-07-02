@@ -115,14 +115,9 @@ export default function Home() {
                 <div className="relative z-10 px-6 md:px-12 pb-12 lg:pb-16 pt-16">
                   <p className="font-[JetBrains_Mono] text-[11px] md:text-[12px] tracking-[0.18em] md:tracking-[0.28em] uppercase mb-6" style={{ color: BONE, textShadow: "0 1px 14px rgba(0,0,0,0.75)" }}>Revenue systems for service businesses</p>
                   <Split text="I build the layer between demand and getting paid." go accentFrom={7} className="font-[Redaction] font-black leading-[0.9] tracking-[-0.015em] max-w-[17ch]" style={{ fontSize: "clamp(38px,6vw,102px)", textShadow: "0 2px 28px rgba(0,0,0,0.65)" }} />
-                  <div className="mt-7 flex flex-col lg:flex-row lg:items-end gap-6 lg:gap-12">
-                    <p className="font-[Redaction] max-w-[52ch]" style={{ fontSize: "clamp(17px,1.9vw,22px)", color: BONE, opacity: 0.95, textShadow: "0 1px 18px rgba(0,0,0,0.7)" }}>
-                      Savoca Studio builds the workflows, tools, automations, and reporting that turn service demand into booked work, completed work, paid work, and repeat customers.
-                    </p>
-                    <div className="flex items-center gap-5 shrink-0">
-                      <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4 rounded-full" style={{ background: TEAL, color: INK }}>Let&apos;s talk →</a></Magnetic>
-                      <button data-cursor onClick={() => go("systems")} className="font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase hover:opacity-70 transition-opacity" style={{ color: BONE }}>See the system →</button>
-                    </div>
+                  <div className="mt-8 flex items-center gap-6">
+                    <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4 rounded-full" style={{ background: TEAL, color: INK }}>Let&apos;s talk →</a></Magnetic>
+                    <button data-cursor onClick={() => go("systems")} className="font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase opacity-70 hover:opacity-100 transition-opacity" style={{ color: BONE }}>See the system →</button>
                   </div>
                   <div className="mt-8"><PathStrip nodes={PATH_SHORT} accentLast /></div>
                 </div>
@@ -135,10 +130,7 @@ export default function Home() {
                 <p className={lab} style={{ color: TEAL }}>What gets built</p>
                 <Reveal className="font-[Redaction] font-bold leading-[0.98] max-w-[18ch] mb-8" style={{ fontSize: "clamp(28px,4.4vw,52px)" }}>A working revenue system, not another tool.</Reveal>
                 <BuildExplorer />
-                <p className="font-[Redaction] mt-10 max-w-[46ch]" style={{ fontSize: "clamp(18px,2.2vw,26px)", color: BONE }}>
-                  The system is working when more demand becomes booked work, completed work, paid work, and repeat business.
-                </p>
-                <div className="mt-16 pt-12" style={{ borderTop: BORDER }}>
+                <div className="mt-14 pt-10" style={{ borderTop: BORDER }}>
                   <p className={lab} style={{ color: TEAL }}>The process</p>
                   <Reveal className="font-[Redaction] font-bold leading-[0.95] max-w-[14ch] mb-8" style={{ fontSize: "clamp(28px,4.4vw,52px)" }}>Build. Run. Measure. Improve.</Reveal>
                   <ProcessStepper />
@@ -151,8 +143,8 @@ export default function Home() {
               <section className="px-6 md:px-12 py-12 lg:py-16">
                 <p className={lab} style={{ color: TEAL }}>Three ways to build</p>
                 <Reveal className="font-[Redaction] font-bold leading-[0.98] max-w-[20ch]" style={{ fontSize: "clamp(28px,4.4vw,52px)" }}>Built for the size and complexity of the business.</Reveal>
-                <p className="font-[Redaction] mt-5 max-w-[62ch] mb-10" style={{ fontSize: "clamp(16px,1.8vw,20px)", color: DIM }}>
-                  A solo practice does not need the same system as a multi-location service business. You work directly with me — no agency layers, no bloated consulting process, no one-time setup that gets forgotten.
+                <p className="font-[JetBrains_Mono] text-[12px] tracking-[0.16em] uppercase mt-5 mb-10" style={{ color: DIM }}>
+                  You work directly with me. No agency layers.
                 </p>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-5 items-stretch">
                   {BANDS.map((b) => <BandCard key={b.n} b={b} />)}
@@ -189,10 +181,9 @@ export default function Home() {
                 <p className={lab} style={{ color: TEAL }}>Why this works</p>
                 <Reveal className="font-[Redaction] font-bold leading-[0.96] mb-7 max-w-[16ch]" style={{ fontSize: "clamp(28px,4.4vw,54px)" }}>Not an agency. Not just software. Not advice.</Reveal>
                 <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16">
-                  <div className="font-[Redaction] space-y-4 max-w-[58ch]" style={{ fontSize: "clamp(17px,2vw,22px)", color: "#B7B2A6" }}>
-                    <p>Agencies usually focus on getting more demand. Software companies sell tools. Consultants give recommendations.</p>
-                    <p style={{ color: BONE }}>Savoca Studio builds the revenue workflow underneath the business and keeps improving it with you.</p>
-                    <p>You work directly with me. I bring a background in program management, revenue operations, product launches, and cross-functional systems from larger companies, then apply it to service businesses that need cleaner growth, better visibility, and less manual chaos.</p>
+                  <div className="font-[Redaction] space-y-4 max-w-[52ch]" style={{ fontSize: "clamp(18px,2.1vw,24px)", color: "#B7B2A6" }}>
+                    <p style={{ color: BONE }}>Savoca Studio builds the revenue workflow underneath the business — and keeps improving it with you.</p>
+                    <p>You work directly with me. Program management and revenue operations background from larger companies, applied to service businesses.</p>
                   </div>
                   <div>
                     <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase mb-3" style={{ color: TEAL }}>The revenue path</p>

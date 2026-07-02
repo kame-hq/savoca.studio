@@ -109,11 +109,10 @@ export function Split({ text, go, className, style, accentFrom }: { text: string
   return (
     <h1 className={className} style={style}>
       {words.map((w, i) => (
-        <span key={i} className="inline-block overflow-hidden mr-[0.22em] align-bottom pb-[0.28em] -mb-[0.28em] pr-[0.06em] -ml-[0.06em] pl-[0.06em]">
-          <motion.span className="inline-block" initial={{ y: "115%" }} animate={go ? { y: 0 } : {}}
-            style={accentFrom !== undefined && i >= accentFrom ? { fontWeight: 400, fontStyle: "italic" } : undefined}
-            transition={{ delay: 0.1 + i * 0.07, duration: 0.85, ease: EASE }}>{w}</motion.span>
-        </span>
+        <motion.span key={i} className="inline-block mr-[0.22em]"
+          style={accentFrom !== undefined && i >= accentFrom ? { fontWeight: 400, fontStyle: "italic" } : undefined}
+          initial={{ y: "0.5em", opacity: 0 }} animate={go ? { y: 0, opacity: 1 } : {}}
+          transition={{ delay: 0.1 + i * 0.06, duration: 0.7, ease: EASE }}>{w}</motion.span>
       ))}
     </h1>
   );
