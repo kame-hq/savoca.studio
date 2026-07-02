@@ -6,14 +6,15 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring, animate, useReducedMotion } from "motion/react";
 import Lenis from "lenis";
 
-export const INK = "#070707";
-export const BONE = "#FCFFF7";
-export const TEAL = "#6C756B";
-export const SAND = "#6C756B";
+// Dark-warm: espresso ink + beige bone (was cold #070707 / #FCFFF7)
+export const INK = "#161210";
+export const BONE = "#F1E9D8";
+export const TEAL = "#8A7C64";
+export const SAND = "#8A7C64";
 export const EASE = [0.16, 1, 0.3, 1] as const;
-export const DIM = "#9A958B";
-export const SOFT = "#C9C9C4";
-export const BORDER = "1px solid rgba(236,231,221,0.1)";
+export const DIM = "#A29885";
+export const SOFT = "#CFC5AF";
+export const BORDER = "1px solid rgba(241,233,216,0.12)";
 
 export const NAV: [string, string][] = [
   ["Work", "/work"],
@@ -200,7 +201,7 @@ export function Lockup({ size = "md" }: { size?: "md" | "sm" }) {
 
 export function BandCard({ b }: { b: Band }) {
   return (
-    <motion.div className="flex flex-col p-7 md:p-8 rounded-xl h-full" style={{ background: "#0E0E0E", border: BORDER }}
+    <motion.div className="flex flex-col p-7 md:p-8 rounded-xl h-full" style={{ background: "#201A14", border: BORDER }}
       initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-8%" }} transition={{ duration: 0.6, ease: EASE }}>
       <span className="font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase" style={{ color: TEAL }}>{b.n}</span>
       <h3 className="font-[Redaction] font-bold mt-2 leading-none" style={{ fontSize: "clamp(26px,3vw,38px)" }}>{b.name}</h3>
@@ -271,9 +272,9 @@ export function HeroReel() {
           <source src={c.src} type="video/mp4" />
         </video>
       ))}
-      <div className="absolute inset-0" style={{ background: "rgba(70,76,70,0.3)", mixBlendMode: "multiply" }} />
-      <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(11,11,9,0.97) 0%, rgba(11,11,9,0.55) 45%, rgba(11,11,9,0.35) 75%, rgba(11,11,9,0.5) 100%)" }} />
-      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 52%, rgba(7,7,7,0.5) 100%)" }} />
+      <div className="absolute inset-0" style={{ background: "rgba(74,66,54,0.3)", mixBlendMode: "multiply" }} />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(20,16,12,0.97) 0%, rgba(20,16,12,0.55) 45%, rgba(20,16,12,0.35) 75%, rgba(20,16,12,0.5) 100%)" }} />
+      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 52%, rgba(22,18,14,0.5) 100%)" }} />
       <div className="absolute bottom-4 right-5 md:bottom-6 md:right-8 flex items-center gap-3 font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase" style={{ color: BONE }}>
         <span style={{ color: TEAL }}>0{idx + 1} / 0{REEL.length}</span>
         <AnimatePresence mode="wait">
@@ -281,7 +282,7 @@ export function HeroReel() {
             {REEL[idx].label}
           </motion.span>
         </AnimatePresence>
-        <span className="relative w-10 h-px overflow-hidden" style={{ background: "rgba(252,255,247,0.25)" }}>
+        <span className="relative w-10 h-px overflow-hidden" style={{ background: "rgba(241,233,216,0.25)" }}>
           {!reduce && <motion.span key={idx} className="absolute inset-0 origin-left" style={{ background: BONE }}
             initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 5.5, ease: "linear" }} />}
         </span>
@@ -307,14 +308,14 @@ export function BuildExplorer() {
       </div>
       <AnimatePresence mode="wait">
         <motion.div key={b.n} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.35, ease: EASE }}
-          className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-14 rounded-xl p-7 md:p-10" style={{ background: "#0E0E0E", border: BORDER }}>
+          className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-14 rounded-xl p-7 md:p-10" style={{ background: "#201A14", border: BORDER }}>
           <div>
             <h3 className="font-[Redaction] font-bold leading-none" style={{ fontSize: "clamp(34px,5vw,64px)" }}>{b.title}</h3>
-            <p className="font-[Redaction] mt-4 max-w-[44ch]" style={{ fontSize: "clamp(17px,2vw,22px)", color: "#B7B2A6" }}>{b.blurb}</p>
+            <p className="font-[Redaction] mt-4 max-w-[44ch]" style={{ fontSize: "clamp(17px,2vw,22px)", color: "#B8AD97" }}>{b.blurb}</p>
             <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase mt-8 mb-3" style={{ color: TEAL }}>Built with</p>
             <div className="grid grid-cols-2 gap-x-6"><Bullets items={b.built} color={DIM} /></div>
           </div>
-          <div className="lg:pl-10 lg:border-l" style={{ borderColor: "rgba(236,231,221,0.1)" }}>
+          <div className="lg:pl-10 lg:border-l" style={{ borderColor: "rgba(241,233,216,0.12)" }}>
             <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.2em] uppercase mb-3" style={{ color: TEAL }}>Measured by</p>
             <Bullets items={b.measured} color={SOFT} />
           </div>
@@ -330,10 +331,10 @@ export function ProcessStepper() {
   const s = STEPS[i];
   return (
     <div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-px mb-8" style={{ background: "rgba(236,231,221,0.1)" }}>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-px mb-8" style={{ background: "rgba(241,233,216,0.12)" }}>
         {STEPS.map((x, k) => (
           <button key={x.n} data-cursor onClick={() => setI(k)} className="text-left p-5 transition-colors"
-            style={{ background: k === i ? "#161616" : INK }}>
+            style={{ background: k === i ? "#2A231B" : INK }}>
             <span className="font-[JetBrains_Mono] text-[12px]" style={{ color: TEAL }}>{x.n}</span>
             <p className="font-[Redaction] font-bold mt-1" style={{ fontSize: "clamp(18px,2vw,26px)", color: k === i ? BONE : DIM }}>{x.title}</p>
           </button>
@@ -413,7 +414,7 @@ export function Shell({ children, showHeader = true }: { children: React.ReactNo
         <div className="absolute top-0 inset-x-0 z-[60] flex items-center justify-between px-6 md:px-12 pt-7">
           <Lockup />
           <div className="flex items-center gap-3">
-            <a data-cursor href="/#contact" className="hidden md:inline-block font-[JetBrains_Mono] text-[12px] tracking-[0.14em] uppercase px-5 py-3 rounded-full" style={{ border: "1px solid rgba(252,255,247,0.4)", color: BONE }}>Let&apos;s talk →</a>
+            <a data-cursor href="/#contact" className="hidden md:inline-block font-[JetBrains_Mono] text-[12px] tracking-[0.14em] uppercase px-5 py-3 rounded-full" style={{ border: "1px solid rgba(241,233,216,0.4)", color: BONE }}>Let&apos;s talk →</a>
             <button data-cursor aria-label="Open menu" onClick={() => setMenu(true)} className="md:hidden flex flex-col gap-1.5 p-2">
               <span className="block w-7 h-px" style={{ background: BONE }} /><span className="block w-7 h-px" style={{ background: BONE }} />
             </button>

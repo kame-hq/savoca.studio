@@ -163,7 +163,7 @@ export default function Home() {
                     <a key={p.href} data-cursor href={p.href} target="_blank" rel="noopener noreferrer" className="group block">
                       <div className="relative overflow-hidden rounded-xl aspect-[16/10]" style={{ border: BORDER }}>
                         <img src={p.img} alt={p.name} className="absolute inset-0 h-full w-full object-cover object-top grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-[1.03]" />
-                        <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0" style={{ background: "rgba(7,7,7,0.35)" }} />
+                        <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0" style={{ background: "rgba(22,18,14,0.35)" }} />
                       </div>
                       <div className="flex items-baseline justify-between mt-4">
                         <h3 className="font-[Redaction] font-bold" style={{ fontSize: "clamp(20px,2.2vw,26px)" }}>{p.name}</h3>
@@ -182,7 +182,7 @@ export default function Home() {
                 <p className={lab} style={{ color: TEAL }}>Why this works</p>
                 <Reveal className="font-[Redaction] font-bold leading-[0.96] mb-7 max-w-[16ch]" style={{ fontSize: "clamp(28px,4.4vw,54px)" }}>Not an agency. Not just software. Not advice.</Reveal>
                 <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16">
-                  <div className="font-[Redaction] space-y-4 max-w-[52ch]" style={{ fontSize: "clamp(18px,2.1vw,24px)", color: "#B7B2A6" }}>
+                  <div className="font-[Redaction] space-y-4 max-w-[52ch]" style={{ fontSize: "clamp(18px,2.1vw,24px)", color: "#B8AD97" }}>
                     <p style={{ color: BONE }}>Savoca Studio builds the revenue workflow underneath the business — and keeps improving it with you.</p>
                     <p>You work directly with me. Program management and revenue operations background from larger companies, applied to service businesses.</p>
                   </div>
