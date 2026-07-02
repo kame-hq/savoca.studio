@@ -222,7 +222,7 @@ export function Lockup({ size = "md" }: { size?: "md" | "sm" }) {
 
 export function BandCard({ b, last }: { b: Band; last?: boolean }) {
   return (
-    <motion.div className="flex flex-col p-6 md:p-7 h-full" style={{ borderRight: last ? undefined : RULE, borderBottom: RULE, color: INK }}
+    <motion.div className={`flex flex-col p-6 md:p-7 h-full border-b ${last ? "" : "lg:border-r"}`} style={{ borderColor: "rgba(28,23,18,0.16)", color: INK }}
       initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-8%" }} transition={{ duration: 0.5, ease: EASE }}>
       <span className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase" style={{ color: SIGNAL }}>{b.n}</span>
       <h3 className="font-[Redaction] font-bold mt-1.5 leading-none" style={{ fontSize: "clamp(24px,2.8vw,36px)" }}>{b.name}</h3>

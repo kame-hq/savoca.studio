@@ -28,6 +28,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "opentype.js": "^2.0.0",
+    "puppeteer-core": "^25.3.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

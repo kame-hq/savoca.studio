@@ -112,11 +112,11 @@ export default function Home() {
 
             {/* HOME — dark cinematic hero on the cream site */}
             {tab === "" && (
-              <section className="relative min-h-full flex flex-col justify-end overflow-hidden" style={{ color: BONE }}>
+              <section className="relative flex flex-col justify-end overflow-hidden" style={{ color: BONE, minHeight: "calc(100dvh - 73px)" }}>
                 <HeroReel />
                 <div className="relative z-10 px-6 md:px-10 pb-12 lg:pb-16 pt-16">
                   <p className="font-[JetBrains_Mono] text-[11px] md:text-[12px] tracking-[0.18em] md:tracking-[0.28em] uppercase mb-6" style={{ color: BONE, textShadow: "0 1px 14px rgba(0,0,0,0.75)" }}>Revenue systems for service businesses</p>
-                  <Split text="I build the layer between demand and getting paid." go accentFrom={7} className="font-[Redaction] font-black leading-[0.9] tracking-[-0.015em] max-w-[17ch]" style={{ fontSize: "clamp(38px,6vw,102px)", textShadow: "0 2px 28px rgba(0,0,0,0.65)" }} />
+                  <Split text="I build the layer between demand and getting paid." go accentFrom={7} className="font-[Redaction] font-black leading-[0.9] tracking-[-0.015em] max-w-[17ch]" style={{ fontSize: "clamp(29px,8.4vw,102px)", textShadow: "0 2px 28px rgba(0,0,0,0.65)" }} />
                   <div className="mt-8 flex items-center gap-6">
                     <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: BONE, color: INK }}>Let&apos;s talk →</a></Magnetic>
                     <button data-cursor onClick={() => go("systems")} className="font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase opacity-80 hover:opacity-100 transition-opacity" style={{ color: BONE }}>See the system →</button>
@@ -174,7 +174,7 @@ export default function Home() {
                 <h2 className="font-[Redaction] font-bold leading-[0.98] max-w-[16ch] mb-8" style={{ fontSize: "clamp(26px,4vw,48px)" }}>Sites and systems I&apos;ve built.</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3" style={{ border: RULE }}>
                   {PORTFOLIO.map((p, i) => (
-                    <a key={p.href} data-cursor href={p.href} target="_blank" rel="noopener noreferrer" className="group block p-5" style={{ borderRight: i < PORTFOLIO.length - 1 ? RULE : undefined }}>
+                    <a key={p.href} data-cursor href={p.href} target="_blank" rel="noopener noreferrer" className={`group block p-5 border-b md:border-b-0 ${i < PORTFOLIO.length - 1 ? "md:border-r" : ""}`} style={{ borderColor: "rgba(28,23,18,0.16)" }}>
                       <div className="relative overflow-hidden aspect-[16/10]" style={{ border: RULE }}>
                         <img src={p.img} alt={p.name} className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" />
                       </div>
