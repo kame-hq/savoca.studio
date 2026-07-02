@@ -26,24 +26,26 @@ export const NAV: [string, string][] = [
 export const PATH_SHORT = ["Demand", "Captured", "Booked", "Delivered", "Paid", "Rebooked"];
 export const PATH_LONG = ["First touch", "Intake", "Booking", "Scheduling", "Delivery", "Payment", "Follow-up", "Retention", "Reporting"];
 
+// Stages mirror the hero revenue path: Demand → Captured → Booked → Delivered → Paid → Rebooked
 export type Build = { n: string; title: string; blurb: string; built: string[]; measured: string[] };
 export const BUILDS: Build[] = [
-  { n: "01", title: "Intake", blurb: "Calls, forms, messages, referrals, and requests captured in one place.",
+  { n: "01", title: "Captured", blurb: "Every call, form, message, and referral lands in one place — nothing slips.",
     built: ["Lead forms", "Missed-call text-back", "Shared inbox", "CRM capture", "Source tracking", "Routing rules"],
     measured: ["Capture rate", "First response time", "Missed call recovery", "Source visibility"] },
-  { n: "02", title: "Booking", blurb: "Demand turns into appointments, jobs, estimates, or scheduled work.",
+  { n: "02", title: "Booked", blurb: "Demand turns into appointments, jobs, estimates, or scheduled work.",
     built: ["Booking flows", "Calendars", "Estimate requests", "Quote follow-up", "Appointment reminders", "Team assignment"],
     measured: ["Lead-to-booked rate", "Quote turnaround time", "Appointment show rate", "Stalled requests"] },
-  { n: "03", title: "Delivery", blurb: "The team knows what needs to happen, who owns it, and what is complete.",
+  { n: "03", title: "Delivered", blurb: "The team knows what needs to happen, who owns it, and what is complete.",
     built: ["Task boards", "Work orders", "Job status", "Crew schedules", "Customer updates", "Internal handoffs"],
     measured: ["Work completion", "Schedule adherence", "Job cycle time", "Overdue work"] },
-  { n: "04", title: "Retention", blurb: "Customers get followed up with, reviewed, reactivated, and brought back.",
-    built: ["Follow-up sequences", "Review requests", "Reactivation campaigns", "Renewal reminders", "Customer lists", "Service history"],
-    measured: ["Follow-up completion", "Repeat booking", "Review requests", "Reactivation revenue"] },
-  { n: "05", title: "Reporting", blurb: "The business can finally see what is happening.",
-    built: ["Dashboards", "Weekly revenue view", "Source reporting", "Pipeline tracking", "Service or location reporting", "Monthly performance readout"],
-    measured: ["Booked revenue", "Completed revenue", "Lost or stalled work", "Revenue by source", "Revenue by service", "Revenue by location"] },
+  { n: "04", title: "Paid", blurb: "Completed work becomes money in the bank — without chasing it.",
+    built: ["Invoicing flow", "Deposits up front", "Payment links", "Quote-to-invoice handoff", "Overdue reminders", "Payment tracking"],
+    measured: ["Time to paid", "Outstanding invoices", "Deposit rate", "Collected revenue"] },
+  { n: "05", title: "Rebooked", blurb: "Customers get followed up with, reviewed, reactivated, and brought back.",
+    built: ["Follow-up sequences", "Review requests", "Reactivation campaigns", "Renewal reminders", "Service history"],
+    measured: ["Repeat booking", "Reviews requested", "Reactivation revenue", "Renewal risk"] },
 ];
+export const REPORTING_LINE = "And one view across all of it — dashboards, a weekly revenue read, and revenue by source, service, and location.";
 
 export type Band = {
   n: string; name: string; who: string; desc: string; desc2?: string;

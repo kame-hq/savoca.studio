@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import {
   Cursor, HeroReel, Split, Reveal, PathStrip, BuildExplorer, ProcessStepper, BandCard, Badges, Grain, Magnetic,
-  INK, BONE, TEAL, DIM, EASE, BORDER, PATH_SHORT, PATH_LONG, BANDS,
+  INK, BONE, TEAL, DIM, EASE, BORDER, PATH_SHORT, PATH_LONG, BANDS, REPORTING_LINE,
 } from "./shared";
 
 const PORTFOLIO = [
@@ -130,6 +130,7 @@ export default function Home() {
                 <p className={lab} style={{ color: TEAL }}>What gets built</p>
                 <Reveal className="font-[Redaction] font-bold leading-[0.98] max-w-[18ch] mb-8" style={{ fontSize: "clamp(28px,4.4vw,52px)" }}>A working revenue system, not another tool.</Reveal>
                 <BuildExplorer />
+                <p className="font-[JetBrains_Mono] text-[12px] leading-relaxed mt-6 max-w-[64ch]" style={{ color: DIM }}>{REPORTING_LINE}</p>
                 <div className="mt-14 pt-10" style={{ borderTop: BORDER }}>
                   <p className={lab} style={{ color: TEAL }}>The process</p>
                   <Reveal className="font-[Redaction] font-bold leading-[0.95] max-w-[14ch] mb-8" style={{ fontSize: "clamp(28px,4.4vw,52px)" }}>Build. Run. Measure. Improve.</Reveal>
