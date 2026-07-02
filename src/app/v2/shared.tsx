@@ -365,6 +365,77 @@ export function ProcessStepper() {
   );
 }
 
+/* ---- the story player: one lead, start to finish (the "explainer video") ---- */
+type Beat = { t: string; who: "them" | "system" | "mark"; text: string; stage: string };
+const STORY: Beat[] = [
+  { t: "TUE 2:14 PM", who: "them", text: "Incoming call — you're mid-job. It rings out.", stage: "Demand" },
+  { t: "TUE 2:14 PM", who: "system", text: "Auto-text goes back: “Sorry we missed you — want to book or get a quote?”", stage: "Captured" },
+  { t: "TUE 2:31 PM", who: "them", text: "“Yeah — can you do Thursday morning?”", stage: "Captured" },
+  { t: "TUE 2:32 PM", who: "system", text: "Booking link sent. Thursday 9:00 AM confirmed. Reminder scheduled.", stage: "Booked" },
+  { t: "THU 8:00 AM", who: "system", text: "Reminder text goes out. No-show avoided.", stage: "Booked" },
+  { t: "THU 11:02 AM", who: "mark", text: "Job closed out on the work order.", stage: "Delivered" },
+  { t: "THU 11:03 AM", who: "system", text: "Invoice sent automatically. Paid by card that afternoon.", stage: "Paid" },
+  { t: "FRI 9:00 AM", who: "system", text: "Review request sent — five stars posted.", stage: "Rebooked" },
+  { t: "6 WEEKS LATER", who: "system", text: "Rebook reminder goes out. They book again. Nobody had to remember.", stage: "Rebooked" },
+];
+const STORY_STAGES = ["Demand", "Captured", "Booked", "Delivered", "Paid", "Rebooked"];
+export function StoryPlayer() {
+  const reduce = useReducedMotion();
+  const [i, setI] = useState(0);
+  const [playing, setPlaying] = useState(true);
+  useEffect(() => {
+    if (reduce || !playing) return;
+    const t = setTimeout(() => setI((x) => (x + 1) % STORY.length), 3000);
+    return () => clearTimeout(t);
+  }, [i, playing, reduce]);
+  const beat = STORY[i];
+  const stageIdx = STORY_STAGES.indexOf(beat.stage);
+  return (
+    <div style={{ border: RULE, color: INK }}>
+      {/* stage tracker */}
+      <div className="flex items-center gap-0 px-5 md:px-7 pt-5 overflow-x-auto">
+        {STORY_STAGES.map((s, k) => (
+          <div key={s} className="flex items-center shrink-0">
+            {k > 0 && <span className="w-5 md:w-9 h-px mx-1.5" style={{ background: k <= stageIdx ? MONEY : "rgba(28,23,18,0.2)" }} />}
+            <span className="font-[JetBrains_Mono] text-[10px] tracking-[0.14em] uppercase transition-colors duration-300"
+              style={{ color: k === stageIdx ? MONEY : k < stageIdx ? INK : "rgba(28,23,18,0.35)" }}>{s}</span>
+          </div>
+        ))}
+      </div>
+      {/* the beat */}
+      <div className="px-5 md:px-7 py-6 md:py-8 min-h-[132px] md:min-h-[120px]">
+        <AnimatePresence mode="wait">
+          <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.35, ease: EASE }}>
+            <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase mb-2.5" style={{ color: beat.who === "system" ? MONEY : STEEL }}>
+              {beat.t} · {beat.who === "system" ? "The system" : beat.who === "mark" ? "Your crew" : "A customer"}
+            </p>
+            <p className="font-[Redaction] max-w-[46ch]" style={{ fontSize: "clamp(19px,2.6vw,30px)" }}>{beat.text}</p>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+      {/* transport */}
+      <div className="flex items-center justify-between px-5 md:px-7 py-3.5" style={{ borderTop: RULE }}>
+        <div className="flex items-center gap-1.5">
+          {STORY.map((_, k) => (
+            <button key={k} data-cursor aria-label={`Beat ${k + 1}`} onClick={() => { setI(k); setPlaying(false); }} className="relative h-4 w-6 flex items-center">
+              <span className="w-full overflow-hidden" style={{ height: 2, background: "rgba(28,23,18,0.18)" }}>
+                {k === i && playing && !reduce ? (
+                  <motion.span className="block h-full origin-left" style={{ background: MONEY }} initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 3, ease: "linear" }} />
+                ) : (
+                  <span className="block h-full" style={{ background: k <= i ? MONEY : "transparent" }} />
+                )}
+              </span>
+            </button>
+          ))}
+        </div>
+        <button data-cursor onClick={() => setPlaying((p) => !p)} className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase" style={{ color: STEEL }}>
+          {playing ? "Pause" : "Play"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
 /* ---- before/after: why you need this ---- */
 export function BeforeAfter() {
   const [before, after] = BEFORE_AFTER;

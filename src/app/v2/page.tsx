@@ -6,7 +6,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import {
-  Cursor, HeroReel, Split, PathStrip, BuildExplorer, ProcessStepper, BeforeAfter, BandCard, Badges, Grain, Magnetic,
+  Cursor, HeroReel, Split, PathStrip, BuildExplorer, ProcessStepper, StoryPlayer, BandCard, Badges, Grain, Magnetic,
   CREAM, INK, BONE, STEEL, MONEY, SIGNAL, RULE, TEAL, EASE, PATH_SHORT, PATH_LONG, BANDS, REPORTING_LINE,
 } from "./shared";
 
@@ -134,9 +134,9 @@ export default function Home() {
                   You&apos;re busy doing the work. That&apos;s when the money slips.
                 </h2>
                 <p className="font-[Redaction] mb-8 max-w-[54ch]" style={{ fontSize: "clamp(16px,1.9vw,20px)", color: STEEL }}>
-                  Not from bad work — from missed calls, slow quotes, late invoices, and customers nobody follows up with.
+                  Not from bad work — from missed calls, slow quotes, late invoices, and customers nobody follows up with. Here&apos;s one lead, start to finish:
                 </p>
-                <BeforeAfter />
+                <StoryPlayer />
 
                 <div className="mt-12 pt-8" style={{ borderTop: RULE }}>
                   <p className={lab} style={{ color: STEEL }}>The system</p>
