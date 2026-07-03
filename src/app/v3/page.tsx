@@ -5,10 +5,10 @@
 // behind pinned type, the story scrubs horizontally, work weaves through giant
 // type, pricing folds up, finale flickers. Black / beige / green. Preview route.
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform, useSpring, useReducedMotion, MotionValue } from "motion/react";
+import { motion, AnimatePresence, useScroll, useTransform, useSpring, useVelocity, useReducedMotion, MotionValue } from "motion/react";
 import Lenis from "lenis";
 import {
-  Cursor, Grain, Magnetic, HeroReel, PathStrip, BandCard, Badges,
+  Cursor, Grain, Magnetic, HeroReel, PathStrip, BandCard, Badges, Split, Preloader, Tilt,
   CREAM, INK, BONE, STEEL, MONEY, SIGNAL, RULE, EASE,
   PATH_SHORT, VERTICALS, BANDS, ENGINES, STORY, FAQ, COMPARE,
 } from "../v2/shared";
@@ -33,7 +33,7 @@ function ScrollRail() {
 }
 
 /* SECTION 1 — hero: video plane folds into the floor as you leave */
-function Hero({ reduce }: { reduce: boolean }) {
+function Hero({ reduce, go }: { reduce: boolean; go: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const rotateX = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 32]);
@@ -47,9 +47,9 @@ function Hero({ reduce }: { reduce: boolean }) {
           <HeroReel />
           <motion.div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-12 pb-12" style={{ y: textY }}>
             <p className={`${lab} mb-6`} style={{ color: BONE, textShadow: "0 1px 14px rgba(0,0,0,0.75)" }}>Revenue systems for service businesses</p>
-            <h1 className="font-[Redaction] font-black leading-[0.9] tracking-[-0.015em] max-w-[17ch]" style={{ fontSize: "clamp(38px,6.4vw,110px)", textShadow: "0 2px 28px rgba(0,0,0,0.65)" }}>
-              I build the layer between demand and <span className="font-[Fraunces]" style={{ fontWeight: 400, fontStyle: "italic" }}>getting paid.</span>
-            </h1>
+            <Split text="I build the layer between demand and getting paid." go={go} accentFrom={7}
+              className="font-[Redaction] font-black leading-[0.9] tracking-[-0.015em] max-w-[17ch]"
+              style={{ fontSize: "clamp(38px,6.4vw,110px)", textShadow: "0 2px 28px rgba(0,0,0,0.65)" }} />
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
               <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block whitespace-nowrap font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: BONE, color: "#0B0806", animation: reduce ? undefined : "nudge 7s ease-in-out infinite" }}>Let&apos;s talk →</a></Magnetic>
               <span className="font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase opacity-80" style={{ color: BONE }}>Scroll ↓</span>
@@ -143,10 +143,13 @@ function StoryRoom() {
           <h2 className="font-[Redaction] font-bold leading-[0.98] mt-2" style={{ fontSize: "clamp(26px,4vw,52px)" }}>
             You&apos;re busy doing the work. <span className="font-[Fraunces]" style={{ fontWeight: 400, fontStyle: "italic", color: MONEY }}>The system isn&apos;t.</span>
           </h2>
+          <div className="mt-5 h-px w-full max-w-[420px] overflow-hidden" style={{ background: "rgba(241,233,216,0.12)" }}>
+            <motion.div className="h-full origin-left" style={{ scaleX: p, background: MONEY }} />
+          </div>
         </div>
         <motion.div className="flex gap-4 md:gap-6 w-max pl-2" style={{ x }}>
           {STORY.map((b, i) => (
-            <div key={i} className="shrink-0 w-[74vw] md:w-[26vw] p-5 md:p-6" style={{ background: "#0F0C09", border: RULE }}>
+            <div key={i} className="shrink-0 w-[74vw] md:w-[26vw] p-5 md:p-6" style={{ background: "#0F0C09", border: RULE, marginTop: i % 2 ? 34 : 0 }}>
               <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase" style={{ color: b.who === "system" ? MONEY : STEEL }}>
                 {b.t} · {b.who === "system" ? "The system" : b.who === "mark" ? "Your crew" : "A customer"}
               </p>
@@ -170,7 +173,7 @@ function WorkPiece({ p, i, item }: { p: MotionValue<number>; i: number; item: (t
       className={`absolute left-1/2 block w-[78vw] md:w-[560px] ${i % 2 ? "z-[6]" : "z-[2]"}`}
       style={{ y, rotate, x: i === 0 ? "-62%" : i === 1 ? "-38%" : "-52%" }}>
       <div className="relative overflow-hidden aspect-[16/10] group" style={{ border: RULE, boxShadow: "0 30px 90px -25px rgba(0,0,0,0.85)" }}>
-        <img src={item.img} alt={item.name} className="absolute inset-0 h-full w-full object-cover object-top" />
+        <img src={item.img} alt={item.name} className="absolute inset-0 h-full w-full object-cover object-top grayscale-[0.5] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-[1.03]" />
         <span className="absolute bottom-3 left-3 font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase px-3 py-1.5" style={{ background: "#0B0806", color: INK }}>
           {item.name} · {item.vertical} ↗
         </span>
@@ -182,14 +185,15 @@ function WorkRoom() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
   const p = useSpring(scrollYProgress, { stiffness: 90, damping: 24, mass: 0.4 });
+  const typeScale = useTransform(p, [0, 1], [0.92, 1.1]);
   return (
     <section ref={ref} id="work" className="relative" style={{ height: "340vh" }}>
       <div className="sticky top-0 h-screen overflow-hidden">
-        <div className="absolute inset-0 z-[4] flex flex-col items-center justify-center text-center pointer-events-none px-6">
+        <motion.div className="absolute inset-0 z-[4] flex flex-col items-center justify-center text-center pointer-events-none px-6" style={{ scale: typeScale }}>
           <p className={lab} style={{ color: STEEL }}>Selected Work</p>
           <h2 className="font-[Redaction] font-black leading-[0.88] mt-3" style={{ fontSize: "clamp(64px,15vw,240px)", color: INK }}>WORK</h2>
           <p className="font-[Fraunces] mt-2" style={{ fontSize: "clamp(18px,2.2vw,28px)", fontStyle: "italic", fontWeight: 400, color: MONEY }}>real businesses, live right now</p>
-        </div>
+        </motion.div>
         {PORTFOLIO.map((item, i) => <WorkPiece key={item.href} p={p} i={i} item={item} />)}
       </div>
     </section>
@@ -255,7 +259,7 @@ function Finale() {
       <div className="mt-8"><Badges /></div>
       <div className="relative mt-16">
         <h2 className="font-[Redaction] font-black leading-[0.92] max-w-[16ch]" style={{ fontSize: "clamp(36px,7.5vw,120px)" }}>
-          Build the layer between demand and <span className="font-[Fraunces]" style={{ fontWeight: 400, fontStyle: "italic", color: MONEY }}>getting paid.</span>
+          Build the layer between demand and <span className="font-[Fraunces]" style={{ fontWeight: 400, fontStyle: "italic", color: MONEY, animation: "flick 9s linear 2s infinite" }}>getting paid.</span>
         </h2>
         <div className="mt-9"><Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-8 py-5" style={{ background: MONEY, color: "#0B0806" }}>Let&apos;s talk →</a></Magnetic></div>
         <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.12em] mt-9" style={{ color: STEEL }}>jack@savoca.studio · Austin, TX · Taking new builds</p>
@@ -266,6 +270,12 @@ function Finale() {
 
 export default function V3() {
   const reduce = useReducedMotion();
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => { if (reduce) setLoaded(true); }, [reduce]);
+  const { scrollY } = useScroll();
+  const vel = useVelocity(scrollY);
+  const sigRotate = useSpring(useTransform(vel, [-2400, 2400], [-22, 22]), { stiffness: 220, damping: 18, mass: 0.3 });
+  const trackSkew = useSpring(useTransform(vel, [-3000, 3000], [4, -4]), { stiffness: 200, damping: 22, mass: 0.3 });
   useEffect(() => {
     if (reduce) return;
     const lenis = new Lenis({ duration: 1.2, smoothWheel: true });
@@ -284,12 +294,14 @@ export default function V3() {
         @font-face{font-family:'Redaction';src:url('/fonts/redaction/Redaction-Bold.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}
         @font-face{font-family:'Redaction';src:url('/fonts/redaction/Redaction-Italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
         @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-33.3333%)}}
+        @keyframes marqR{from{transform:translateX(-33.3333%)}to{transform:translateX(0)}}
         @keyframes flick{0%,91%,100%{opacity:1}92%{opacity:0.3}94%{opacity:0.9}96%{opacity:0.45}98%{opacity:1}}
         @keyframes nudge{0%,86%,100%{transform:translateX(0)}90%{transform:translateX(5px)}94%{transform:translateX(-2px)}}
         @keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(14vw,10vh) scale(1.18)}}
         @keyframes drift2{from{transform:translate(0,0) scale(1.1)}to{transform:translate(-12vw,-8vh) scale(0.95)}}
       `}</style>
       {!reduce && <Cursor />}
+      <AnimatePresence>{!reduce && !loaded && <Preloader key="pre" onDone={() => setLoaded(true)} />}</AnimatePresence>
       <div aria-hidden className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute rounded-full" style={{ width: "75vmax", height: "75vmax", left: "-25vmax", top: "-30vmax", background: "radial-gradient(circle, rgba(44,122,95,0.11) 0%, transparent 62%)", animation: reduce ? undefined : "drift1 60s ease-in-out infinite alternate" }} />
         <div className="absolute rounded-full" style={{ width: "70vmax", height: "70vmax", right: "-28vmax", bottom: "-32vmax", background: "radial-gradient(circle, rgba(241,233,216,0.055) 0%, transparent 60%)", animation: reduce ? undefined : "drift2 75s ease-in-out infinite alternate" }} />
@@ -300,7 +312,7 @@ export default function V3() {
       {/* fixed header */}
       <header className="fixed top-0 inset-x-0 z-[60] flex items-center justify-between px-6 md:px-10 py-4" style={{ background: "linear-gradient(to bottom, rgba(11,8,6,0.9), transparent)" }}>
         <a data-cursor href="#" className="flex items-baseline gap-2.5 hover:opacity-70 transition-opacity">
-          <span className="font-[Fraunces] font-black leading-none" style={{ fontSize: "clamp(28px,3vw,40px)", color: MONEY }}>§</span>
+          <motion.span className="inline-block font-[Fraunces] font-black leading-none" style={{ fontSize: "clamp(28px,3vw,40px)", color: MONEY, rotate: sigRotate }}>§</motion.span>
           <span className="font-[Redaction] font-black tracking-[-0.01em] leading-none" style={{ fontSize: "clamp(17px,1.9vw,25px)" }}>Savoca Studio</span>
         </a>
         <nav className="hidden md:flex items-center gap-6 font-[JetBrains_Mono] text-[11px] tracking-[0.16em] uppercase" style={{ color: INK }}>
@@ -311,26 +323,53 @@ export default function V3() {
         </nav>
       </header>
 
-      <Hero reduce={!!reduce} />
+      <Hero reduce={!!reduce} go={loaded} />
 
-      {/* marquee bridge */}
-      <div className="overflow-hidden py-4 md:py-5 mx-2.5 md:mx-4 my-2" style={{ borderTop: RULE, borderBottom: RULE }}>
-        <div className="flex items-center gap-8 w-max" style={{ animation: "marq 90s linear infinite" }}>
-          {[...Array(3)].flatMap((_, r) =>
-            VERTICALS.map((v) => (
-              <span key={`${r}-${v}`} className="flex items-center gap-8 shrink-0">
-                <span className="font-[Fraunces] whitespace-nowrap" style={{ fontSize: "clamp(18px,2.3vw,28px)", fontStyle: "italic", color: "rgba(242,235,220,0.4)" }}>{v}</span>
-                <span className="font-[Fraunces] font-black" style={{ color: "rgba(44,122,95,0.45)", fontSize: "clamp(13px,1.5vw,18px)" }}>§</span>
-              </span>
-            ))
-          )}
+      {/* dual opposing marquees, velocity-skewed */}
+      <motion.div className="mx-2.5 md:mx-4 my-2" style={{ skewX: trackSkew }}>
+        <div className="overflow-hidden py-3 md:py-4" style={{ borderTop: RULE }}>
+          <div className="flex items-center gap-8 w-max" style={{ animation: "marq 80s linear infinite" }}>
+            {[...Array(3)].flatMap((_, r) =>
+              VERTICALS.map((v) => (
+                <span key={`${r}-${v}`} className="flex items-center gap-8 shrink-0">
+                  <span className="font-[Fraunces] whitespace-nowrap" style={{ fontSize: "clamp(18px,2.3vw,28px)", fontStyle: "italic", color: "rgba(242,235,220,0.42)" }}>{v}</span>
+                  <span className="font-[Fraunces] font-black" style={{ color: "rgba(44,122,95,0.45)", fontSize: "clamp(13px,1.5vw,18px)" }}>§</span>
+                </span>
+              ))
+            )}
+          </div>
         </div>
-      </div>
+        <div className="overflow-hidden py-3 md:py-4" style={{ borderTop: RULE, borderBottom: RULE }}>
+          <div className="flex items-center gap-8 w-max" style={{ animation: "marqR 96s linear infinite" }}>
+            {[...Array(3)].flatMap((_, r) =>
+              [...VERTICALS].reverse().map((v) => (
+                <span key={`r${r}-${v}`} className="flex items-center gap-8 shrink-0">
+                  <span className="font-[JetBrains_Mono] uppercase tracking-[0.2em] whitespace-nowrap" style={{ fontSize: "clamp(10px,1.1vw,13px)", color: "rgba(242,235,220,0.22)" }}>{v}</span>
+                  <span style={{ color: "rgba(44,122,95,0.3)", fontSize: 10 }}>●</span>
+                </span>
+              ))
+            )}
+          </div>
+        </div>
+      </motion.div>
 
       <EnginesRoom />
       <StoryRoom />
       <WorkRoom />
       <PricingFold />
+      {/* CTA marquee band */}
+      <a data-cursor href="mailto:jack@savoca.studio" className="group block overflow-hidden py-6 md:py-8" style={{ borderTop: RULE, borderBottom: RULE }}>
+        <div className="flex items-center gap-12 w-max" style={{ animation: "marq 26s linear infinite" }}>
+          {[...Array(9)].map((_, i) => (
+            <span key={i} className="flex items-center gap-12 shrink-0">
+              <span className="font-[Redaction] font-black whitespace-nowrap leading-none transition-colors duration-300 group-hover:text-[#2C7A5F]" style={{ fontSize: "clamp(36px,6.5vw,84px)", color: INK }}>
+                Let&apos;s talk <span className="font-[Fraunces]" style={{ fontWeight: 400, fontStyle: "italic", color: MONEY }}>→</span>
+              </span>
+              <span className="font-[Fraunces] font-black" style={{ color: "rgba(44,122,95,0.5)", fontSize: "clamp(20px,3vw,40px)" }}>§</span>
+            </span>
+          ))}
+        </div>
+      </a>
       <Finale />
     </main>
   );
