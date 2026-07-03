@@ -304,14 +304,14 @@ export default function V3() {
       {/* the drone layer: one aerial drift under the whole site */}
       <div aria-hidden className="fixed inset-0 pointer-events-none overflow-hidden">
         {reduce ? (
-          <img src="/video/bg-drone-poster.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" style={{ opacity: 0.3 }} />
+          <img src="/video/bg-drone-poster.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" style={{ opacity: 0.55 }} />
         ) : (
-          <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload="auto" poster="/video/bg-drone-poster.jpg" style={{ opacity: 0.3 }}>
+          <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload="auto" poster="/video/bg-drone-poster.jpg" style={{ opacity: 0.55 }}>
             <source src="/video/bg-drone.mp4" type="video/mp4" />
           </video>
         )}
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 25%, rgba(10,9,3,0.75) 100%)" }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(10,9,3,0.55), rgba(10,9,3,0.25) 40%, rgba(10,9,3,0.6))" }} />
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 35%, rgba(10,9,3,0.55) 100%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(10,9,3,0.4), rgba(10,9,3,0.12) 40%, rgba(10,9,3,0.45))" }} />
       </div>
       <Grain />
       <ScrollRail />
