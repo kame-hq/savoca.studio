@@ -212,7 +212,6 @@ function Chrome({ item }: { item: (typeof PORTFOLIO)[number] }) {
 }
 function WorkShowcase() {
   const [active, setActive] = useState<number | null>(null);
-  const [open, setOpen] = useState<number | null>(null);
   const wrap = useRef<HTMLDivElement>(null);
   const mx = useMotionValue(0), my = useMotionValue(0);
   const px = useSpring(mx, { stiffness: 160, damping: 22, mass: 0.35 });
@@ -232,10 +231,9 @@ function WorkShowcase() {
         {PORTFOLIO.map((item, i) => (
           <div key={item.href} style={{ borderBottom: RULE }}>
             <a data-cursor href={item.href} target="_blank" rel="noopener noreferrer"
-              className="group flex items-baseline gap-5 md:gap-8 py-6 md:py-8 transition-opacity duration-300"
+              className="group flex items-baseline gap-5 md:gap-8 pt-6 pb-4 md:py-8 transition-opacity duration-300"
               style={{ opacity: active === null || active === i ? 1 : 0.25 }}
-              onMouseEnter={() => setActive(i)}
-              onClick={(e) => { if (window.matchMedia("(hover: none)").matches) { e.preventDefault(); setOpen(open === i ? null : i); } }}>
+              onMouseEnter={() => setActive(i)}>
               <span className="font-[JetBrains_Mono] text-[12px] shrink-0" style={{ color: MONEY }}>0{i + 1}</span>
               <span className="font-[Redaction] font-black leading-none" style={{ fontSize: "clamp(36px,7vw,96px)" }}>{item.name}</span>
               <span className="ml-auto text-right shrink-0">
@@ -243,13 +241,11 @@ function WorkShowcase() {
                 <span className="hidden md:block font-[JetBrains_Mono] text-[10px] tracking-[0.18em] uppercase mt-1 transition-colors group-hover:opacity-100 opacity-50" style={{ color: MONEY }}>Visit ↗</span>
               </span>
             </a>
-            {/* mobile inline expand */}
-            {open === i && (
-              <motion.div className="md:hidden pb-6" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease: EASE }}>
-                <Chrome item={item} />
-                <a href={item.href} target="_blank" rel="noopener noreferrer" className="inline-block mt-3 font-[JetBrains_Mono] text-[11px] tracking-[0.16em] uppercase px-5 py-3" style={{ background: MONEY, color: "#0A0903" }}>Visit {item.href.replace("https://", "")} ↗</a>
-              </motion.div>
-            )}
+            {/* mobile: site frame always visible */}
+            <motion.a href={item.href} target="_blank" rel="noopener noreferrer" className="md:hidden block pb-7"
+              initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-8%" }} transition={{ duration: 0.55, ease: EASE }}>
+              <Chrome item={item} />
+            </motion.a>
           </div>
         ))}
       </div>
