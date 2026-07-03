@@ -286,7 +286,7 @@ export const REEL = [
   { src: "/video/svc-detail.mp4", poster: "/video/svc-detail-poster.jpg", label: "Detail Shop" },
   { src: "/video/svc-plumber.mp4", poster: "/video/svc-plumber-poster.jpg", label: "Plumbing Co." },
 ];
-export const VERTICALS = ["Barbershops", "Tattoo Parlors", "Nail Salons", "Auto Shops", "Detail Shops", "Plumbing Companies", "Med Spas", "Contractors", "Golf Operations", "Field Crews"];
+export const VERTICALS = ["Barbershops", "Tattoo Parlors", "Nail Salons", "Med Spas", "Contractors", "Photographers", "Landscapers", "Cleaning Companies", "Auto Shops", "Detail Shops", "Plumbers", "Electricians"];
 
 /* pricing: objections + alternatives (per productized-studio research) */
 export const FAQ: [string, string][] = [
