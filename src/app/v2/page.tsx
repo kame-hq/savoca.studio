@@ -92,22 +92,34 @@ export default function Home() {
         </div>
       </header>
 
-      {/* mobile menu (cream) */}
+      {/* mobile menu — dark ink overlay, staggered */}
       <AnimatePresence>
         {menu && (
-          <motion.div className="fixed inset-0 z-[85] md:hidden flex flex-col" style={{ background: CREAM, color: INK }}
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25, ease: EASE }}>
-            <div className="flex items-center justify-end px-6 pt-6">
-              <button data-cursor aria-label="Close menu" onClick={() => setMenu(false)} className="font-[JetBrains_Mono] text-[12px] tracking-[0.18em] uppercase p-2">Close ✕</button>
+          <motion.div className="fixed inset-0 z-[85] md:hidden flex flex-col overflow-hidden" style={{ background: "#14100C", color: CREAM }}
+            initial={{ clipPath: "inset(0 0 100% 0)" }} animate={{ clipPath: "inset(0 0 0% 0)" }} exit={{ clipPath: "inset(0 0 100% 0)" }} transition={{ duration: 0.45, ease: EASE }}>
+            <span aria-hidden className="absolute -right-16 -bottom-24 font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "min(120vw, 560px)", color: "rgba(44,122,95,0.09)" }}>§</span>
+            <div className="relative flex items-center justify-between px-6 pt-6">
+              <span className="flex items-center gap-2 font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase" style={{ color: "#A29885" }}>
+                <span className="inline-flex h-1.5 w-1.5 rounded-full" style={{ background: "#2C7A5F" }} />
+                Austin, TX · Taking new builds
+              </span>
+              <button data-cursor aria-label="Close menu" onClick={() => setMenu(false)} className="font-[JetBrains_Mono] text-[12px] tracking-[0.18em] uppercase p-2" style={{ color: CREAM }}>Close ✕</button>
             </div>
-            <nav className="flex-1 flex flex-col justify-center px-6">
+            <nav className="relative flex-1 flex flex-col justify-center px-6">
               {TABS.map(([t, k], i) => (
-                <button key={k} onClick={() => go(k)} className="flex items-baseline gap-3 text-left py-3.5 font-[Redaction] font-black leading-none" style={{ fontSize: "clamp(38px,11vw,64px)", borderBottom: RULE, opacity: tab === k ? 1 : 0.6 }}>
-                  <span className="font-[JetBrains_Mono] text-[11px]" style={{ color: SIGNAL }}>0{i + 1}</span>{t}
-                </button>
+                <motion.button key={k} onClick={() => go(k)}
+                  initial={{ y: 26, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.12 + i * 0.06, duration: 0.5, ease: EASE }}
+                  className="flex items-baseline gap-3.5 text-left py-3.5 font-[Redaction] font-black leading-none"
+                  style={{ fontSize: "clamp(40px,11.5vw,68px)", borderBottom: "1px solid rgba(241,233,216,0.14)", color: tab === k ? CREAM : "rgba(241,233,216,0.55)" }}>
+                  <span className="font-[JetBrains_Mono] text-[11px]" style={{ color: tab === k ? "#2C7A5F" : SIGNAL }}>0{i + 1}</span>
+                  {t}
+                  {tab === k && <span className="font-[Fraunces] ml-1" style={{ fontStyle: "italic", fontWeight: 400, fontSize: "0.5em", color: "#2C7A5F" }}>●</span>}
+                </motion.button>
               ))}
             </nav>
-            <a href="mailto:jack@savoca.studio" onClick={() => setMenu(false)} className="mx-6 mb-8 text-center font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: MONEY, color: CREAM }}>Let&apos;s talk →</a>
+            <motion.a href="mailto:jack@savoca.studio" onClick={() => setMenu(false)}
+              initial={{ y: 18, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.45, duration: 0.5, ease: EASE }}
+              className="relative mx-6 mb-8 text-center font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: "#2C7A5F", color: "#14100C" }}>Let&apos;s talk →</motion.a>
           </motion.div>
         )}
       </AnimatePresence>
