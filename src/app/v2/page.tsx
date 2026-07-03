@@ -11,9 +11,12 @@ import {
 } from "./shared";
 
 const PORTFOLIO = [
-  { name: "Krazy Strong", vertical: "Strength Coaching", img: "/img/portfolio/krazystrong.jpg", href: "https://krazystrong.app" },
-  { name: "Squatzilla Fitness", vertical: "Metabolism + Strength", img: "/img/portfolio/squatzilla.jpg", href: "https://squatzilla.fitness" },
-  { name: "Texas Tattoo", vertical: "Tattoo Parlor", img: "/img/portfolio/texastattoo.jpg", href: "https://texastattoo.app" },
+  { name: "Krazy Strong", vertical: "Strength Coaching", img: "/img/portfolio/krazystrong.jpg", href: "https://krazystrong.app",
+    desc: "Brand, site, and booking flow for a strength coach — built to turn followers into clients." },
+  { name: "Squatzilla Fitness", vertical: "Metabolism + Strength", img: "/img/portfolio/squatzilla.jpg", href: "https://squatzilla.fitness",
+    desc: "Coaching site plus a client tracker with passwordless login — programs, check-ins, progress." },
+  { name: "Texas Tattoo", vertical: "Tattoo Parlor", img: "/img/portfolio/texastattoo.jpg", href: "https://texastattoo.app",
+    desc: "Poster-collage site with appointment requests for Dan Crowe's shop in Wimberley, Texas." },
 ];
 
 const TABS: [string, string][] = [
@@ -71,7 +74,7 @@ export default function Home() {
           {TABS.map(([t, k], i) => (
             <button key={k} data-cursor onClick={() => go(k)} className="relative py-1 transition-opacity hover:opacity-100"
               style={{ color: INK, opacity: tab === k ? 1 : 0.45 }}>
-              <span className="mr-1.5 text-[9px] align-super" style={{ color: SIGNAL }}>0{i + 1}</span>{t}
+              <span className="mr-1.5 text-[9px] align-super" style={{ color: tab === k ? SIGNAL : "#A79D89" }}>0{i + 1}</span>{t}
               {tab === k && <motion.span layoutId="tabink" className="absolute left-0 right-0 -bottom-0.5 h-px" style={{ background: INK }} />}
             </button>
           ))}
@@ -111,9 +114,8 @@ export default function Home() {
                   initial={{ y: 26, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.12 + i * 0.06, duration: 0.5, ease: EASE }}
                   className="flex items-baseline gap-3.5 text-left py-3.5 font-[Redaction] font-black leading-none"
                   style={{ fontSize: "clamp(40px,11.5vw,68px)", borderBottom: "1px solid rgba(241,233,216,0.14)", color: tab === k ? CREAM : "rgba(241,233,216,0.55)" }}>
-                  <span className="font-[JetBrains_Mono] text-[11px]" style={{ color: tab === k ? "#2C7A5F" : SIGNAL }}>0{i + 1}</span>
+                  <span className="font-[JetBrains_Mono] text-[11px]" style={{ color: tab === k ? SIGNAL : "rgba(241,233,216,0.4)" }}>0{i + 1}</span>
                   {t}
-                  {tab === k && <span className="font-[Fraunces] ml-1" style={{ fontStyle: "italic", fontWeight: 400, fontSize: "0.5em", color: "#2C7A5F" }}>●</span>}
                 </motion.button>
               ))}
             </nav>
@@ -243,26 +245,49 @@ export default function Home() {
               </section>
             )}
 
-            {/* WORK — real portfolio */}
+            {/* WORK — editorial showcase rows */}
             {tab === "work" && (
-              <section className="px-6 md:px-10 py-10 lg:py-14">
-                <p className={lab} style={{ color: STEEL }}>Selected work</p>
-                <h2 className="font-[Redaction] font-bold leading-[0.98] max-w-[16ch] mb-8" style={{ fontSize: "clamp(26px,4vw,48px)" }}>Sites and systems I&apos;ve built.</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3" style={{ border: RULE }}>
+              <section className="relative overflow-hidden px-6 md:px-10 py-10 lg:py-14">
+                <span aria-hidden className="absolute -right-12 top-[30%] font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "clamp(280px,30vw,500px)", color: "rgba(27,77,62,0.05)" }}>§</span>
+                <p className={lab} style={{ color: STEEL }}>Selected Work</p>
+                <h2 className="font-[Redaction] font-bold leading-[0.98] max-w-[18ch]" style={{ fontSize: "clamp(26px,4vw,48px)" }}>
+                  Real businesses. <span className="font-[Fraunces]" style={{ fontStyle: "italic", fontWeight: 400, color: MONEY }}>Live right now.</span>
+                </h2>
+                <div className="mt-10 space-y-14 lg:space-y-16">
                   {PORTFOLIO.map((p, i) => (
-                    <a key={p.href} data-cursor href={p.href} target="_blank" rel="noopener noreferrer" className={`group block p-5 border-b md:border-b-0 ${i < PORTFOLIO.length - 1 ? "md:border-r" : ""}`} style={{ borderColor: "rgba(28,23,18,0.16)" }}>
+                    <motion.a key={p.href} data-cursor href={p.href} target="_blank" rel="noopener noreferrer"
+                      initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-10%" }} transition={{ duration: 0.6, ease: EASE, delay: i * 0.05 }}
+                      className={`group grid gap-6 lg:gap-12 items-center lg:grid-cols-[1fr_1.15fr] ${i % 2 ? "lg:[direction:rtl]" : ""}`}>
+                      <div className="lg:[direction:ltr]">
+                        <div className="flex items-baseline gap-4">
+                          <span className="font-[JetBrains_Mono] text-[12px]" style={{ color: MONEY }}>0{i + 1}</span>
+                          <h3 className="font-[Redaction] font-black leading-none transition-colors" style={{ fontSize: "clamp(34px,5.4vw,68px)" }}>
+                            {p.name}
+                          </h3>
+                        </div>
+                        <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase mt-3" style={{ color: MONEY }}>{p.vertical}</p>
+                        <p className="font-[Redaction] mt-3 max-w-[44ch]" style={{ fontSize: "clamp(15px,1.8vw,19px)", color: STEEL }}>{p.desc}</p>
+                        <span className="inline-flex items-center gap-2 mt-5 font-[JetBrains_Mono] text-[11px] tracking-[0.16em] uppercase" style={{ color: INK }}>
+                          Visit the site <span className="transition-transform duration-300 group-hover:translate-x-1.5" style={{ color: MONEY }}>→</span>
+                        </span>
+                      </div>
                       <Tilt>
-                        <div className="relative overflow-hidden aspect-[16/10]" style={{ border: RULE }}>
-                          <img src={p.img} alt={p.name} className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]" />
+                        <div className="relative overflow-hidden aspect-[16/10]" style={{ border: RULE, boxShadow: "0 18px 50px -18px rgba(28,23,18,0.35)" }}>
+                          <img src={p.img} alt={p.name} className="absolute inset-0 h-full w-full object-cover object-top grayscale-[0.4] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.05]" />
+                          <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0" style={{ background: "rgba(239,230,210,0.14)" }} />
+                          <span className="absolute bottom-3 right-3 font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase px-3 py-1.5 opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0" style={{ background: "#14100C", color: CREAM }}>
+                            {p.href.replace("https://", "")} ↗
+                          </span>
                         </div>
                       </Tilt>
-                      <div className="flex items-baseline justify-between mt-3.5">
-                        <h3 className="font-[Redaction] font-bold" style={{ fontSize: "clamp(18px,2vw,24px)" }}>{p.name}</h3>
-                        <span className="font-[JetBrains_Mono] text-[11px] transition-colors group-hover:opacity-100 opacity-60" style={{ color: STEEL }}>Visit ↗</span>
-                      </div>
-                      <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase mt-1" style={{ color: MONEY }}>{p.vertical}</p>
-                    </a>
+                    </motion.a>
                   ))}
+                </div>
+                <div className="mt-14 pt-8 flex flex-col md:flex-row md:items-center gap-5 md:gap-10" style={{ borderTop: RULE }}>
+                  <p className="font-[Redaction] font-bold" style={{ fontSize: "clamp(20px,2.6vw,30px)" }}>
+                    Your shop could be <span className="font-[Fraunces]" style={{ fontStyle: "italic", fontWeight: 400, color: MONEY }}>next.</span>
+                  </p>
+                  <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block whitespace-nowrap font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: MONEY, color: CREAM }}>Let&apos;s talk →</a></Magnetic>
                 </div>
               </section>
             )}
@@ -281,7 +306,7 @@ export default function Home() {
                   <div>
                     <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase mb-3" style={{ color: MONEY }}>The revenue path</p>
                     <div className="flex flex-wrap gap-x-3 gap-y-1.5 font-[JetBrains_Mono] text-[11px] tracking-[0.1em] uppercase" style={{ color: STEEL }}>
-                      {PATH_LONG.map((n, i) => (<span key={n}>{i > 0 && <span className="mr-3" style={{ color: SIGNAL }}>→</span>}{n}</span>))}
+                      {PATH_LONG.map((n, i) => (<span key={n}>{i > 0 && <span className="mr-3" style={{ color: MONEY }}>→</span>}{n}</span>))}
                     </div>
                   </div>
                 </div>

@@ -243,7 +243,7 @@ export function BandCard({ b, last }: { b: Band; last?: boolean }) {
   return (
     <motion.div className={`flex flex-col p-6 md:p-7 h-full border-b ${last ? "" : "lg:border-r"}`} style={{ borderColor: "rgba(28,23,18,0.16)", color: INK }}
       initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-8%" }} transition={{ duration: 0.5, ease: EASE }}>
-      <span className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase" style={{ color: SIGNAL }}>{b.n}</span>
+      <span className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase" style={{ color: MONEY }}>{b.n}</span>
       <h3 className="font-[Redaction] font-bold mt-1.5 leading-none" style={{ fontSize: "clamp(24px,2.8vw,36px)" }}>{b.name}</h3>
       <p className="font-[Redaction] mt-3" style={{ fontSize: "15px", color: "#3A342B" }}>{b.who}</p>
       <p className="font-[Redaction] mt-2.5" style={{ fontSize: "14px", color: STEEL }}>{b.desc}</p>
@@ -389,7 +389,7 @@ export function ProcessStepper() {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{ border: RULE, color: INK }}>
       {STEPS.map((s, i) => (
         <div key={s.n} className="p-5 md:p-6" style={{ borderRight: i < STEPS.length - 1 ? RULE : undefined, borderBottom: RULE }}>
-          <span className="font-[JetBrains_Mono] text-[10px]" style={{ color: SIGNAL }}>{s.n}</span>
+          <span className="font-[JetBrains_Mono] text-[10px]" style={{ color: MONEY }}>{s.n}</span>
           <h3 className="font-[Redaction] font-bold mt-1" style={{ fontSize: "clamp(19px,2vw,24px)" }}>{s.title}</h3>
           <p className="font-[Redaction] mt-2" style={{ fontSize: "14px", color: "#3A342B" }}>{s.intro}</p>
           <p className="font-[JetBrains_Mono] text-[10px] leading-relaxed mt-3 pt-3" style={{ color: STEEL, borderTop: RULE }}>{s.output}</p>
