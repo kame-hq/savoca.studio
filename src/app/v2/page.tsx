@@ -61,10 +61,14 @@ export default function Home() {
         @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-33.3333%)}}
       `}</style>
       {!reduce && <Cursor />}
+      {/* wallpaper: crumpled black plastic, fixed under everything */}
+      <div aria-hidden className="fixed inset-0 pointer-events-none"
+        style={{ backgroundImage: "url(/img/bg-plastic.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.5 }} />
+      <div aria-hidden className="fixed inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 30%, rgba(11,8,6,0.55) 100%)" }} />
       <Grain />
 
       {/* header + tab bar (cream) */}
-      <header className="relative z-[60] shrink-0 flex items-center justify-between gap-6 px-6 md:px-10 py-4" style={{ borderBottom: RULE, background: CREAM }}>
+      <header className="relative z-[60] shrink-0 flex items-center justify-between gap-6 px-6 md:px-10 py-4" style={{ borderBottom: RULE }}>
         <button data-cursor onClick={() => go("")} className="flex items-baseline gap-2.5 hover:opacity-70 transition-opacity">
           <span className="font-[Fraunces] font-black leading-none" style={{ fontSize: "clamp(28px,3vw,40px)", color: MONEY }}>§</span>
           <span className="font-[Redaction] font-black tracking-[-0.01em] leading-none" style={{ fontSize: "clamp(17px,1.9vw,25px)" }}>Savoca Studio</span>
