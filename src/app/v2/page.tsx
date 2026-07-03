@@ -110,33 +110,62 @@ export default function Home() {
         </div>
       </header>
 
-      {/* mobile menu — dark ink overlay, staggered */}
+      {/* mobile menu — redo: living glows, lockup, italic-active rows */}
       <AnimatePresence>
         {menu && (
           <motion.div className="fixed inset-0 z-[85] md:hidden flex flex-col overflow-hidden" style={{ background: "#0B0806", color: INK }}
-            initial={{ clipPath: "inset(0 0 100% 0)" }} animate={{ clipPath: "inset(0 0 0% 0)" }} exit={{ clipPath: "inset(0 0 100% 0)" }} transition={{ duration: 0.45, ease: EASE }}>
-            <span aria-hidden className="absolute -right-16 -bottom-24 font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "min(120vw, 560px)", color: "rgba(44,122,95,0.09)" }}>§</span>
-            <div className="relative flex items-center justify-between px-6 pt-6">
-              <span className="flex items-center gap-2 font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase" style={{ color: "#A29885" }}>
-                <span className="inline-flex h-1.5 w-1.5 rounded-full" style={{ background: "#2C7A5F" }} />
-                Austin, TX · Taking new builds
-              </span>
-              <button data-cursor aria-label="Close menu" onClick={() => setMenu(false)} className="font-[JetBrains_Mono] text-[12px] tracking-[0.18em] uppercase p-2" style={{ color: INK }}>Close ✕</button>
+            initial={{ clipPath: "inset(0 0 100% 0)" }} animate={{ clipPath: "inset(0 0 0% 0)" }} exit={{ clipPath: "inset(0 0 100% 0)" }} transition={{ duration: 0.5, ease: EASE }}>
+            {/* glows + watermark */}
+            <div aria-hidden className="absolute inset-0 pointer-events-none overflow-hidden">
+              <div className="absolute rounded-full" style={{ width: "90vmax", height: "90vmax", left: "-40vmax", top: "-45vmax",
+                background: "radial-gradient(circle, rgba(44,122,95,0.14) 0%, transparent 60%)",
+                animation: reduce ? undefined : "drift1 45s ease-in-out infinite alternate" }} />
+              <div className="absolute rounded-full" style={{ width: "80vmax", height: "80vmax", right: "-40vmax", bottom: "-40vmax",
+                background: "radial-gradient(circle, rgba(241,233,216,0.06) 0%, transparent 58%)",
+                animation: reduce ? undefined : "drift2 60s ease-in-out infinite alternate" }} />
+              <span className="absolute -right-14 top-1/2 -translate-y-1/2 font-[Fraunces] font-black select-none leading-none" style={{ fontSize: "115vw", color: "rgba(44,122,95,0.07)" }}>§</span>
             </div>
+            {/* top: lockup + close */}
+            <div className="relative flex items-center justify-between px-6 pt-6">
+              <span className="flex items-baseline gap-2">
+                <span className="font-[Fraunces] font-black leading-none" style={{ fontSize: 30, color: "#2C7A5F" }}>§</span>
+                <span className="font-[Redaction] font-black leading-none" style={{ fontSize: 19 }}>Savoca Studio</span>
+              </span>
+              <button data-cursor aria-label="Close menu" onClick={() => setMenu(false)} className="font-[JetBrains_Mono] text-[11px] tracking-[0.18em] uppercase px-3 py-2" style={{ border: "1px solid rgba(241,233,216,0.25)", color: INK }}>Close ✕</button>
+            </div>
+            {/* items */}
             <nav className="relative flex-1 flex flex-col justify-center px-6">
-              {TABS.map(([t, k], i) => (
-                <motion.button key={k} onClick={() => go(k)}
-                  initial={{ y: 26, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.12 + i * 0.06, duration: 0.5, ease: EASE }}
-                  className="flex items-baseline gap-3.5 text-left py-3.5 font-[Redaction] font-black leading-none"
-                  style={{ fontSize: "clamp(40px,11.5vw,68px)", borderBottom: "1px solid rgba(241,233,216,0.14)", color: tab === k ? CREAM : "rgba(241,233,216,0.55)" }}>
-                  <span className="font-[JetBrains_Mono] text-[11px]" style={{ color: tab === k ? SIGNAL : "rgba(241,233,216,0.4)" }}>0{i + 1}</span>
-                  {t}
-                </motion.button>
-              ))}
+              {TABS.map(([t, k], i) => {
+                const active = tab === k;
+                return (
+                  <motion.button key={k} onClick={() => go(k)}
+                    initial={{ x: -28, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.14 + i * 0.07, duration: 0.55, ease: EASE }}
+                    className="relative flex items-center justify-between text-left py-4"
+                    style={{ borderBottom: "1px solid rgba(241,233,216,0.12)" }}>
+                    <span className="flex items-baseline gap-4">
+                      <span className="font-[JetBrains_Mono] text-[11px]" style={{ color: active ? "#2C7A5F" : "rgba(241,233,216,0.3)" }}>0{i + 1}</span>
+                      {active ? (
+                        <span className="font-[Fraunces] leading-none" style={{ fontSize: "clamp(42px,12vw,70px)", fontStyle: "italic", fontWeight: 400, color: "#F5EFE1" }}>{t}</span>
+                      ) : (
+                        <span className="font-[Redaction] font-black leading-none" style={{ fontSize: "clamp(42px,12vw,70px)", color: "rgba(241,233,216,0.42)" }}>{t}</span>
+                      )}
+                    </span>
+                    {active && <span className="font-[JetBrains_Mono] text-[18px]" style={{ color: "#2C7A5F" }}>→</span>}
+                  </motion.button>
+                );
+              })}
             </nav>
-            <motion.a href="mailto:jack@savoca.studio" onClick={() => setMenu(false)}
-              initial={{ y: 18, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.45, duration: 0.5, ease: EASE }}
-              className="relative mx-6 mb-8 text-center font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: "#2C7A5F", color: "#0B0806" }}>Let&apos;s talk →</motion.a>
+            {/* bottom: contact block */}
+            <motion.div className="relative px-6 pb-8" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.5, duration: 0.5, ease: EASE }}>
+              <div className="flex items-center justify-between mb-4 font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase" style={{ color: "#A29885" }}>
+                <span className="flex items-center gap-2">
+                  <span className="inline-flex h-1.5 w-1.5 rounded-full" style={{ background: "#2C7A5F" }} />
+                  Austin, TX · Taking new builds
+                </span>
+                <span>jack@savoca.studio</span>
+              </div>
+              <a href="mailto:jack@savoca.studio" onClick={() => setMenu(false)} className="block text-center font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: "#2C7A5F", color: "#0B0806" }}>Let&apos;s talk →</a>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
