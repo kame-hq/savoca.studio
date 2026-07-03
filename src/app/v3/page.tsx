@@ -56,14 +56,13 @@ function Hero({ reduce, go }: { reduce: boolean; go: boolean }) {
   const rotateX = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 32]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
   const opacity = useTransform(scrollYProgress, [0, 0.85], [1, 0.15]);
-  const textY = useTransform(scrollYProgress, [0, 1], [0, 130]);
-  const textX = useTransform(scrollYProgress, [0, 1], [0, 90]);
+  const textY = useTransform(scrollYProgress, [0, 1], [0, 140]);
   return (
     <section ref={ref} className="relative" style={{ height: "165vh" }}>
       <div className="sticky top-0 h-screen overflow-hidden" style={{ perspective: 1100 }}>
         <motion.div className="absolute inset-2.5 md:inset-4 overflow-hidden origin-bottom" style={{ rotateX, scale, opacity, border: RULE, color: BONE, willChange: "transform, opacity", backfaceVisibility: "hidden" }}>
           <HeroReel />
-          <motion.div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-12 pb-12" style={{ y: textY, x: textX }}>
+          <motion.div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-12 pb-12" style={{ y: textY }}>
             <p className={`${lab} mb-6`} style={{ color: BONE, textShadow: "0 1px 14px rgba(0,0,0,0.75)" }}>Revenue systems for service businesses</p>
             <Split text="I build the layer between demand and getting paid." go={go} accentFrom={7}
               className="font-[Redaction] font-black leading-[0.9] tracking-[-0.015em] max-w-[17ch]"
@@ -185,12 +184,11 @@ function WorkPiece({ p, i, item }: { p: MotionValue<number>; i: number; item: (t
   const start = i * 0.3, end = start + 0.42;
   const y = useTransform(p, [start, end], ["105vh", "-115vh"]);
   const xBase = i === 0 ? "-62%" : i === 1 ? "-38%" : "-52%";
-  const xDrift = useTransform(p, [start, end], [`calc(${xBase} - 6vw)`, `calc(${xBase} + 6vw)`]);
   const rotate = useTransform(p, [start, end], [i % 2 ? 5 : -5, i % 2 ? -3 : 3]);
   return (
     <motion.a data-cursor href={item.href} target="_blank" rel="noopener noreferrer"
       className={`absolute left-1/2 block w-[80vw] md:w-[580px] ${i % 2 ? "z-[6]" : "z-[2]"}`}
-      style={{ willChange: "transform", y, rotate, x: xDrift }}>
+      style={{ willChange: "transform", y, rotate, x: xBase }}>
       {/* browser chrome */}
       <div className="overflow-hidden rounded-lg" style={{ border: RULE, boxShadow: "0 40px 110px -25px rgba(0,0,0,0.9)", background: "#000000" }}>
         <div className="flex items-center gap-2 px-3.5 py-2.5" style={{ borderBottom: RULE, background: "rgba(255,253,251,0.04)" }}>
