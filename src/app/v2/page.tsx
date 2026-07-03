@@ -69,13 +69,13 @@ export default function Home() {
       {/* living background: slow-breathing glows on near-black */}
       <div aria-hidden className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute rounded-full" style={{ width: "75vmax", height: "75vmax", left: "-25vmax", top: "-30vmax",
-          background: "radial-gradient(circle, rgba(44,122,95,0.11) 0%, transparent 62%)",
+          background: "radial-gradient(circle, rgba(30,255,139,0.11) 0%, transparent 62%)",
           animation: reduce ? undefined : "drift1 60s ease-in-out infinite alternate" }} />
         <div className="absolute rounded-full" style={{ width: "70vmax", height: "70vmax", right: "-28vmax", bottom: "-32vmax",
-          background: "radial-gradient(circle, rgba(241,233,216,0.055) 0%, transparent 60%)",
+          background: "radial-gradient(circle, rgba(255,253,251,0.055) 0%, transparent 60%)",
           animation: reduce ? undefined : "drift2 75s ease-in-out infinite alternate" }} />
         <div className="absolute rounded-full" style={{ width: "55vmax", height: "55vmax", left: "30%", top: "45%",
-          background: "radial-gradient(circle, rgba(44,122,95,0.06) 0%, transparent 58%)",
+          background: "radial-gradient(circle, rgba(30,255,139,0.06) 0%, transparent 58%)",
           animation: reduce ? undefined : "drift3 90s ease-in-out infinite alternate" }} />
       </div>
       <Grain />
@@ -91,7 +91,7 @@ export default function Home() {
           {TABS.map(([t, k], i) => (
             <button key={k} data-cursor onClick={() => go(k)} className="relative py-1 transition-opacity hover:opacity-100"
               style={{ color: INK, opacity: tab === k ? 1 : 0.45 }}>
-              <span className="mr-1.5 text-[9px] align-super" style={{ color: tab === k ? SIGNAL : "rgba(241,233,216,0.4)" }}>0{i + 1}</span>{t}
+              <span className="mr-1.5 text-[9px] align-super" style={{ color: tab === k ? SIGNAL : "rgba(255,253,251,0.4)" }}>0{i + 1}</span>{t}
               {tab === k && <motion.span layoutId="tabink" className="absolute left-0 right-0 -bottom-0.5 h-px" style={{ background: INK }} />}
             </button>
           ))}
@@ -115,25 +115,25 @@ export default function Home() {
       {/* mobile menu — redo: living glows, lockup, italic-active rows */}
       <AnimatePresence>
         {menu && (
-          <motion.div className="fixed inset-0 z-[85] md:hidden flex flex-col overflow-hidden" style={{ background: "#0B0806", color: INK }}
+          <motion.div className="fixed inset-0 z-[85] md:hidden flex flex-col overflow-hidden" style={{ background: "#0A0903", color: INK }}
             initial={{ clipPath: "inset(0 0 100% 0)" }} animate={{ clipPath: "inset(0 0 0% 0)" }} exit={{ clipPath: "inset(0 0 100% 0)" }} transition={{ duration: 0.5, ease: EASE }}>
             {/* glows + watermark */}
             <div aria-hidden className="absolute inset-0 pointer-events-none overflow-hidden">
               <div className="absolute rounded-full" style={{ width: "90vmax", height: "90vmax", left: "-40vmax", top: "-45vmax",
-                background: "radial-gradient(circle, rgba(44,122,95,0.14) 0%, transparent 60%)",
+                background: "radial-gradient(circle, rgba(30,255,139,0.14) 0%, transparent 60%)",
                 animation: reduce ? undefined : "drift1 45s ease-in-out infinite alternate" }} />
               <div className="absolute rounded-full" style={{ width: "80vmax", height: "80vmax", right: "-40vmax", bottom: "-40vmax",
-                background: "radial-gradient(circle, rgba(241,233,216,0.06) 0%, transparent 58%)",
+                background: "radial-gradient(circle, rgba(255,253,251,0.06) 0%, transparent 58%)",
                 animation: reduce ? undefined : "drift2 60s ease-in-out infinite alternate" }} />
-              <span className="absolute -right-14 top-1/2 -translate-y-1/2 font-[Fraunces] font-black select-none leading-none" style={{ fontSize: "115vw", color: "rgba(44,122,95,0.07)" }}>§</span>
+              <span className="absolute -right-14 top-1/2 -translate-y-1/2 font-[Fraunces] font-black select-none leading-none" style={{ fontSize: "115vw", color: "rgba(30,255,139,0.07)" }}>§</span>
             </div>
             {/* top: lockup + close */}
             <div className="relative flex items-center justify-between px-6 pt-6">
               <span className="flex items-baseline gap-2">
-                <span className="font-[Fraunces] font-black leading-none" style={{ fontSize: 30, color: "#2C7A5F" }}>§</span>
+                <span className="font-[Fraunces] font-black leading-none" style={{ fontSize: 30, color: "#1EFF8B" }}>§</span>
                 <span className="font-[Redaction] font-black leading-none" style={{ fontSize: 19 }}>Savoca Studio</span>
               </span>
-              <button data-cursor aria-label="Close menu" onClick={() => setMenu(false)} className="font-[JetBrains_Mono] text-[11px] tracking-[0.18em] uppercase px-3 py-2" style={{ border: "1px solid rgba(241,233,216,0.25)", color: INK }}>Close ✕</button>
+              <button data-cursor aria-label="Close menu" onClick={() => setMenu(false)} className="font-[JetBrains_Mono] text-[11px] tracking-[0.18em] uppercase px-3 py-2" style={{ border: "1px solid rgba(255,253,251,0.25)", color: INK }}>Close ✕</button>
             </div>
             {/* items */}
             <nav className="relative flex-1 flex flex-col justify-center px-6">
@@ -143,30 +143,30 @@ export default function Home() {
                   <motion.button key={k} onClick={() => go(k)}
                     initial={{ x: -28, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.14 + i * 0.07, duration: 0.55, ease: EASE }}
                     className="relative flex items-center justify-between text-left py-4"
-                    style={{ borderBottom: "1px solid rgba(241,233,216,0.12)" }}>
+                    style={{ borderBottom: "1px solid rgba(255,253,251,0.12)" }}>
                     <span className="flex items-baseline gap-4">
-                      <span className="font-[JetBrains_Mono] text-[11px]" style={{ color: active ? "#2C7A5F" : "rgba(241,233,216,0.3)" }}>0{i + 1}</span>
+                      <span className="font-[JetBrains_Mono] text-[11px]" style={{ color: active ? "#1EFF8B" : "rgba(255,253,251,0.3)" }}>0{i + 1}</span>
                       {active ? (
-                        <span className="font-[Fraunces] leading-none" style={{ fontSize: "clamp(42px,12vw,70px)", fontStyle: "italic", fontWeight: 400, color: "#F5EFE1" }}>{t}</span>
+                        <span className="font-[Fraunces] leading-none" style={{ fontSize: "clamp(42px,12vw,70px)", fontStyle: "italic", fontWeight: 400, color: "#FFFDFB" }}>{t}</span>
                       ) : (
-                        <span className="font-[Redaction] font-black leading-none" style={{ fontSize: "clamp(42px,12vw,70px)", color: "rgba(241,233,216,0.42)" }}>{t}</span>
+                        <span className="font-[Redaction] font-black leading-none" style={{ fontSize: "clamp(42px,12vw,70px)", color: "rgba(255,253,251,0.42)" }}>{t}</span>
                       )}
                     </span>
-                    {active && <span className="font-[JetBrains_Mono] text-[18px]" style={{ color: "#2C7A5F" }}>→</span>}
+                    {active && <span className="font-[JetBrains_Mono] text-[18px]" style={{ color: "#1EFF8B" }}>→</span>}
                   </motion.button>
                 );
               })}
             </nav>
             {/* bottom: contact block */}
             <motion.div className="relative px-6 pb-8" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.5, duration: 0.5, ease: EASE }}>
-              <div className="flex items-center justify-between mb-4 font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase" style={{ color: "#A29885" }}>
+              <div className="flex items-center justify-between mb-4 font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase" style={{ color: "#B3AA91" }}>
                 <span className="flex items-center gap-2">
-                  <span className="inline-flex h-1.5 w-1.5 rounded-full" style={{ background: "#2C7A5F" }} />
+                  <span className="inline-flex h-1.5 w-1.5 rounded-full" style={{ background: "#1EFF8B" }} />
                   Austin, TX · Taking new builds
                 </span>
                 <span>jack@savoca.studio</span>
               </div>
-              <a href="mailto:jack@savoca.studio" onClick={() => setMenu(false)} className="block text-center font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: "#2C7A5F", color: "#0B0806" }}>Let&apos;s talk →</a>
+              <a href="mailto:jack@savoca.studio" onClick={() => setMenu(false)} className="block text-center font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: "#1EFF8B", color: "#0A0903" }}>Let&apos;s talk →</a>
             </motion.div>
           </motion.div>
         )}
@@ -190,7 +190,7 @@ export default function Home() {
                   <p className="font-[JetBrains_Mono] text-[11px] md:text-[12px] tracking-[0.18em] md:tracking-[0.28em] uppercase mb-6" style={{ color: BONE, textShadow: "0 1px 14px rgba(0,0,0,0.75)" }}>Revenue systems for service businesses</p>
                   <Split text="I build the layer between demand and getting paid." go accentFrom={7} className="font-[Redaction] font-black leading-[0.9] tracking-[-0.015em] max-w-[17ch]" style={{ fontSize: "clamp(29px,8.4vw,102px)", textShadow: "0 2px 28px rgba(0,0,0,0.65)" }} />
                   <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-                    <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block whitespace-nowrap font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: BONE, color: "#0B0806", animation: reduce ? undefined : "nudge 7s ease-in-out infinite" }}>Let&apos;s talk →</a></Magnetic>
+                    <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block whitespace-nowrap font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: BONE, color: "#0A0903", animation: reduce ? undefined : "nudge 7s ease-in-out infinite" }}>Let&apos;s talk →</a></Magnetic>
                     <button data-cursor onClick={() => go("systems")} className="whitespace-nowrap font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase opacity-80 hover:opacity-100 transition-opacity" style={{ color: BONE }}>See the system →</button>
                   </div>
                   <div className="mt-8"><PathStrip nodes={PATH_SHORT} accentLast flicker /></div>
@@ -203,8 +203,8 @@ export default function Home() {
                   {[...Array(3)].flatMap((_, r) =>
                     VERTICALS.map((v) => (
                       <span key={`${r}-${v}`} className="flex items-center gap-8 shrink-0">
-                        <span className="font-[Fraunces] whitespace-nowrap" style={{ fontSize: "clamp(18px,2.3vw,28px)", fontStyle: "italic", color: "rgba(242,235,220,0.4)" }}>{v}</span>
-                        <span className="font-[Fraunces] font-black" style={{ color: "rgba(44,122,95,0.45)", fontSize: "clamp(13px,1.5vw,18px)" }}>§</span>
+                        <span className="font-[Fraunces] whitespace-nowrap" style={{ fontSize: "clamp(18px,2.3vw,28px)", fontStyle: "italic", color: "rgba(255,253,251,0.4)" }}>{v}</span>
+                        <span className="font-[Fraunces] font-black" style={{ color: "rgba(30,255,139,0.45)", fontSize: "clamp(13px,1.5vw,18px)" }}>§</span>
                       </span>
                     ))
                   )}
@@ -215,7 +215,7 @@ export default function Home() {
             {/* SYSTEMS — why you need it → the pipeline → the process */}
             {tab === "systems" && (
               <section className="relative overflow-hidden px-6 md:px-10 py-10 lg:py-14">
-                <span aria-hidden className="absolute -right-10 -top-24 font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "clamp(280px,32vw,520px)", color: "rgba(44,122,95,0.10)" }}>§</span>
+                <span aria-hidden className="absolute -right-10 -top-24 font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "clamp(280px,32vw,520px)", color: "rgba(30,255,139,0.10)" }}>§</span>
                 <p className={lab} style={{ color: STEEL }}>Why a system</p>
                 <h2 className="font-[Redaction] font-bold leading-[0.98] max-w-[19ch] mb-3" style={{ fontSize: "clamp(27px,4.2vw,50px)" }}>
                   You&apos;re busy doing the work. That&apos;s when the money slips.
@@ -256,7 +256,7 @@ export default function Home() {
                 </div>
 
                 {/* the promise */}
-                <div className="mt-8 p-6 md:p-7 flex flex-col md:flex-row md:items-center gap-4 md:gap-8" style={{ border: RULE, background: "rgba(44,122,95,0.10)" }}>
+                <div className="mt-8 p-6 md:p-7 flex flex-col md:flex-row md:items-center gap-4 md:gap-8" style={{ border: RULE, background: "rgba(30,255,139,0.10)" }}>
                   <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.24em] uppercase shrink-0" style={{ color: MONEY }}>The Promise</p>
                   <p className="font-[Redaction]" style={{ fontSize: "clamp(17px,2vw,22px)" }}>
                     If the first month doesn&apos;t show measurable improvement, the deposit comes back. After that, three months to let the system work — then month-to-month.
@@ -269,7 +269,7 @@ export default function Home() {
                   <div className="grid grid-cols-1 md:grid-cols-3" style={{ border: RULE }}>
                     {COMPARE.map(([who, cost, note], i) => (
                       <div key={who} className={`p-5 md:p-6 border-b md:border-b-0 ${i < COMPARE.length - 1 ? "md:border-r" : ""}`}
-                        style={{ borderColor: "rgba(241,233,216,0.14)", background: i === COMPARE.length - 1 ? "rgba(44,122,95,0.14)" : "transparent" }}>
+                        style={{ borderColor: "rgba(255,253,251,0.14)", background: i === COMPARE.length - 1 ? "rgba(30,255,139,0.14)" : "transparent" }}>
                         <h3 className="font-[Redaction] font-bold" style={{ fontSize: "clamp(18px,2vw,24px)", color: i === COMPARE.length - 1 ? MONEY : INK }}>{who}</h3>
                         <p className="font-[JetBrains_Mono] text-[12px] mt-1.5" style={{ color: INK }}>{cost}</p>
                         <p className="font-[Redaction] mt-2" style={{ fontSize: "14px", color: STEEL }}>{note}</p>
@@ -299,7 +299,7 @@ export default function Home() {
             {/* WORK — editorial showcase rows */}
             {tab === "work" && (
               <section className="relative overflow-hidden px-6 md:px-10 py-10 lg:py-14">
-                <span aria-hidden className="absolute -right-12 top-[30%] font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "clamp(280px,30vw,500px)", color: "rgba(44,122,95,0.10)" }}>§</span>
+                <span aria-hidden className="absolute -right-12 top-[30%] font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "clamp(280px,30vw,500px)", color: "rgba(30,255,139,0.10)" }}>§</span>
                 <p className={lab} style={{ color: STEEL }}>Selected Work</p>
                 <h2 className="font-[Redaction] font-bold leading-[0.98] max-w-[18ch]" style={{ fontSize: "clamp(26px,4vw,48px)" }}>
                   Real businesses. <span className="font-[Fraunces]" style={{ fontStyle: "italic", fontWeight: 400, color: MONEY }}>Live right now.</span>
@@ -326,7 +326,7 @@ export default function Home() {
                         <div className="relative overflow-hidden aspect-[16/10]" style={{ border: RULE, boxShadow: "0 18px 50px -18px rgba(28,23,18,0.35)" }}>
                           <img src={p.img} alt={p.name} className="absolute inset-0 h-full w-full object-cover object-top grayscale-[0.4] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.05]" />
                           <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0" style={{ background: "rgba(20,16,12,0.3)" }} />
-                          <span className="absolute bottom-3 right-3 font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase px-3 py-1.5 opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0" style={{ background: "#F2EBDC", color: "#0B0806" }}>
+                          <span className="absolute bottom-3 right-3 font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase px-3 py-1.5 opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0" style={{ background: "#FFFDFB", color: "#0A0903" }}>
                             {p.href.replace("https://", "")} ↗
                           </span>
                         </div>
@@ -346,7 +346,7 @@ export default function Home() {
             {/* ABOUT */}
             {tab === "about" && (
               <section className="relative overflow-hidden px-6 md:px-10 py-10 lg:py-14">
-                <span aria-hidden className="absolute -left-14 bottom-[-0.25em] font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "clamp(280px,34vw,540px)", color: "rgba(44,122,95,0.10)" }}>§</span>
+                <span aria-hidden className="absolute -left-14 bottom-[-0.25em] font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "clamp(280px,34vw,540px)", color: "rgba(30,255,139,0.10)" }}>§</span>
                 <p className={lab} style={{ color: STEEL }}>Why this works</p>
                 <h2 className="font-[Redaction] font-bold leading-[0.96] mb-6 max-w-[16ch]" style={{ fontSize: "clamp(26px,4.2vw,50px)" }}>Not an agency. Not just software. Not advice.</h2>
                 <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10">

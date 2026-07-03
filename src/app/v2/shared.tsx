@@ -7,19 +7,19 @@ import { motion, AnimatePresence, useMotionValue, useSpring, animate, useReduced
 import Lenis from "lenis";
 
 // Cream-beige site, dark cinematic hero. Canon-adjacent inks.
-export const CREAM = "#0B0806";   // page ground — black espresso
-export const INK = "#F2EBDC";     // primary type — warm white-beige
-export const BONE = "#FAF6EC";    // brightest — hero over video, near white
-export const STEEL = "#A69C87";   // muted beige
-export const MONEY = "#2C7A5F";   // money-green, brightened for dark ground
-export const SIGNAL = "#D9442C";  // signal-red, active-tab mark only
-export const RULE = "1px solid rgba(241,233,216,0.14)";
+export const CREAM = "#0A0903";   // page ground — black espresso
+export const INK = "#FFFDFB";     // primary type — warm white-beige
+export const BONE = "#FFFDFB";    // brightest — hero over video, near white
+export const STEEL = "#B3AA91";   // muted beige
+export const MONEY = "#04E824";   // money-green, brightened for dark ground
+export const SIGNAL = "#1EFF8B";  // signal-red, active-tab mark only
+export const RULE = "1px solid rgba(255,253,251,0.14)";
 export const TEAL = "#8A7C64";    // warm taupe (hero pill on video)
 export const SAND = "#8A7C64";
 export const EASE = [0.16, 1, 0.3, 1] as const;
-export const DIM = "#A29885";     // muted beige (over video)
+export const DIM = "#B3AA91";     // muted beige (over video)
 export const SOFT = "#CFC5AF";    // soft beige (over video)
-export const BORDER = "1px solid rgba(241,233,216,0.12)";
+export const BORDER = "1px solid rgba(255,253,251,0.12)";
 
 /* why-you-need-me strip */
 export const BEFORE_AFTER: [string[], string[]] = [
@@ -242,7 +242,7 @@ export function Lockup({ size = "md" }: { size?: "md" | "sm" }) {
 
 export function BandCard({ b, last }: { b: Band; last?: boolean }) {
   return (
-    <motion.div className={`flex flex-col p-6 md:p-7 h-full border-b ${last ? "" : "lg:border-r"}`} style={{ borderColor: "rgba(241,233,216,0.14)", color: INK }}
+    <motion.div className={`flex flex-col p-6 md:p-7 h-full border-b ${last ? "" : "lg:border-r"}`} style={{ borderColor: "rgba(255,253,251,0.14)", color: INK }}
       initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-8%" }} transition={{ duration: 0.5, ease: EASE }}>
       <span className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase" style={{ color: MONEY }}>{b.n}</span>
       <h3 className="font-[Redaction] font-bold mt-1.5 leading-none" style={{ fontSize: "clamp(24px,2.8vw,36px)" }}>{b.name}</h3>
@@ -334,7 +334,7 @@ export function HeroReel() {
             {REEL[idx].label}
           </motion.span>
         </AnimatePresence>
-        <span className="relative w-10 h-px overflow-hidden" style={{ background: "rgba(241,233,216,0.25)" }}>
+        <span className="relative w-10 h-px overflow-hidden" style={{ background: "rgba(255,253,251,0.25)" }}>
           {!reduce && <motion.span key={idx} className="absolute inset-0 origin-left" style={{ background: BONE }}
             initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 5.5, ease: "linear" }} />}
         </span>
@@ -351,11 +351,11 @@ export function BuildExplorer() {
     <div style={{ color: INK }}>
       {/* node strip — the revenue path as a diagram */}
       <div className="relative flex items-start justify-between gap-2 mb-8 overflow-x-auto pb-2">
-        <span aria-hidden className="absolute left-0 right-0 top-[13px] h-px" style={{ background: "rgba(241,233,216,0.22)" }} />
+        <span aria-hidden className="absolute left-0 right-0 top-[13px] h-px" style={{ background: "rgba(255,253,251,0.22)" }} />
         {BUILDS.map((x, k) => (
           <button key={x.n} data-cursor onClick={() => setI(k)} className="relative z-10 flex flex-col items-center gap-2.5 shrink-0 px-2 group" style={{ minWidth: 90 }}>
             <span className="flex items-center justify-center rounded-full font-[JetBrains_Mono] text-[11px] transition-all"
-              style={{ width: 27, height: 27, background: k === i ? MONEY : CREAM, color: k === i ? CREAM : STEEL, border: k === i ? `1px solid ${MONEY}` : "1px solid rgba(241,233,216,0.35)" }}>
+              style={{ width: 27, height: 27, background: k === i ? MONEY : CREAM, color: k === i ? CREAM : STEEL, border: k === i ? `1px solid ${MONEY}` : "1px solid rgba(255,253,251,0.35)" }}>
               {k + 1}
             </span>
             <span className="font-[Redaction] font-bold leading-none transition-colors" style={{ fontSize: "clamp(15px,1.8vw,22px)", color: k === i ? INK : STEEL }}>{x.title}</span>
@@ -373,7 +373,7 @@ export function BuildExplorer() {
               {b.built.map((it) => <span key={it} className="font-[JetBrains_Mono] text-[12px]" style={{ color: "#D8CFBB" }}>· {it}</span>)}
             </div>
           </div>
-          <div className="p-6 md:p-8" style={{ background: "rgba(241,233,216,0.05)" }}>
+          <div className="p-6 md:p-8" style={{ background: "rgba(255,253,251,0.05)" }}>
             <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase mb-2.5" style={{ color: MONEY }}>You see it in</p>
             <div className="space-y-1.5">
               {b.measured.map((it) => <p key={it} className="font-[JetBrains_Mono] text-[12px]" style={{ color: INK }}>· {it}</p>)}
@@ -425,10 +425,10 @@ export function Engines() {
       <div className="hidden lg:grid" style={{ gridTemplateColumns: "110px repeat(3, 1fr)" }}>
         <div style={{ borderBottom: RULE, borderRight: RULE }} />
         {ENGINES.map((e, i) => (
-          <div key={e.n} className="relative p-6" style={{ borderBottom: RULE, borderRight: i < 2 ? RULE : undefined, background: "rgba(241,233,216,0.03)" }}>
+          <div key={e.n} className="relative p-6" style={{ borderBottom: RULE, borderRight: i < 2 ? RULE : undefined, background: "rgba(255,253,251,0.03)" }}>
             {i > 0 && <span aria-hidden className="absolute -left-[13px] top-1/2 -translate-y-1/2 z-10 font-[JetBrains_Mono] text-[16px] px-1" style={{ color: MONEY, background: CREAM }}>→</span>}
             <div className="flex items-center gap-3">
-              <span className="flex items-center justify-center rounded-full font-[JetBrains_Mono] text-[11px] shrink-0" style={{ width: 28, height: 28, background: MONEY, color: "#0B0806" }}>{e.n}</span>
+              <span className="flex items-center justify-center rounded-full font-[JetBrains_Mono] text-[11px] shrink-0" style={{ width: 28, height: 28, background: MONEY, color: "#0A0903" }}>{e.n}</span>
               <h3 className="font-[Redaction] font-black leading-none" style={{ fontSize: "clamp(24px,2.4vw,34px)" }}>{e.name}</h3>
             </div>
             <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase mt-3" style={{ color: MONEY }}>{e.stages}</p>
@@ -455,7 +455,7 @@ export function Engines() {
         {ENGINES.map((e, i) => (
           <div key={e.n} className="p-5" style={{ borderBottom: i < ENGINES.length - 1 ? RULE : undefined }}>
             <div className="flex items-center gap-3">
-              <span className="flex items-center justify-center rounded-full font-[JetBrains_Mono] text-[11px] shrink-0" style={{ width: 26, height: 26, background: MONEY, color: "#0B0806" }}>{e.n}</span>
+              <span className="flex items-center justify-center rounded-full font-[JetBrains_Mono] text-[11px] shrink-0" style={{ width: 26, height: 26, background: MONEY, color: "#0A0903" }}>{e.n}</span>
               <h3 className="font-[Redaction] font-black leading-none" style={{ fontSize: "clamp(24px,6.4vw,30px)" }}>{e.name}</h3>
             </div>
             <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase mt-2.5" style={{ color: MONEY }}>{e.stages}</p>
@@ -470,7 +470,7 @@ export function Engines() {
         ))}
       </div>
       {/* bottom bar */}
-      <div className="px-5 py-3.5 text-center" style={{ borderTop: RULE, background: "rgba(44,122,95,0.10)" }}>
+      <div className="px-5 py-3.5 text-center" style={{ borderTop: RULE, background: "rgba(30,255,139,0.10)" }}>
         <p className="font-[JetBrains_Mono] text-[10px] md:text-[11px] tracking-[0.24em] uppercase" style={{ color: INK }}>
           One System <span style={{ color: MONEY }}>·</span> Three Engines <span style={{ color: MONEY }}>·</span> Revenue That Compounds
         </p>
@@ -510,9 +510,9 @@ export function StoryPlayer() {
       <div className="flex items-center gap-0 px-5 md:px-7 pt-5 overflow-x-auto">
         {STORY_STAGES.map((s, k) => (
           <div key={s} className="flex items-center shrink-0">
-            {k > 0 && <span className="w-5 md:w-9 h-px mx-1.5" style={{ background: k <= stageIdx ? MONEY : "rgba(241,233,216,0.22)" }} />}
+            {k > 0 && <span className="w-5 md:w-9 h-px mx-1.5" style={{ background: k <= stageIdx ? MONEY : "rgba(255,253,251,0.22)" }} />}
             <span className="font-[JetBrains_Mono] text-[10px] tracking-[0.14em] uppercase transition-colors duration-300"
-              style={{ color: k === stageIdx ? MONEY : k < stageIdx ? INK : "rgba(241,233,216,0.35)" }}>{s}</span>
+              style={{ color: k === stageIdx ? MONEY : k < stageIdx ? INK : "rgba(255,253,251,0.35)" }}>{s}</span>
           </div>
         ))}
       </div>
@@ -532,7 +532,7 @@ export function StoryPlayer() {
         <div className="flex items-center gap-1.5">
           {STORY.map((_, k) => (
             <button key={k} data-cursor aria-label={`Beat ${k + 1}`} onClick={() => { setI(k); setPlaying(false); }} className="relative h-4 w-6 flex items-center">
-              <span className="w-full overflow-hidden" style={{ height: 2, background: "rgba(241,233,216,0.18)" }}>
+              <span className="w-full overflow-hidden" style={{ height: 2, background: "rgba(255,253,251,0.18)" }}>
                 {k === i && playing && !reduce ? (
                   <motion.span className="block h-full origin-left" style={{ background: MONEY }} initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 3, ease: "linear" }} />
                 ) : (
@@ -565,7 +565,7 @@ export function BeforeAfter() {
           ))}
         </div>
       </div>
-      <div className="p-6 md:p-8" style={{ borderBottom: RULE, background: "rgba(27,77,62,0.05)" }}>
+      <div className="p-6 md:p-8" style={{ borderBottom: RULE, background: "rgba(4,232,36,0.05)" }}>
         <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase mb-4" style={{ color: MONEY }}>With the system</p>
         <div className="space-y-3">
           {after.map((it) => (
@@ -634,7 +634,7 @@ export function Shell({ children, showHeader = true }: { children: React.ReactNo
         <div className="absolute top-0 inset-x-0 z-[60] flex items-center justify-between px-6 md:px-12 pt-7">
           <Lockup />
           <div className="flex items-center gap-3">
-            <a data-cursor href="/#contact" className="hidden md:inline-block font-[JetBrains_Mono] text-[12px] tracking-[0.14em] uppercase px-5 py-3 rounded-full" style={{ border: "1px solid rgba(241,233,216,0.4)", color: BONE }}>Let&apos;s talk →</a>
+            <a data-cursor href="/#contact" className="hidden md:inline-block font-[JetBrains_Mono] text-[12px] tracking-[0.14em] uppercase px-5 py-3 rounded-full" style={{ border: "1px solid rgba(255,253,251,0.4)", color: BONE }}>Let&apos;s talk →</a>
             <button data-cursor aria-label="Open menu" onClick={() => setMenu(true)} className="md:hidden flex flex-col gap-1.5 p-2">
               <span className="block w-7 h-px" style={{ background: BONE }} /><span className="block w-7 h-px" style={{ background: BONE }} />
             </button>

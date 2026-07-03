@@ -21,85 +21,12 @@ const PORTFOLIO = [
 
 const lab = "font-[JetBrains_Mono] text-[11px] tracking-[0.3em] uppercase";
 
-/* THE REVENUE THREAD — one continuous line drawn through the whole site.
-   Markers (<ThreadMark/>) between sections anchor an S-curve path; the line
-   draws with scroll, stage nodes light as it passes, pulses travel it. */
-export function ThreadMark({ label }: { label: string }) {
-  return <span data-thread={label} className="block h-0 w-0" aria-hidden />;
-}
-function ThreadNode({ pt, docH, progress }: { pt: { x: number; y: number; label: string }; docH: number; progress: MotionValue<number> }) {
-  const t = Math.min(0.98, pt.y / docH + 0.04);
-  const glow = useTransform(progress, [t - 0.05, t], [0, 1]);
-  const r = useTransform(glow, [0, 1], [3, 5]);
-  return (
-    <g>
-      <motion.circle cx={pt.x} cy={pt.y} fill={CREAM} stroke={MONEY} strokeWidth={1.5} style={{ r, opacity: useTransform(glow, [0, 1], [0.35, 1]) }} />
-      <motion.text x={pt.x + (pt.x < 300 ? 14 : -14)} y={pt.y + 4} textAnchor={pt.x < 300 ? "start" : "end"}
-        style={{ opacity: useTransform(glow, [0, 1], [0.25, 1]) }}
-        fill={INK} fontSize={11} letterSpacing="0.18em" fontFamily="JetBrains Mono, monospace">{pt.label.toUpperCase()}</motion.text>
-    </g>
-  );
-}
-function RevenueThread({ reduce }: { reduce: boolean }) {
-  const [geo, setGeo] = useState<{ d: string; pts: { x: number; y: number; label: string }[]; w: number; h: number } | null>(null);
-  const { scrollYProgress } = useScroll();
-  const drawn = useSpring(scrollYProgress, { stiffness: 80, damping: 24, mass: 0.4 });
-  const pathLength = useTransform(drawn, [0, 0.96], [0, 1]);
-  useEffect(() => {
-    const measure = () => {
-      const w = document.documentElement.clientWidth;
-      const h = document.body.scrollHeight;
-      const marks = Array.from(document.querySelectorAll("[data-thread]"));
-      if (!marks.length) return;
-      const pts = marks.map((m, i) => {
-        const r = (m as HTMLElement).getBoundingClientRect();
-        const y = r.top + window.scrollY;
-        const x = i % 2 === 0 ? w * 0.09 : w * 0.91;
-        return { x, y, label: (m as HTMLElement).dataset.thread || "" };
-      });
-      const start = { x: w * 0.5, y: 0 };
-      const all = [start, ...pts, { x: w * 0.5, y: h - 40 }];
-      let d = `M ${all[0].x} ${all[0].y}`;
-      for (let i = 1; i < all.length; i++) {
-        const a = all[i - 1], b = all[i];
-        const my = (a.y + b.y) / 2;
-        d += ` C ${a.x} ${my}, ${b.x} ${my}, ${b.x} ${b.y}`;
-      }
-      setGeo({ d, pts, w, h });
-    };
-    measure();
-    const t1 = setTimeout(measure, 900);
-    const t2 = setTimeout(measure, 2600);
-    window.addEventListener("resize", measure);
-    return () => { clearTimeout(t1); clearTimeout(t2); window.removeEventListener("resize", measure); };
-  }, []);
-  if (!geo) return null;
-  return (
-    <svg className="absolute top-0 left-0 z-[2] pointer-events-none" width={geo.w} height={geo.h} viewBox={`0 0 ${geo.w} ${geo.h}`} fill="none" aria-hidden>
-      {/* ghost of the full path */}
-      <path id="revThread" d={geo.d} stroke="rgba(241,233,216,0.08)" strokeWidth={1.5} />
-      {/* the drawn thread */}
-      <motion.path d={geo.d} stroke={MONEY} strokeWidth={1.5} style={{ pathLength }}
-        strokeLinecap="round" filter="drop-shadow(0 0 6px rgba(44,122,95,0.45))" />
-      {/* pulses: revenue moving through the system */}
-      {!reduce && [0, 1, 2].map((i) => (
-        <circle key={i} r={2.6} fill={MONEY} opacity={0.85}>
-          <animateMotion dur="16s" begin={`${i * 5.4}s`} repeatCount="indefinite" rotate="0">
-            <mpath href="#revThread" />
-          </animateMotion>
-        </circle>
-      ))}
-      {geo.pts.map((pt) => <ThreadNode key={pt.label + pt.y} pt={pt} docH={geo.h} progress={drawn} />)}
-    </svg>
-  );
-}
-
 /* thin custom scrollbar, green thumb */
 function ScrollRail() {
   const { scrollYProgress } = useScroll();
   const scaleY = useSpring(scrollYProgress, { stiffness: 120, damping: 26, mass: 0.3 });
   return (
-    <div className="fixed right-0 top-0 bottom-0 z-[70] w-[3px] hidden md:block" style={{ background: "rgba(241,233,216,0.08)" }}>
+    <div className="fixed right-0 top-0 bottom-0 z-[70] w-[3px] hidden md:block" style={{ background: "rgba(255,253,251,0.08)" }}>
       <motion.div className="w-full h-full origin-top" style={{ scaleY, background: MONEY }} />
     </div>
   );
@@ -124,7 +51,7 @@ function Hero({ reduce, go }: { reduce: boolean; go: boolean }) {
               className="font-[Redaction] font-black leading-[0.9] tracking-[-0.015em] max-w-[17ch]"
               style={{ fontSize: "clamp(38px,6.4vw,110px)", textShadow: "0 2px 28px rgba(0,0,0,0.65)" }} />
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-              <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block whitespace-nowrap font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: BONE, color: "#0B0806", animation: reduce ? undefined : "nudge 7s ease-in-out infinite" }}>Let&apos;s talk →</a></Magnetic>
+              <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block whitespace-nowrap font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: BONE, color: "#0A0903", animation: reduce ? undefined : "nudge 7s ease-in-out infinite" }}>Let&apos;s talk →</a></Magnetic>
               <span className="font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase opacity-80" style={{ color: BONE }}>Scroll ↓</span>
             </div>
           </motion.div>
@@ -145,7 +72,7 @@ function EngineCard({ e, i, p }: { e: (typeof ENGINES)[number]; i: number; p: Mo
     <motion.div className="absolute origin-bottom w-[86vw] md:w-[400px]" style={{ rotateX, y, x: (i - 1) * 440, opacity: useTransform([opacity, recede], ([a, b]: number[]) => a * b) }}>
       <div className="p-6 md:p-7" style={{ background: "#0F0C09", border: RULE, boxShadow: "0 30px 80px -30px rgba(0,0,0,0.8)" }}>
         <div className="flex items-center gap-3">
-          <span className="flex items-center justify-center rounded-full font-[JetBrains_Mono] text-[11px]" style={{ width: 27, height: 27, background: MONEY, color: "#0B0806" }}>{e.n}</span>
+          <span className="flex items-center justify-center rounded-full font-[JetBrains_Mono] text-[11px]" style={{ width: 27, height: 27, background: MONEY, color: "#0A0903" }}>{e.n}</span>
           <h3 className="font-[Redaction] font-black leading-none" style={{ fontSize: "clamp(26px,3vw,36px)", color: INK }}>{e.name}</h3>
         </div>
         <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase mt-3" style={{ color: MONEY }}>{e.stages}</p>
@@ -166,8 +93,8 @@ function EnginesRoom() {
       <div className="sticky top-0 h-screen overflow-hidden flex items-center justify-center" style={{ perspective: 1200 }}>
         <motion.div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6" style={{ scale: titleScale, opacity: titleOpacity }}>
           <p className={lab} style={{ color: STEEL }}>The System</p>
-          <h2 className="font-[Redaction] font-black leading-[0.95] mt-3" style={{ fontSize: "clamp(40px,8.5vw,130px)", color: "rgba(242,235,220,0.2)" }}>
-            One system.<br /><span className="font-[Fraunces]" style={{ fontWeight: 400, fontStyle: "italic", color: "rgba(44,122,95,0.55)" }}>Three engines.</span>
+          <h2 className="font-[Redaction] font-black leading-[0.95] mt-3" style={{ fontSize: "clamp(40px,8.5vw,130px)", color: "rgba(255,253,251,0.2)" }}>
+            One system.<br /><span className="font-[Fraunces]" style={{ fontWeight: 400, fontStyle: "italic", color: "rgba(30,255,139,0.55)" }}>Three engines.</span>
           </h2>
         </motion.div>
         <div className="absolute inset-0 hidden md:block">
@@ -190,7 +117,7 @@ function MobileEngine({ e, i, p }: { e: (typeof ENGINES)[number]; i: number; p: 
     <motion.div className="absolute w-[86vw] origin-bottom" style={{ rotateX, y, opacity }}>
       <div className="p-6" style={{ background: "#0F0C09", border: RULE, boxShadow: "0 30px 80px -30px rgba(0,0,0,0.8)" }}>
         <div className="flex items-center gap-3">
-          <span className="flex items-center justify-center rounded-full font-[JetBrains_Mono] text-[11px]" style={{ width: 26, height: 26, background: MONEY, color: "#0B0806" }}>{e.n}</span>
+          <span className="flex items-center justify-center rounded-full font-[JetBrains_Mono] text-[11px]" style={{ width: 26, height: 26, background: MONEY, color: "#0A0903" }}>{e.n}</span>
           <h3 className="font-[Redaction] font-black leading-none" style={{ fontSize: 28, color: INK }}>{e.name}</h3>
         </div>
         <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase mt-3" style={{ color: MONEY }}>{e.stages}</p>
@@ -215,7 +142,7 @@ function StoryRoom() {
           <h2 className="font-[Redaction] font-bold leading-[0.98] mt-2" style={{ fontSize: "clamp(26px,4vw,52px)" }}>
             You&apos;re busy doing the work. <span className="font-[Fraunces]" style={{ fontWeight: 400, fontStyle: "italic", color: MONEY }}>The system isn&apos;t.</span>
           </h2>
-          <div className="mt-5 h-px w-full max-w-[420px] overflow-hidden" style={{ background: "rgba(241,233,216,0.12)" }}>
+          <div className="mt-5 h-px w-full max-w-[420px] overflow-hidden" style={{ background: "rgba(255,253,251,0.12)" }}>
             <motion.div className="h-full origin-left" style={{ scaleX: p, background: MONEY }} />
           </div>
         </div>
@@ -226,7 +153,7 @@ function StoryRoom() {
                 {b.t} · {b.who === "system" ? "The system" : b.who === "mark" ? "Your crew" : "A customer"}
               </p>
               <p className="font-[Redaction] mt-3" style={{ fontSize: "clamp(17px,1.6vw,21px)" }}>{b.text}</p>
-              <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase mt-4" style={{ color: "rgba(241,233,216,0.35)" }}>{String(i + 1).padStart(2, "0")} / 0{STORY.length} · {b.stage}</p>
+              <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase mt-4" style={{ color: "rgba(255,253,251,0.35)" }}>{String(i + 1).padStart(2, "0")} / 0{STORY.length} · {b.stage}</p>
             </div>
           ))}
         </motion.div>
@@ -246,7 +173,7 @@ function WorkPiece({ p, i, item }: { p: MotionValue<number>; i: number; item: (t
       style={{ y, rotate, x: i === 0 ? "-62%" : i === 1 ? "-38%" : "-52%" }}>
       <div className="relative overflow-hidden aspect-[16/10] group" style={{ border: RULE, boxShadow: "0 30px 90px -25px rgba(0,0,0,0.85)" }}>
         <img src={item.img} alt={item.name} className="absolute inset-0 h-full w-full object-cover object-top grayscale-[0.5] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-[1.03]" />
-        <span className="absolute bottom-3 left-3 font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase px-3 py-1.5" style={{ background: "#0B0806", color: INK }}>
+        <span className="absolute bottom-3 left-3 font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase px-3 py-1.5" style={{ background: "#0A0903", color: INK }}>
           {item.name} · {item.vertical} ↗
         </span>
       </div>
@@ -287,7 +214,7 @@ function PricingFold() {
           </motion.div>
         ))}
       </div>
-      <div className="mt-8 p-6 md:p-7 flex flex-col md:flex-row md:items-center gap-4 md:gap-8" style={{ border: RULE, background: "rgba(44,122,95,0.10)" }}>
+      <div className="mt-8 p-6 md:p-7 flex flex-col md:flex-row md:items-center gap-4 md:gap-8" style={{ border: RULE, background: "rgba(30,255,139,0.10)" }}>
         <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.24em] uppercase shrink-0" style={{ color: MONEY }}>The Promise</p>
         <p className="font-[Redaction]" style={{ fontSize: "clamp(17px,2vw,22px)" }}>
           If the first month doesn&apos;t show measurable improvement, the deposit comes back. After that, three months to let the system work — then month-to-month.
@@ -296,7 +223,7 @@ function PricingFold() {
       <div className="mt-10 grid grid-cols-1 md:grid-cols-3" style={{ border: RULE }}>
         {COMPARE.map(([who, cost, note], i) => (
           <div key={who} className={`p-5 md:p-6 border-b md:border-b-0 ${i < COMPARE.length - 1 ? "md:border-r" : ""}`}
-            style={{ borderColor: "rgba(241,233,216,0.14)", background: i === COMPARE.length - 1 ? "rgba(44,122,95,0.14)" : "transparent" }}>
+            style={{ borderColor: "rgba(255,253,251,0.14)", background: i === COMPARE.length - 1 ? "rgba(30,255,139,0.14)" : "transparent" }}>
             <h3 className="font-[Redaction] font-bold" style={{ fontSize: "clamp(18px,2vw,24px)", color: i === COMPARE.length - 1 ? MONEY : INK }}>{who}</h3>
             <p className="font-[JetBrains_Mono] text-[12px] mt-1.5" style={{ color: INK }}>{cost}</p>
             <p className="font-[Redaction] mt-2" style={{ fontSize: "14px", color: STEEL }}>{note}</p>
@@ -322,7 +249,7 @@ function PricingFold() {
 function Finale() {
   return (
     <section id="contact" className="relative overflow-hidden px-6 md:px-12 py-28 md:py-40">
-      <span aria-hidden className="absolute -right-16 top-1/2 -translate-y-1/2 font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "min(90vw,700px)", color: "rgba(44,122,95,0.07)" }}>§</span>
+      <span aria-hidden className="absolute -right-16 top-1/2 -translate-y-1/2 font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "min(90vw,700px)", color: "rgba(30,255,139,0.07)" }}>§</span>
       <p className={lab} style={{ color: STEEL }}>Why This Works</p>
       <div className="relative mt-4 font-[Redaction] space-y-4 max-w-[52ch]" style={{ fontSize: "clamp(17px,2vw,22px)" }}>
         <p>Savoca Studio builds the revenue workflow underneath the business — and keeps improving it with you.</p>
@@ -333,7 +260,7 @@ function Finale() {
         <h2 className="font-[Redaction] font-black leading-[0.92] max-w-[16ch]" style={{ fontSize: "clamp(36px,7.5vw,120px)" }}>
           Build the layer between demand and <span className="font-[Fraunces]" style={{ fontWeight: 400, fontStyle: "italic", color: MONEY, animation: "flick 9s linear 2s infinite" }}>getting paid.</span>
         </h2>
-        <div className="mt-9"><Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-8 py-5" style={{ background: MONEY, color: "#0B0806" }}>Let&apos;s talk →</a></Magnetic></div>
+        <div className="mt-9"><Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-8 py-5" style={{ background: MONEY, color: "#0A0903" }}>Let&apos;s talk →</a></Magnetic></div>
         <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.12em] mt-9" style={{ color: STEEL }}>jack@savoca.studio · Austin, TX · Taking new builds</p>
       </div>
     </section>
@@ -374,9 +301,17 @@ export default function V3() {
       `}</style>
       {!reduce && <Cursor />}
       <AnimatePresence>{!reduce && !loaded && <Preloader key="pre" onDone={() => setLoaded(true)} />}</AnimatePresence>
+      {/* the drone layer: one aerial drift under the whole site */}
       <div aria-hidden className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute rounded-full" style={{ width: "75vmax", height: "75vmax", left: "-25vmax", top: "-30vmax", background: "radial-gradient(circle, rgba(44,122,95,0.11) 0%, transparent 62%)", animation: reduce ? undefined : "drift1 60s ease-in-out infinite alternate" }} />
-        <div className="absolute rounded-full" style={{ width: "70vmax", height: "70vmax", right: "-28vmax", bottom: "-32vmax", background: "radial-gradient(circle, rgba(241,233,216,0.055) 0%, transparent 60%)", animation: reduce ? undefined : "drift2 75s ease-in-out infinite alternate" }} />
+        {reduce ? (
+          <img src="/video/bg-drone-poster.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" style={{ opacity: 0.3 }} />
+        ) : (
+          <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload="auto" poster="/video/bg-drone-poster.jpg" style={{ opacity: 0.3 }}>
+            <source src="/video/bg-drone.mp4" type="video/mp4" />
+          </video>
+        )}
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 25%, rgba(10,9,3,0.75) 100%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(10,9,3,0.55), rgba(10,9,3,0.25) 40%, rgba(10,9,3,0.6))" }} />
       </div>
       <Grain />
       <ScrollRail />
@@ -391,13 +326,11 @@ export default function V3() {
           <a data-cursor href="#engines" className="opacity-60 hover:opacity-100 transition-opacity">Systems</a>
           <a data-cursor href="#work" className="opacity-60 hover:opacity-100 transition-opacity">Work</a>
           <a data-cursor href="#pricing" className="opacity-60 hover:opacity-100 transition-opacity">Pricing</a>
-          <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block px-5 py-2.5" style={{ background: MONEY, color: "#0B0806" }}>Let&apos;s talk →</a></Magnetic>
+          <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block px-5 py-2.5" style={{ background: MONEY, color: "#0A0903" }}>Let&apos;s talk →</a></Magnetic>
         </nav>
       </header>
 
-      <RevenueThread reduce={!!reduce} />
       <Hero reduce={!!reduce} go={loaded} />
-      <ThreadMark label="Demand" />
 
       {/* dual opposing marquees, velocity-skewed */}
       <motion.div className="mx-2.5 md:mx-4 my-2" style={{ skewX: trackSkew }}>
@@ -406,24 +339,18 @@ export default function V3() {
             {[...Array(3)].flatMap((_, r) =>
               VERTICALS.map((v) => (
                 <span key={`${r}-${v}`} className="flex items-center gap-8 shrink-0">
-                  <span className="font-[Fraunces] whitespace-nowrap" style={{ fontSize: "clamp(18px,2.3vw,28px)", fontStyle: "italic", color: "rgba(242,235,220,0.42)" }}>{v}</span>
-                  <span className="font-[Fraunces] font-black" style={{ color: "rgba(44,122,95,0.45)", fontSize: "clamp(13px,1.5vw,18px)" }}>§</span>
+                  <span className="font-[Fraunces] whitespace-nowrap" style={{ fontSize: "clamp(18px,2.3vw,28px)", fontStyle: "italic", color: "rgba(255,253,251,0.42)" }}>{v}</span>
+                  <span className="font-[Fraunces] font-black" style={{ color: "rgba(30,255,139,0.45)", fontSize: "clamp(13px,1.5vw,18px)" }}>§</span>
                 </span>
               ))
             )}
           </div>
         </div>
       </motion.div>
-
-      <ThreadMark label="Captured" />
       <EnginesRoom />
-      <ThreadMark label="Booked" />
       <StoryRoom />
-      <ThreadMark label="Delivered" />
       <WorkRoom />
-      <ThreadMark label="Paid" />
       <PricingFold />
-      <ThreadMark label="Rebooked" />
       <Finale />
     </main>
   );
