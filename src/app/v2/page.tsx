@@ -155,12 +155,12 @@ export default function Home() {
               </section>
               {/* verticals marquee */}
               <div className="overflow-hidden py-4 md:py-5 mx-2.5 md:mx-4 mb-4" style={{ borderTop: RULE, borderBottom: RULE, color: INK }}>
-                <div className="flex items-center gap-8 w-max" style={{ animation: "marq 36s linear infinite" }}>
+                <div className="flex items-center gap-8 w-max" style={{ animation: "marq 90s linear infinite" }}>
                   {[...Array(3)].flatMap((_, r) =>
                     VERTICALS.map((v) => (
                       <span key={`${r}-${v}`} className="flex items-center gap-8 shrink-0">
-                        <span className="font-[Fraunces] whitespace-nowrap" style={{ fontSize: "clamp(20px,2.6vw,32px)", fontStyle: "italic" }}>{v}</span>
-                        <span className="font-[Fraunces] font-black" style={{ color: MONEY, fontSize: "clamp(14px,1.6vw,20px)" }}>§</span>
+                        <span className="font-[Fraunces] whitespace-nowrap" style={{ fontSize: "clamp(18px,2.3vw,28px)", fontStyle: "italic", color: "rgba(242,235,220,0.4)" }}>{v}</span>
+                        <span className="font-[Fraunces] font-black" style={{ color: "rgba(44,122,95,0.45)", fontSize: "clamp(13px,1.5vw,18px)" }}>§</span>
                       </span>
                     ))
                   )}
