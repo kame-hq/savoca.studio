@@ -7,7 +7,7 @@ import { motion, AnimatePresence, useMotionValue, useSpring, animate, useReduced
 import Lenis from "lenis";
 
 // Cream-beige site, dark cinematic hero. Canon-adjacent inks.
-export const CREAM = "#14100C";   // page ground — black espresso
+export const CREAM = "#0B0806";   // page ground — black espresso
 export const INK = "#F2EBDC";     // primary type — warm white-beige
 export const BONE = "#FAF6EC";    // brightest — hero over video, near white
 export const STEEL = "#A69C87";   // muted beige

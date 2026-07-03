@@ -98,7 +98,7 @@ export default function Home() {
       {/* mobile menu — dark ink overlay, staggered */}
       <AnimatePresence>
         {menu && (
-          <motion.div className="fixed inset-0 z-[85] md:hidden flex flex-col overflow-hidden" style={{ background: "#14100C", color: INK }}
+          <motion.div className="fixed inset-0 z-[85] md:hidden flex flex-col overflow-hidden" style={{ background: "#0B0806", color: INK }}
             initial={{ clipPath: "inset(0 0 100% 0)" }} animate={{ clipPath: "inset(0 0 0% 0)" }} exit={{ clipPath: "inset(0 0 100% 0)" }} transition={{ duration: 0.45, ease: EASE }}>
             <span aria-hidden className="absolute -right-16 -bottom-24 font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "min(120vw, 560px)", color: "rgba(44,122,95,0.09)" }}>§</span>
             <div className="relative flex items-center justify-between px-6 pt-6">
@@ -121,7 +121,7 @@ export default function Home() {
             </nav>
             <motion.a href="mailto:jack@savoca.studio" onClick={() => setMenu(false)}
               initial={{ y: 18, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.45, duration: 0.5, ease: EASE }}
-              className="relative mx-6 mb-8 text-center font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: "#2C7A5F", color: "#14100C" }}>Let&apos;s talk →</motion.a>
+              className="relative mx-6 mb-8 text-center font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: "#2C7A5F", color: "#0B0806" }}>Let&apos;s talk →</motion.a>
           </motion.div>
         )}
       </AnimatePresence>
@@ -143,7 +143,7 @@ export default function Home() {
                   <p className="font-[JetBrains_Mono] text-[11px] md:text-[12px] tracking-[0.18em] md:tracking-[0.28em] uppercase mb-6" style={{ color: BONE, textShadow: "0 1px 14px rgba(0,0,0,0.75)" }}>Revenue systems for service businesses</p>
                   <Split text="I build the layer between demand and getting paid." go accentFrom={7} className="font-[Redaction] font-black leading-[0.9] tracking-[-0.015em] max-w-[17ch]" style={{ fontSize: "clamp(29px,8.4vw,102px)", textShadow: "0 2px 28px rgba(0,0,0,0.65)" }} />
                   <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-                    <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block whitespace-nowrap font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: BONE, color: "#14100C" }}>Let&apos;s talk →</a></Magnetic>
+                    <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block whitespace-nowrap font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: BONE, color: "#0B0806" }}>Let&apos;s talk →</a></Magnetic>
                     <button data-cursor onClick={() => go("systems")} className="whitespace-nowrap font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase opacity-80 hover:opacity-100 transition-opacity" style={{ color: BONE }}>See the system →</button>
                   </div>
                   <div className="mt-8"><PathStrip nodes={PATH_SHORT} accentLast /></div>
@@ -275,7 +275,7 @@ export default function Home() {
                         <div className="relative overflow-hidden aspect-[16/10]" style={{ border: RULE, boxShadow: "0 18px 50px -18px rgba(28,23,18,0.35)" }}>
                           <img src={p.img} alt={p.name} className="absolute inset-0 h-full w-full object-cover object-top grayscale-[0.4] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.05]" />
                           <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0" style={{ background: "rgba(20,16,12,0.3)" }} />
-                          <span className="absolute bottom-3 right-3 font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase px-3 py-1.5 opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0" style={{ background: "#F2EBDC", color: "#14100C" }}>
+                          <span className="absolute bottom-3 right-3 font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase px-3 py-1.5 opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0" style={{ background: "#F2EBDC", color: "#0B0806" }}>
                             {p.href.replace("https://", "")} ↗
                           </span>
                         </div>
