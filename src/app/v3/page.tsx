@@ -21,51 +21,17 @@ const PORTFOLIO = [
 
 const lab = "font-[JetBrains_Mono] text-[11px] tracking-[0.3em] uppercase";
 
-/* drone canvas — frame-sequence scrub, lerped rAF. No video seeks = silk. */
-const FRAMES = 100;
-function DroneCanvas({ reduce }: { reduce: boolean }) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const imgs = useRef<(HTMLImageElement | null)[]>(Array(FRAMES).fill(null));
-  const { scrollYProgress } = useScroll();
-  useEffect(() => {
-    const canvas = canvasRef.current; if (!canvas) return;
-    const ctx = canvas.getContext("2d"); if (!ctx) return;
-    const dpr = Math.min(2, window.devicePixelRatio || 1);
-    const size = () => { canvas.width = window.innerWidth * dpr; canvas.height = window.innerHeight * dpr; };
-    size();
-    const src = (i: number) => `/drone/f${String(i + 1).padStart(3, "0")}.jpg`;
-    const load = (i: number) => new Promise<void>((res) => {
-      if (imgs.current[i]) return res();
-      const im = new Image(); im.onload = () => { imgs.current[i] = im; res(); }; im.onerror = () => res(); im.src = src(i);
-    });
-    let cur = 0, target = 0, raf = 0, lastDrawn = -1;
-    const draw = (idx: number) => {
-      let im = imgs.current[idx];
-      if (!im) { for (let k = idx; k >= 0; k--) if (imgs.current[k]) { im = imgs.current[k]; break; } }
-      if (!im) return;
-      const cw = canvas.width, ch = canvas.height;
-      const s = Math.max(cw / im.width, ch / im.height);
-      const w = im.width * s, h = im.height * s;
-      ctx.drawImage(im, (cw - w) / 2, (ch - h) / 2, w, h);
-      lastDrawn = idx;
-    };
-    const loop = () => {
-      cur += (target - cur) * 0.085;
-      const idx = Math.max(0, Math.min(FRAMES - 1, Math.round(cur * (FRAMES - 1))));
-      if (idx !== lastDrawn) draw(idx);
-      raf = requestAnimationFrame(loop);
-    };
-    const unsub = scrollYProgress.on("change", (v) => { target = v; });
-    // first frame fast, rest in lazy batches
-    load(0).then(() => { draw(0); if (!reduce) raf = requestAnimationFrame(loop); });
-    if (!reduce) (async () => { for (let i = 1; i < FRAMES; i += 1) { await load(i); } })();
-    const onResize = () => { size(); if (lastDrawn >= 0) draw(lastDrawn); };
-    window.addEventListener("resize", onResize);
-    return () => { cancelAnimationFrame(raf); unsub(); window.removeEventListener("resize", onResize); };
-  }, [scrollYProgress, reduce]);
+/* drone layer — free-running aerial drift (decoupled from scroll) */
+function DroneLayer({ reduce }: { reduce: boolean }) {
   return (
     <div aria-hidden className="fixed inset-0 pointer-events-none overflow-hidden">
-      <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" style={{ opacity: 0.55, willChange: "transform" }} />
+      {reduce ? (
+        <img src="/video/bg-drone-poster.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" style={{ opacity: 0.55 }} />
+      ) : (
+        <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload="auto" poster="/video/bg-drone-poster.jpg" style={{ opacity: 0.55 }}>
+          <source src="/video/bg-drone.mp4" type="video/mp4" />
+        </video>
+      )}
       <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 35%, rgba(10,9,3,0.55) 100%)" }} />
       <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(10,9,3,0.4), rgba(10,9,3,0.12) 40%, rgba(10,9,3,0.45))" }} />
     </div>
@@ -90,13 +56,14 @@ function Hero({ reduce, go }: { reduce: boolean; go: boolean }) {
   const rotateX = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 32]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
   const opacity = useTransform(scrollYProgress, [0, 0.85], [1, 0.15]);
-  const textY = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const textY = useTransform(scrollYProgress, [0, 1], [0, 130]);
+  const textX = useTransform(scrollYProgress, [0, 1], [0, 90]);
   return (
     <section ref={ref} className="relative" style={{ height: "165vh" }}>
       <div className="sticky top-0 h-screen overflow-hidden" style={{ perspective: 1100 }}>
         <motion.div className="absolute inset-2.5 md:inset-4 overflow-hidden origin-bottom" style={{ rotateX, scale, opacity, border: RULE, color: BONE, willChange: "transform, opacity", backfaceVisibility: "hidden" }}>
           <HeroReel />
-          <motion.div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-12 pb-12" style={{ y: textY }}>
+          <motion.div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-12 pb-12" style={{ y: textY, x: textX }}>
             <p className={`${lab} mb-6`} style={{ color: BONE, textShadow: "0 1px 14px rgba(0,0,0,0.75)" }}>Revenue systems for service businesses</p>
             <Split text="I build the layer between demand and getting paid." go={go} accentFrom={7}
               className="font-[Redaction] font-black leading-[0.9] tracking-[-0.015em] max-w-[17ch]"
@@ -217,11 +184,13 @@ function StoryRoom() {
 function WorkPiece({ p, i, item }: { p: MotionValue<number>; i: number; item: (typeof PORTFOLIO)[number] }) {
   const start = i * 0.3, end = start + 0.42;
   const y = useTransform(p, [start, end], ["105vh", "-115vh"]);
+  const xBase = i === 0 ? "-62%" : i === 1 ? "-38%" : "-52%";
+  const xDrift = useTransform(p, [start, end], [`calc(${xBase} - 6vw)`, `calc(${xBase} + 6vw)`]);
   const rotate = useTransform(p, [start, end], [i % 2 ? 7 : -7, i % 2 ? -5 : 5]);
   return (
     <motion.a data-cursor href={item.href} target="_blank" rel="noopener noreferrer"
       className={`absolute left-1/2 block w-[78vw] md:w-[560px] ${i % 2 ? "z-[6]" : "z-[2]"}`}
-      style={{ willChange: "transform", y, rotate, x: i === 0 ? "-62%" : i === 1 ? "-38%" : "-52%" }}>
+      style={{ willChange: "transform", y, rotate, x: xDrift }}>
       <div className="relative overflow-hidden aspect-[16/10] group" style={{ border: RULE, boxShadow: "0 30px 90px -25px rgba(0,0,0,0.85)" }}>
         <img src={item.img} alt={item.name} className="absolute inset-0 h-full w-full object-cover object-top grayscale-[0.5] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-[1.03]" />
         <span className="absolute bottom-3 left-3 font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase px-3 py-1.5" style={{ background: "#0A0903", color: INK }}>
@@ -352,7 +321,7 @@ export default function V3() {
       `}</style>
       {!reduce && <Cursor />}
       <AnimatePresence>{!reduce && !loaded && <Preloader key="pre" onDone={() => setLoaded(true)} />}</AnimatePresence>
-      <DroneCanvas reduce={!!reduce} />
+      <DroneLayer reduce={!!reduce} />
       <Grain />
       <ScrollRail />
 
