@@ -148,7 +148,7 @@ function MobileEngine({ e, i, p }: { e: (typeof ENGINES)[number]; i: number; p: 
 /* SECTION 3 — the cost of doing nothing: live calculator */
 function SpringNumber({ value, run, format }: { value: number; run: boolean; format: (n: number) => string }) {
   const mv = useMotionValue(0);
-  const sp = useSpring(mv, { stiffness: 90, damping: 24, mass: 0.6 });
+  const sp = useSpring(mv, { stiffness: 90, damping: 24, mass: 0.6, restDelta: 0.5, restSpeed: 2 });
   const txt = useTransform(sp, (v) => format(v));
   useEffect(() => { if (run) mv.set(value); }, [value, run, mv]);
   return <motion.span className="tabular-nums">{txt}</motion.span>;
