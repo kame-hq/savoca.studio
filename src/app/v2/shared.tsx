@@ -124,7 +124,7 @@ export const CRED = [
   { name: "Facebook", logo: "/logos/facebook-c.png" },
   { name: "Whole Foods Market", logo: "/logos/wholefoodsmarket.png" },
   { name: "Indeed", logo: "/logos/indeed-c.png" },
-  { name: "FedEx", logo: "/logos/fedex-c.png" },
+  { name: "FedEx", logo: "/logos/fedex-wordmark.png" },
 ];
 
 /* ---- primitives ---- */
