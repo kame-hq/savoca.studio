@@ -21,29 +21,51 @@ const PORTFOLIO = [
 
 const lab = "font-[JetBrains_Mono] text-[11px] tracking-[0.3em] uppercase";
 
-/* drone layer scrubbed by scroll — scroll down = fly forward */
-function DroneLayer({ reduce }: { reduce: boolean }) {
-  const vid = useRef<HTMLVideoElement>(null);
+/* drone canvas — frame-sequence scrub, lerped rAF. No video seeks = silk. */
+const FRAMES = 100;
+function DroneCanvas({ reduce }: { reduce: boolean }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const imgs = useRef<(HTMLImageElement | null)[]>(Array(FRAMES).fill(null));
   const { scrollYProgress } = useScroll();
-  const p = useSpring(scrollYProgress, { stiffness: 60, damping: 22, mass: 0.5 });
   useEffect(() => {
-    if (reduce) return;
-    const unsub = p.on("change", (v) => {
-      const el = vid.current;
-      if (!el || !el.duration || Number.isNaN(el.duration)) return;
-      el.currentTime = Math.max(0, Math.min(el.duration - 0.05, v * el.duration));
+    const canvas = canvasRef.current; if (!canvas) return;
+    const ctx = canvas.getContext("2d"); if (!ctx) return;
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const size = () => { canvas.width = window.innerWidth * dpr; canvas.height = window.innerHeight * dpr; };
+    size();
+    const src = (i: number) => `/drone/f${String(i + 1).padStart(3, "0")}.jpg`;
+    const load = (i: number) => new Promise<void>((res) => {
+      if (imgs.current[i]) return res();
+      const im = new Image(); im.onload = () => { imgs.current[i] = im; res(); }; im.onerror = () => res(); im.src = src(i);
     });
-    return unsub;
-  }, [p, reduce]);
+    let cur = 0, target = 0, raf = 0, lastDrawn = -1;
+    const draw = (idx: number) => {
+      let im = imgs.current[idx];
+      if (!im) { for (let k = idx; k >= 0; k--) if (imgs.current[k]) { im = imgs.current[k]; break; } }
+      if (!im) return;
+      const cw = canvas.width, ch = canvas.height;
+      const s = Math.max(cw / im.width, ch / im.height);
+      const w = im.width * s, h = im.height * s;
+      ctx.drawImage(im, (cw - w) / 2, (ch - h) / 2, w, h);
+      lastDrawn = idx;
+    };
+    const loop = () => {
+      cur += (target - cur) * 0.085;
+      const idx = Math.max(0, Math.min(FRAMES - 1, Math.round(cur * (FRAMES - 1))));
+      if (idx !== lastDrawn) draw(idx);
+      raf = requestAnimationFrame(loop);
+    };
+    const unsub = scrollYProgress.on("change", (v) => { target = v; });
+    // first frame fast, rest in lazy batches
+    load(0).then(() => { draw(0); if (!reduce) raf = requestAnimationFrame(loop); });
+    if (!reduce) (async () => { for (let i = 1; i < FRAMES; i += 1) { await load(i); } })();
+    const onResize = () => { size(); if (lastDrawn >= 0) draw(lastDrawn); };
+    window.addEventListener("resize", onResize);
+    return () => { cancelAnimationFrame(raf); unsub(); window.removeEventListener("resize", onResize); };
+  }, [scrollYProgress, reduce]);
   return (
     <div aria-hidden className="fixed inset-0 pointer-events-none overflow-hidden">
-      {reduce ? (
-        <img src="/video/bg-drone-poster.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" style={{ opacity: 0.55 }} />
-      ) : (
-        <video ref={vid} className="absolute inset-0 h-full w-full object-cover" muted playsInline preload="auto" poster="/video/bg-drone-poster.jpg" style={{ opacity: 0.55 }}>
-          <source src="/video/bg-drone.mp4" type="video/mp4" />
-        </video>
-      )}
+      <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" style={{ opacity: 0.55, willChange: "transform" }} />
       <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 35%, rgba(10,9,3,0.55) 100%)" }} />
       <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(10,9,3,0.4), rgba(10,9,3,0.12) 40%, rgba(10,9,3,0.45))" }} />
     </div>
@@ -72,7 +94,7 @@ function Hero({ reduce, go }: { reduce: boolean; go: boolean }) {
   return (
     <section ref={ref} className="relative" style={{ height: "165vh" }}>
       <div className="sticky top-0 h-screen overflow-hidden" style={{ perspective: 1100 }}>
-        <motion.div className="absolute inset-2.5 md:inset-4 overflow-hidden origin-bottom" style={{ rotateX, scale, opacity, border: RULE, color: BONE }}>
+        <motion.div className="absolute inset-2.5 md:inset-4 overflow-hidden origin-bottom" style={{ rotateX, scale, opacity, border: RULE, color: BONE, willChange: "transform, opacity", backfaceVisibility: "hidden" }}>
           <HeroReel />
           <motion.div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-12 pb-12" style={{ y: textY }}>
             <p className={`${lab} mb-6`} style={{ color: BONE, textShadow: "0 1px 14px rgba(0,0,0,0.75)" }}>Revenue systems for service businesses</p>
@@ -98,7 +120,7 @@ function EngineCard({ e, i, p }: { e: (typeof ENGINES)[number]; i: number; p: Mo
   const opacity = useTransform(p, [start, start + 0.06], [0, 1]);
   const recede = useTransform(p, [full + 0.06, full + 0.2], [1, i === 2 ? 1 : 0.35]);
   return (
-    <motion.div className="absolute origin-bottom w-[86vw] md:w-[400px]" style={{ rotateX, y, x: (i - 1) * 440, opacity: useTransform([opacity, recede], ([a, b]: number[]) => a * b) }}>
+    <motion.div className="absolute origin-bottom w-[86vw] md:w-[400px]" style={{ willChange: "transform, opacity", rotateX, y, x: (i - 1) * 440, opacity: useTransform([opacity, recede], ([a, b]: number[]) => a * b) }}>
       <div className="p-6 md:p-7" style={{ background: "#000000", border: RULE, boxShadow: "0 30px 80px -30px rgba(0,0,0,0.8)" }}>
         <div className="flex items-center gap-3">
           <span className="flex items-center justify-center rounded-full font-[JetBrains_Mono] text-[11px]" style={{ width: 27, height: 27, background: MONEY, color: "#0A0903" }}>{e.n}</span>
@@ -114,7 +136,7 @@ function EngineCard({ e, i, p }: { e: (typeof ENGINES)[number]; i: number; p: Mo
 function EnginesRoom() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
-  const p = useSpring(scrollYProgress, { stiffness: 90, damping: 24, mass: 0.4 });
+  const p = useSpring(scrollYProgress, { stiffness: 70, damping: 26, mass: 0.45 });
   const titleScale = useTransform(p, [0, 0.9], [1, 0.94]);
   const titleOpacity = useTransform(p, [0, 0.06], [0.35, 1]);
   return (
@@ -143,7 +165,7 @@ function MobileEngine({ e, i, p }: { e: (typeof ENGINES)[number]; i: number; p: 
   const y = useTransform(p, [start, full], ["60vh", "0vh"]);
   const opacity = useTransform(p, [start, full, i === 2 ? 1 : out, i === 2 ? 1 : out + 0.03], [0, 1, 1, i === 2 ? 1 : 0]);
   return (
-    <motion.div className="absolute w-[86vw] origin-bottom" style={{ rotateX, y, opacity }}>
+    <motion.div className="absolute w-[86vw] origin-bottom" style={{ rotateX, y, opacity, willChange: "transform, opacity" }}>
       <div className="p-6" style={{ background: "#000000", border: RULE, boxShadow: "0 30px 80px -30px rgba(0,0,0,0.8)" }}>
         <div className="flex items-center gap-3">
           <span className="flex items-center justify-center rounded-full font-[JetBrains_Mono] text-[11px]" style={{ width: 26, height: 26, background: MONEY, color: "#0A0903" }}>{e.n}</span>
@@ -161,7 +183,7 @@ function MobileEngine({ e, i, p }: { e: (typeof ENGINES)[number]; i: number; p: 
 function StoryRoom() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
-  const p = useSpring(scrollYProgress, { stiffness: 90, damping: 24, mass: 0.4 });
+  const p = useSpring(scrollYProgress, { stiffness: 70, damping: 26, mass: 0.45 });
   const x = useTransform(p, [0.05, 0.95], ["4vw", "-172vw"]);
   return (
     <section ref={ref} className="relative" style={{ height: "320vh" }}>
@@ -175,7 +197,7 @@ function StoryRoom() {
             <motion.div className="h-full origin-left" style={{ scaleX: p, background: MONEY }} />
           </div>
         </div>
-        <motion.div className="flex gap-4 md:gap-6 w-max pl-2" style={{ x }}>
+        <motion.div className="flex gap-4 md:gap-6 w-max pl-2" style={{ x, willChange: "transform" }}>
           {STORY.map((b, i) => (
             <div key={i} className="shrink-0 w-[74vw] md:w-[26vw] p-5 md:p-6" style={{ background: "#000000", border: RULE, marginTop: i % 2 ? 34 : 0 }}>
               <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase" style={{ color: b.who === "system" ? MONEY : STEEL }}>
@@ -199,7 +221,7 @@ function WorkPiece({ p, i, item }: { p: MotionValue<number>; i: number; item: (t
   return (
     <motion.a data-cursor href={item.href} target="_blank" rel="noopener noreferrer"
       className={`absolute left-1/2 block w-[78vw] md:w-[560px] ${i % 2 ? "z-[6]" : "z-[2]"}`}
-      style={{ y, rotate, x: i === 0 ? "-62%" : i === 1 ? "-38%" : "-52%" }}>
+      style={{ willChange: "transform", y, rotate, x: i === 0 ? "-62%" : i === 1 ? "-38%" : "-52%" }}>
       <div className="relative overflow-hidden aspect-[16/10] group" style={{ border: RULE, boxShadow: "0 30px 90px -25px rgba(0,0,0,0.85)" }}>
         <img src={item.img} alt={item.name} className="absolute inset-0 h-full w-full object-cover object-top grayscale-[0.5] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-[1.03]" />
         <span className="absolute bottom-3 left-3 font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase px-3 py-1.5" style={{ background: "#0A0903", color: INK }}>
@@ -212,7 +234,7 @@ function WorkPiece({ p, i, item }: { p: MotionValue<number>; i: number; item: (t
 function WorkRoom() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
-  const p = useSpring(scrollYProgress, { stiffness: 90, damping: 24, mass: 0.4 });
+  const p = useSpring(scrollYProgress, { stiffness: 70, damping: 26, mass: 0.45 });
   const typeScale = useTransform(p, [0, 1], [0.92, 1.1]);
   return (
     <section ref={ref} id="work" className="relative" style={{ height: "340vh" }}>
@@ -306,7 +328,7 @@ export default function V3() {
   const trackSkew = useSpring(useTransform(vel, [-3000, 3000], [4, -4]), { stiffness: 200, damping: 22, mass: 0.3 });
   useEffect(() => {
     if (reduce) return;
-    const lenis = new Lenis({ duration: 1.2, smoothWheel: true });
+    const lenis = new Lenis({ duration: 1.35, smoothWheel: true, touchMultiplier: 1.4 });
     let raf = 0; const loop = (t: number) => { lenis.raf(t); raf = requestAnimationFrame(loop); };
     raf = requestAnimationFrame(loop);
     return () => { cancelAnimationFrame(raf); lenis.destroy(); };
@@ -330,7 +352,7 @@ export default function V3() {
       `}</style>
       {!reduce && <Cursor />}
       <AnimatePresence>{!reduce && !loaded && <Preloader key="pre" onDone={() => setLoaded(true)} />}</AnimatePresence>
-      <DroneLayer reduce={!!reduce} />
+      <DroneCanvas reduce={!!reduce} />
       <Grain />
       <ScrollRail />
 
