@@ -122,7 +122,7 @@ export const STEPS: Step[] = [
 
 export const CRED = [
   { name: "Facebook", logo: "/logos/facebook.svg" },
-  { name: "Whole Foods Market", logo: null },
+  { name: "Whole Foods Market", logo: "/logos/wholefoodsmarket.png" },
   { name: "Indeed", logo: "/logos/indeed.svg" },
   { name: "FedEx", logo: "/logos/fedex.svg" },
 ];
@@ -271,7 +271,8 @@ export function Badges() {
     <div className="relative overflow-hidden py-2" style={{ maskImage: "linear-gradient(to right, transparent, #000 7%, #000 93%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, #000 7%, #000 93%, transparent)" }}>
       <div className="flex items-center gap-12 md:gap-16 w-max" style={{ animation: "marq 30s linear infinite" }}>
         {row.map((c, i) => (
-          <span key={i} className="shrink-0 whitespace-nowrap font-[Redaction] font-black" style={{ fontSize: "clamp(18px,2vw,26px)", color: INK, opacity: 0.8 }}>{c.name}</span>
+          <img key={i} src={c.logo!} alt={c.name} className="shrink-0 opacity-85 hover:opacity-100 transition-opacity"
+            style={{ height: c.name === "Whole Foods Market" ? "clamp(30px,3.2vw,42px)" : "clamp(20px,2.2vw,28px)", filter: c.name === "Whole Foods Market" ? "brightness(0) invert(0.93)" : undefined }} />
         ))}
       </div>
     </div>
