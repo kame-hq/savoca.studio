@@ -78,6 +78,28 @@ function Hero({ reduce, go }: { reduce: boolean; go: boolean }) {
   );
 }
 
+/* depth wrapper — every section flies through Z: rises from below tipped back,
+   reads flat in the middle, recedes overhead on exit. transforms are identity
+   while the section occupies the viewport so interaction zones stay flat. */
+function Deep({ children, reduce }: { children: ReactNode; reduce: boolean }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const enterRaw = useScroll({ target: ref, offset: ["start end", "start 0.38"] }).scrollYProgress;
+  const exitRaw = useScroll({ target: ref, offset: ["end 0.62", "end start"] }).scrollYProgress;
+  const enter = useSpring(enterRaw, { stiffness: 95, damping: 26, mass: 0.4 });
+  const exit = useSpring(exitRaw, { stiffness: 95, damping: 26, mass: 0.4 });
+  const rotateX = useTransform([enter, exit], ([a, b]: number[]) => (reduce ? 0 : 16 * (1 - a) - 10 * b));
+  const scale = useTransform([enter, exit], ([a, b]: number[]) => (reduce ? 1 : 0.94 + 0.06 * a - 0.05 * b));
+  const y = useTransform([enter, exit], ([a, b]: number[]) => (reduce ? 0 : 110 * (1 - a) - 90 * b));
+  const opacity = useTransform([enter, exit], ([a, b]: number[]) => (reduce ? 1 : Math.min(1, 0.25 + 0.75 * a) * (1 - 0.65 * b)));
+  return (
+    <div ref={ref} style={{ perspective: 1400 }}>
+      <motion.div style={{ rotateX, scale, y, opacity, transformOrigin: "50% 18%", willChange: "transform, opacity", backfaceVisibility: "hidden" }}>
+        {children}
+      </motion.div>
+    </div>
+  );
+}
+
 /* SECTION 2 — engines rise from the floor behind pinned type */
 function EngineCard({ e, i, p }: { e: (typeof ENGINES)[number]; i: number; p: MotionValue<number> }) {
   const start = 0.08 + i * 0.27, full = start + 0.16;
@@ -458,10 +480,10 @@ export default function V3() {
         </div>
       </motion.div>
       <EnginesRoom />
-      <CostRoom />
-      <WorkShowcase />
-      <PricingFold />
-      <Finale />
+      <Deep reduce={!!reduce}><CostRoom /></Deep>
+      <Deep reduce={!!reduce}><WorkShowcase /></Deep>
+      <Deep reduce={!!reduce}><PricingFold /></Deep>
+      <Deep reduce={!!reduce}><Finale /></Deep>
     </main>
   );
 }
