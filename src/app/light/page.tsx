@@ -242,7 +242,7 @@ export default function Light() {
               <section className="px-6 md:px-10 py-10 lg:py-14">
                 <p className={lab} style={{ color: STEEL }}><span style={{ color: SIGNAL }}>03</span> — Three ways to build</p>
                 <h2 className="font-[Redaction] font-bold leading-[0.98] max-w-[20ch]" style={{ fontSize: "clamp(26px,4vw,48px)" }}>Built for the size and complexity of the business.</h2>
-                <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.16em] uppercase mt-4 mb-8" style={{ color: MONEY }}>You work directly with me. No agency layers.</p>
+                <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.16em] uppercase mt-4 mb-8" style={{ color: MONEY }}>You work directly with me.</p>
                 <div className="grid grid-cols-1 lg:grid-cols-3" style={{ border: RULE }}>
                   {BANDS.map((b, i) => (
                     <div key={b.n} className="flex flex-col p-6 md:p-7" style={{ borderRight: i < BANDS.length - 1 ? RULE : undefined, borderBottom: RULE }}>

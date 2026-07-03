@@ -319,7 +319,7 @@ function PricingFold() {
     <section id="pricing" className="relative px-6 md:px-12 py-24 md:py-32" style={{ perspective: 1200 }}>
       <p className={lab} style={{ color: STEEL }}>Three Ways To Build</p>
       <h2 className="font-[Redaction] font-bold leading-[0.98] mt-2 max-w-[20ch]" style={{ fontSize: "clamp(28px,4.4vw,54px)" }}>Built for the size and complexity of the business.</h2>
-      <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.16em] uppercase mt-4 mb-10" style={{ color: MONEY }}>Built and run by Jack Savoca. No agency layers.</p>
+      <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.16em] uppercase mt-4 mb-10" style={{ color: MONEY }}>Built and run by Jack Savoca.</p>
       <div className="grid grid-cols-1 lg:grid-cols-3" style={{ border: RULE }}>
         {BANDS.map((b, i) => (
           <motion.div key={b.n} className="origin-bottom" initial={{ rotateX: 34, y: 60, opacity: 0 }} whileInView={{ rotateX: 0, y: 0, opacity: 1 }}

@@ -250,7 +250,7 @@ export default function Home() {
               <section className="px-6 md:px-10 py-10 lg:py-14">
                 <p className={lab} style={{ color: STEEL }}>Three ways to build</p>
                 <h2 className="font-[Redaction] font-bold leading-[0.98] max-w-[20ch]" style={{ fontSize: "clamp(26px,4vw,48px)" }}>Built for the size and complexity of the business.</h2>
-                <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.16em] uppercase mt-4 mb-8" style={{ color: MONEY }}>Built and run by Jack Savoca. No agency layers, no account team.</p>
+                <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.16em] uppercase mt-4 mb-8" style={{ color: MONEY }}>Built and run by Jack Savoca.</p>
                 <div className="grid grid-cols-1 lg:grid-cols-3" style={{ border: RULE }}>
                   {BANDS.map((b, i) => <BandCard key={b.n} b={b} last={i === BANDS.length - 1} />)}
                 </div>
