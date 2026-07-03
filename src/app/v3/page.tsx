@@ -151,29 +151,45 @@ function StoryRoom() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
   const p = useSpring(scrollYProgress, { stiffness: 70, damping: 26, mass: 0.45 });
   const x = useTransform(p, [0.05, 0.95], ["4vw", "-172vw"]);
+  const header = (
+    <div className="px-6 md:px-12 mb-8">
+      <p className={lab} style={{ color: STEEL, textShadow: "0 1px 12px rgba(0,0,0,0.8)" }}>One Lead, Start To Finish</p>
+      <h2 className="font-[Redaction] font-bold leading-[1.02] mt-3" style={{ fontSize: "clamp(26px,4vw,52px)", textShadow: "0 2px 20px rgba(0,0,0,0.75)" }}>
+        You&apos;re busy doing the work.<br /><span className="font-[Fraunces]" style={{ fontWeight: 400, fontStyle: "italic", color: MONEY, textShadow: "0 2px 20px rgba(0,0,0,0.9)" }}>The system isn&apos;t.</span>
+      </h2>
+    </div>
+  );
+  const card = (b: (typeof STORY)[number], i: number, cls: string) => (
+    <div key={i} className={cls} style={{ background: "#000000", border: RULE }}>
+      <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase" style={{ color: b.who === "system" ? MONEY : STEEL }}>
+        {b.t} · {b.who === "system" ? "The system" : b.who === "mark" ? "Your crew" : "A customer"}
+      </p>
+      <p className="font-[Redaction] mt-3" style={{ fontSize: "clamp(17px,1.6vw,21px)" }}>{b.text}</p>
+      <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase mt-4" style={{ color: "rgba(255,253,251,0.35)" }}>{String(i + 1).padStart(2, "0")} / 0{STORY.length} · {b.stage}</p>
+    </div>
+  );
   return (
-    <section ref={ref} className="relative" style={{ height: "320vh" }}>
-      <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center">
-        <div className="px-6 md:px-12 mb-8">
-          <p className={lab} style={{ color: STEEL }}>One Lead, Start To Finish</p>
-          <h2 className="font-[Redaction] font-bold leading-[0.98] mt-2" style={{ fontSize: "clamp(26px,4vw,52px)" }}>
-            You&apos;re busy doing the work. <span className="font-[Fraunces]" style={{ fontWeight: 400, fontStyle: "italic", color: MONEY }}>The system isn&apos;t.</span>
-          </h2>
-          <div className="mt-5 h-px w-full max-w-[420px] overflow-hidden" style={{ background: "rgba(255,253,251,0.12)" }}>
-            <motion.div className="h-full origin-left" style={{ scaleX: p, background: MONEY }} />
-          </div>
+    <section ref={ref} className="relative md:h-[320vh]">
+      {/* desktop: pinned horizontal scrub */}
+      <div className="hidden md:flex sticky top-0 h-screen overflow-hidden flex-col justify-center">
+        {header}
+        <div className="px-12 mb-6 h-px w-full max-w-[420px] overflow-hidden" style={{ background: "rgba(255,253,251,0.12)" }}>
+          <motion.div className="h-full origin-left" style={{ scaleX: p, background: MONEY }} />
         </div>
-        <motion.div className="flex gap-4 md:gap-6 w-max pl-2" style={{ x, willChange: "transform" }}>
-          {STORY.map((b, i) => (
-            <div key={i} className="shrink-0 w-[74vw] md:w-[26vw] p-5 md:p-6" style={{ background: "#000000", border: RULE, marginTop: i % 2 ? 34 : 0 }}>
-              <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase" style={{ color: b.who === "system" ? MONEY : STEEL }}>
-                {b.t} · {b.who === "system" ? "The system" : b.who === "mark" ? "Your crew" : "A customer"}
-              </p>
-              <p className="font-[Redaction] mt-3" style={{ fontSize: "clamp(17px,1.6vw,21px)" }}>{b.text}</p>
-              <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase mt-4" style={{ color: "rgba(255,253,251,0.35)" }}>{String(i + 1).padStart(2, "0")} / 0{STORY.length} · {b.stage}</p>
-            </div>
-          ))}
+        <motion.div className="flex gap-6 w-max pl-2" style={{ x, willChange: "transform" }}>
+          {STORY.map((b, i) => card(b, i, `shrink-0 w-[26vw] p-6 ${i % 2 ? "mt-[34px]" : ""}`))}
         </motion.div>
+      </div>
+      {/* mobile: clean vertical story */}
+      <div className="md:hidden py-14">
+        {header}
+        <div className="px-6 space-y-3">
+          {STORY.map((b, i) => (
+            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-8%" }} transition={{ duration: 0.5, ease: EASE }}>
+              {card(b, i, "w-full p-5")}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
