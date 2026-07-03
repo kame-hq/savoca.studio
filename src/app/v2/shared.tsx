@@ -11,8 +11,8 @@ export const CREAM = "#0A0903";   // page ground — black espresso
 export const INK = "#FFFDFB";     // primary type — warm white-beige
 export const BONE = "#FFFDFB";    // brightest — hero over video, near white
 export const STEEL = "#B3AA91";   // muted beige
-export const MONEY = "#04E824";   // money-green, brightened for dark ground
-export const SIGNAL = "#1EFF8B";  // signal-red, active-tab mark only
+export const MONEY = "#418C7B";   // money-green, brightened for dark ground
+export const SIGNAL = "#418C7B";  // signal-red, active-tab mark only
 export const RULE = "1px solid rgba(255,253,251,0.14)";
 export const TEAL = "#8A7C64";    // warm taupe (hero pill on video)
 export const SAND = "#8A7C64";
@@ -272,7 +272,7 @@ export function Badges() {
       <div className="flex items-center gap-12 md:gap-16 w-max" style={{ animation: "marq 30s linear infinite" }}>
         {row.map((c, i) => (
           <img key={i} src={c.logo!} alt={c.name} className="shrink-0 opacity-85 hover:opacity-100 transition-opacity"
-            style={{ height: c.name === "Whole Foods Market" ? "clamp(30px,3.2vw,42px)" : "clamp(20px,2.2vw,28px)", filter: c.name === "Whole Foods Market" ? "brightness(0) invert(0.93)" : undefined }} />
+            style={{ height: c.name === "Whole Foods Market" ? "clamp(30px,3.2vw,42px)" : c.name === "FedEx" ? "clamp(28px,3vw,38px)" : "clamp(20px,2.2vw,28px)", filter: c.name === "Whole Foods Market" ? "brightness(0) invert(0.93)" : undefined }} />
         ))}
       </div>
     </div>
@@ -470,7 +470,7 @@ export function Engines() {
         ))}
       </div>
       {/* bottom bar */}
-      <div className="px-5 py-3.5 text-center" style={{ borderTop: RULE, background: "rgba(30,255,139,0.10)" }}>
+      <div className="px-5 py-3.5 text-center" style={{ borderTop: RULE, background: "rgba(65,140,123,0.10)" }}>
         <p className="font-[JetBrains_Mono] text-[10px] md:text-[11px] tracking-[0.24em] uppercase" style={{ color: INK }}>
           One System <span style={{ color: MONEY }}>·</span> Three Engines <span style={{ color: MONEY }}>·</span> Revenue That Compounds
         </p>
@@ -565,7 +565,7 @@ export function BeforeAfter() {
           ))}
         </div>
       </div>
-      <div className="p-6 md:p-8" style={{ borderBottom: RULE, background: "rgba(4,232,36,0.05)" }}>
+      <div className="p-6 md:p-8" style={{ borderBottom: RULE, background: "rgba(65,140,123,0.05)" }}>
         <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase mb-4" style={{ color: MONEY }}>With the system</p>
         <div className="space-y-3">
           {after.map((it) => (

@@ -70,7 +70,7 @@ function EngineCard({ e, i, p }: { e: (typeof ENGINES)[number]; i: number; p: Mo
   const recede = useTransform(p, [full + 0.06, full + 0.2], [1, i === 2 ? 1 : 0.35]);
   return (
     <motion.div className="absolute origin-bottom w-[86vw] md:w-[400px]" style={{ rotateX, y, x: (i - 1) * 440, opacity: useTransform([opacity, recede], ([a, b]: number[]) => a * b) }}>
-      <div className="p-6 md:p-7" style={{ background: "#0F0C09", border: RULE, boxShadow: "0 30px 80px -30px rgba(0,0,0,0.8)" }}>
+      <div className="p-6 md:p-7" style={{ background: "#000000", border: RULE, boxShadow: "0 30px 80px -30px rgba(0,0,0,0.8)" }}>
         <div className="flex items-center gap-3">
           <span className="flex items-center justify-center rounded-full font-[JetBrains_Mono] text-[11px]" style={{ width: 27, height: 27, background: MONEY, color: "#0A0903" }}>{e.n}</span>
           <h3 className="font-[Redaction] font-black leading-none" style={{ fontSize: "clamp(26px,3vw,36px)", color: INK }}>{e.name}</h3>
@@ -94,7 +94,7 @@ function EnginesRoom() {
         <motion.div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6" style={{ scale: titleScale, opacity: titleOpacity }}>
           <p className={lab} style={{ color: STEEL }}>The System</p>
           <h2 className="font-[Redaction] font-black leading-[0.95] mt-3" style={{ fontSize: "clamp(40px,8.5vw,130px)", color: "rgba(255,253,251,0.2)" }}>
-            One system.<br /><span className="font-[Fraunces]" style={{ fontWeight: 400, fontStyle: "italic", color: "rgba(30,255,139,0.55)" }}>Three engines.</span>
+            One system.<br /><span className="font-[Fraunces]" style={{ fontWeight: 400, fontStyle: "italic", color: "rgba(65,140,123,0.55)" }}>Three engines.</span>
           </h2>
         </motion.div>
         <div className="absolute inset-0 hidden md:block">
@@ -115,7 +115,7 @@ function MobileEngine({ e, i, p }: { e: (typeof ENGINES)[number]; i: number; p: 
   const opacity = useTransform(p, [start, full, i === 2 ? 1 : out, i === 2 ? 1 : out + 0.03], [0, 1, 1, i === 2 ? 1 : 0]);
   return (
     <motion.div className="absolute w-[86vw] origin-bottom" style={{ rotateX, y, opacity }}>
-      <div className="p-6" style={{ background: "#0F0C09", border: RULE, boxShadow: "0 30px 80px -30px rgba(0,0,0,0.8)" }}>
+      <div className="p-6" style={{ background: "#000000", border: RULE, boxShadow: "0 30px 80px -30px rgba(0,0,0,0.8)" }}>
         <div className="flex items-center gap-3">
           <span className="flex items-center justify-center rounded-full font-[JetBrains_Mono] text-[11px]" style={{ width: 26, height: 26, background: MONEY, color: "#0A0903" }}>{e.n}</span>
           <h3 className="font-[Redaction] font-black leading-none" style={{ fontSize: 28, color: INK }}>{e.name}</h3>
@@ -148,7 +148,7 @@ function StoryRoom() {
         </div>
         <motion.div className="flex gap-4 md:gap-6 w-max pl-2" style={{ x }}>
           {STORY.map((b, i) => (
-            <div key={i} className="shrink-0 w-[74vw] md:w-[26vw] p-5 md:p-6" style={{ background: "#0F0C09", border: RULE, marginTop: i % 2 ? 34 : 0 }}>
+            <div key={i} className="shrink-0 w-[74vw] md:w-[26vw] p-5 md:p-6" style={{ background: "#000000", border: RULE, marginTop: i % 2 ? 34 : 0 }}>
               <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase" style={{ color: b.who === "system" ? MONEY : STEEL }}>
                 {b.t} · {b.who === "system" ? "The system" : b.who === "mark" ? "Your crew" : "A customer"}
               </p>
@@ -214,7 +214,7 @@ function PricingFold() {
           </motion.div>
         ))}
       </div>
-      <div className="mt-8 p-6 md:p-7 flex flex-col md:flex-row md:items-center gap-4 md:gap-8" style={{ border: RULE, background: "rgba(30,255,139,0.10)" }}>
+      <div className="mt-8 p-6 md:p-7 flex flex-col md:flex-row md:items-center gap-4 md:gap-8" style={{ border: RULE, background: "rgba(65,140,123,0.10)" }}>
         <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.24em] uppercase shrink-0" style={{ color: MONEY }}>The Promise</p>
         <p className="font-[Redaction]" style={{ fontSize: "clamp(17px,2vw,22px)" }}>
           If the first month doesn&apos;t show measurable improvement, the deposit comes back. After that, three months to let the system work — then month-to-month.
@@ -223,7 +223,7 @@ function PricingFold() {
       <div className="mt-10 grid grid-cols-1 md:grid-cols-3" style={{ border: RULE }}>
         {COMPARE.map(([who, cost, note], i) => (
           <div key={who} className={`p-5 md:p-6 border-b md:border-b-0 ${i < COMPARE.length - 1 ? "md:border-r" : ""}`}
-            style={{ borderColor: "rgba(255,253,251,0.14)", background: i === COMPARE.length - 1 ? "rgba(30,255,139,0.14)" : "transparent" }}>
+            style={{ borderColor: "rgba(255,253,251,0.14)", background: i === COMPARE.length - 1 ? "rgba(65,140,123,0.14)" : "transparent" }}>
             <h3 className="font-[Redaction] font-bold" style={{ fontSize: "clamp(18px,2vw,24px)", color: i === COMPARE.length - 1 ? MONEY : INK }}>{who}</h3>
             <p className="font-[JetBrains_Mono] text-[12px] mt-1.5" style={{ color: INK }}>{cost}</p>
             <p className="font-[Redaction] mt-2" style={{ fontSize: "14px", color: STEEL }}>{note}</p>
@@ -249,7 +249,7 @@ function PricingFold() {
 function Finale() {
   return (
     <section id="contact" className="relative overflow-hidden px-6 md:px-12 py-28 md:py-40">
-      <span aria-hidden className="absolute -right-16 top-1/2 -translate-y-1/2 font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "min(90vw,700px)", color: "rgba(30,255,139,0.07)" }}>§</span>
+      <span aria-hidden className="absolute -right-16 top-1/2 -translate-y-1/2 font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "min(90vw,700px)", color: "rgba(65,140,123,0.07)" }}>§</span>
       <p className={lab} style={{ color: STEEL }}>Why This Works</p>
       <div className="relative mt-4 font-[Redaction] space-y-4 max-w-[52ch]" style={{ fontSize: "clamp(17px,2vw,22px)" }}>
         <p>Savoca Studio builds the revenue workflow underneath the business — and keeps improving it with you.</p>
@@ -340,7 +340,7 @@ export default function V3() {
               VERTICALS.map((v) => (
                 <span key={`${r}-${v}`} className="flex items-center gap-8 shrink-0">
                   <span className="font-[Fraunces] whitespace-nowrap" style={{ fontSize: "clamp(18px,2.3vw,28px)", fontStyle: "italic", color: "rgba(255,253,251,0.42)" }}>{v}</span>
-                  <span className="font-[Fraunces] font-black" style={{ color: "rgba(30,255,139,0.45)", fontSize: "clamp(13px,1.5vw,18px)" }}>§</span>
+                  <span className="font-[Fraunces] font-black" style={{ color: "rgba(65,140,123,0.45)", fontSize: "clamp(13px,1.5vw,18px)" }}>§</span>
                 </span>
               ))
             )}
