@@ -237,7 +237,7 @@ function WorkShowcase() {
               <span className="font-[JetBrains_Mono] text-[12px] shrink-0" style={{ color: MONEY }}>0{i + 1}</span>
               <span className="font-[Redaction] font-black leading-none" style={{ fontSize: "clamp(36px,7vw,96px)" }}>{item.name}</span>
               <span className="ml-auto text-right shrink-0">
-                <span className="block font-[JetBrains_Mono] text-[10px] tracking-[0.18em] uppercase" style={{ color: STEEL }}>{item.vertical}</span>
+                <span className="hidden md:block font-[JetBrains_Mono] text-[10px] tracking-[0.18em] uppercase" style={{ color: STEEL }}>{item.vertical}</span>
                 <span className="hidden md:block font-[JetBrains_Mono] text-[10px] tracking-[0.18em] uppercase mt-1 transition-colors group-hover:opacity-100 opacity-50" style={{ color: MONEY }}>Visit ↗</span>
               </span>
             </a>
