@@ -295,7 +295,8 @@ function Finale() {
       <p className={lab} style={{ color: STEEL }}>Why This Works</p>
       <div className="relative mt-4 font-[Redaction] space-y-4 max-w-[52ch]" style={{ fontSize: "clamp(17px,2vw,22px)" }}>
         <p>Savoca Studio builds the revenue workflow underneath the business — and keeps improving it with you.</p>
-        <p style={{ color: STEEL }}>You work directly with me — Jack Savoca. Program management and revenue operations background from larger companies, applied to service businesses.</p>
+        <p style={{ color: INK }}>You work directly with me — Jack Savoca. I spent my career shipping products and running revenue operations inside Fortune 500 companies: <span style={{ color: MONEY }}>Facebook, Whole Foods Market, Indeed, and FedEx.</span></p>
+        <p className="font-[Fraunces]" style={{ fontStyle: "italic", fontWeight: 400, fontSize: "clamp(19px,2.3vw,26px)", color: MONEY }}>Fortune 500 discipline. Main Street focus.</p>
       </div>
       <div className="mt-8"><Badges /></div>
       <div className="relative mt-16">
