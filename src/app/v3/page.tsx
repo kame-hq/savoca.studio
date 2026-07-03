@@ -21,6 +21,35 @@ const PORTFOLIO = [
 
 const lab = "font-[JetBrains_Mono] text-[11px] tracking-[0.3em] uppercase";
 
+/* drone layer scrubbed by scroll — scroll down = fly forward */
+function DroneLayer({ reduce }: { reduce: boolean }) {
+  const vid = useRef<HTMLVideoElement>(null);
+  const { scrollYProgress } = useScroll();
+  const p = useSpring(scrollYProgress, { stiffness: 60, damping: 22, mass: 0.5 });
+  useEffect(() => {
+    if (reduce) return;
+    const unsub = p.on("change", (v) => {
+      const el = vid.current;
+      if (!el || !el.duration || Number.isNaN(el.duration)) return;
+      el.currentTime = Math.max(0, Math.min(el.duration - 0.05, v * el.duration));
+    });
+    return unsub;
+  }, [p, reduce]);
+  return (
+    <div aria-hidden className="fixed inset-0 pointer-events-none overflow-hidden">
+      {reduce ? (
+        <img src="/video/bg-drone-poster.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" style={{ opacity: 0.55 }} />
+      ) : (
+        <video ref={vid} className="absolute inset-0 h-full w-full object-cover" muted playsInline preload="auto" poster="/video/bg-drone-poster.jpg" style={{ opacity: 0.55 }}>
+          <source src="/video/bg-drone.mp4" type="video/mp4" />
+        </video>
+      )}
+      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 35%, rgba(10,9,3,0.55) 100%)" }} />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(10,9,3,0.4), rgba(10,9,3,0.12) 40%, rgba(10,9,3,0.45))" }} />
+    </div>
+  );
+}
+
 /* thin custom scrollbar, green thumb */
 function ScrollRail() {
   const { scrollYProgress } = useScroll();
@@ -301,18 +330,7 @@ export default function V3() {
       `}</style>
       {!reduce && <Cursor />}
       <AnimatePresence>{!reduce && !loaded && <Preloader key="pre" onDone={() => setLoaded(true)} />}</AnimatePresence>
-      {/* the drone layer: one aerial drift under the whole site */}
-      <div aria-hidden className="fixed inset-0 pointer-events-none overflow-hidden">
-        {reduce ? (
-          <img src="/video/bg-drone-poster.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" style={{ opacity: 0.55 }} />
-        ) : (
-          <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload="auto" poster="/video/bg-drone-poster.jpg" style={{ opacity: 0.55 }}>
-            <source src="/video/bg-drone.mp4" type="video/mp4" />
-          </video>
-        )}
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 35%, rgba(10,9,3,0.55) 100%)" }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(10,9,3,0.4), rgba(10,9,3,0.12) 40%, rgba(10,9,3,0.45))" }} />
-      </div>
+      <DroneLayer reduce={!!reduce} />
       <Grain />
       <ScrollRail />
 
