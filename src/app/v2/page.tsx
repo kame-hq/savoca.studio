@@ -62,6 +62,8 @@ export default function Home() {
         @keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(14vw,10vh) scale(1.18)}}
         @keyframes drift2{from{transform:translate(0,0) scale(1.1)}to{transform:translate(-12vw,-8vh) scale(0.95)}}
         @keyframes drift3{from{transform:translate(0,0) scale(0.95)}to{transform:translate(-8vw,6vh) scale(1.22)}}
+        @keyframes flick{0%,91%,100%{opacity:1}92%{opacity:0.3}94%{opacity:0.9}96%{opacity:0.45}98%{opacity:1}}
+        @keyframes nudge{0%,86%,100%{transform:translateX(0)}90%{transform:translateX(5px)}94%{transform:translateX(-2px)}}
       `}</style>
       {!reduce && <Cursor />}
       {/* living background: slow-breathing glows on near-black */}
@@ -171,28 +173,30 @@ export default function Home() {
       </AnimatePresence>
 
       {/* panel area */}
-      <div ref={scroller} className="relative flex-1 overflow-y-auto">
+      <div ref={scroller} className="relative flex-1 overflow-y-auto" style={{ perspective: 1400 }}>
         <AnimatePresence mode="wait">
           <motion.div key={tab}
-            initial={{ clipPath: "inset(0 0 100% 0)", opacity: 0.6 }}
-            animate={{ clipPath: "inset(0 0 0% 0)", opacity: 1 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.55, ease: EASE }} className="min-h-full">
+            initial={{ rotateX: -16, y: 46, opacity: 0, transformOrigin: "top center" }}
+            animate={{ rotateX: 0, y: 0, opacity: 1 }}
+            exit={{ rotateX: 10, y: -28, opacity: 0 }}
+            transition={{ duration: 0.6, ease: EASE }} className="min-h-full">
 
             {/* HOME — dark cinematic hero, matted in cream */}
             {tab === "" && (<>
+              <Tilt strength={1.6}>
               <section className="relative flex flex-col justify-end overflow-hidden m-2.5 md:m-4" style={{ color: BONE, minHeight: "calc(100dvh - 100px)", border: RULE }}>
                 <HeroReel />
                 <div className="relative z-10 px-6 md:px-10 pb-12 lg:pb-14 pt-16">
                   <p className="font-[JetBrains_Mono] text-[11px] md:text-[12px] tracking-[0.18em] md:tracking-[0.28em] uppercase mb-6" style={{ color: BONE, textShadow: "0 1px 14px rgba(0,0,0,0.75)" }}>Revenue systems for service businesses</p>
                   <Split text="I build the layer between demand and getting paid." go accentFrom={7} className="font-[Redaction] font-black leading-[0.9] tracking-[-0.015em] max-w-[17ch]" style={{ fontSize: "clamp(29px,8.4vw,102px)", textShadow: "0 2px 28px rgba(0,0,0,0.65)" }} />
                   <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-                    <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block whitespace-nowrap font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: BONE, color: "#0B0806" }}>Let&apos;s talk →</a></Magnetic>
+                    <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block whitespace-nowrap font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: BONE, color: "#0B0806", animation: reduce ? undefined : "nudge 7s ease-in-out infinite" }}>Let&apos;s talk →</a></Magnetic>
                     <button data-cursor onClick={() => go("systems")} className="whitespace-nowrap font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase opacity-80 hover:opacity-100 transition-opacity" style={{ color: BONE }}>See the system →</button>
                   </div>
-                  <div className="mt-8"><PathStrip nodes={PATH_SHORT} accentLast /></div>
+                  <div className="mt-8"><PathStrip nodes={PATH_SHORT} accentLast flicker /></div>
                 </div>
               </section>
+              </Tilt>
               {/* verticals marquee */}
               <div className="overflow-hidden py-4 md:py-5 mx-2.5 md:mx-4 mb-4" style={{ borderTop: RULE, borderBottom: RULE, color: INK }}>
                 <div className="flex items-center gap-8 w-max" style={{ animation: "marq 90s linear infinite" }}>

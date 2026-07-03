@@ -156,7 +156,7 @@ export function Grain() {
 }
 
 /* ---- 3D tilt wrapper (desktop hover) ---- */
-export function Tilt({ children }: { children: React.ReactNode }) {
+export function Tilt({ children, strength = 7 }: { children: React.ReactNode; strength?: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const rx = useMotionValue(0), ry = useMotionValue(0);
   const srx = useSpring(rx, { stiffness: 260, damping: 20 });
@@ -165,8 +165,8 @@ export function Tilt({ children }: { children: React.ReactNode }) {
     <motion.div ref={ref} style={{ rotateX: srx, rotateY: sry, transformPerspective: 900 }}
       onMouseMove={(e) => {
         const r = ref.current?.getBoundingClientRect(); if (!r) return;
-        ry.set(((e.clientX - r.left) / r.width - 0.5) * 7);
-        rx.set(-((e.clientY - r.top) / r.height - 0.5) * 7);
+        ry.set(((e.clientX - r.left) / r.width - 0.5) * strength);
+        rx.set(-((e.clientY - r.top) / r.height - 0.5) * strength);
       }}
       onMouseLeave={() => { rx.set(0); ry.set(0); }}>
       {children}
@@ -215,13 +215,14 @@ export function Bullets({ items, color = SOFT }: { items: string[]; color?: stri
   );
 }
 
-export function PathStrip({ nodes, accentLast }: { nodes: string[]; accentLast?: boolean }) {
+export function PathStrip({ nodes, accentLast, flicker }: { nodes: string[]; accentLast?: boolean; flicker?: boolean }) {
   return (
     <div className="flex items-center gap-2.5 md:gap-3 font-[JetBrains_Mono] text-[11px] md:text-[12px] tracking-[0.16em] uppercase overflow-x-auto pb-2 whitespace-nowrap">
       {nodes.map((node, i) => (
         <span key={node} className="flex items-center gap-2.5 md:gap-3 shrink-0">
           {i > 0 && <span style={{ color: TEAL }}>→</span>}
-          <span style={{ color: accentLast && i === nodes.length - 1 ? BONE : i === 0 ? DIM : SOFT }}>{node}</span>
+          <span style={{ color: accentLast && i === nodes.length - 1 ? BONE : i === 0 ? DIM : SOFT,
+            animation: flicker ? `flick ${5 + (i % 3) * 2}s linear ${i * 0.9}s infinite` : undefined }}>{node}</span>
         </span>
       ))}
     </div>
