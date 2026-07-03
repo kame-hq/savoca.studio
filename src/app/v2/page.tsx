@@ -59,12 +59,23 @@ export default function Home() {
         @font-face{font-family:'Redaction';src:url('/fonts/redaction/Redaction-Bold.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}
         @font-face{font-family:'Redaction';src:url('/fonts/redaction/Redaction-Italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
         @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-33.3333%)}}
+        @keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(14vw,10vh) scale(1.18)}}
+        @keyframes drift2{from{transform:translate(0,0) scale(1.1)}to{transform:translate(-12vw,-8vh) scale(0.95)}}
+        @keyframes drift3{from{transform:translate(0,0) scale(0.95)}to{transform:translate(-8vw,6vh) scale(1.22)}}
       `}</style>
       {!reduce && <Cursor />}
-      {/* wallpaper: crumpled black plastic, fixed under everything */}
-      <div aria-hidden className="fixed inset-0 pointer-events-none"
-        style={{ backgroundImage: "url(/img/bg-plastic.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.5 }} />
-      <div aria-hidden className="fixed inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 30%, rgba(11,8,6,0.55) 100%)" }} />
+      {/* living background: slow-breathing glows on near-black */}
+      <div aria-hidden className="fixed inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute rounded-full" style={{ width: "75vmax", height: "75vmax", left: "-25vmax", top: "-30vmax",
+          background: "radial-gradient(circle, rgba(44,122,95,0.11) 0%, transparent 62%)",
+          animation: reduce ? undefined : "drift1 60s ease-in-out infinite alternate" }} />
+        <div className="absolute rounded-full" style={{ width: "70vmax", height: "70vmax", right: "-28vmax", bottom: "-32vmax",
+          background: "radial-gradient(circle, rgba(241,233,216,0.055) 0%, transparent 60%)",
+          animation: reduce ? undefined : "drift2 75s ease-in-out infinite alternate" }} />
+        <div className="absolute rounded-full" style={{ width: "55vmax", height: "55vmax", left: "30%", top: "45%",
+          background: "radial-gradient(circle, rgba(44,122,95,0.06) 0%, transparent 58%)",
+          animation: reduce ? undefined : "drift3 90s ease-in-out infinite alternate" }} />
+      </div>
       <Grain />
 
       {/* header + tab bar (cream) */}
