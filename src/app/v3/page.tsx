@@ -5,7 +5,7 @@
 // behind pinned type, the story scrubs horizontally, work weaves through giant
 // type, pricing folds up, finale flickers. Black / beige / green. Preview route.
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence, useScroll, useTransform, useSpring, useVelocity, useReducedMotion, MotionValue } from "motion/react";
+import { motion, AnimatePresence, useScroll, useTransform, useSpring, useVelocity, useMotionValue, useReducedMotion, MotionValue } from "motion/react";
 import Lenis from "lenis";
 import {
   Cursor, Grain, Magnetic, HeroReel, PathStrip, BandCard, Badges, Split, Preloader, Tilt,
