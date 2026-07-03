@@ -7,13 +7,13 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import {
   Cursor, HeroReel, Split, PathStrip, BuildExplorer, ProcessStepper, StoryPlayer, BandCard, Badges, Grain, Magnetic, Tilt,
-  CREAM, INK, BONE, STEEL, MONEY, SIGNAL, RULE, TEAL, EASE, PATH_SHORT, PATH_LONG, BANDS, REPORTING_LINE,
+  CREAM, INK, BONE, STEEL, MONEY, SIGNAL, RULE, TEAL, EASE, PATH_SHORT, PATH_LONG, BANDS, REPORTING_LINE, VERTICALS, FAQ, COMPARE,
 } from "./shared";
 
 const PORTFOLIO = [
-  { name: "Krazy Strong", vertical: "Strength coaching", img: "/img/portfolio/krazystrong.jpg", href: "https://krazystrong.app" },
-  { name: "Squatzilla Fitness", vertical: "Metabolism + strength", img: "/img/portfolio/squatzilla.jpg", href: "https://squatzilla.fitness" },
-  { name: "Texas Tattoo", vertical: "Tattoo parlor", img: "/img/portfolio/texastattoo.jpg", href: "https://texastattoo.app" },
+  { name: "Krazy Strong", vertical: "Strength Coaching", img: "/img/portfolio/krazystrong.jpg", href: "https://krazystrong.app" },
+  { name: "Squatzilla Fitness", vertical: "Metabolism + Strength", img: "/img/portfolio/squatzilla.jpg", href: "https://squatzilla.fitness" },
+  { name: "Texas Tattoo", vertical: "Tattoo Parlor", img: "/img/portfolio/texastattoo.jpg", href: "https://texastattoo.app" },
 ];
 
 const TABS: [string, string][] = [
@@ -139,7 +139,7 @@ export default function Home() {
               <div className="overflow-hidden py-4 md:py-5 mx-2.5 md:mx-4 mb-4" style={{ borderTop: RULE, borderBottom: RULE, color: INK }}>
                 <div className="flex items-center gap-8 w-max" style={{ animation: "marq 36s linear infinite" }}>
                   {[...Array(3)].flatMap((_, r) =>
-                    ["Barbershops", "Tattoo parlors", "Med spas", "Contractors", "Golf operations", "Salons", "Detail shops", "Field crews"].map((v) => (
+                    VERTICALS.map((v) => (
                       <span key={`${r}-${v}`} className="flex items-center gap-8 shrink-0">
                         <span className="font-[Redaction] whitespace-nowrap" style={{ fontSize: "clamp(20px,2.6vw,32px)", fontStyle: "italic" }}>{v}</span>
                         <span className="font-[Fraunces] font-black" style={{ color: MONEY, fontSize: "clamp(14px,1.6vw,20px)" }}>§</span>
@@ -185,9 +185,48 @@ export default function Home() {
               <section className="px-6 md:px-10 py-10 lg:py-14">
                 <p className={lab} style={{ color: STEEL }}>Three ways to build</p>
                 <h2 className="font-[Redaction] font-bold leading-[0.98] max-w-[20ch]" style={{ fontSize: "clamp(26px,4vw,48px)" }}>Built for the size and complexity of the business.</h2>
-                <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.16em] uppercase mt-4 mb-8" style={{ color: MONEY }}>You work directly with me. No agency layers.</p>
+                <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.16em] uppercase mt-4 mb-8" style={{ color: MONEY }}>Built and run by Jack Savoca. No agency layers, no account team.</p>
                 <div className="grid grid-cols-1 lg:grid-cols-3" style={{ border: RULE }}>
                   {BANDS.map((b, i) => <BandCard key={b.n} b={b} last={i === BANDS.length - 1} />)}
+                </div>
+
+                {/* the promise */}
+                <div className="mt-8 p-6 md:p-7 flex flex-col md:flex-row md:items-center gap-4 md:gap-8" style={{ border: RULE, background: "rgba(27,77,62,0.05)" }}>
+                  <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.24em] uppercase shrink-0" style={{ color: MONEY }}>The Promise</p>
+                  <p className="font-[Redaction]" style={{ fontSize: "clamp(17px,2vw,22px)" }}>
+                    If the first month doesn&apos;t show measurable improvement, the deposit comes back. After that, three months to let the system work — then month-to-month.
+                  </p>
+                </div>
+
+                {/* vs the alternatives */}
+                <div className="mt-12 pt-8" style={{ borderTop: RULE }}>
+                  <p className={lab} style={{ color: STEEL }}>The Alternatives</p>
+                  <div className="grid grid-cols-1 md:grid-cols-3" style={{ border: RULE }}>
+                    {COMPARE.map(([who, cost, note], i) => (
+                      <div key={who} className={`p-5 md:p-6 border-b md:border-b-0 ${i < COMPARE.length - 1 ? "md:border-r" : ""}`}
+                        style={{ borderColor: "rgba(28,23,18,0.16)", background: i === COMPARE.length - 1 ? "rgba(27,77,62,0.06)" : "transparent" }}>
+                        <h3 className="font-[Redaction] font-bold" style={{ fontSize: "clamp(18px,2vw,24px)", color: i === COMPARE.length - 1 ? MONEY : INK }}>{who}</h3>
+                        <p className="font-[JetBrains_Mono] text-[12px] mt-1.5" style={{ color: INK }}>{cost}</p>
+                        <p className="font-[Redaction] mt-2" style={{ fontSize: "14px", color: STEEL }}>{note}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* FAQ */}
+                <div className="mt-12 pt-8" style={{ borderTop: RULE }}>
+                  <p className={lab} style={{ color: STEEL }}>Fair Questions</p>
+                  <div style={{ border: RULE }}>
+                    {FAQ.map(([q, a], i) => (
+                      <details key={q} className="group" style={{ borderBottom: i < FAQ.length - 1 ? RULE : undefined }}>
+                        <summary data-cursor className="flex items-center justify-between cursor-pointer list-none px-5 md:px-6 py-4">
+                          <span className="font-[Redaction] font-bold" style={{ fontSize: "clamp(16px,1.9vw,21px)" }}>{q}</span>
+                          <span className="font-[JetBrains_Mono] text-[14px] transition-transform group-open:rotate-45" style={{ color: MONEY }}>+</span>
+                        </summary>
+                        <p className="px-5 md:px-6 pb-5 font-[Redaction] max-w-[64ch]" style={{ fontSize: "15px", color: STEEL }}>{a}</p>
+                      </details>
+                    ))}
+                  </div>
                 </div>
               </section>
             )}
@@ -225,7 +264,7 @@ export default function Home() {
                 <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10">
                   <div className="font-[Redaction] space-y-4 max-w-[52ch]" style={{ fontSize: "clamp(17px,2vw,22px)" }}>
                     <p>Savoca Studio builds the revenue workflow underneath the business — and keeps improving it with you.</p>
-                    <p style={{ color: STEEL }}>You work directly with me. Program management and revenue operations background from larger companies, applied to service businesses.</p>
+                    <p style={{ color: STEEL }}>You work directly with me — Jack Savoca. Program management and revenue operations background from larger companies, applied to service businesses.</p>
                   </div>
                   <div>
                     <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase mb-3" style={{ color: MONEY }}>The revenue path</p>

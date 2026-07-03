@@ -280,11 +280,26 @@ export function Badges() {
 /* ---- hero reel: service-business clips cycling continuously ---- */
 export const REEL = [
   { src: "/video/svc-barber.mp4", poster: "/video/svc-barber-poster.jpg", label: "Barbershop" },
-  { src: "/video/svc-tattoo.mp4", poster: "/video/svc-tattoo-poster.jpg", label: "Tattoo parlor" },
-  { src: "/video/svc-nails.mp4", poster: "/video/svc-nails-poster.jpg", label: "Nail salon" },
-  { src: "/video/svc-mechanic.mp4", poster: "/video/svc-mechanic-poster.jpg", label: "Auto shop" },
-  { src: "/video/svc-detail.mp4", poster: "/video/svc-detail-poster.jpg", label: "Auto detailing" },
-  { src: "/video/svc-plumber.mp4", poster: "/video/svc-plumber-poster.jpg", label: "Plumbing" },
+  { src: "/video/svc-tattoo.mp4", poster: "/video/svc-tattoo-poster.jpg", label: "Tattoo Parlor" },
+  { src: "/video/svc-nails.mp4", poster: "/video/svc-nails-poster.jpg", label: "Nail Salon" },
+  { src: "/video/svc-mechanic.mp4", poster: "/video/svc-mechanic-poster.jpg", label: "Auto Shop" },
+  { src: "/video/svc-detail.mp4", poster: "/video/svc-detail-poster.jpg", label: "Detail Shop" },
+  { src: "/video/svc-plumber.mp4", poster: "/video/svc-plumber-poster.jpg", label: "Plumbing Co." },
+];
+export const VERTICALS = ["Barbershops", "Tattoo Parlors", "Nail Salons", "Auto Shops", "Detail Shops", "Plumbing Companies", "Med Spas", "Contractors", "Golf Operations", "Field Crews"];
+
+/* pricing: objections + alternatives (per productized-studio research) */
+export const FAQ: [string, string][] = [
+  ["Do I own the system?", "Yes. Accounts, phone numbers, data — all in your name. If we ever part ways, it keeps running without me."],
+  ["What tools do you use?", "Whatever fits the business — usually your existing phone and calendar, plus a CRM. No proprietary lock-in."],
+  ["How fast is it live?", "Solo builds in about a week. Team and multi-location builds in two to four."],
+  ["What if it doesn't work?", "If the first month doesn't show measurable improvement, the deposit comes back. That's the deal."],
+  ["How much of my time does it take?", "One walkthrough to start. After that, as much or as little as you want — the point is fewer things on your plate."],
+];
+export const COMPARE: [string, string, string][] = [
+  ["An Ops Hire", "$4,000–$8,000 / mo", "One person. Needs managing, takes vacations."],
+  ["A Marketing Agency", "$2,000–$10,000 / mo", "More leads into the same leaky bucket."],
+  ["Savoca Studio", "From $297 / mo", "The system itself — built, run, and improved."],
 ];
 export function HeroReel() {
   const reduce = useReducedMotion();
