@@ -141,7 +141,7 @@ export default function Home() {
                   {[...Array(3)].flatMap((_, r) =>
                     VERTICALS.map((v) => (
                       <span key={`${r}-${v}`} className="flex items-center gap-8 shrink-0">
-                        <span className="font-[Redaction] whitespace-nowrap" style={{ fontSize: "clamp(20px,2.6vw,32px)", fontStyle: "italic" }}>{v}</span>
+                        <span className="font-[Fraunces] whitespace-nowrap" style={{ fontSize: "clamp(20px,2.6vw,32px)", fontStyle: "italic" }}>{v}</span>
                         <span className="font-[Fraunces] font-black" style={{ color: MONEY, fontSize: "clamp(14px,1.6vw,20px)" }}>§</span>
                       </span>
                     ))
@@ -166,7 +166,7 @@ export default function Home() {
                 <div className="mt-12 pt-8" style={{ borderTop: RULE }}>
                   <p className={lab} style={{ color: STEEL }}>The system</p>
                   <h2 className="font-[Redaction] font-bold leading-[0.98] max-w-[20ch] mb-8" style={{ fontSize: "clamp(24px,3.4vw,40px)" }}>
-                    One system that moves every lead from first call to <span style={{ fontStyle: "italic", fontWeight: 400, color: MONEY }}>paid and rebooked.</span>
+                    One system that moves every lead from first call to <span className="font-[Fraunces]" style={{ fontStyle: "italic", fontWeight: 400, color: MONEY }}>paid and rebooked.</span>
                   </h2>
                   <BuildExplorer />
                   <p className="font-[JetBrains_Mono] text-[11px] leading-relaxed mt-4 max-w-[64ch]" style={{ color: STEEL }}>{REPORTING_LINE}</p>
@@ -276,7 +276,7 @@ export default function Home() {
                 <div className="mt-10"><Badges /></div>
                 <div className="mt-12 pt-8" style={{ borderTop: RULE }}>
                   <h2 className="font-[Redaction] font-black leading-[0.95] max-w-[18ch]" style={{ fontSize: "clamp(28px,4.6vw,62px)" }}>
-                    Build the layer between demand and <span style={{ fontWeight: 400, fontStyle: "italic", color: MONEY }}>getting paid.</span>
+                    Build the layer between demand and <span className="font-[Fraunces]" style={{ fontWeight: 400, fontStyle: "italic", color: MONEY }}>getting paid.</span>
                   </h2>
                   <div className="mt-6"><Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: MONEY, color: CREAM }}>Let&apos;s talk →</a></Magnetic></div>
                   <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.12em] mt-7" style={{ color: STEEL }}>jack@savoca.studio · Austin, TX</p>
