@@ -479,8 +479,8 @@ export function Engines() {
 }
 
 /* ---- the story player: one lead, start to finish (the "explainer video") ---- */
-type Beat = { t: string; who: "them" | "system" | "mark"; text: string; stage: string };
-const STORY: Beat[] = [
+export type Beat = { t: string; who: "them" | "system" | "mark"; text: string; stage: string };
+export const STORY: Beat[] = [
   { t: "TUE 2:14 PM", who: "them", text: "Incoming call — you're mid-job. It rings out.", stage: "Demand" },
   { t: "TUE 2:14 PM", who: "system", text: "Auto-text goes back: “Sorry we missed you — want to book or get a quote?”", stage: "Captured" },
   { t: "TUE 2:31 PM", who: "them", text: "“Yeah — can you do Thursday morning?”", stage: "Captured" },
