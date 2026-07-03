@@ -272,7 +272,10 @@ export function Badges() {
       <div className="flex items-center gap-12 md:gap-16 w-max" style={{ animation: "marq 30s linear infinite" }}>
         {row.map((c, i) => (
           <img key={i} src={c.logo!} alt={c.name} className="shrink-0 opacity-95 hover:opacity-100 transition-opacity"
-            style={{ height: "clamp(36px,3.8vw,52px)" }} />
+            style={{ height: c.name === "Whole Foods Market" ? "clamp(44px,4.4vw,58px)"
+              : c.name === "Facebook" ? "clamp(40px,4vw,52px)"
+              : c.name === "FedEx" ? "clamp(26px,2.7vw,34px)"
+              : "clamp(28px,2.9vw,36px)" }} />
         ))}
       </div>
     </div>
