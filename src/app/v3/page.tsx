@@ -195,62 +195,69 @@ function StoryRoom() {
   );
 }
 
-/* SECTION 4 — work weaves through giant type */
-function WorkPiece({ p, i, item }: { p: MotionValue<number>; i: number; item: (typeof PORTFOLIO)[number] }) {
-  const start = i * 0.3, end = start + 0.42;
-  const y = useTransform(p, [start, end], ["105vh", "-115vh"]);
-  const xBase = i === 0 ? "-62%" : i === 1 ? "-38%" : "-52%";
-  const rotate = useTransform(p, [start, end], [i % 2 ? 5 : -5, i % 2 ? -3 : 3]);
+/* SECTION 4 — work: editorial index + cursor-chasing preview */
+function Chrome({ item }: { item: (typeof PORTFOLIO)[number] }) {
   return (
-    <motion.a data-cursor href={item.href} target="_blank" rel="noopener noreferrer"
-      className={`absolute left-1/2 block w-[80vw] md:w-[580px] ${i % 2 ? "z-[6]" : "z-[2]"}`}
-      style={{ willChange: "transform", y, rotate, x: xBase }}>
-      {/* browser chrome */}
-      <div className="overflow-hidden rounded-lg" style={{ border: RULE, boxShadow: "0 40px 110px -25px rgba(0,0,0,0.9)", background: "#000000" }}>
-        <div className="flex items-center gap-2 px-3.5 py-2.5" style={{ borderBottom: RULE, background: "rgba(255,253,251,0.04)" }}>
-          <span className="flex gap-1.5">
-            {[0, 1, 2].map((d) => <span key={d} className="w-2 h-2 rounded-full" style={{ background: d === 0 ? "#418C7B" : "rgba(255,253,251,0.18)" }} />)}
-          </span>
-          <span className="mx-auto font-[JetBrains_Mono] text-[10px] tracking-[0.1em]" style={{ color: STEEL }}>{item.href.replace("https://", "")}</span>
-          <span className="w-8" />
-        </div>
-        <div className="relative aspect-[16/10] group overflow-hidden">
-          <img src={item.img} alt={item.name} className="absolute inset-0 h-full w-full object-cover object-top grayscale-[0.35] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-[1.02]" />
-        </div>
+    <div className="overflow-hidden rounded-lg" style={{ border: RULE, boxShadow: "0 40px 110px -25px rgba(0,0,0,0.9)", background: "#000000" }}>
+      <div className="flex items-center gap-2 px-3.5 py-2.5" style={{ borderBottom: RULE, background: "rgba(255,253,251,0.04)" }}>
+        <span className="flex gap-1.5">{[0, 1, 2].map((d) => <span key={d} className="w-2 h-2 rounded-full" style={{ background: d === 0 ? MONEY : "rgba(255,253,251,0.18)" }} />)}</span>
+        <span className="mx-auto font-[JetBrains_Mono] text-[10px] tracking-[0.1em]" style={{ color: STEEL }}>{item.href.replace("https://", "")}</span>
+        <span className="w-8" />
       </div>
-      {/* caption row — off the image */}
-      <div className="flex items-baseline justify-between mt-3.5 px-1">
-        <span className="font-[Redaction] font-bold" style={{ fontSize: "clamp(17px,1.7vw,22px)", color: INK }}>{item.name}</span>
-        <span className="font-[JetBrains_Mono] text-[10px] tracking-[0.18em] uppercase" style={{ color: MONEY }}>{item.vertical} · Visit ↗</span>
+      <div className="relative aspect-[16/10] overflow-hidden">
+        <img src={item.img} alt={item.name} className="absolute inset-0 h-full w-full object-cover object-top" />
       </div>
-    </motion.a>
+    </div>
   );
 }
-function WorkName({ p, i, name }: { p: MotionValue<number>; i: number; name: string }) {
-  const start = i * 0.3 + 0.02, mid1 = start + 0.1, mid2 = start + 0.3, end = start + 0.4;
-  const opacity = useTransform(p, [start, mid1, mid2, end], [0, 1, 1, 0]);
-  const yy = useTransform(p, [start, end], ["8vh", "-8vh"]);
+function WorkShowcase() {
+  const [active, setActive] = useState<number | null>(null);
+  const [open, setOpen] = useState<number | null>(null);
+  const wrap = useRef<HTMLDivElement>(null);
+  const mx = useMotionValue(0), my = useMotionValue(0);
+  const px = useSpring(mx, { stiffness: 160, damping: 22, mass: 0.35 });
+  const py = useSpring(my, { stiffness: 160, damping: 22, mass: 0.35 });
   return (
-    <motion.h2 className="absolute font-[Redaction] font-black leading-[0.88] text-center px-4" style={{ opacity, y: yy, fontSize: "clamp(44px,10.5vw,170px)", color: "rgba(255,253,251,0.16)", willChange: "transform, opacity" }}>
-      {name}
-    </motion.h2>
-  );
-}
-function WorkRoom() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
-  const p = useSpring(scrollYProgress, { stiffness: 70, damping: 26, mass: 0.45 });
-  const typeScale = useTransform(p, [0, 1], [0.92, 1.1]);
-  return (
-    <section ref={ref} id="work" className="relative" style={{ height: "340vh" }}>
-      <div className="sticky top-0 h-screen overflow-hidden">
-        <motion.div className="absolute inset-0 z-[4] flex flex-col items-center justify-center text-center pointer-events-none px-6" style={{ scale: typeScale }}>
-          <p className={`${lab} absolute top-[12vh]`} style={{ color: STEEL }}>Selected Work</p>
-          {PORTFOLIO.map((item, i) => <WorkName key={item.href} p={p} i={i} name={item.name} />)}
-          <p className="absolute bottom-[10vh] font-[Fraunces]" style={{ fontSize: "clamp(16px,2vw,26px)", fontStyle: "italic", fontWeight: 400, color: MONEY }}>real businesses, live right now</p>
-        </motion.div>
-        {PORTFOLIO.map((item, i) => <WorkPiece key={item.href} p={p} i={i} item={item} />)}
+    <section id="work" ref={wrap} className="relative px-6 md:px-12 py-24 md:py-36"
+      onMouseMove={(e) => {
+        const r = wrap.current?.getBoundingClientRect(); if (!r) return;
+        mx.set(e.clientX - r.left); my.set(e.clientY - r.top);
+      }}
+      onMouseLeave={() => setActive(null)}>
+      <p className={lab} style={{ color: STEEL }}>Selected Work</p>
+      <h2 className="font-[Redaction] font-bold leading-[0.98] mt-2 mb-10" style={{ fontSize: "clamp(24px,3.2vw,42px)" }}>
+        Real businesses. <span className="font-[Fraunces]" style={{ fontWeight: 400, fontStyle: "italic", color: MONEY }}>Live right now.</span>
+      </h2>
+      <div style={{ borderTop: RULE }}>
+        {PORTFOLIO.map((item, i) => (
+          <div key={item.href} style={{ borderBottom: RULE }}>
+            <a data-cursor href={item.href} target="_blank" rel="noopener noreferrer"
+              className="group flex items-baseline gap-5 md:gap-8 py-6 md:py-8 transition-opacity duration-300"
+              style={{ opacity: active === null || active === i ? 1 : 0.25 }}
+              onMouseEnter={() => setActive(i)}
+              onClick={(e) => { if (window.matchMedia("(hover: none)").matches) { e.preventDefault(); setOpen(open === i ? null : i); } }}>
+              <span className="font-[JetBrains_Mono] text-[12px] shrink-0" style={{ color: MONEY }}>0{i + 1}</span>
+              <span className="font-[Redaction] font-black leading-none" style={{ fontSize: "clamp(36px,7vw,96px)" }}>{item.name}</span>
+              <span className="ml-auto text-right shrink-0">
+                <span className="block font-[JetBrains_Mono] text-[10px] tracking-[0.18em] uppercase" style={{ color: STEEL }}>{item.vertical}</span>
+                <span className="hidden md:block font-[JetBrains_Mono] text-[10px] tracking-[0.18em] uppercase mt-1 transition-colors group-hover:opacity-100 opacity-50" style={{ color: MONEY }}>Visit ↗</span>
+              </span>
+            </a>
+            {/* mobile inline expand */}
+            {open === i && (
+              <motion.div className="md:hidden pb-6" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease: EASE }}>
+                <Chrome item={item} />
+                <a href={item.href} target="_blank" rel="noopener noreferrer" className="inline-block mt-3 font-[JetBrains_Mono] text-[11px] tracking-[0.16em] uppercase px-5 py-3" style={{ background: MONEY, color: "#0A0903" }}>Visit {item.href.replace("https://", "")} ↗</a>
+              </motion.div>
+            )}
+          </div>
+        ))}
       </div>
+      {/* desktop cursor-chasing preview */}
+      <motion.div className="hidden md:block absolute z-[8] w-[420px] pointer-events-none"
+        style={{ left: px, top: py, x: "4%", y: "-50%", opacity: active !== null ? 1 : 0, transition: "opacity 0.25s" }}>
+        {active !== null && <Chrome item={PORTFOLIO[active]} />}
+      </motion.div>
     </section>
   );
 }
@@ -394,7 +401,7 @@ export default function V3() {
       </motion.div>
       <EnginesRoom />
       <StoryRoom />
-      <WorkRoom />
+      <WorkShowcase />
       <PricingFold />
       <Finale />
     </main>
