@@ -4,13 +4,13 @@
 // Sticky "rooms": hero plane folds away into the floor, engines rise from depth
 // behind pinned type, the story scrubs horizontally, work weaves through giant
 // type, pricing folds up, finale flickers. Black / beige / green. Preview route.
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, useSpring, useVelocity, useMotionValue, useReducedMotion, MotionValue } from "motion/react";
 import Lenis from "lenis";
 import {
   Cursor, Grain, Magnetic, HeroReel, PathStrip, BandCard, Badges, Split, Preloader, Tilt,
   CREAM, INK, BONE, STEEL, MONEY, SIGNAL, RULE, EASE,
-  PATH_SHORT, VERTICALS, BANDS, ENGINES, STORY, FAQ, COMPARE,
+  PATH_SHORT, VERTICALS, BANDS, ENGINES, FAQ, COMPARE,
 } from "../v2/shared";
 
 const PORTFOLIO = [
@@ -145,51 +145,106 @@ function MobileEngine({ e, i, p }: { e: (typeof ENGINES)[number]; i: number; p: 
   );
 }
 
-/* SECTION 3 — the story scrubs horizontally */
-function StoryRoom() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
-  const p = useSpring(scrollYProgress, { stiffness: 70, damping: 26, mass: 0.45 });
-  const x = useTransform(p, [0.05, 0.95], ["4vw", "-172vw"]);
-  const header = (
-    <div className="px-6 md:px-12 mb-8">
-      <p className={lab} style={{ color: STEEL, textShadow: "0 1px 12px rgba(0,0,0,0.8)" }}>One Lead, Start To Finish</p>
-      <h2 className="font-[Redaction] font-bold leading-[1.02] mt-3" style={{ fontSize: "clamp(26px,4vw,52px)", textShadow: "0 2px 20px rgba(0,0,0,0.75)" }}>
-        You&apos;re busy doing the work.<br /><span className="font-[Fraunces]" style={{ fontWeight: 400, fontStyle: "italic", color: MONEY, textShadow: "0 2px 20px rgba(0,0,0,0.9)" }}>The system isn&apos;t.</span>
-      </h2>
-    </div>
-  );
-  const card = (b: (typeof STORY)[number], i: number, cls: string) => (
-    <div key={i} className={cls} style={{ background: "#000000", border: RULE }}>
-      <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase" style={{ color: b.who === "system" ? MONEY : STEEL }}>
-        {b.t} · {b.who === "system" ? "The system" : b.who === "mark" ? "Your crew" : "A customer"}
-      </p>
-      <p className="font-[Redaction] mt-3" style={{ fontSize: "clamp(17px,1.6vw,21px)" }}>{b.text}</p>
-      <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase mt-4" style={{ color: "rgba(255,253,251,0.35)" }}>{String(i + 1).padStart(2, "0")} / 0{STORY.length} · {b.stage}</p>
-    </div>
-  );
+/* SECTION 3 — the cost of doing nothing: live calculator */
+function SpringNumber({ value, run, format }: { value: number; run: boolean; format: (n: number) => string }) {
+  const mv = useMotionValue(0);
+  const sp = useSpring(mv, { stiffness: 90, damping: 24, mass: 0.6 });
+  const txt = useTransform(sp, (v) => format(v));
+  useEffect(() => { if (run) mv.set(value); }, [value, run, mv]);
+  return <motion.span className="tabular-nums">{txt}</motion.span>;
+}
+function CalcField({ label, sub, children }: { label: string; sub: string; children: ReactNode }) {
   return (
-    <section ref={ref} className="relative md:h-[320vh]">
-      {/* desktop: pinned horizontal scrub */}
-      <div className="hidden md:flex sticky top-0 h-screen overflow-hidden flex-col justify-center">
-        {header}
-        <div className="px-12 mb-6 h-px w-full max-w-[420px] overflow-hidden" style={{ background: "rgba(255,253,251,0.12)" }}>
-          <motion.div className="h-full origin-left" style={{ scaleX: p, background: MONEY }} />
+    <div>
+      <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.22em] uppercase" style={{ color: STEEL }}>{label}</p>
+      <div className="mt-3">{children}</div>
+      <p className="font-[Redaction] mt-2" style={{ fontSize: 13, color: "rgba(255,253,251,0.45)" }}>{sub}</p>
+    </div>
+  );
+}
+function CostRoom() {
+  const [leads, setLeads] = useState(60);
+  const [missPct, setMissPct] = useState(25);
+  const [closePct, setClosePct] = useState(35);
+  const [value, setValue] = useState(800);
+  const [seen, setSeen] = useState(false);
+  const missed = Math.round(leads * (missPct / 100));
+  const lost = Math.round(missed * (closePct / 100));
+  const monthly = lost * value;
+  const annual = monthly * 12;
+  const usd = (n: number) => "$" + Math.round(n).toLocaleString("en-US");
+  const num = "crnum font-[Redaction] font-black w-full bg-transparent focus:outline-none tabular-nums";
+  const numStyle = { fontSize: "clamp(34px,4vw,52px)", lineHeight: 1, color: INK, borderBottom: "1px solid rgba(255,253,251,0.3)", paddingBottom: 6 } as const;
+  return (
+    <section id="cost" className="relative px-6 md:px-12 py-24 md:py-36">
+      <p className={lab} style={{ color: STEEL, textShadow: "0 1px 12px rgba(0,0,0,0.8)" }}>The Cost Of Doing Nothing</p>
+      <h2 className="font-[Redaction] font-bold leading-[1.02] mt-3 mb-12 md:mb-16" style={{ fontSize: "clamp(26px,4vw,52px)", textShadow: "0 2px 20px rgba(0,0,0,0.75)" }}>
+        No system still has a price.<br /><span className="font-[Fraunces]" style={{ fontWeight: 400, fontStyle: "italic", color: MONEY, textShadow: "0 2px 20px rgba(0,0,0,0.9)" }}>Run your numbers.</span>
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+        {/* inputs */}
+        <div className="space-y-10">
+          <CalcField label="01 · New Leads Per Month" sub="Calls, texts, forms — everything inbound.">
+            <input type="number" inputMode="numeric" min={0} max={5000} value={leads}
+              onChange={(e) => setLeads(Math.max(0, Number(e.target.value) || 0))} className={num} style={numStyle} />
+          </CalcField>
+          <CalcField label="02 · Share That Gets Missed" sub="Rings out, slow reply, nobody follows up.">
+            <div className="flex items-center gap-5">
+              <span className="font-[Redaction] font-black tabular-nums shrink-0" style={{ fontSize: "clamp(34px,4vw,52px)", lineHeight: 1, color: MONEY, minWidth: "2.6ch" }}>{missPct}%</span>
+              <input type="range" min={0} max={80} step={5} value={missPct} onChange={(e) => setMissPct(Number(e.target.value))} className="crange flex-1" />
+            </div>
+          </CalcField>
+          <CalcField label="03 · Close Rate When You Do Respond" sub="Of the leads you answer, how many buy.">
+            <div className="flex items-center gap-5">
+              <span className="font-[Redaction] font-black tabular-nums shrink-0" style={{ fontSize: "clamp(34px,4vw,52px)", lineHeight: 1, color: MONEY, minWidth: "2.6ch" }}>{closePct}%</span>
+              <input type="range" min={5} max={90} step={5} value={closePct} onChange={(e) => setClosePct(Number(e.target.value))} className="crange flex-1" />
+            </div>
+          </CalcField>
+          <CalcField label="04 · Average Customer Value" sub="First job or first visit — use your real ticket.">
+            <div className="flex items-baseline gap-2">
+              <span className="font-[Redaction] font-black" style={{ fontSize: "clamp(24px,2.6vw,34px)", color: STEEL }}>$</span>
+              <input type="number" inputMode="numeric" min={0} max={100000} step={50} value={value}
+                onChange={(e) => setValue(Math.max(0, Number(e.target.value) || 0))} className={num} style={numStyle} />
+            </div>
+          </CalcField>
         </div>
-        <motion.div className="flex gap-6 w-max pl-2" style={{ x, willChange: "transform" }}>
-          {STORY.map((b, i) => card(b, i, `shrink-0 w-[26vw] p-6 ${i % 2 ? "mt-[34px]" : ""}`))}
+        {/* result */}
+        <motion.div className="md:sticky md:top-24 self-start" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-12%" }} onViewportEnter={() => setSeen(true)} transition={{ duration: 0.7, ease: EASE }}>
+          <div className="p-6 md:p-9" style={{ background: "#000000", border: RULE, boxShadow: "0 40px 110px -25px rgba(0,0,0,0.9)" }}>
+            <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.22em] uppercase flex items-center gap-2.5" style={{ color: MONEY }}>
+              <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: MONEY }} />Walking Away Every Month
+            </p>
+            <p className="font-[Redaction] font-black leading-[0.92] mt-5" style={{ fontSize: "clamp(52px,7vw,92px)", letterSpacing: "-0.02em" }}>
+              <SpringNumber value={monthly} run={seen} format={usd} />
+              <span className="font-[JetBrains_Mono] font-normal text-[13px] tracking-[0.16em] uppercase ml-2" style={{ color: STEEL }}>/mo</span>
+            </p>
+            <p className="font-[Fraunces] mt-3" style={{ fontSize: "clamp(20px,2.4vw,28px)", fontStyle: "italic", color: MONEY }}>
+              <SpringNumber value={annual} run={seen} format={usd} /> a year.
+            </p>
+            <div className="my-6 h-px" style={{ background: "rgba(255,253,251,0.14)" }} />
+            <ul className="space-y-2.5">
+              {[
+                [String(missed), "leads missed every month"],
+                [String(lost), "of them would have booked"],
+                [usd(value), "each, walking to whoever answered"],
+              ].map(([k, v]) => (
+                <li key={v} className="flex items-baseline gap-4 font-[JetBrains_Mono] text-[11px] tracking-[0.14em] uppercase">
+                  <span className="tabular-nums text-right shrink-0" style={{ width: 64, color: MONEY }}>{k}</span>
+                  <span style={{ color: STEEL }}>{v}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="my-6 h-px" style={{ background: "rgba(255,253,251,0.14)" }} />
+            <p className="font-[Redaction]" style={{ fontSize: 13, color: "rgba(255,253,251,0.5)", lineHeight: 1.55 }}>
+              Every number above is yours to change — no invented industry stats. On a discovery call the estimates get replaced with your actual call logs and booking data.
+            </p>
+          </div>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Magnetic><a data-cursor href="https://cal.com/savoca/discovery" className="inline-block font-[JetBrains_Mono] text-[11px] tracking-[0.16em] uppercase px-6 py-3.5" style={{ background: MONEY, color: "#0A0903" }}>Book A Free Discovery Call →</a></Magnetic>
+            <a data-cursor href="#pricing" className="inline-block font-[JetBrains_Mono] text-[11px] tracking-[0.16em] uppercase px-6 py-3.5" style={{ border: RULE, color: INK }}>See Pricing</a>
+          </div>
         </motion.div>
-      </div>
-      {/* mobile: clean vertical story */}
-      <div className="md:hidden py-14">
-        {header}
-        <div className="px-6 space-y-3">
-          {STORY.map((b, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-8%" }} transition={{ duration: 0.5, ease: EASE }}>
-              {card(b, i, "w-full p-5")}
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -357,6 +412,13 @@ export default function V3() {
         @keyframes nudge{0%,86%,100%{transform:translateX(0)}90%{transform:translateX(5px)}94%{transform:translateX(-2px)}}
         @keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(14vw,10vh) scale(1.18)}}
         @keyframes drift2{from{transform:translate(0,0) scale(1.1)}to{transform:translate(-12vw,-8vh) scale(0.95)}}
+        input[type=range].crange{-webkit-appearance:none;appearance:none;background:transparent;height:32px;cursor:pointer}
+        input[type=range].crange::-webkit-slider-runnable-track{height:2px;background:rgba(255,253,251,0.18)}
+        input[type=range].crange::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;margin-top:-8px;background:#418C7B;border-radius:0}
+        input[type=range].crange::-moz-range-track{height:2px;background:rgba(255,253,251,0.18)}
+        input[type=range].crange::-moz-range-thumb{width:18px;height:18px;background:#418C7B;border:none;border-radius:0}
+        input[type=number].crnum::-webkit-outer-spin-button,input[type=number].crnum::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+        input[type=number].crnum{-moz-appearance:textfield;appearance:textfield}
       `}</style>
       {!reduce && <Cursor />}
       <AnimatePresence>{!reduce && !loaded && <Preloader key="pre" onDone={() => setLoaded(true)} />}</AnimatePresence>
@@ -396,7 +458,7 @@ export default function V3() {
         </div>
       </motion.div>
       <EnginesRoom />
-      <StoryRoom />
+      <CostRoom />
       <WorkShowcase />
       <PricingFold />
       <Finale />
