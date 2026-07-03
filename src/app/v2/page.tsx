@@ -74,7 +74,7 @@ export default function Home() {
           {TABS.map(([t, k], i) => (
             <button key={k} data-cursor onClick={() => go(k)} className="relative py-1 transition-opacity hover:opacity-100"
               style={{ color: INK, opacity: tab === k ? 1 : 0.45 }}>
-              <span className="mr-1.5 text-[9px] align-super" style={{ color: tab === k ? SIGNAL : "#A79D89" }}>0{i + 1}</span>{t}
+              <span className="mr-1.5 text-[9px] align-super" style={{ color: tab === k ? SIGNAL : "rgba(241,233,216,0.4)" }}>0{i + 1}</span>{t}
               {tab === k && <motion.span layoutId="tabink" className="absolute left-0 right-0 -bottom-0.5 h-px" style={{ background: INK }} />}
             </button>
           ))}
@@ -98,7 +98,7 @@ export default function Home() {
       {/* mobile menu — dark ink overlay, staggered */}
       <AnimatePresence>
         {menu && (
-          <motion.div className="fixed inset-0 z-[85] md:hidden flex flex-col overflow-hidden" style={{ background: "#14100C", color: CREAM }}
+          <motion.div className="fixed inset-0 z-[85] md:hidden flex flex-col overflow-hidden" style={{ background: "#14100C", color: INK }}
             initial={{ clipPath: "inset(0 0 100% 0)" }} animate={{ clipPath: "inset(0 0 0% 0)" }} exit={{ clipPath: "inset(0 0 100% 0)" }} transition={{ duration: 0.45, ease: EASE }}>
             <span aria-hidden className="absolute -right-16 -bottom-24 font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "min(120vw, 560px)", color: "rgba(44,122,95,0.09)" }}>§</span>
             <div className="relative flex items-center justify-between px-6 pt-6">
@@ -106,7 +106,7 @@ export default function Home() {
                 <span className="inline-flex h-1.5 w-1.5 rounded-full" style={{ background: "#2C7A5F" }} />
                 Austin, TX · Taking new builds
               </span>
-              <button data-cursor aria-label="Close menu" onClick={() => setMenu(false)} className="font-[JetBrains_Mono] text-[12px] tracking-[0.18em] uppercase p-2" style={{ color: CREAM }}>Close ✕</button>
+              <button data-cursor aria-label="Close menu" onClick={() => setMenu(false)} className="font-[JetBrains_Mono] text-[12px] tracking-[0.18em] uppercase p-2" style={{ color: INK }}>Close ✕</button>
             </div>
             <nav className="relative flex-1 flex flex-col justify-center px-6">
               {TABS.map(([t, k], i) => (
@@ -143,7 +143,7 @@ export default function Home() {
                   <p className="font-[JetBrains_Mono] text-[11px] md:text-[12px] tracking-[0.18em] md:tracking-[0.28em] uppercase mb-6" style={{ color: BONE, textShadow: "0 1px 14px rgba(0,0,0,0.75)" }}>Revenue systems for service businesses</p>
                   <Split text="I build the layer between demand and getting paid." go accentFrom={7} className="font-[Redaction] font-black leading-[0.9] tracking-[-0.015em] max-w-[17ch]" style={{ fontSize: "clamp(29px,8.4vw,102px)", textShadow: "0 2px 28px rgba(0,0,0,0.65)" }} />
                   <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-                    <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block whitespace-nowrap font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: BONE, color: INK }}>Let&apos;s talk →</a></Magnetic>
+                    <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block whitespace-nowrap font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: BONE, color: "#14100C" }}>Let&apos;s talk →</a></Magnetic>
                     <button data-cursor onClick={() => go("systems")} className="whitespace-nowrap font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase opacity-80 hover:opacity-100 transition-opacity" style={{ color: BONE }}>See the system →</button>
                   </div>
                   <div className="mt-8"><PathStrip nodes={PATH_SHORT} accentLast /></div>
@@ -167,7 +167,7 @@ export default function Home() {
             {/* SYSTEMS — why you need it → the pipeline → the process */}
             {tab === "systems" && (
               <section className="relative overflow-hidden px-6 md:px-10 py-10 lg:py-14">
-                <span aria-hidden className="absolute -right-10 -top-24 font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "clamp(280px,32vw,520px)", color: "rgba(27,77,62,0.05)" }}>§</span>
+                <span aria-hidden className="absolute -right-10 -top-24 font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "clamp(280px,32vw,520px)", color: "rgba(44,122,95,0.10)" }}>§</span>
                 <p className={lab} style={{ color: STEEL }}>Why a system</p>
                 <h2 className="font-[Redaction] font-bold leading-[0.98] max-w-[19ch] mb-3" style={{ fontSize: "clamp(27px,4.2vw,50px)" }}>
                   You&apos;re busy doing the work. That&apos;s when the money slips.
@@ -205,7 +205,7 @@ export default function Home() {
                 </div>
 
                 {/* the promise */}
-                <div className="mt-8 p-6 md:p-7 flex flex-col md:flex-row md:items-center gap-4 md:gap-8" style={{ border: RULE, background: "rgba(27,77,62,0.05)" }}>
+                <div className="mt-8 p-6 md:p-7 flex flex-col md:flex-row md:items-center gap-4 md:gap-8" style={{ border: RULE, background: "rgba(44,122,95,0.10)" }}>
                   <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.24em] uppercase shrink-0" style={{ color: MONEY }}>The Promise</p>
                   <p className="font-[Redaction]" style={{ fontSize: "clamp(17px,2vw,22px)" }}>
                     If the first month doesn&apos;t show measurable improvement, the deposit comes back. After that, three months to let the system work — then month-to-month.
@@ -218,7 +218,7 @@ export default function Home() {
                   <div className="grid grid-cols-1 md:grid-cols-3" style={{ border: RULE }}>
                     {COMPARE.map(([who, cost, note], i) => (
                       <div key={who} className={`p-5 md:p-6 border-b md:border-b-0 ${i < COMPARE.length - 1 ? "md:border-r" : ""}`}
-                        style={{ borderColor: "rgba(28,23,18,0.16)", background: i === COMPARE.length - 1 ? "rgba(27,77,62,0.06)" : "transparent" }}>
+                        style={{ borderColor: "rgba(241,233,216,0.14)", background: i === COMPARE.length - 1 ? "rgba(44,122,95,0.14)" : "transparent" }}>
                         <h3 className="font-[Redaction] font-bold" style={{ fontSize: "clamp(18px,2vw,24px)", color: i === COMPARE.length - 1 ? MONEY : INK }}>{who}</h3>
                         <p className="font-[JetBrains_Mono] text-[12px] mt-1.5" style={{ color: INK }}>{cost}</p>
                         <p className="font-[Redaction] mt-2" style={{ fontSize: "14px", color: STEEL }}>{note}</p>
@@ -248,7 +248,7 @@ export default function Home() {
             {/* WORK — editorial showcase rows */}
             {tab === "work" && (
               <section className="relative overflow-hidden px-6 md:px-10 py-10 lg:py-14">
-                <span aria-hidden className="absolute -right-12 top-[30%] font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "clamp(280px,30vw,500px)", color: "rgba(27,77,62,0.05)" }}>§</span>
+                <span aria-hidden className="absolute -right-12 top-[30%] font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "clamp(280px,30vw,500px)", color: "rgba(44,122,95,0.10)" }}>§</span>
                 <p className={lab} style={{ color: STEEL }}>Selected Work</p>
                 <h2 className="font-[Redaction] font-bold leading-[0.98] max-w-[18ch]" style={{ fontSize: "clamp(26px,4vw,48px)" }}>
                   Real businesses. <span className="font-[Fraunces]" style={{ fontStyle: "italic", fontWeight: 400, color: MONEY }}>Live right now.</span>
@@ -274,8 +274,8 @@ export default function Home() {
                       <Tilt>
                         <div className="relative overflow-hidden aspect-[16/10]" style={{ border: RULE, boxShadow: "0 18px 50px -18px rgba(28,23,18,0.35)" }}>
                           <img src={p.img} alt={p.name} className="absolute inset-0 h-full w-full object-cover object-top grayscale-[0.4] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.05]" />
-                          <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0" style={{ background: "rgba(239,230,210,0.14)" }} />
-                          <span className="absolute bottom-3 right-3 font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase px-3 py-1.5 opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0" style={{ background: "#14100C", color: CREAM }}>
+                          <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0" style={{ background: "rgba(20,16,12,0.3)" }} />
+                          <span className="absolute bottom-3 right-3 font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase px-3 py-1.5 opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0" style={{ background: "#F2EBDC", color: "#14100C" }}>
                             {p.href.replace("https://", "")} ↗
                           </span>
                         </div>
@@ -295,7 +295,7 @@ export default function Home() {
             {/* ABOUT */}
             {tab === "about" && (
               <section className="relative overflow-hidden px-6 md:px-10 py-10 lg:py-14">
-                <span aria-hidden className="absolute -left-14 bottom-[-0.25em] font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "clamp(280px,34vw,540px)", color: "rgba(27,77,62,0.05)" }}>§</span>
+                <span aria-hidden className="absolute -left-14 bottom-[-0.25em] font-[Fraunces] font-black select-none leading-none pointer-events-none" style={{ fontSize: "clamp(280px,34vw,540px)", color: "rgba(44,122,95,0.10)" }}>§</span>
                 <p className={lab} style={{ color: STEEL }}>Why this works</p>
                 <h2 className="font-[Redaction] font-bold leading-[0.96] mb-6 max-w-[16ch]" style={{ fontSize: "clamp(26px,4.2vw,50px)" }}>Not an agency. Not just software. Not advice.</h2>
                 <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10">

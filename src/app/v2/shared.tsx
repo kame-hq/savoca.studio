@@ -7,13 +7,13 @@ import { motion, AnimatePresence, useMotionValue, useSpring, animate, useReduced
 import Lenis from "lenis";
 
 // Cream-beige site, dark cinematic hero. Canon-adjacent inks.
-export const CREAM = "#EFE6D2";   // page ground
-export const INK = "#1C1712";     // text on cream
-export const BONE = "#F1E9D8";    // text over dark video
-export const STEEL = "#6F6555";   // muted ink
-export const MONEY = "#1B4D3E";   // Canon money-green accent
-export const SIGNAL = "#D9442C";  // Canon signal-red, stamp marks only
-export const RULE = "1px solid rgba(28,23,18,0.16)";
+export const CREAM = "#14100C";   // page ground — black espresso
+export const INK = "#F2EBDC";     // primary type — warm white-beige
+export const BONE = "#FAF6EC";    // brightest — hero over video, near white
+export const STEEL = "#A69C87";   // muted beige
+export const MONEY = "#2C7A5F";   // money-green, brightened for dark ground
+export const SIGNAL = "#D9442C";  // signal-red, active-tab mark only
+export const RULE = "1px solid rgba(241,233,216,0.14)";
 export const TEAL = "#8A7C64";    // warm taupe (hero pill on video)
 export const SAND = "#8A7C64";
 export const EASE = [0.16, 1, 0.3, 1] as const;
@@ -148,7 +148,7 @@ export function Grain() {
     <div aria-hidden className="pointer-events-none fixed inset-0 z-[55]"
       style={{
         opacity: 0.05,
-        mixBlendMode: "multiply",
+        mixBlendMode: "overlay",
         backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
         backgroundSize: "240px 240px",
       }} />
@@ -241,15 +241,15 @@ export function Lockup({ size = "md" }: { size?: "md" | "sm" }) {
 
 export function BandCard({ b, last }: { b: Band; last?: boolean }) {
   return (
-    <motion.div className={`flex flex-col p-6 md:p-7 h-full border-b ${last ? "" : "lg:border-r"}`} style={{ borderColor: "rgba(28,23,18,0.16)", color: INK }}
+    <motion.div className={`flex flex-col p-6 md:p-7 h-full border-b ${last ? "" : "lg:border-r"}`} style={{ borderColor: "rgba(241,233,216,0.14)", color: INK }}
       initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-8%" }} transition={{ duration: 0.5, ease: EASE }}>
       <span className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase" style={{ color: MONEY }}>{b.n}</span>
       <h3 className="font-[Redaction] font-bold mt-1.5 leading-none" style={{ fontSize: "clamp(24px,2.8vw,36px)" }}>{b.name}</h3>
-      <p className="font-[Redaction] mt-3" style={{ fontSize: "15px", color: "#3A342B" }}>{b.who}</p>
+      <p className="font-[Redaction] mt-3" style={{ fontSize: "15px", color: "#D8CFBB" }}>{b.who}</p>
       <p className="font-[Redaction] mt-2.5" style={{ fontSize: "14px", color: STEEL }}>{b.desc}</p>
       <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase mt-6 mb-2.5" style={{ color: MONEY }}>Built around</p>
       <div className="space-y-1.5">
-        {b.built.map((it) => <p key={it} className="font-[JetBrains_Mono] text-[11.5px]" style={{ color: "#3A342B" }}>· {it}</p>)}
+        {b.built.map((it) => <p key={it} className="font-[JetBrains_Mono] text-[11.5px]" style={{ color: "#D8CFBB" }}>· {it}</p>)}
       </div>
       <div className="mt-auto pt-6">
         <p className="font-[Redaction] font-bold leading-none" style={{ fontSize: "clamp(28px,3vw,40px)", color: MONEY }}>
@@ -349,11 +349,11 @@ export function BuildExplorer() {
     <div style={{ color: INK }}>
       {/* node strip — the revenue path as a diagram */}
       <div className="relative flex items-start justify-between gap-2 mb-8 overflow-x-auto pb-2">
-        <span aria-hidden className="absolute left-0 right-0 top-[13px] h-px" style={{ background: "rgba(28,23,18,0.22)" }} />
+        <span aria-hidden className="absolute left-0 right-0 top-[13px] h-px" style={{ background: "rgba(241,233,216,0.22)" }} />
         {BUILDS.map((x, k) => (
           <button key={x.n} data-cursor onClick={() => setI(k)} className="relative z-10 flex flex-col items-center gap-2.5 shrink-0 px-2 group" style={{ minWidth: 90 }}>
             <span className="flex items-center justify-center rounded-full font-[JetBrains_Mono] text-[11px] transition-all"
-              style={{ width: 27, height: 27, background: k === i ? MONEY : CREAM, color: k === i ? CREAM : STEEL, border: k === i ? `1px solid ${MONEY}` : "1px solid rgba(28,23,18,0.35)" }}>
+              style={{ width: 27, height: 27, background: k === i ? MONEY : CREAM, color: k === i ? CREAM : STEEL, border: k === i ? `1px solid ${MONEY}` : "1px solid rgba(241,233,216,0.35)" }}>
               {k + 1}
             </span>
             <span className="font-[Redaction] font-bold leading-none transition-colors" style={{ fontSize: "clamp(15px,1.8vw,22px)", color: k === i ? INK : STEEL }}>{x.title}</span>
@@ -368,10 +368,10 @@ export function BuildExplorer() {
             <p className="font-[Redaction] max-w-[46ch]" style={{ fontSize: "clamp(19px,2.3vw,27px)" }}>{b.blurb}</p>
             <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase mt-6 mb-2.5" style={{ color: MONEY }}>What I set up</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5">
-              {b.built.map((it) => <span key={it} className="font-[JetBrains_Mono] text-[12px]" style={{ color: "#3A342B" }}>· {it}</span>)}
+              {b.built.map((it) => <span key={it} className="font-[JetBrains_Mono] text-[12px]" style={{ color: "#D8CFBB" }}>· {it}</span>)}
             </div>
           </div>
-          <div className="p-6 md:p-8" style={{ background: "rgba(28,23,18,0.04)" }}>
+          <div className="p-6 md:p-8" style={{ background: "rgba(241,233,216,0.05)" }}>
             <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase mb-2.5" style={{ color: MONEY }}>You see it in</p>
             <div className="space-y-1.5">
               {b.measured.map((it) => <p key={it} className="font-[JetBrains_Mono] text-[12px]" style={{ color: INK }}>· {it}</p>)}
@@ -391,7 +391,7 @@ export function ProcessStepper() {
         <div key={s.n} className="p-5 md:p-6" style={{ borderRight: i < STEPS.length - 1 ? RULE : undefined, borderBottom: RULE }}>
           <span className="font-[JetBrains_Mono] text-[10px]" style={{ color: MONEY }}>{s.n}</span>
           <h3 className="font-[Redaction] font-bold mt-1" style={{ fontSize: "clamp(19px,2vw,24px)" }}>{s.title}</h3>
-          <p className="font-[Redaction] mt-2" style={{ fontSize: "14px", color: "#3A342B" }}>{s.intro}</p>
+          <p className="font-[Redaction] mt-2" style={{ fontSize: "14px", color: "#D8CFBB" }}>{s.intro}</p>
           <p className="font-[JetBrains_Mono] text-[10px] leading-relaxed mt-3 pt-3" style={{ color: STEEL, borderTop: RULE }}>{s.output}</p>
         </div>
       ))}
@@ -430,9 +430,9 @@ export function StoryPlayer() {
       <div className="flex items-center gap-0 px-5 md:px-7 pt-5 overflow-x-auto">
         {STORY_STAGES.map((s, k) => (
           <div key={s} className="flex items-center shrink-0">
-            {k > 0 && <span className="w-5 md:w-9 h-px mx-1.5" style={{ background: k <= stageIdx ? MONEY : "rgba(28,23,18,0.2)" }} />}
+            {k > 0 && <span className="w-5 md:w-9 h-px mx-1.5" style={{ background: k <= stageIdx ? MONEY : "rgba(241,233,216,0.22)" }} />}
             <span className="font-[JetBrains_Mono] text-[10px] tracking-[0.14em] uppercase transition-colors duration-300"
-              style={{ color: k === stageIdx ? MONEY : k < stageIdx ? INK : "rgba(28,23,18,0.35)" }}>{s}</span>
+              style={{ color: k === stageIdx ? MONEY : k < stageIdx ? INK : "rgba(241,233,216,0.35)" }}>{s}</span>
           </div>
         ))}
       </div>
@@ -452,7 +452,7 @@ export function StoryPlayer() {
         <div className="flex items-center gap-1.5">
           {STORY.map((_, k) => (
             <button key={k} data-cursor aria-label={`Beat ${k + 1}`} onClick={() => { setI(k); setPlaying(false); }} className="relative h-4 w-6 flex items-center">
-              <span className="w-full overflow-hidden" style={{ height: 2, background: "rgba(28,23,18,0.18)" }}>
+              <span className="w-full overflow-hidden" style={{ height: 2, background: "rgba(241,233,216,0.18)" }}>
                 {k === i && playing && !reduce ? (
                   <motion.span className="block h-full origin-left" style={{ background: MONEY }} initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 3, ease: "linear" }} />
                 ) : (
@@ -479,7 +479,7 @@ export function BeforeAfter() {
         <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.2em] uppercase mb-4" style={{ color: SIGNAL }}>Without a system</p>
         <div className="space-y-3">
           {before.map((it) => (
-            <p key={it} className="flex gap-3 font-[Redaction]" style={{ fontSize: "clamp(15px,1.7vw,19px)", color: "#3A342B" }}>
+            <p key={it} className="flex gap-3 font-[Redaction]" style={{ fontSize: "clamp(15px,1.7vw,19px)", color: "#D8CFBB" }}>
               <span className="font-[JetBrains_Mono] text-[12px] pt-0.5 shrink-0" style={{ color: SIGNAL }}>✕</span>{it}
             </p>
           ))}
