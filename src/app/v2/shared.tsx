@@ -399,6 +399,84 @@ export function ProcessStepper() {
   );
 }
 
+/* ---- the engines diagram: One System. Three Engines. ---- */
+type Engine = { n: string; name: string; stages: string; line: string; outcome: string; built: string[]; measured: string[] };
+export const ENGINES: Engine[] = [
+  { n: "01", name: "Capture", stages: "Demand → Captured", line: "Every call, form, and message lands in one place. None slip.",
+    outcome: "A pipeline of real inquiries — not voicemails and lost DMs.",
+    built: ["Missed-call text-back", "Lead forms", "Shared inbox", "Source tracking"],
+    measured: ["Capture rate", "First response time", "Missed-call recovery"] },
+  { n: "02", name: "Convert", stages: "Captured → Booked", line: "Inquiries become scheduled, confirmed, reminded work.",
+    outcome: "A calendar full of booked jobs that actually show.",
+    built: ["Booking flows", "Quote follow-up", "Appointment reminders", "Team routing"],
+    measured: ["Lead-to-booked rate", "Quote turnaround", "Show rate"] },
+  { n: "03", name: "Compound", stages: "Delivered → Paid → Rebooked", line: "Finished work becomes money in the bank — and repeat customers.",
+    outcome: "Paid invoices, five-star reviews, customers who come back.",
+    built: ["Work orders + job status", "Invoicing + payment links", "Review requests", "Reactivation campaigns"],
+    measured: ["Time to paid", "Repeat booking", "Reactivation revenue"] },
+];
+const ROW_LABELS = ["The Outcome", "Built With", "Measured By"] as const;
+export function Engines() {
+  return (
+    <div style={{ border: RULE, color: INK }}>
+      {/* desktop: left rail + 3 engine columns */}
+      <div className="hidden lg:grid" style={{ gridTemplateColumns: "110px repeat(3, 1fr)" }}>
+        <div style={{ borderBottom: RULE, borderRight: RULE }} />
+        {ENGINES.map((e, i) => (
+          <div key={e.n} className="relative p-6" style={{ borderBottom: RULE, borderRight: i < 2 ? RULE : undefined, background: "rgba(241,233,216,0.03)" }}>
+            {i > 0 && <span aria-hidden className="absolute -left-[13px] top-1/2 -translate-y-1/2 z-10 font-[JetBrains_Mono] text-[16px] px-1" style={{ color: MONEY, background: CREAM }}>→</span>}
+            <div className="flex items-center gap-3">
+              <span className="flex items-center justify-center rounded-full font-[JetBrains_Mono] text-[11px] shrink-0" style={{ width: 28, height: 28, background: MONEY, color: "#0B0806" }}>{e.n}</span>
+              <h3 className="font-[Redaction] font-black leading-none" style={{ fontSize: "clamp(24px,2.4vw,34px)" }}>{e.name}</h3>
+            </div>
+            <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase mt-3" style={{ color: MONEY }}>{e.stages}</p>
+            <p className="font-[Redaction] mt-2" style={{ fontSize: "15px", color: STEEL }}>{e.line}</p>
+          </div>
+        ))}
+        {ROW_LABELS.map((label, r) => (
+          <div key={label} className="contents">
+            <div className="flex items-center px-4" style={{ borderBottom: r < 2 ? RULE : undefined, borderRight: RULE }}>
+              <span className="font-[JetBrains_Mono] text-[9px] tracking-[0.22em] uppercase" style={{ color: MONEY }}>{label}</span>
+            </div>
+            {ENGINES.map((e, i) => (
+              <div key={e.n + label} className="p-5" style={{ borderBottom: r < 2 ? RULE : undefined, borderRight: i < 2 ? RULE : undefined }}>
+                {r === 0 && <p className="font-[Redaction]" style={{ fontSize: "clamp(15px,1.6vw,19px)" }}>{e.outcome}</p>}
+                {r === 1 && <div className="space-y-1.5">{e.built.map((it) => <p key={it} className="font-[JetBrains_Mono] text-[11.5px]" style={{ color: "#D8CFBB" }}>· {it}</p>)}</div>}
+                {r === 2 && <div className="space-y-1.5">{e.measured.map((it) => <p key={it} className="font-[JetBrains_Mono] text-[11.5px]" style={{ color: STEEL }}>· {it}</p>)}</div>}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+      {/* mobile: stacked engines */}
+      <div className="lg:hidden">
+        {ENGINES.map((e, i) => (
+          <div key={e.n} className="p-5" style={{ borderBottom: i < ENGINES.length - 1 ? RULE : undefined }}>
+            <div className="flex items-center gap-3">
+              <span className="flex items-center justify-center rounded-full font-[JetBrains_Mono] text-[11px] shrink-0" style={{ width: 26, height: 26, background: MONEY, color: "#0B0806" }}>{e.n}</span>
+              <h3 className="font-[Redaction] font-black leading-none" style={{ fontSize: "clamp(24px,6.4vw,30px)" }}>{e.name}</h3>
+            </div>
+            <p className="font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase mt-2.5" style={{ color: MONEY }}>{e.stages}</p>
+            <p className="font-[Redaction] mt-2" style={{ fontSize: "15px", color: STEEL }}>{e.line}</p>
+            <p className="font-[JetBrains_Mono] text-[9px] tracking-[0.22em] uppercase mt-4 mb-1.5" style={{ color: MONEY }}>The Outcome</p>
+            <p className="font-[Redaction]" style={{ fontSize: "16px" }}>{e.outcome}</p>
+            <p className="font-[JetBrains_Mono] text-[9px] tracking-[0.22em] uppercase mt-4 mb-1.5" style={{ color: MONEY }}>Built With</p>
+            <div className="space-y-1">{e.built.map((it) => <p key={it} className="font-[JetBrains_Mono] text-[11.5px]" style={{ color: "#D8CFBB" }}>· {it}</p>)}</div>
+            <p className="font-[JetBrains_Mono] text-[9px] tracking-[0.22em] uppercase mt-4 mb-1.5" style={{ color: MONEY }}>Measured By</p>
+            <div className="space-y-1">{e.measured.map((it) => <p key={it} className="font-[JetBrains_Mono] text-[11.5px]" style={{ color: STEEL }}>· {it}</p>)}</div>
+          </div>
+        ))}
+      </div>
+      {/* bottom bar */}
+      <div className="px-5 py-3.5 text-center" style={{ borderTop: RULE, background: "rgba(44,122,95,0.10)" }}>
+        <p className="font-[JetBrains_Mono] text-[10px] md:text-[11px] tracking-[0.24em] uppercase" style={{ color: INK }}>
+          One System <span style={{ color: MONEY }}>·</span> Three Engines <span style={{ color: MONEY }}>·</span> Revenue That Compounds
+        </p>
+      </div>
+    </div>
+  );
+}
+
 /* ---- the story player: one lead, start to finish (the "explainer video") ---- */
 type Beat = { t: string; who: "them" | "system" | "mark"; text: string; stage: string };
 const STORY: Beat[] = [

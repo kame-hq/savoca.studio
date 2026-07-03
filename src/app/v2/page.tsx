@@ -6,7 +6,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import {
-  Cursor, HeroReel, Split, PathStrip, BuildExplorer, ProcessStepper, StoryPlayer, BandCard, Badges, Grain, Magnetic, Tilt,
+  Cursor, HeroReel, Split, PathStrip, Engines, ProcessStepper, StoryPlayer, BandCard, Badges, Grain, Magnetic, Tilt,
   CREAM, INK, BONE, STEEL, MONEY, SIGNAL, RULE, TEAL, EASE, PATH_SHORT, PATH_LONG, BANDS, REPORTING_LINE, VERTICALS, FAQ, COMPARE,
 } from "./shared";
 
@@ -178,11 +178,14 @@ export default function Home() {
                 <StoryPlayer />
 
                 <div className="mt-12 pt-8" style={{ borderTop: RULE }}>
-                  <p className={lab} style={{ color: STEEL }}>The system</p>
-                  <h2 className="font-[Redaction] font-bold leading-[0.98] max-w-[20ch] mb-8" style={{ fontSize: "clamp(24px,3.4vw,40px)" }}>
-                    One system that moves every lead from first call to <span className="font-[Fraunces]" style={{ fontStyle: "italic", fontWeight: 400, color: MONEY }}>paid and rebooked.</span>
+                  <p className={lab} style={{ color: STEEL }}>The System</p>
+                  <h2 className="font-[Redaction] font-bold leading-[0.98] mb-2" style={{ fontSize: "clamp(28px,4.2vw,52px)" }}>
+                    One system. <span className="font-[Fraunces]" style={{ fontStyle: "italic", fontWeight: 400, color: MONEY }}>Three engines.</span>
                   </h2>
-                  <BuildExplorer />
+                  <p className="font-[Redaction] mb-8 max-w-[54ch]" style={{ fontSize: "clamp(16px,1.9vw,20px)", color: STEEL }}>
+                    Aligned, connected, and built around one thing — getting paid.
+                  </p>
+                  <Engines />
                   <p className="font-[JetBrains_Mono] text-[11px] leading-relaxed mt-4 max-w-[64ch]" style={{ color: STEEL }}>{REPORTING_LINE}</p>
                 </div>
 
