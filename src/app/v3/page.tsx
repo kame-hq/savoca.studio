@@ -186,18 +186,40 @@ function WorkPiece({ p, i, item }: { p: MotionValue<number>; i: number; item: (t
   const y = useTransform(p, [start, end], ["105vh", "-115vh"]);
   const xBase = i === 0 ? "-62%" : i === 1 ? "-38%" : "-52%";
   const xDrift = useTransform(p, [start, end], [`calc(${xBase} - 6vw)`, `calc(${xBase} + 6vw)`]);
-  const rotate = useTransform(p, [start, end], [i % 2 ? 7 : -7, i % 2 ? -5 : 5]);
+  const rotate = useTransform(p, [start, end], [i % 2 ? 5 : -5, i % 2 ? -3 : 3]);
   return (
     <motion.a data-cursor href={item.href} target="_blank" rel="noopener noreferrer"
-      className={`absolute left-1/2 block w-[78vw] md:w-[560px] ${i % 2 ? "z-[6]" : "z-[2]"}`}
+      className={`absolute left-1/2 block w-[80vw] md:w-[580px] ${i % 2 ? "z-[6]" : "z-[2]"}`}
       style={{ willChange: "transform", y, rotate, x: xDrift }}>
-      <div className="relative overflow-hidden aspect-[16/10] group" style={{ border: RULE, boxShadow: "0 30px 90px -25px rgba(0,0,0,0.85)" }}>
-        <img src={item.img} alt={item.name} className="absolute inset-0 h-full w-full object-cover object-top grayscale-[0.5] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-[1.03]" />
-        <span className="absolute bottom-3 left-3 font-[JetBrains_Mono] text-[10px] tracking-[0.16em] uppercase px-3 py-1.5" style={{ background: "#0A0903", color: INK }}>
-          {item.name} · {item.vertical} ↗
-        </span>
+      {/* browser chrome */}
+      <div className="overflow-hidden rounded-lg" style={{ border: RULE, boxShadow: "0 40px 110px -25px rgba(0,0,0,0.9)", background: "#000000" }}>
+        <div className="flex items-center gap-2 px-3.5 py-2.5" style={{ borderBottom: RULE, background: "rgba(255,253,251,0.04)" }}>
+          <span className="flex gap-1.5">
+            {[0, 1, 2].map((d) => <span key={d} className="w-2 h-2 rounded-full" style={{ background: d === 0 ? "#418C7B" : "rgba(255,253,251,0.18)" }} />)}
+          </span>
+          <span className="mx-auto font-[JetBrains_Mono] text-[10px] tracking-[0.1em]" style={{ color: STEEL }}>{item.href.replace("https://", "")}</span>
+          <span className="w-8" />
+        </div>
+        <div className="relative aspect-[16/10] group overflow-hidden">
+          <img src={item.img} alt={item.name} className="absolute inset-0 h-full w-full object-cover object-top grayscale-[0.35] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-[1.02]" />
+        </div>
+      </div>
+      {/* caption row — off the image */}
+      <div className="flex items-baseline justify-between mt-3.5 px-1">
+        <span className="font-[Redaction] font-bold" style={{ fontSize: "clamp(17px,1.7vw,22px)", color: INK }}>{item.name}</span>
+        <span className="font-[JetBrains_Mono] text-[10px] tracking-[0.18em] uppercase" style={{ color: MONEY }}>{item.vertical} · Visit ↗</span>
       </div>
     </motion.a>
+  );
+}
+function WorkName({ p, i, name }: { p: MotionValue<number>; i: number; name: string }) {
+  const start = i * 0.3 + 0.02, mid1 = start + 0.1, mid2 = start + 0.3, end = start + 0.4;
+  const opacity = useTransform(p, [start, mid1, mid2, end], [0, 1, 1, 0]);
+  const yy = useTransform(p, [start, end], ["8vh", "-8vh"]);
+  return (
+    <motion.h2 className="absolute font-[Redaction] font-black leading-[0.88] text-center px-4" style={{ opacity, y: yy, fontSize: "clamp(44px,10.5vw,170px)", color: "rgba(255,253,251,0.16)", willChange: "transform, opacity" }}>
+      {name}
+    </motion.h2>
   );
 }
 function WorkRoom() {
@@ -209,9 +231,9 @@ function WorkRoom() {
     <section ref={ref} id="work" className="relative" style={{ height: "340vh" }}>
       <div className="sticky top-0 h-screen overflow-hidden">
         <motion.div className="absolute inset-0 z-[4] flex flex-col items-center justify-center text-center pointer-events-none px-6" style={{ scale: typeScale }}>
-          <p className={lab} style={{ color: STEEL }}>Selected Work</p>
-          <h2 className="font-[Redaction] font-black leading-[0.88] mt-3" style={{ fontSize: "clamp(64px,15vw,240px)", color: INK }}>WORK</h2>
-          <p className="font-[Fraunces] mt-2" style={{ fontSize: "clamp(18px,2.2vw,28px)", fontStyle: "italic", fontWeight: 400, color: MONEY }}>real businesses, live right now</p>
+          <p className={`${lab} absolute top-[12vh]`} style={{ color: STEEL }}>Selected Work</p>
+          {PORTFOLIO.map((item, i) => <WorkName key={item.href} p={p} i={i} name={item.name} />)}
+          <p className="absolute bottom-[10vh] font-[Fraunces]" style={{ fontSize: "clamp(16px,2vw,26px)", fontStyle: "italic", fontWeight: 400, color: MONEY }}>real businesses, live right now</p>
         </motion.div>
         {PORTFOLIO.map((item, i) => <WorkPiece key={item.href} p={p} i={i} item={item} />)}
       </div>
