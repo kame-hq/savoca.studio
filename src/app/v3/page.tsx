@@ -21,6 +21,79 @@ const PORTFOLIO = [
 
 const lab = "font-[JetBrains_Mono] text-[11px] tracking-[0.3em] uppercase";
 
+/* THE REVENUE THREAD — one continuous line drawn through the whole site.
+   Markers (<ThreadMark/>) between sections anchor an S-curve path; the line
+   draws with scroll, stage nodes light as it passes, pulses travel it. */
+export function ThreadMark({ label }: { label: string }) {
+  return <span data-thread={label} className="block h-0 w-0" aria-hidden />;
+}
+function ThreadNode({ pt, docH, progress }: { pt: { x: number; y: number; label: string }; docH: number; progress: MotionValue<number> }) {
+  const t = Math.min(0.98, pt.y / docH + 0.04);
+  const glow = useTransform(progress, [t - 0.05, t], [0, 1]);
+  const r = useTransform(glow, [0, 1], [3, 5]);
+  return (
+    <g>
+      <motion.circle cx={pt.x} cy={pt.y} fill={CREAM} stroke={MONEY} strokeWidth={1.5} style={{ r, opacity: useTransform(glow, [0, 1], [0.35, 1]) }} />
+      <motion.text x={pt.x + (pt.x < 300 ? 14 : -14)} y={pt.y + 4} textAnchor={pt.x < 300 ? "start" : "end"}
+        style={{ opacity: useTransform(glow, [0, 1], [0.25, 1]) }}
+        fill={INK} fontSize={11} letterSpacing="0.18em" fontFamily="JetBrains Mono, monospace">{pt.label.toUpperCase()}</motion.text>
+    </g>
+  );
+}
+function RevenueThread({ reduce }: { reduce: boolean }) {
+  const [geo, setGeo] = useState<{ d: string; pts: { x: number; y: number; label: string }[]; w: number; h: number } | null>(null);
+  const { scrollYProgress } = useScroll();
+  const drawn = useSpring(scrollYProgress, { stiffness: 80, damping: 24, mass: 0.4 });
+  const pathLength = useTransform(drawn, [0, 0.96], [0, 1]);
+  useEffect(() => {
+    const measure = () => {
+      const w = document.documentElement.clientWidth;
+      const h = document.body.scrollHeight;
+      const marks = Array.from(document.querySelectorAll("[data-thread]"));
+      if (!marks.length) return;
+      const pts = marks.map((m, i) => {
+        const r = (m as HTMLElement).getBoundingClientRect();
+        const y = r.top + window.scrollY;
+        const x = i % 2 === 0 ? w * 0.09 : w * 0.91;
+        return { x, y, label: (m as HTMLElement).dataset.thread || "" };
+      });
+      const start = { x: w * 0.5, y: 0 };
+      const all = [start, ...pts, { x: w * 0.5, y: h - 40 }];
+      let d = `M ${all[0].x} ${all[0].y}`;
+      for (let i = 1; i < all.length; i++) {
+        const a = all[i - 1], b = all[i];
+        const my = (a.y + b.y) / 2;
+        d += ` C ${a.x} ${my}, ${b.x} ${my}, ${b.x} ${b.y}`;
+      }
+      setGeo({ d, pts, w, h });
+    };
+    measure();
+    const t1 = setTimeout(measure, 900);
+    const t2 = setTimeout(measure, 2600);
+    window.addEventListener("resize", measure);
+    return () => { clearTimeout(t1); clearTimeout(t2); window.removeEventListener("resize", measure); };
+  }, []);
+  if (!geo) return null;
+  return (
+    <svg className="absolute top-0 left-0 z-[2] pointer-events-none" width={geo.w} height={geo.h} viewBox={`0 0 ${geo.w} ${geo.h}`} fill="none" aria-hidden>
+      {/* ghost of the full path */}
+      <path id="revThread" d={geo.d} stroke="rgba(241,233,216,0.08)" strokeWidth={1.5} />
+      {/* the drawn thread */}
+      <motion.path d={geo.d} stroke={MONEY} strokeWidth={1.5} style={{ pathLength }}
+        strokeLinecap="round" filter="drop-shadow(0 0 6px rgba(44,122,95,0.45))" />
+      {/* pulses: revenue moving through the system */}
+      {!reduce && [0, 1, 2].map((i) => (
+        <circle key={i} r={2.6} fill={MONEY} opacity={0.85}>
+          <animateMotion dur="16s" begin={`${i * 5.4}s`} repeatCount="indefinite" rotate="0">
+            <mpath href="#revThread" />
+          </animateMotion>
+        </circle>
+      ))}
+      {geo.pts.map((pt) => <ThreadNode key={pt.label + pt.y} pt={pt} docH={geo.h} progress={drawn} />)}
+    </svg>
+  );
+}
+
 /* thin custom scrollbar, green thumb */
 function ScrollRail() {
   const { scrollYProgress } = useScroll();
@@ -54,7 +127,6 @@ function Hero({ reduce, go }: { reduce: boolean; go: boolean }) {
               <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block whitespace-nowrap font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: BONE, color: "#0B0806", animation: reduce ? undefined : "nudge 7s ease-in-out infinite" }}>Let&apos;s talk →</a></Magnetic>
               <span className="font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase opacity-80" style={{ color: BONE }}>Scroll ↓</span>
             </div>
-            <div className="mt-8"><PathStrip nodes={PATH_SHORT} accentLast flicker /></div>
           </motion.div>
         </motion.div>
       </div>
@@ -285,7 +357,7 @@ export default function V3() {
   }, [reduce]);
 
   return (
-    <main className="relative md:cursor-none" style={{ background: CREAM, color: INK }}>
+    <main className="relative overflow-x-clip md:cursor-none" style={{ background: CREAM, color: INK }}>
       {/* eslint-disable-next-line @next/next/no-page-custom-font */}
       <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
       <style>{`
@@ -323,11 +395,13 @@ export default function V3() {
         </nav>
       </header>
 
+      <RevenueThread reduce={!!reduce} />
       <Hero reduce={!!reduce} go={loaded} />
+      <ThreadMark label="Demand" />
 
       {/* dual opposing marquees, velocity-skewed */}
       <motion.div className="mx-2.5 md:mx-4 my-2" style={{ skewX: trackSkew }}>
-        <div className="overflow-hidden py-3 md:py-4" style={{ borderTop: RULE }}>
+        <div className="overflow-hidden py-3 md:py-4" style={{ borderTop: RULE, borderBottom: RULE }}>
           <div className="flex items-center gap-8 w-max" style={{ animation: "marq 80s linear infinite" }}>
             {[...Array(3)].flatMap((_, r) =>
               VERTICALS.map((v) => (
@@ -339,37 +413,17 @@ export default function V3() {
             )}
           </div>
         </div>
-        <div className="overflow-hidden py-3 md:py-4" style={{ borderTop: RULE, borderBottom: RULE }}>
-          <div className="flex items-center gap-8 w-max" style={{ animation: "marqR 96s linear infinite" }}>
-            {[...Array(3)].flatMap((_, r) =>
-              [...VERTICALS].reverse().map((v) => (
-                <span key={`r${r}-${v}`} className="flex items-center gap-8 shrink-0">
-                  <span className="font-[JetBrains_Mono] uppercase tracking-[0.2em] whitespace-nowrap" style={{ fontSize: "clamp(10px,1.1vw,13px)", color: "rgba(242,235,220,0.22)" }}>{v}</span>
-                  <span style={{ color: "rgba(44,122,95,0.3)", fontSize: 10 }}>●</span>
-                </span>
-              ))
-            )}
-          </div>
-        </div>
       </motion.div>
 
+      <ThreadMark label="Captured" />
       <EnginesRoom />
+      <ThreadMark label="Booked" />
       <StoryRoom />
+      <ThreadMark label="Delivered" />
       <WorkRoom />
+      <ThreadMark label="Paid" />
       <PricingFold />
-      {/* CTA marquee band */}
-      <a data-cursor href="mailto:jack@savoca.studio" className="group block overflow-hidden py-6 md:py-8" style={{ borderTop: RULE, borderBottom: RULE }}>
-        <div className="flex items-center gap-12 w-max" style={{ animation: "marq 26s linear infinite" }}>
-          {[...Array(9)].map((_, i) => (
-            <span key={i} className="flex items-center gap-12 shrink-0">
-              <span className="font-[Redaction] font-black whitespace-nowrap leading-none transition-colors duration-300 group-hover:text-[#2C7A5F]" style={{ fontSize: "clamp(36px,6.5vw,84px)", color: INK }}>
-                Let&apos;s talk <span className="font-[Fraunces]" style={{ fontWeight: 400, fontStyle: "italic", color: MONEY }}>→</span>
-              </span>
-              <span className="font-[Fraunces] font-black" style={{ color: "rgba(44,122,95,0.5)", fontSize: "clamp(20px,3vw,40px)" }}>§</span>
-            </span>
-          ))}
-        </div>
-      </a>
+      <ThreadMark label="Rebooked" />
       <Finale />
     </main>
   );
