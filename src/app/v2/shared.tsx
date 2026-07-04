@@ -303,7 +303,7 @@ export const FAQ: [string, string][] = [
 ];
 export const COMPARE: [string, string, string][] = [
   ["An Ops Hire", "$4,000–$8,000 / mo", "One person. Needs managing, takes vacations."],
-  ["A Marketing Agency", "$2,000–$10,000 / mo", "More leads into the same leaky bucket."],
+  ["A Marketing Agency", "$2,000–$10,000 / mo", "More leads into the same broken follow-up."],
   ["Savoca Studio", "From $297 / mo", "The system itself — built, run, and improved."],
 ];
 export function HeroReel() {

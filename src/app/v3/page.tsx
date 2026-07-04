@@ -356,7 +356,13 @@ function PricingFold() {
           If the first month doesn&apos;t show measurable improvement, the deposit comes back. After that, three months to let the system work — then month-to-month.
         </p>
       </div>
-      <div className="mt-10 grid grid-cols-1 md:grid-cols-3" style={{ border: RULE }}>
+      <div className="mt-16">
+        <p className={lab} style={{ color: STEEL }}>The Comparison</p>
+        <h3 className="font-[Redaction] font-bold leading-[1.02] mt-2 mb-8" style={{ fontSize: "clamp(22px,2.8vw,36px)" }}>
+          Where the same money goes <span className="font-[Fraunces]" style={{ fontWeight: 400, fontStyle: "italic", color: MONEY }}>instead.</span>
+        </h3>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3" style={{ border: RULE }}>
         {COMPARE.map(([who, cost, note], i) => (
           <div key={who} className={`p-5 md:p-6 border-b md:border-b-0 ${i < COMPARE.length - 1 ? "md:border-r" : ""}`}
             style={{ borderColor: "rgba(255,253,251,0.14)", background: i === COMPARE.length - 1 ? "rgba(65,140,123,0.14)" : "transparent" }}>
