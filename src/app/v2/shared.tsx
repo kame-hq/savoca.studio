@@ -134,7 +134,7 @@ export function Split({ text, go, className, style, accentFrom }: { text: string
     <h1 className={className} style={style}>
       {words.map((w, i) => (
         <motion.span key={i} className="inline-block mr-[0.22em]"
-          style={accentFrom !== undefined && i >= accentFrom ? { fontWeight: 400, fontStyle: "italic", fontFamily: "Fraunces" } : undefined}
+          style={accentFrom !== undefined && i >= accentFrom ? { fontWeight: 400, fontStyle: "italic", fontFamily: "Fraunces", color: MONEY } : undefined}
           initial={{ y: "0.5em", opacity: 0 }} animate={go ? { y: 0, opacity: 1 } : {}}
           transition={{ delay: 0.1 + i * 0.06, duration: 0.7, ease: EASE }}>{w}</motion.span>
       ))}
