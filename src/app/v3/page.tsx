@@ -26,14 +26,14 @@ function DroneLayer({ reduce }: { reduce: boolean }) {
   return (
     <div aria-hidden className="fixed inset-0 pointer-events-none overflow-hidden">
       {reduce ? (
-        <img src="/video/bg-drone-poster.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" style={{ opacity: 0.55 }} />
+        <img src="/video/bg-drone-poster.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" style={{ opacity: 0.38 }} />
       ) : (
-        <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload="auto" poster="/video/bg-drone-poster.jpg" style={{ opacity: 0.55 }}>
+        <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload="auto" poster="/video/bg-drone-poster.jpg" style={{ opacity: 0.38 }}>
           <source src="/video/bg-drone.mp4" type="video/mp4" />
         </video>
       )}
-      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 35%, rgba(10,9,3,0.55) 100%)" }} />
-      <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(10,9,3,0.4), rgba(10,9,3,0.12) 40%, rgba(10,9,3,0.45))" }} />
+      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 28%, rgba(10,9,3,0.75) 100%)" }} />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(10,9,3,0.55), rgba(10,9,3,0.25) 40%, rgba(10,9,3,0.6))" }} />
     </div>
   );
 }
@@ -83,16 +83,16 @@ function Hero({ reduce, go }: { reduce: boolean; go: boolean }) {
    while the section occupies the viewport so interaction zones stay flat. */
 function Deep({ children, reduce }: { children: ReactNode; reduce: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
-  const enterRaw = useScroll({ target: ref, offset: ["start end", "start 0.38"] }).scrollYProgress;
-  const exitRaw = useScroll({ target: ref, offset: ["end 0.62", "end start"] }).scrollYProgress;
+  const enterRaw = useScroll({ target: ref, offset: ["start end", "start 0.45"] }).scrollYProgress;
+  const exitRaw = useScroll({ target: ref, offset: ["end 0.55", "end start"] }).scrollYProgress;
   const enter = useSpring(enterRaw, { stiffness: 95, damping: 26, mass: 0.4 });
   const exit = useSpring(exitRaw, { stiffness: 95, damping: 26, mass: 0.4 });
-  const rotateX = useTransform([enter, exit], ([a, b]: number[]) => (reduce ? 0 : 16 * (1 - a) - 10 * b));
-  const scale = useTransform([enter, exit], ([a, b]: number[]) => (reduce ? 1 : 0.94 + 0.06 * a - 0.05 * b));
-  const y = useTransform([enter, exit], ([a, b]: number[]) => (reduce ? 0 : 110 * (1 - a) - 90 * b));
-  const opacity = useTransform([enter, exit], ([a, b]: number[]) => (reduce ? 1 : Math.min(1, 0.25 + 0.75 * a) * (1 - 0.65 * b)));
+  const rotateX = useTransform([enter, exit], ([a, b]: number[]) => (reduce ? 0 : 26 * (1 - a) - 16 * b));
+  const scale = useTransform([enter, exit], ([a, b]: number[]) => (reduce ? 1 : 0.88 + 0.12 * a - 0.09 * b));
+  const y = useTransform([enter, exit], ([a, b]: number[]) => (reduce ? 0 : 180 * (1 - a) - 150 * b));
+  const opacity = useTransform([enter, exit], ([a, b]: number[]) => (reduce ? 1 : Math.min(1, 0.15 + 0.85 * a) * (1 - 0.75 * b)));
   return (
-    <div ref={ref} style={{ perspective: 1400 }}>
+    <div ref={ref} style={{ perspective: 1100 }}>
       <motion.div style={{ rotateX, scale, y, opacity, transformOrigin: "50% 18%", willChange: "transform, opacity", backfaceVisibility: "hidden" }}>
         {children}
       </motion.div>
