@@ -45,7 +45,7 @@ export function PlaybookChart({ chart }: { chart: ChartType }) {
               x2={w - padRight}
               y1={y}
               y2={y}
-              stroke="#18181420"
+              stroke="rgba(255,253,251,0.14)"
               strokeWidth="0.5"
             />
           );
@@ -56,7 +56,7 @@ export function PlaybookChart({ chart }: { chart: ChartType }) {
           const x = padLeft + slot * i + (slot - barW) / 2;
           const barH = (bar.value / max) * innerH;
           const y = padTop + innerH - barH;
-          const fill = bar.highlight ? "var(--money)" : "#A8A8A1";
+          const fill = bar.highlight ? "var(--money)" : "#B3AA91";
           const display = bar.display ?? String(bar.value);
           return (
             <g key={i}>
@@ -73,9 +73,9 @@ export function PlaybookChart({ chart }: { chart: ChartType }) {
                 x={x + barW / 2}
                 y={y - 8}
                 textAnchor="middle"
-                fontFamily="var(--font-fraunces), Georgia, serif"
+                fontFamily="Redaction, Georgia, serif"
                 fontSize="18"
-                fontWeight="500"
+                fontWeight="700"
                 fill={bar.highlight ? "var(--money)" : "var(--ink-2)"}
               >
                 {display}
@@ -85,7 +85,7 @@ export function PlaybookChart({ chart }: { chart: ChartType }) {
                 x={x + barW / 2}
                 y={h - padBot + 18}
                 textAnchor="middle"
-                fontFamily="var(--font-jetbrains-mono), monospace"
+                fontFamily="Redaction, Georgia, serif"
                 fontSize="10"
                 letterSpacing="0.05em"
                 fill="var(--steel)"

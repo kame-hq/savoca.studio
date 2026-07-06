@@ -1,16 +1,65 @@
 /* ────────────────────────────────────────────────────────────
    Savoca.Studio — Playbook print + screen layout
+   v2 · sage/black/tan/near-white system, Redaction workhorse,
+   Fraunces italic flourish (2026-07 restyle)
    ──────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: "Redaction";
+  src: url("/fonts/redaction/Redaction-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Redaction";
+  src: url("/fonts/redaction/Redaction-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Redaction";
+  src: url("/fonts/redaction/Redaction-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
 
 .playbook {
   --page-w: 8.5in;
   --page-h: 11in;
   --page-pad: 0.75in;
-  --rule-color: #18181433;
 
-  background: var(--bone-2);
+  /* new system — scoped remap so chart + brand atoms inherit */
+  --ground: #0a0903;
+  --card: #000000;
+  --bone: #000000;
+  --bone-2: #0a0903;
+  --paper: #0a0903;
+  --ink: #fffdfb;
+  --ink-2: #cfc5af;
+  --steel: #b3aa91;
+  --steel-2: #b3aa91;
+  --money: #418c7b;
+  --money-2: #418c7b;
+  --gold: #418c7b;
+  --rule: rgba(255, 253, 251, 0.14);
+  --rule-color: rgba(255, 253, 251, 0.14);
+
+  font-family: "Redaction", Georgia, serif;
+  background: var(--ground);
   padding: 6rem 1rem 2rem;
   min-height: 100vh;
+  color: var(--ink);
+}
+
+/* Redaction is the workhorse — serif + mono utility classes both
+   resolve to it inside the playbook. Fraunces stays on the § only
+   (via SVInitial) + the italic flourishes below. */
+.playbook .font-serif,
+.playbook .font-mono {
+  font-family: "Redaction", Georgia, serif;
 }
 
 .playbook .page {
@@ -20,9 +69,9 @@
   max-width: 100%;
   margin: 0 auto 2rem;
   padding: var(--page-pad);
-  background: var(--paper);
+  background: var(--ground);
+  border: 1px solid var(--rule);
   box-sizing: border-box;
-  box-shadow: 0 2px 12px rgba(14, 14, 12, 0.06);
   page-break-after: always;
   break-after: page;
   break-inside: avoid;
@@ -42,7 +91,7 @@
   align-items: center;
   gap: 0.75rem;
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--steel);
@@ -70,14 +119,14 @@
   color: var(--money);
 }
 .eyebrow-dark {
-  color: var(--bone-2);
+  color: var(--steel);
 }
 
 /* ── Cover ─────────────────────────────────────────────── */
 .page-cover {
   display: flex;
   flex-direction: column;
-  background: var(--bone) !important;
+  background: var(--card) !important;
 }
 
 .cover-header {
@@ -116,7 +165,7 @@
 .cover-eyebrow-dot {
   width: 6px;
   height: 6px;
-  background: var(--money-2);
+  background: var(--money);
   border-radius: 0;
   display: inline-block;
 }
@@ -126,8 +175,7 @@
   line-height: 0.95;
   letter-spacing: -0.04em;
   color: var(--ink);
-  font-weight: 400;
-  font-variation-settings: "opsz" 144;
+  font-weight: 700;
   margin: 0;
 }
 .cover-subtitle {
@@ -151,14 +199,29 @@
   color: var(--steel);
 }
 
+/* ── Brand lockup (§ + wordmark, new system) ───────────── */
+.pb-lockup {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  color: var(--ink);
+}
+.pb-wordmark {
+  font-family: "Redaction", Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--ink);
+  text-transform: none;
+}
+
 /* ── Section headlines ─────────────────────────────────── */
 .section-headline {
   font-size: 44px;
   line-height: 1.05;
   letter-spacing: -0.03em;
   color: var(--ink);
-  font-weight: 400;
-  font-variation-settings: "opsz" 96;
+  font-weight: 700;
   margin: 0 0 2rem;
   max-width: 6.5in;
 }
@@ -203,8 +266,7 @@
   line-height: 1;
   letter-spacing: -0.03em;
   color: var(--ink);
-  font-weight: 400;
-  font-variation-settings: "opsz" 72;
+  font-weight: 700;
 }
 .stat-label {
   font-size: 13px;
@@ -221,7 +283,7 @@
 
 /* ── Math table ────────────────────────────────────────── */
 .page-money {
-  background: var(--bone) !important;
+  background: var(--card) !important;
 }
 .math-table {
   width: 100%;
@@ -247,12 +309,13 @@
 }
 .math-table-value {
   text-align: right;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--money);
 }
 
-.math-conclusion {
+.playbook .math-conclusion {
+  font-family: var(--font-fraunces-mono), Fraunces, Georgia, serif;
   font-size: 32px;
   line-height: 1.2;
   letter-spacing: -0.025em;
@@ -267,29 +330,28 @@
 .playbook-chart {
   margin: 3rem 0 0;
   padding: 2rem 0 0;
-  border-top: 1px solid var(--ink);
+  border-top: 1px solid var(--rule);
 }
 .playbook-chart-header {
   margin-bottom: 1.75rem;
 }
 .playbook-chart-title {
-  font-family: var(--font-fraunces), Georgia, serif;
+  font-family: "Redaction", Georgia, serif;
   font-size: 36px;
   line-height: 1.05;
   letter-spacing: -0.03em;
   color: var(--ink);
-  font-weight: 400;
-  font-variation-settings: "opsz" 96;
+  font-weight: 700;
   margin-bottom: 0.5rem;
   max-width: 6.5in;
 }
 .playbook-chart-subtitle {
-  font-family: var(--font-jetbrains-mono), monospace;
+  font-family: "Redaction", Georgia, serif;
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--steel);
-  font-weight: 500;
+  font-weight: 700;
 }
 .playbook-chart-svg {
   width: 100%;
@@ -307,14 +369,14 @@
   flex-wrap: wrap;
 }
 .playbook-chart-axis {
-  font-family: var(--font-jetbrains-mono), monospace;
+  font-family: "Redaction", Georgia, serif;
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--steel);
 }
 .playbook-chart-footnote {
-  font-family: var(--font-fraunces), Georgia, serif;
+  font-family: var(--font-fraunces-mono), Fraunces, Georgia, serif;
   font-style: italic;
   font-size: 14px;
   line-height: 1.45;
@@ -327,18 +389,18 @@
 .playbook-differentiator {
   margin: 0;
   padding: 2.25rem 2rem 2.5rem;
-  background: var(--bone);
+  background: var(--card);
   border-top: 2px solid var(--money);
   border-bottom: 1px solid var(--rule);
   position: relative;
 }
 .playbook-differentiator-eyebrow {
-  font-family: var(--font-jetbrains-mono), monospace;
+  font-family: "Redaction", Georgia, serif;
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--money);
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 1rem;
   display: inline-flex;
   align-items: center;
@@ -348,22 +410,21 @@
   content: "";
   width: 6px;
   height: 6px;
-  background: var(--money-2);
+  background: var(--money);
   display: inline-block;
 }
 .playbook-differentiator-headline {
-  font-family: var(--font-fraunces), Georgia, serif;
+  font-family: "Redaction", Georgia, serif;
   font-size: 38px;
   line-height: 1.05;
   letter-spacing: -0.03em;
   color: var(--ink);
-  font-weight: 400;
-  font-variation-settings: "opsz" 96;
+  font-weight: 700;
   margin: 0 0 1.25rem;
   max-width: 6.5in;
 }
 .playbook-differentiator-body {
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: "Redaction", Georgia, serif;
   font-size: 16px;
   line-height: 1.6;
   color: var(--ink-2);
@@ -371,7 +432,7 @@
   max-width: 6in;
 }
 .playbook-differentiator-callout {
-  font-family: var(--font-fraunces), Georgia, serif;
+  font-family: var(--font-fraunces-mono), Fraunces, Georgia, serif;
   font-style: italic;
   font-size: 22px;
   line-height: 1.3;
@@ -395,7 +456,9 @@
   padding: 1.5rem 0 1.5rem 1.5rem;
   border-left: 2px solid var(--money);
 }
-.quote-text {
+.playbook .quote-text {
+  font-family: var(--font-fraunces-mono), Fraunces, Georgia, serif;
+  font-style: italic;
   font-size: 22px;
   line-height: 1.4;
   letter-spacing: -0.02em;
@@ -409,6 +472,7 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--steel);
+  font-style: normal;
 }
 
 /* ── Audit Moves ───────────────────────────────────────── */
@@ -439,9 +503,8 @@
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--ink);
-  font-weight: 400;
+  font-weight: 700;
   margin: 0 0 0.5rem;
-  font-variation-settings: "opsz" 48;
 }
 .audit-move-body {
   font-size: 14px;
@@ -476,31 +539,31 @@
   color: var(--money);
 }
 
-/* ── Close (dark page) ──────────────────────────────────── */
+/* ── Close (black page, sage CTA) ───────────────────────── */
 .page-close {
-  background: var(--ink) !important;
-  color: var(--bone);
+  background: var(--card) !important;
+  color: var(--ink);
   display: flex;
   flex-direction: column;
+  border-top: 2px solid var(--money);
 }
 .page-close .eyebrow {
-  color: var(--bone-2);
+  color: var(--steel);
 }
 
 .close-headline {
   font-size: 56px;
   line-height: 1.05;
   letter-spacing: -0.035em;
-  color: var(--bone);
-  font-weight: 400;
+  color: var(--ink);
+  font-weight: 700;
   margin: 0 0 1.5rem;
-  font-variation-settings: "opsz" 144;
   max-width: 6in;
 }
 .close-body {
   font-size: 18px;
   line-height: 1.5;
-  color: var(--bone-2);
+  color: var(--ink-2);
   max-width: 5.5in;
   margin: 0 0 3rem;
 }
@@ -518,23 +581,23 @@
   gap: 0.5rem;
   align-self: flex-start;
   padding: 0.875rem 1.5rem;
-  background: var(--gold);
-  color: var(--ink);
-  font-family: var(--font-jetbrains-mono);
+  background: var(--money);
+  color: #050503;
+  font-family: "Redaction", Georgia, serif;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   text-decoration: none;
 }
 .close-cta-secondary {
-  font-family: var(--font-jetbrains-mono);
+  font-family: "Redaction", Georgia, serif;
   font-size: 11px;
   letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--bone-2);
+  text-transform: none; /* email — domain stays lowercase per brand rule */
+  color: var(--steel);
   text-decoration: none;
-  border-bottom: 1px solid var(--bone-2);
+  border-bottom: 1px solid var(--steel);
   align-self: flex-start;
   padding-bottom: 2px;
 }
@@ -544,11 +607,11 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(245, 242, 236, 0.18);
+  border-top: 1px solid var(--rule);
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--bone-2);
+  color: var(--steel);
 }
 
 /* ── Citations page ─────────────────────────────────────── */
@@ -573,7 +636,7 @@
 .citation-item::before {
   content: counter(citations, decimal-leading-zero);
   color: var(--money);
-  font-weight: 600;
+  font-weight: 700;
   flex-shrink: 0;
 }
 .citation-item a {
@@ -590,16 +653,16 @@
 }
 @media print {
   body {
-    background: white !important;
+    background: #0a0903 !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
   .playbook {
-    background: white !important;
+    background: #0a0903 !important;
     padding: 0 !important;
   }
   .playbook .page {
-    box-shadow: none !important;
+    border: none !important;
     margin: 0 !important;
     width: 8.5in !important;
     height: 11in !important;

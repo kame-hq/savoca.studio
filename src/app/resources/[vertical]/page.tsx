@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { playbooks, playbookSlugs } from "@/content/playbooks";
-import { SVLogo, SVInitial } from "@/components/brand/v2";
+import { SVInitial } from "@/components/brand/v2";
 import { Nav } from "@/components/sections/nav";
 import { PlaybookChart } from "@/components/playbook/playbook-chart";
 import "./playbook.css";
@@ -41,7 +41,7 @@ export default async function PlaybookPage({
       {/* ── Cover ───────────────────────────────────────────── */}
       <section className="page page-cover">
         <header className="cover-header">
-          <SVLogo size={22} layout="inline" />
+          <PBLockup size={22} />
           <span className="font-mono cover-edition">{p.edition}</span>
         </header>
 
@@ -219,7 +219,7 @@ export default async function PlaybookPage({
         </div>
 
         <footer className="close-footer">
-          <SVLogo size={20} layout="inline" color="var(--bone)" accent="var(--gold)" />
+          <PBLockup size={20} />
           <span className="font-mono close-footer-r">No revenue left behind.</span>
         </footer>
       </section>
@@ -247,6 +247,20 @@ export default async function PlaybookPage({
 }
 
 /* ── tiny inline atoms ──────────────────────────────────────── */
+
+/* New-system lockup: Fraunces § (via SVInitial) + Redaction wordmark —
+   mirrors Lockup in v2/shared.tsx without pulling the client bundle. */
+function PBLockup({ size = 22 }: { size?: number }) {
+  return (
+    <span className="pb-lockup">
+      <SVInitial size={size} color="var(--ink)" weight={700} />
+      <span className="pb-wordmark" style={{ fontSize: size * 0.82 }}>
+        Savoca Studio
+      </span>
+    </span>
+  );
+}
+
 function Eyebrow({
   n,
   label,
