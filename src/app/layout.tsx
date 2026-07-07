@@ -36,9 +36,24 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://savoca.studio"),
   title: "Savoca Studio — Revenue systems for service businesses",
   description:
     "I build the layer between demand and getting paid — the workflows, tools, automations, and reporting that turn service demand into booked work, completed work, paid work, and repeat customers.",
+  openGraph: {
+    title: "Savoca Studio — Revenue systems for service businesses",
+    description:
+      "I build the layer between demand and getting paid — workflows, tools, automations, and reporting that turn service demand into booked, completed, paid, repeat work.",
+    url: "https://savoca.studio",
+    siteName: "Savoca Studio",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Savoca Studio" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Savoca Studio — Revenue systems for service businesses",
+    images: ["/og.png"],
+  },
 };
 
 export default function RootLayout({
