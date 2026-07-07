@@ -46,13 +46,13 @@ export const metadata: Metadata = {
       "I build the layer between demand and getting paid — workflows, tools, automations, and reporting that turn service demand into booked, completed, paid, repeat work.",
     url: "https://savoca.studio",
     siteName: "Savoca Studio",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Savoca Studio" }],
+    images: [{ url: "/og-v2.png", width: 1200, height: 630, alt: "Savoca Studio" }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Savoca Studio — Revenue systems for service businesses",
-    images: ["/og.png"],
+    images: ["/og-v2.png"],
   },
 };
 
