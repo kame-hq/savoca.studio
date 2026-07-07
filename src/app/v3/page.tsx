@@ -68,7 +68,7 @@ function Hero({ reduce, go }: { reduce: boolean; go: boolean }) {
               className="font-[Redaction] font-black leading-[0.9] tracking-[-0.015em] max-w-[17ch]"
               style={{ fontSize: "clamp(38px,6.4vw,110px)", textShadow: "0 2px 28px rgba(0,0,0,0.65)" }} />
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-              <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block whitespace-nowrap font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: BONE, color: "#0A0903", animation: reduce ? undefined : "nudge 7s ease-in-out infinite" }}>Let&apos;s talk →</a></Magnetic>
+              <Magnetic><a data-cursor href="/book" className="inline-block whitespace-nowrap font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-7 py-4" style={{ background: BONE, color: "#0A0903", animation: reduce ? undefined : "nudge 7s ease-in-out infinite" }}>Let&apos;s talk →</a></Magnetic>
               <span className="font-[JetBrains_Mono] text-[12px] tracking-[0.15em] uppercase opacity-80" style={{ color: BONE }}>Scroll ↓</span>
             </div>
           </motion.div>
@@ -402,7 +402,7 @@ function Finale() {
         <h2 className="font-[Redaction] font-black leading-[0.92] max-w-[16ch]" style={{ fontSize: "clamp(36px,7.5vw,120px)" }}>
           Build the layer between demand and <span className="font-[Fraunces]" style={{ fontWeight: 400, fontStyle: "italic", color: MONEY, animation: "flick 9s linear 2s infinite" }}>getting paid.</span>
         </h2>
-        <div className="mt-9"><Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-8 py-5" style={{ background: MONEY, color: "#0A0903" }}>Let&apos;s talk →</a></Magnetic></div>
+        <div className="mt-9"><Magnetic><a data-cursor href="/book" className="inline-block font-[JetBrains_Mono] text-[13px] tracking-[0.15em] uppercase px-8 py-5" style={{ background: MONEY, color: "#0A0903" }}>Let&apos;s talk →</a></Magnetic></div>
         <p className="font-[JetBrains_Mono] text-[11px] tracking-[0.12em] mt-9" style={{ color: STEEL }}>jack@savoca.studio · Austin, TX · Taking new builds</p>
       </div>
     </section>
@@ -464,7 +464,7 @@ export default function V3() {
           <a data-cursor href="#engines" className="opacity-60 hover:opacity-100 transition-opacity">Systems</a>
           <a data-cursor href="#work" className="opacity-60 hover:opacity-100 transition-opacity">Work</a>
           <a data-cursor href="#pricing" className="opacity-60 hover:opacity-100 transition-opacity">Pricing</a>
-          <Magnetic><a data-cursor href="mailto:jack@savoca.studio" className="inline-block px-5 py-2.5" style={{ background: MONEY, color: "#0A0903" }}>Let&apos;s talk →</a></Magnetic>
+          <Magnetic><a data-cursor href="/book" className="inline-block px-5 py-2.5" style={{ background: MONEY, color: "#0A0903" }}>Let&apos;s talk →</a></Magnetic>
         </nav>
       </header>
 
